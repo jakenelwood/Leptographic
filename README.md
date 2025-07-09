@@ -1,31 +1,59 @@
-# 🏭 THE MACHINE: Leptos Radix Component Generation System
+# shadcn/ui for Leptos 🚀
 
-**Mass production factory for high-quality, accessible Leptos UI components**
+**The complete shadcn/ui ecosystem for Leptos** - from Radix primitives to copy-paste components with CLI tooling.
 
-This is a template for use with the [Leptos](https://github.com/leptos-rs/leptos) web framework and the [cargo-leptos](https://github.com/akesson/cargo-leptos) tool using [Axum](https://github.com/tokio-rs/axum).
+## 🎯 Project Vision
 
-## Creating your template repo
+We're building the **complete shadcn/ui experience for Leptos**:
 
-If you don't have `cargo-leptos` installed you can install it with
+1. **🏗️ Radix Primitives** - Unstyled, accessible behavioral components (Phase 1 - Current)
+2. **🎨 Tailwind Integration** - Seamless styling with class utilities (Phase 2)
+3. **🔧 Component Library** - Beautiful, customizable shadcn components (Phase 2)
+4. **🚀 CLI Tool** - Copy-paste component system like the original (Phase 3)
 
-```bash
-cargo install cargo-leptos --locked
-```
+## 📋 Current Status: Phase 1 - Radix Foundation
 
-Then run
-```bash
-cargo leptos new --git https://github.com/leptos-rs/start-axum
-```
+**Building the behavioral foundation that powers shadcn/ui**
 
-to generate a new project template.
+### 🎯 **Strategy: Components First, Documentation Later**
+We're focusing on building the component ecosystem before creating comprehensive documentation. This ensures a robust foundation before showcasing it as a capstone project.
 
-```bash
-cd leptos-radix-ui
-```
+## ✅ Completed Components (3/58)
 
-to go to your newly created project.  
-Feel free to explore the project structure, but the best place to start with your application code is in `src/app.rs`.  
-Addtionally, Cargo.toml may need updating as new versions of the dependencies are released, especially if things are not working after a `cargo update`.
+- **Checkbox** ✅ - Phase IV complete with variants, states, and accessibility
+- **Switch** ✅ - Phase IV complete with ARIA switch role and smooth transitions
+- **Progress** ✅ - Phase IV complete with animations and visual feedback
+
+## 🚀 Next Up: Separator Component
+
+**Target**: Simple visual divider component (1-2 hour implementation)
+**Purpose**: Maintain momentum while validating our 4-phase recipe on simpler components
+
+## 🏗️ The 4 Pillars We're Building
+
+### **Pillar 1: Radix Primitives** (Current Phase)
+- 58 unstyled, accessible behavioral components
+- Full WAI-ARIA compliance and keyboard navigation
+- Complex state management (Dialog, Select, Tooltip)
+- **Timeline**: 9-14 weeks
+
+### **Pillar 2: Tailwind Integration** (Phase 2)
+- Seamless Tailwind CSS setup for Leptos
+- Class merging utilities (`clsx` + `tailwind-merge`)
+- Animation and transition system
+- **Timeline**: 4-6 weeks
+
+### **Pillar 3: shadcn Components** (Phase 2)
+- Beautiful, customizable components built on Radix
+- Complete shadcn/ui component library
+- Theme system and design tokens
+- **Timeline**: Concurrent with Pillar 2
+
+### **Pillar 4: CLI Tool** (Phase 3)
+- `shadcn-leptos add button` copy-paste system
+- Project initialization and configuration
+- Template customization
+- **Timeline**: 6-8 weeks
 
 ## Running your project
 

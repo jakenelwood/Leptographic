@@ -1,11 +1,11 @@
 use leptos::prelude::*;
 use leptos_meta::{provide_meta_context, MetaTags, Stylesheet, Title};
-use leptos_router::{
-    components::{Route, Router, Routes},
-    StaticSegment,
-};
-use crate::components::dialog::*;
-use crate::components::checkbox::*;
+
+#[cfg(feature = "ssr")]
+use leptos::hydration::{AutoReload, HydrationScripts};
+
+use crate::themes::{ThemeProvider, ThemeToggle};
+use crate::component_test::ComponentTestPage;
 
 pub fn shell(options: LeptosOptions) -> impl IntoView {
     view! {
@@ -19,7 +19,9 @@ pub fn shell(options: LeptosOptions) -> impl IntoView {
                 <MetaTags/>
             </head>
             <body>
-                <App/>
+                <ThemeProvider>
+                    <App/>
+                </ThemeProvider>
             </body>
         </html>
     }
@@ -35,95 +37,19 @@ pub fn App() -> impl IntoView {
         // id=leptos means cargo-leptos will hot-reload this stylesheet
         <Stylesheet id="leptos" href="/pkg/leptos-radix-ui.css"/>
 
+        // Phase IV Component Stylesheets
+        <Stylesheet id="checkbox" href="/styles/checkbox.css"/>
+        <Stylesheet id="progress" href="/styles/progress.css"/>
+        <Stylesheet id="switch" href="/styles/switch.css"/>
+
         // sets the document title
         <Title text="Welcome to Leptos"/>
 
-        // content for this welcome page
-        <Router>
-            <main>
-                <Routes fallback=|| "Page not found.".into_view()>
-                    <Route path=StaticSegment("") view=HomePage/>
-                </Routes>
-            </main>
-        </Router>
+        // Simple component test page
+        <ComponentTestPage />
     }
 }
 
-/// Renders the home page of your application.
-#[component]
-fn HomePage() -> impl IntoView {
-    // Creates a reactive value to update the button
-    let count = RwSignal::new(0);
-    let on_click = move |_| *count.write() += 1;
 
-    view! {
-        <div class="p-8 space-y-8">
-            <h1 class="text-4xl font-bold text-blue-600">"Welcome to Leptos Radix UI!"</h1>
 
-            <div class="space-y-4">
-                <h2 class="text-2xl font-semibold">"Counter Example"</h2>
-                <button
-                    class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-                    on:click=on_click
-                >
-                    "Click Me: " {count}
-                </button>
-            </div>
 
-            <div class="space-y-4">
-                <h2 class="text-2xl font-semibold">"Checkbox Example"</h2>
-                <div class="space-y-2">
-                    <Checkbox>
-                        <CheckboxIndicator>
-                            "✓"
-                        </CheckboxIndicator>
-                        " Accept terms and conditions"
-                    </Checkbox>
-
-                    <Checkbox default_checked=CheckedState::True>
-                        <CheckboxIndicator>
-                            "✓"
-                        </CheckboxIndicator>
-                        " Subscribe to newsletter"
-                    </Checkbox>
-
-                    <Checkbox default_checked=CheckedState::Indeterminate>
-                        <CheckboxIndicator>
-                            "−"
-                        </CheckboxIndicator>
-                        " Indeterminate state"
-                    </Checkbox>
-                </div>
-            </div>
-
-            <div class="space-y-4">
-                <h2 class="text-2xl font-semibold">"Dialog Example"</h2>
-                <Dialog>
-                    <DialogTrigger>
-                        "Open Dialog"
-                    </DialogTrigger>
-
-                    <DialogPortal>
-                        <DialogOverlay />
-                        <DialogContent>
-                            <DialogTitle>
-                                "Dialog Title"
-                            </DialogTitle>
-                            <DialogDescription>
-                                "This is a dialog description. It explains what the dialog is for."
-                            </DialogDescription>
-                            <div>
-                                <DialogClose>
-                                    "Cancel"
-                                </DialogClose>
-                                <DialogClose>
-                                    "Confirm"
-                                </DialogClose>
-                            </div>
-                        </DialogContent>
-                    </DialogPortal>
-                </Dialog>
-            </div>
-        </div>
-    }
-}

@@ -4,7 +4,8 @@
 // Implemented components
 pub mod checkbox;
 pub mod dialog;
+pub mod progress;
+pub mod switch;
 
 // Example component modules will be added here as we build them
-// pub mod button;
 // pub mod separator;

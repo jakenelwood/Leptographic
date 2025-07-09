@@ -2,7 +2,69 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import Radix Colors system */
+@import "../styles/radix-colors.css";
+
+/* Import Radix utility classes */
+@import "../styles/radix-utilities.css";
+
+/* Import Radix UI component styles */
+@import "../styles/checkbox.css";
+@import "../styles/progress.css";
+@import "../styles/switch.css";
+
 body {
 	font-family: sans-serif;
 	text-align: center;
+}
+
+/* Switch Component Styles - Based on Radix UI */
+.switch-root {
+	--switch-width: 50px;
+	--switch-thumb-width: 20px;
+	--switch-gap: 4px;
+
+	/* Base switch track styling */
+	vertical-align: middle;
+	text-align: left;
+	outline: none;
+	border: none;
+	width: var(--switch-width);
+	height: calc(var(--switch-thumb-width) + var(--switch-gap) * 2);
+	padding: var(--switch-gap);
+	border-radius: 9999px;
+	background-color: #d1d5db; /* gray-300 */
+	transition: background-color 166ms ease-out;
+	cursor: pointer;
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+}
+
+.switch-root:focus {
+	outline: none;
+	box-shadow: 0 0 0 2px #000;
+}
+
+.switch-root[data-state='checked'] {
+	background-color: #3b82f6; /* blue-500 */
+}
+
+.switch-root[data-disabled] {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+.switch-thumb {
+	display: inline-block;
+	width: var(--switch-thumb-width);
+	height: var(--switch-thumb-width);
+	background-color: white;
+	border-radius: 9999px;
+	transition: transform 166ms ease-out;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.switch-thumb[data-state='checked'] {
+	transform: translateX(calc(var(--switch-width) - var(--switch-gap) * 2 - var(--switch-thumb-width)));
 }

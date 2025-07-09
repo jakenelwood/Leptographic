@@ -1,0 +1,300 @@
+/* Leptos Radix UI Switch Component Styles */
+/* Matches Radix UI visual behavior exactly */
+
+/* CSS Custom Properties for easy customization */
+:root {
+  /* Switch track dimensions */
+  --switch-width: 44px;
+  --switch-height: 24px;
+  --switch-border-radius: 9999px;
+  --switch-padding: 2px;
+  
+  /* Switch thumb dimensions */
+  --switch-thumb-size: 20px;
+  --switch-thumb-border-radius: 9999px;
+  
+  /* Switch colors */
+  --switch-background-unchecked: #e5e7eb;
+  --switch-background-checked: #3b82f6;
+  --switch-background-disabled: #f3f4f6;
+  --switch-thumb-background: white;
+  --switch-thumb-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  
+  /* Switch borders */
+  --switch-border-width: 0px;
+  --switch-border-color: transparent;
+  --switch-thumb-border-width: 0px;
+  --switch-thumb-border-color: transparent;
+  
+  /* Focus ring */
+  --switch-focus-ring-width: 2px;
+  --switch-focus-ring-color: #3b82f6;
+  --switch-focus-ring-offset: 2px;
+  
+  /* Transitions */
+  --switch-transition-duration: 200ms;
+  --switch-transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Hover effects */
+  --switch-hover-brightness: 0.95;
+  --switch-thumb-hover-scale: 1.05;
+}
+
+/* Base Switch Root Styles */
+[role="switch"] {
+  display: inline-flex;
+  align-items: center;
+  width: var(--switch-width);
+  height: var(--switch-height);
+  padding: var(--switch-padding);
+  background-color: var(--switch-background-unchecked);
+  border: var(--switch-border-width) solid var(--switch-border-color);
+  border-radius: var(--switch-border-radius);
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  transition: all var(--switch-transition-duration) var(--switch-transition-timing);
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Hover state */
+[role="switch"]:hover {
+  filter: brightness(var(--switch-hover-brightness));
+}
+
+/* Focus state */
+[role="switch"]:focus {
+  box-shadow: 0 0 0 var(--switch-focus-ring-width) rgba(59, 130, 246, 0.2);
+}
+
+/* State-based styling using data attributes */
+[role="switch"][data-state="checked"] {
+  background-color: var(--switch-background-checked);
+}
+
+[role="switch"][data-state="unchecked"] {
+  background-color: var(--switch-background-unchecked);
+}
+
+[role="switch"][data-disabled] {
+  background-color: var(--switch-background-disabled);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+[role="switch"][data-disabled]:hover {
+  filter: none;
+}
+
+/* Switch Thumb Styles */
+.switch-thumb {
+  display: block;
+  width: var(--switch-thumb-size);
+  height: var(--switch-thumb-size);
+  background-color: var(--switch-thumb-background);
+  border: var(--switch-thumb-border-width) solid var(--switch-thumb-border-color);
+  border-radius: var(--switch-thumb-border-radius);
+  box-shadow: var(--switch-thumb-shadow);
+  transition: all var(--switch-transition-duration) var(--switch-transition-timing);
+  transform: translateX(0);
+  pointer-events: none;
+}
+
+/* Thumb checked state */
+[role="switch"][data-state="checked"] .switch-thumb {
+  transform: translateX(calc(var(--switch-width) - var(--switch-thumb-size) - var(--switch-padding) * 2));
+}
+
+/* Thumb hover effect */
+[role="switch"]:hover .switch-thumb {
+  transform: scale(var(--switch-thumb-hover-scale));
+}
+
+[role="switch"][data-state="checked"]:hover .switch-thumb {
+  transform: translateX(calc(var(--switch-width) - var(--switch-thumb-size) - var(--switch-padding) * 2)) scale(var(--switch-thumb-hover-scale));
+}
+
+/* Disabled thumb */
+[role="switch"][data-disabled] .switch-thumb {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+[role="switch"][data-disabled]:hover .switch-thumb {
+  transform: scale(1);
+}
+
+[role="switch"][data-disabled][data-state="checked"]:hover .switch-thumb {
+  transform: translateX(calc(var(--switch-width) - var(--switch-thumb-size) - var(--switch-padding) * 2));
+}
+
+/* Size variants */
+.switch-small {
+  --switch-width: 32px;
+  --switch-height: 18px;
+  --switch-thumb-size: 14px;
+  --switch-padding: 2px;
+}
+
+.switch-large {
+  --switch-width: 56px;
+  --switch-height: 32px;
+  --switch-thumb-size: 28px;
+  --switch-padding: 2px;
+}
+
+/* Color variants */
+.switch-green {
+  --switch-background-checked: #10b981;
+  --switch-focus-ring-color: #10b981;
+}
+
+.switch-red {
+  --switch-background-checked: #ef4444;
+  --switch-focus-ring-color: #ef4444;
+}
+
+.switch-purple {
+  --switch-background-checked: #8b5cf6;
+  --switch-focus-ring-color: #8b5cf6;
+}
+
+.switch-yellow {
+  --switch-background-checked: #f59e0b;
+  --switch-focus-ring-color: #f59e0b;
+}
+
+.switch-pink {
+  --switch-background-checked: #ec4899;
+  --switch-focus-ring-color: #ec4899;
+}
+
+/* Style variants */
+.switch-outlined {
+  --switch-border-width: 1px;
+  --switch-border-color: #d1d5db;
+  --switch-background-unchecked: transparent;
+}
+
+.switch-outlined[data-state="checked"] {
+  --switch-border-color: var(--switch-background-checked);
+}
+
+.switch-flat {
+  --switch-thumb-shadow: none;
+  --switch-thumb-border-width: 1px;
+  --switch-thumb-border-color: #e5e7eb;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --switch-background-unchecked: #374151;
+    --switch-background-disabled: #1f2937;
+    --switch-thumb-background: #f9fafb;
+    --switch-thumb-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  }
+  
+  .switch-outlined {
+    --switch-border-color: #4b5563;
+    --switch-background-unchecked: transparent;
+  }
+  
+  .switch-flat {
+    --switch-thumb-border-color: #4b5563;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --switch-border-width: 2px;
+    --switch-border-color: currentColor;
+    --switch-thumb-border-width: 2px;
+    --switch-thumb-border-color: currentColor;
+    --switch-focus-ring-width: 3px;
+  }
+  
+  [role="switch"][data-state="checked"] {
+    background-color: currentColor;
+    border-color: currentColor;
+  }
+  
+  .switch-thumb {
+    background-color: Canvas;
+    border-color: currentColor;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --switch-transition-duration: 0ms;
+    --switch-thumb-hover-scale: 1;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 640px) {
+  :root {
+    --switch-width: 40px;
+    --switch-height: 22px;
+    --switch-thumb-size: 18px;
+  }
+  
+  .switch-small {
+    --switch-width: 28px;
+    --switch-height: 16px;
+    --switch-thumb-size: 12px;
+  }
+}
+
+/* Print styles */
+@media print {
+  [role="switch"] {
+    border: 2px solid black !important;
+    background: white !important;
+    box-shadow: none !important;
+  }
+  
+  [role="switch"][data-state="checked"] {
+    background: black !important;
+  }
+  
+  .switch-thumb {
+    background: white !important;
+    border: 1px solid black !important;
+    box-shadow: none !important;
+  }
+  
+  [role="switch"][data-state="checked"] .switch-thumb {
+    background: white !important;
+  }
+}
+
+/* RTL support */
+[dir="rtl"] [role="switch"][data-state="checked"] .switch-thumb {
+  transform: translateX(calc(-1 * (var(--switch-width) - var(--switch-thumb-size) - var(--switch-padding) * 2)));
+}
+
+[dir="rtl"] [role="switch"][data-state="checked"]:hover .switch-thumb {
+  transform: translateX(calc(-1 * (var(--switch-width) - var(--switch-thumb-size) - var(--switch-padding) * 2))) scale(var(--switch-thumb-hover-scale));
+}
+
+/* Loading state animation */
+@keyframes switch-loading {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.switch-loading {
+  animation: switch-loading 1.5s ease-in-out infinite;
+}
+
+.switch-loading .switch-thumb {
+  animation: switch-loading 1.5s ease-in-out infinite;
+}
