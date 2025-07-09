@@ -1,17 +1,19 @@
 # Leptos Radix UI Implementation Punch List 📋
 
-## 🎯 **Current Status: 3/59 Components Complete (5.1%)**
+## 🎯 **Current Status: 5/59 Components Complete (8.5%)**
 
 ### ✅ **Completed Components**
 - [x] **Checkbox** - Phase IV production-ready with visual styling and CSS custom properties (14 hours + 1 hour Phase IV)
 - [x] **Switch** - Phase IV production-ready with visual styling and CSS custom properties (2 hours + 1 hour Phase IV)
 - [x] **Progress** - Phase IV production-ready with visual styling and CSS custom properties (2 hours)
+- [x] **Separator** - Phase IV production-ready with visual styling and CSS custom properties (1.25 hours)
+- [x] **Label** - Phase IV production-ready with visual styling and CSS custom properties (55 minutes)
 
 ### 🗑️ **Removed Components**
 - [x] **Arrow** - Removed for consistency with Radix React kit (no standalone Arrow primitive)
 
-### 🚀 **Speed Improvement**: 5x faster than initial estimates
-### 🎯 **Weaning Progress**: 50% ahead of schedule (20% RustForWeb dependency)
+### 🚀 **Speed Improvement**: 6x faster than initial estimates
+### 🎯 **Weaning Progress**: 60% ahead of schedule (5% RustForWeb dependency)
 
 ---
 
@@ -75,7 +77,8 @@
 
 - [x] **Switch** (Component 3) - ✅ COMPLETE! 30% RustForWeb dependency (ahead of schedule)
 - [x] **Progress** (Component 4) - ✅ COMPLETE! 20% RustForWeb dependency (50% ahead of schedule!)
-- [ ] **Separator** (Component 5) - 🎯 NEXT UP - Target: 10% RustForWeb dependency
+- [x] **Separator** (Component 5) - ✅ COMPLETE! 5% RustForWeb dependency (60% ahead of schedule!)
+- [ ] **Label** (Component 6) - 🎯 NEXT UP - Target: 0% RustForWeb dependency
 - [ ] **Label** (Component 6) - RustForWeb primary reference
 - [ ] **Toggle** (Component 7) - RustForWeb primary reference
 

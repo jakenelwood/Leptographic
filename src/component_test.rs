@@ -2,6 +2,8 @@ use leptos::prelude::*;
 use crate::components::checkbox::*;
 use crate::components::switch::*;
 use crate::components::progress::*;
+use crate::components::separator::*;
+use crate::components::label::*;
 
 #[derive(Debug, Clone, PartialEq)]
 enum Theme {
@@ -203,6 +205,193 @@ pub fn ComponentTestPage() -> impl IntoView {
                         <Progress>
                             <ProgressIndicator />
                         </Progress>
+                    </div>
+                </div>
+            </section>
+
+            // Separator Tests
+            <section style="margin: 2rem 0; padding: 1.5rem; border: 2px solid #e5e7eb; border-radius: 8px; background: #f9fafb;">
+                <h2 style="color: #374151; margin-bottom: 1rem;">"➖ Separator Component"</h2>
+
+                <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                    <div>
+                        <label style="color: #374151; display: block; margin-bottom: 0.5rem;">"Horizontal Separator (Default)"</label>
+                        <div style="padding: 1rem; border: 1px solid #e5e7eb; border-radius: 4px;">
+                            <p style="margin: 0; color: #6b7280;">"Content above"</p>
+                            <Separator style="margin: 1rem 0;" />
+                            <p style="margin: 0; color: #6b7280;">"Content below"</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label style="color: #374151; display: block; margin-bottom: 0.5rem;">"Vertical Separator"</label>
+                        <div style="padding: 1rem; border: 1px solid #e5e7eb; border-radius: 4px; display: flex; align-items: center; gap: 1rem; height: 3rem;">
+                            <p style="margin: 0; color: #6b7280;">"Left content"</p>
+                            <Separator orientation=Orientation::Vertical />
+                            <p style="margin: 0; color: #6b7280;">"Right content"</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label style="color: #374151; display: block; margin-bottom: 0.5rem;">"Styled Separators"</label>
+                        <div style="padding: 1rem; border: 1px solid #e5e7eb; border-radius: 4px; display: flex; flex-direction: column; gap: 1rem;">
+                            <div>
+                                <p style="margin: 0 0 0.5rem 0; color: #6b7280; font-size: 0.875rem;">"Blue Large Separator"</p>
+                                <Separator class="separator-blue separator-large" style="margin: 0.5rem 0;" />
+                            </div>
+                            <div>
+                                <p style="margin: 0 0 0.5rem 0; color: #6b7280; font-size: 0.875rem;">"Green Dashed Separator"</p>
+                                <Separator class="separator-green separator-dashed" style="margin: 0.5rem 0;" />
+                            </div>
+                            <div>
+                                <p style="margin: 0 0 0.5rem 0; color: #6b7280; font-size: 0.875rem;">"Purple Gradient Separator"</p>
+                                <Separator class="separator-purple separator-gradient" style="margin: 0.5rem 0;" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label style="color: #374151; display: block; margin-bottom: 0.5rem;">"Decorative Separator (No ARIA)"</label>
+                        <div style="padding: 1rem; border: 1px solid #e5e7eb; border-radius: 4px;">
+                            <p style="margin: 0; color: #6b7280;">"Visual decoration only"</p>
+                            <Separator
+                                decorative=true
+                                style="margin: 1rem 0; height: 2px; background: linear-gradient(to right, #3b82f6, #8b5cf6); border-radius: 1px;"
+                                data_testid="decorative-separator"
+                            />
+                            <p style="margin: 0; color: #6b7280;">"Not announced to screen readers"</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label style="color: #374151; display: block; margin-bottom: 0.5rem;">"Production Features Demo"</label>
+                        <div style="padding: 1rem; border: 1px solid #e5e7eb; border-radius: 4px;">
+                            <p style="margin: 0; color: #6b7280;">"Separator with ID and custom class"</p>
+                            <Separator
+                                id="production-separator"
+                                class="custom-separator-class"
+                                style="margin: 1rem 0; height: 1px; background-color: #10b981;"
+                                aria_label="Content divider"
+                                data_testid="production-separator"
+                            />
+                            <p style="margin: 0; color: #6b7280;">"Enhanced with production-ready props"</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            // Label Tests
+            <section style="margin: 2rem 0; padding: 1.5rem; border: 2px solid #e5e7eb; border-radius: 8px; background: #f9fafb;">
+                <h2 style="color: #374151; margin-bottom: 1rem;">"🏷️ Label Component"</h2>
+
+                <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                    <div>
+                        <label style="color: #374151; display: block; margin-bottom: 0.5rem;">"Basic Form Association"</label>
+                        <div style="padding: 1rem; border: 1px solid #e5e7eb; border-radius: 4px; display: flex; flex-direction: column; gap: 1rem;">
+                            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                                <Label for_="email-input">"Email Address"</Label>
+                                <input
+                                    id="email-input"
+                                    type="email"
+                                    placeholder="Enter your email"
+                                    style="padding: 0.5rem; border: 1px solid #d1d5db; border-radius: 4px;"
+                                />
+                            </div>
+
+                            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                                <Label for_="password-input">"Password"</Label>
+                                <input
+                                    id="password-input"
+                                    type="password"
+                                    placeholder="Enter your password"
+                                    style="padding: 0.5rem; border: 1px solid #d1d5db; border-radius: 4px;"
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label style="color: #374151; display: block; margin-bottom: 0.5rem;">"Label with Checkbox"</label>
+                        <div style="padding: 1rem; border: 1px solid #e5e7eb; border-radius: 4px;">
+                            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                <Checkbox>
+                                    <CheckboxIndicator>
+                                        "✓"
+                                    </CheckboxIndicator>
+                                </Checkbox>
+                                <Label>"I agree to the terms and conditions"</Label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label style="color: #374151; display: block; margin-bottom: 0.5rem;">"Styled Labels"</label>
+                        <div style="padding: 1rem; border: 1px solid #e5e7eb; border-radius: 4px; display: flex; flex-direction: column; gap: 1rem;">
+                            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                                <Label
+                                    for_="required-input"
+                                    required=true
+                                >"Required Field"</Label>
+                                <input
+                                    id="required-input"
+                                    type="text"
+                                    placeholder="This field is required"
+                                    style="padding: 0.5rem; border: 2px solid #3b82f6; border-radius: 4px;"
+                                />
+                            </div>
+
+                            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                                <Label
+                                    for_="optional-input"
+                                    class="label-subtle"
+                                >"Optional Field"</Label>
+                                <input
+                                    id="optional-input"
+                                    type="text"
+                                    placeholder="This field is optional"
+                                    style="padding: 0.5rem; border: 1px solid #d1d5db; border-radius: 4px;"
+                                />
+                            </div>
+
+                            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                                <Label
+                                    for_="disabled-input"
+                                    disabled=true
+                                >"Disabled Field"</Label>
+                                <input
+                                    id="disabled-input"
+                                    type="text"
+                                    placeholder="This field is disabled"
+                                    disabled=true
+                                    style="padding: 0.5rem; border: 1px solid #d1d5db; border-radius: 4px; background: #f9fafb; color: #9ca3af;"
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label style="color: #374151; display: block; margin-bottom: 0.5rem;">"Label Variants"</label>
+                        <div style="padding: 1rem; border: 1px solid #e5e7eb; border-radius: 4px; display: flex; flex-direction: column; gap: 1rem;">
+                            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                                <Label class="label-small label-blue">"Small Blue Label"</Label>
+                                <input type="text" placeholder="Small input" style="padding: 0.375rem; border: 1px solid #d1d5db; border-radius: 4px; font-size: 0.875rem;" />
+                            </div>
+
+                            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                                <Label class="label-large label-green">"Large Green Label"</Label>
+                                <input type="text" placeholder="Large input" style="padding: 0.75rem; border: 1px solid #d1d5db; border-radius: 4px; font-size: 1rem;" />
+                            </div>
+
+                            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                                <Label class="label-uppercase label-purple">"Uppercase Purple Label"</Label>
+                                <input type="text" placeholder="Styled input" style="padding: 0.5rem; border: 1px solid #d1d5db; border-radius: 4px;" />
+                            </div>
+
+                            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                                <Label class="label-bold label-red">"Bold Red Label"</Label>
+                                <input type="text" placeholder="Bold styled input" style="padding: 0.5rem; border: 1px solid #d1d5db; border-radius: 4px;" />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>

@@ -39,7 +39,9 @@ pub fn App() -> impl IntoView {
 
         // Phase IV Component Stylesheets
         <Stylesheet id="checkbox" href="/styles/checkbox.css"/>
+        <Stylesheet id="label" href="/styles/label.css"/>
         <Stylesheet id="progress" href="/styles/progress.css"/>
+        <Stylesheet id="separator" href="/styles/separator.css"/>
         <Stylesheet id="switch" href="/styles/switch.css"/>
 
         // sets the document title
