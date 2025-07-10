@@ -89,17 +89,10 @@ pub fn ComponentTestPage() -> impl IntoView {
                     </div>
 
                     <div style="display: flex; align-items: center; gap: 0.5rem;">
-                        <Checkbox default_checked=CheckedState::True>
+                        <Checkbox default_checked=true>
                             <CheckboxIndicator />
                         </Checkbox>
                         <label style="color: #374151;">"Checked by Default"</label>
-                    </div>
-
-                    <div style="display: flex; align-items: center; gap: 0.5rem;">
-                        <Checkbox default_checked=CheckedState::Indeterminate>
-                            <CheckboxIndicator />
-                        </Checkbox>
-                        <label style="color: #374151;">"Indeterminate State"</label>
                     </div>
 
                     <div style="display: flex; align-items: center; gap: 0.5rem;">

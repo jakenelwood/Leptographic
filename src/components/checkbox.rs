@@ -1,34 +1,24 @@
 use leptos::prelude::*;
 use leptos::context::Provider;
 
-#[derive(Debug, Clone, Copy, PartialEq)]
-pub enum CheckedState {
-    True,
-    False,
-    Indeterminate,
-}
-
-impl Default for CheckedState {
-    fn default() -> Self {
-        CheckedState::False
-    }
-}
+// Radix UI Checkbox uses simple boolean state (no indeterminate)
+pub type CheckedState = bool;
 
 // Production-ready context for checkbox state
 #[derive(Clone, Copy)]
 struct CheckboxContext {
-    checked: RwSignal<CheckedState>,
+    checked: RwSignal<bool>,
 }
 
 // Phase III: Production Patterns for Leptos 0.8.2
 
 /// Controllable state hook - 0.8.2 compatible version
 fn use_controllable_state(
-    controlled_value: Option<CheckedState>,
-    default_value: Option<CheckedState>,
-    _on_change: Option<Callback<CheckedState>>,
-) -> (Signal<CheckedState>, RwSignal<CheckedState>) {
-    let internal_state = RwSignal::new(default_value.unwrap_or_default());
+    controlled_value: Option<bool>,
+    default_value: Option<bool>,
+    _on_change: Option<Callback<bool>>,
+) -> (Signal<bool>, RwSignal<bool>) {
+    let internal_state = RwSignal::new(default_value.unwrap_or(false));
 
     let current_value = Signal::derive(move || {
         controlled_value.unwrap_or_else(|| internal_state.get())
@@ -43,11 +33,11 @@ fn use_controllable_state(
 #[component]
 pub fn Checkbox(
     /// Controlled checked state
-    #[prop(optional)] checked: Option<CheckedState>,
+    #[prop(optional)] checked: Option<bool>,
     /// Default checked state (uncontrolled)
-    #[prop(optional)] default_checked: Option<CheckedState>,
+    #[prop(optional)] default_checked: Option<bool>,
     /// Callback when checked state changes
-    #[prop(optional)] on_checked_change: Option<Callback<CheckedState>>,
+    #[prop(optional)] on_checked_change: Option<Callback<bool>>,
     /// Form name attribute
     #[prop(optional)] name: Option<String>,
     /// Form value attribute
@@ -94,12 +84,7 @@ pub fn Checkbox(
             return; // Don't toggle if disabled
         }
         let current = checked_signal.get();
-        let new_state = match current {
-            CheckedState::True => CheckedState::False,
-            CheckedState::False => CheckedState::True,
-            CheckedState::Indeterminate => CheckedState::True,
-        };
-        checked_rw.set(new_state);
+        checked_rw.set(!current);
     };
 
     let handle_keydown = move |event: leptos::ev::KeyboardEvent| {
@@ -110,12 +95,7 @@ pub fn Checkbox(
                     return; // Don't toggle if disabled
                 }
                 let current = checked_signal.get();
-                let new_state = match current {
-                    CheckedState::True => CheckedState::False,
-                    CheckedState::False => CheckedState::True,
-                    CheckedState::Indeterminate => CheckedState::True,
-                };
-                checked_rw.set(new_state);
+                checked_rw.set(!current);
             },
             "Enter" => {
                 event.prevent_default(); // Prevent form submission
@@ -131,20 +111,12 @@ pub fn Checkbox(
                 role="checkbox"
                 class="checkbox-root"
                 data-radix-checkbox=""
-                aria-checked=move || match checked_signal.get() {
-                    CheckedState::True => "true",
-                    CheckedState::False => "false",
-                    CheckedState::Indeterminate => "mixed",
-                }
+                aria-checked=move || if checked_signal.get() { "true" } else { "false" }
                 aria-required=move || if required { Some("true") } else { None }
                 aria-label=aria_label
                 aria-labelledby=aria_labelledby
                 aria-describedby=aria_describedby
-                data-state=move || match checked_signal.get() {
-                    CheckedState::True => "checked",
-                    CheckedState::False => "unchecked",
-                    CheckedState::Indeterminate => "indeterminate",
-                }
+                data-state=move || if checked_signal.get() { "checked" } else { "unchecked" }
                 data-disabled=move || disabled.get().then_some("")
                 disabled=move || disabled.get()
                 value=value.clone()
@@ -161,7 +133,7 @@ pub fn Checkbox(
                     type="checkbox"
                     name=name_value.clone()
                     value=value.clone()
-                    checked=move || matches!(checked_signal.get(), CheckedState::True)
+                    checked=move || checked_signal.get()
                     required=required
                     disabled=move || disabled.get()
                     aria-hidden="true"
@@ -186,13 +158,9 @@ pub fn CheckboxIndicator(
     view! {
         <span
             class=format!("checkbox-indicator {}", class.unwrap_or(""))
-            data-state=move || match context.checked.get() {
-                CheckedState::True => "checked",
-                CheckedState::False => "unchecked",
-                CheckedState::Indeterminate => "indeterminate",
-            }
+            data-state=move || if context.checked.get() { "checked" } else { "unchecked" }
         >
-            <Show when=move || context.checked.get() != CheckedState::False>
+            <Show when=move || context.checked.get()>
                 {children.as_ref().map(|child_fn| child_fn())}
             </Show>
         </span>
