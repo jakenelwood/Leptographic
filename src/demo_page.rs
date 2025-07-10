@@ -111,21 +111,9 @@ pub fn DemoPage() -> impl IntoView {
                     padding-bottom: 1rem;
                     border-bottom: 2px solid #e2e8f0;
                 }
-                
+
                 .dark .section-header {
                     border-bottom-color: #334155;
-                }
-                
-                .section-icon {
-                    font-size: 2rem;
-                    width: 3rem;
-                    height: 3rem;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                    border-radius: 8px;
-                    color: white;
                 }
                 
                 .section-title {
@@ -186,7 +174,7 @@ pub fn DemoPage() -> impl IntoView {
                     gap: 1rem;
                     margin: 2rem 0;
                 }
-                
+
                 .stat-card {
                     background: rgba(255, 255, 255, 0.1);
                     backdrop-filter: blur(10px);
@@ -195,29 +183,52 @@ pub fn DemoPage() -> impl IntoView {
                     text-align: center;
                     border: 1px solid rgba(255, 255, 255, 0.2);
                 }
-                
+
                 .stat-number {
                     font-size: 2rem;
                     font-weight: bold;
                     display: block;
                 }
-                
+
                 .stat-label {
                     font-size: 0.875rem;
                     opacity: 0.9;
                     margin-top: 0.5rem;
+                }
+
+                /* Progress bar dark mode fixes */
+                .dark [role='progressbar'] {
+                    background-color: #374151 !important;
+                    border: 1px solid #4b5563;
+                }
+
+                .dark [role='progressbar'] > div {
+                    background-color: #3b82f6 !important;
+                }
+
+                .dark .progress-blue [role='progressbar'] > div {
+                    background-color: #60a5fa !important;
+                }
+
+                .dark .progress-green [role='progressbar'] > div {
+                    background-color: #34d399 !important;
+                }
+
+                .dark .progress-red [role='progressbar'] > div {
+                    background-color: #f87171 !important;
+                }
+
+                .dark .progress-purple [role='progressbar'] > div {
+                    background-color: #a78bfa !important;
                 }
                 "
             </style>
 
             // Header Section
             <header class="demo-header">
-                <h1 style="font-size: 3rem; margin: 0 0 1rem 0; font-weight: 700;">
-                    "🚀 Leptos Radix UI"
+                <h1 style="font-size: 3rem; margin: 0 0 2rem 0; font-weight: 700;">
+                    "Leptos Radix UI"
                 </h1>
-                <p style="font-size: 1.25rem; margin: 0 0 2rem 0; opacity: 0.9;">
-                    "Professional-grade UI primitives for Leptos applications"
-                </p>
                 
                 <div class="stats-grid">
                     <div class="stat-card">
@@ -242,14 +253,9 @@ pub fn DemoPage() -> impl IntoView {
             // Navigation
             <nav class="demo-nav">
                 <div style="display: flex; align-items: center; gap: 2rem;">
-                    <span style="font-weight: 600; color: #667eea;">"Live Demo"</span>
-                    <a href="#checkbox" style="color: #64748b; text-decoration: none;">"Checkbox"</a>
-                    <a href="#switch" style="color: #64748b; text-decoration: none;">"Switch"</a>
-                    <a href="#progress" style="color: #64748b; text-decoration: none;">"Progress"</a>
-                    <a href="#separator" style="color: #64748b; text-decoration: none;">"Separator"</a>
-                    <a href="#label" style="color: #64748b; text-decoration: none;">"Label"</a>
+                    <span style="font-weight: 600; color: #667eea;">"Component Demo"</span>
                 </div>
-                
+
                 <button
                     class="theme-toggle"
                     title=move || match theme.mode.get() {
@@ -267,8 +273,12 @@ pub fn DemoPage() -> impl IntoView {
                 // Checkbox Section
                 <section id="checkbox" class="component-section">
                     <div class="section-header">
-                        <div class="section-icon">"✅"</div>
                         <h2 class="section-title">"Checkbox"</h2>
+                        <a href="https://github.com/jakenelwood/themachine/blob/main/src/components/checkbox.rs"
+                           target="_blank"
+                           style="color: #667eea; text-decoration: none; font-size: 0.875rem; margin-left: auto;">
+                            "View Code →"
+                        </a>
                     </div>
                     
                     <div class="demo-grid">
@@ -319,8 +329,12 @@ pub fn DemoPage() -> impl IntoView {
                 // Switch Section
                 <section id="switch" class="component-section">
                     <div class="section-header">
-                        <div class="section-icon">"🔄"</div>
                         <h2 class="section-title">"Switch"</h2>
+                        <a href="https://github.com/jakenelwood/themachine/blob/main/src/components/switch.rs"
+                           target="_blank"
+                           style="color: #667eea; text-decoration: none; font-size: 0.875rem; margin-left: auto;">
+                            "View Code →"
+                        </a>
                     </div>
 
                     <div class="demo-grid">
@@ -377,8 +391,12 @@ pub fn DemoPage() -> impl IntoView {
                 // Progress Section
                 <section id="progress" class="component-section">
                     <div class="section-header">
-                        <div class="section-icon">"📊"</div>
                         <h2 class="section-title">"Progress"</h2>
+                        <a href="https://github.com/jakenelwood/themachine/blob/main/src/components/progress.rs"
+                           target="_blank"
+                           style="color: #667eea; text-decoration: none; font-size: 0.875rem; margin-left: auto;">
+                            "View Code →"
+                        </a>
                     </div>
 
                     <div class="demo-grid">
@@ -455,8 +473,12 @@ pub fn DemoPage() -> impl IntoView {
                 // Separator Section
                 <section id="separator" class="component-section">
                     <div class="section-header">
-                        <div class="section-icon">"➖"</div>
                         <h2 class="section-title">"Separator"</h2>
+                        <a href="https://github.com/jakenelwood/themachine/blob/main/src/components/separator.rs"
+                           target="_blank"
+                           style="color: #667eea; text-decoration: none; font-size: 0.875rem; margin-left: auto;">
+                            "View Code →"
+                        </a>
                     </div>
 
                     <div class="demo-grid">
@@ -497,8 +519,12 @@ pub fn DemoPage() -> impl IntoView {
                 // Label Section
                 <section id="label" class="component-section">
                     <div class="section-header">
-                        <div class="section-icon">"🏷️"</div>
                         <h2 class="section-title">"Label"</h2>
+                        <a href="https://github.com/jakenelwood/themachine/blob/main/src/components/label.rs"
+                           target="_blank"
+                           style="color: #667eea; text-decoration: none; font-size: 0.875rem; margin-left: auto;">
+                            "View Code →"
+                        </a>
                     </div>
 
                     <div class="demo-grid">
@@ -564,17 +590,7 @@ pub fn DemoPage() -> impl IntoView {
                     </div>
                 </section>
 
-                // Footer
-                <footer style="text-align: center; padding: 3rem 0; border-top: 1px solid #e2e8f0; margin-top: 2rem;">
-                    <div class="dark" style="border-top-color: #334155;">
-                        <p style="color: #64748b; margin: 0 0 1rem 0;">
-                            "Built with ❤️ using Leptos and Radix UI principles"
-                        </p>
-                        <p style="color: #94a3b8; font-size: 0.875rem; margin: 0;">
-                            "Professional-grade components • Zero dependencies • 100% accessible"
-                        </p>
-                    </div>
-                </footer>
+
             </main>
         </div>
     }
