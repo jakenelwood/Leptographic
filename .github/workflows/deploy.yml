@@ -44,35 +44,35 @@ jobs:
         cp target/release/leptos-radix-ui deploy/
         tar -czf leptos-radix-ui-deploy.tar.gz -C deploy .
         
-    - name: Deploy to Hetzner server
+    - name: Deploy to new server
       uses: appleboy/ssh-action@v1.0.3
       with:
-        host: ${{ secrets.HETZNER_HOST }}
-        username: ${{ secrets.HETZNER_USER }}
-        key: ${{ secrets.HETZNER_SSH_KEY }}
+        host: ${{ secrets.NEW_SERVER_HOST }}
+        username: ${{ secrets.NEW_SERVER_USER }}
+        key: ${{ secrets.NEW_SERVER_SSH_KEY }}
         port: 22
         script: |
           # Create deployment directory
-          sudo mkdir -p /var/www/leptos-radix-ui
-          sudo chown $USER:$USER /var/www/leptos-radix-ui
+          sudo mkdir -p /var/www/leptographic
+          sudo chown $USER:$USER /var/www/leptographic
           
           # Stop existing service if running
-          sudo systemctl stop leptos-radix-ui || true
-          
+          sudo systemctl stop leptographic || true
+
           # Backup current deployment
-          if [ -d "/var/www/leptos-radix-ui/current" ]; then
-            sudo mv /var/www/leptos-radix-ui/current /var/www/leptos-radix-ui/backup-$(date +%Y%m%d-%H%M%S)
+          if [ -d "/var/www/leptographic/current" ]; then
+            sudo mv /var/www/leptographic/current /var/www/leptographic/backup-$(date +%Y%m%d-%H%M%S)
           fi
-          
+
           # Create new deployment directory
-          mkdir -p /var/www/leptos-radix-ui/current
+          mkdir -p /var/www/leptographic/current
           
     - name: Upload deployment files
       uses: appleboy/scp-action@v0.1.7
       with:
-        host: ${{ secrets.HETZNER_HOST }}
-        username: ${{ secrets.HETZNER_USER }}
-        key: ${{ secrets.HETZNER_SSH_KEY }}
+        host: ${{ secrets.NEW_SERVER_HOST }}
+        username: ${{ secrets.NEW_SERVER_USER }}
+        key: ${{ secrets.NEW_SERVER_SSH_KEY }}
         port: 22
         source: "leptos-radix-ui-deploy.tar.gz"
         target: "/tmp/"
@@ -80,22 +80,22 @@ jobs:
     - name: Extract and start application
       uses: appleboy/ssh-action@v1.0.3
       with:
-        host: ${{ secrets.HETZNER_HOST }}
-        username: ${{ secrets.HETZNER_USER }}
-        key: ${{ secrets.HETZNER_SSH_KEY }}
+        host: ${{ secrets.NEW_SERVER_HOST }}
+        username: ${{ secrets.NEW_SERVER_USER }}
+        key: ${{ secrets.NEW_SERVER_SSH_KEY }}
         port: 22
         script: |
           # Extract deployment files
-          cd /var/www/leptos-radix-ui/current
+          cd /var/www/leptographic/current
           tar -xzf /tmp/leptos-radix-ui-deploy.tar.gz
           chmod +x leptos-radix-ui
-          
+
           # Clean up temp file
           rm /tmp/leptos-radix-ui-deploy.tar.gz
-          
+
           # Start the service
-          sudo systemctl start leptos-radix-ui
-          sudo systemctl enable leptos-radix-ui
-          
+          sudo systemctl start leptographic
+          sudo systemctl enable leptographic
+
           # Check service status
-          sudo systemctl status leptos-radix-ui
+          sudo systemctl status leptographic
