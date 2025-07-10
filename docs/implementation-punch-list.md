@@ -129,7 +129,7 @@
 
 ---
 
-## 🔄 **Refined 4-Phase Recipe (From Progress Success)**
+## 🔄 **Refined 6-Phase Recipe (Professional Polish + Testing First-Class)**
 
 ### **Phase I: Basic Functionality (20-30 min)**
 - **Primary Reference**: Radix UI React source
@@ -152,6 +152,19 @@
 - **Strategy**: Match official Radix UI styling exactly with state-based styling
 - **Success Metric**: Pixel-perfect visual behavior with responsive design
 
+### **Phase V: Professional Polish (15-30 min) - THE FINAL 10%**
+- **Micro-Transitions**: 120ms transitions on box-shadow, background-color, border-color
+- **Stateful Styling**: Professional :hover, :focus-visible, :disabled states
+- **Data-State Styling**: Radix-pattern data-state animations and transitions
+- **Pixel-Perfect Spacing**: Exact Radix UI measurements and calculations
+- **Success Metric**: Component feels premium and indistinguishable from Radix UI
+
+### **Phase VI: Testing & Documentation (30-45 min) - MANDATORY**
+- **Testing Strategy**: Comprehensive test suite using leptos-test crate
+- **Documentation Strategy**: Documentation-Driven Development approach
+- **Success Metric**: 100% test coverage and complete API documentation
+- **AI Orchestrator Prompts**: Standardized prompts for consistent quality
+
 ### **🚀 Weaning Strategy Success**
 - **Component 1-2**: 90% RustForWeb dependency (learning)
 - **Component 3**: 30% RustForWeb dependency (validation)
@@ -160,15 +173,125 @@
 
 ---
 
+## 🧪 **Testing & Documentation Strategy (First-Class Citizens)**
+
+### **Phase V Testing Requirements**
+
+Every component MUST complete comprehensive testing before being marked as complete. Use these standardized AI orchestrator prompts:
+
+#### **Primitive Component Testing Prompt**
+```
+I have just created a headless Leptos '[COMPONENT_NAME]' component. Write a comprehensive test suite for it using the leptos-test crate. Include tests that verify:
+
+1. **Basic Rendering**: Component renders correctly with default props
+2. **Props Validation**: All props are correctly applied and affect behavior
+3. **ARIA Compliance**: All accessibility attributes are properly set
+4. **State Management**: Controlled/uncontrolled state patterns work correctly
+5. **Event Handling**: All user interactions trigger expected behaviors
+6. **Edge Cases**: Invalid props, empty children, error conditions
+
+Example for Separator:
+- Renders a `div` by default
+- Correctly applies `aria-orientation` attribute based on props
+- Renders children when provided
+- Handles decorative vs semantic separator roles
+```
+
+#### **Styled Component Testing Prompt**
+```
+Write a test suite for our styled <[COMPONENT_NAME]> component that verifies:
+
+1. **Variant Classes**: When variant prop is set to [VARIANT], the component's class list includes correct Tailwind classes
+2. **State Classes**: Component applies correct classes for hover, focus, disabled states
+3. **Size Classes**: Size prop correctly applies responsive sizing classes
+4. **Theme Integration**: Component respects dark/light mode theme variables
+5. **CSS Custom Properties**: All CSS variables are properly applied and customizable
+
+Example for Button:
+- When variant="destructive", includes bg-destructive and text-destructive-foreground
+- When size="sm", applies correct padding and font-size classes
+- Disabled state applies opacity and pointer-events styles
+```
+
+### **Documentation-Driven Development**
+
+Every component MUST have complete documentation generated immediately after Phase IV completion:
+
+#### **Component Documentation Prompt**
+```
+You are a technical writer creating documentation for a Leptos component library. I have just finished building a <[COMPONENT_NAME]> component. Generate a comprehensive Markdown document that includes:
+
+1. **Component Overview**: Brief description and use cases
+2. **Installation**: Import statements and setup requirements
+3. **API Reference**:
+   - All props with types, default values, and descriptions
+   - All events and their payloads
+   - All CSS custom properties and their effects
+4. **Usage Examples**:
+   - Basic usage in Leptos `view!` macro
+   - Advanced usage with all major prop combinations
+   - Integration with forms and state management
+5. **Accessibility**: ARIA attributes and keyboard navigation
+6. **Styling Guide**: How to customize appearance with CSS variables
+7. **Migration Notes**: Differences from React Radix UI (if any)
+
+Format as a proper component documentation page that could be published on a documentation website.
+```
+
+### **Professional Polish Checklist (Phase V)**
+
+Every component must pass this checklist before Phase VI:
+
+#### **1. Micro-Transitions & Animations**
+- [ ] **Transition Duration**: Uses 120ms (Radix standard) for premium feel
+- [ ] **Transition Properties**: Targets `box-shadow`, `background-color`, `border-color`
+- [ ] **Transition Timing**: Uses `ease-out` for natural feel
+- [ ] **No Instant Changes**: All state changes are smoothly animated
+
+#### **2. Stateful Styling (:hover, :focus, :disabled)**
+- [ ] **Hover States**: Subtle enhancements that don't distract
+- [ ] **Focus-Visible**: Professional 2px outline with proper offset
+- [ ] **Disabled States**: Proper cursor and visual degradation
+- [ ] **State Consistency**: All states work together harmoniously
+
+#### **3. Data-State Styling (data-state="open")**
+- [ ] **Data Attributes**: Uses `data-state` for all state-based styling
+- [ ] **Animation Hooks**: CSS can target `[data-state="checked"]` etc.
+- [ ] **Transition Coordination**: State changes trigger smooth transitions
+- [ ] **Radix Compatibility**: Matches Radix UI data attribute patterns
+
+#### **4. Pixel-Perfect Spacing & Typography**
+- [ ] **Exact Measurements**: Matches Radix UI sizing calculations
+- [ ] **Size Variants**: size-1 (14px), size-2 (16px), size-3 (20px)
+- [ ] **Indicator Sizing**: Proper ratios for visual balance
+- [ ] **Border Radius**: Consistent with Radix scaling patterns
+
+### **Quality Gates**
+
+No component can be marked as "Complete" until:
+
+- [ ] **Professional Polish Checklist** 100% complete
+- [ ] **All Phase VI tests pass** with 100% coverage
+- [ ] **Complete documentation** generated and reviewed
+- [ ] **Accessibility audit** confirms WAI-ARIA compliance
+- [ ] **Visual regression tests** confirm styling matches Radix UI
+- [ ] **Integration tests** verify component works in real applications
+
+---
+
 ## 🔧 **Process Refinement Checklist**
 
-### **After Each Component**
+### **After Each Component (MANDATORY CHECKLIST)**
+- [ ] **Phase V Testing**: Complete comprehensive test suite with 100% coverage
+- [ ] **Phase V Documentation**: Generate complete API documentation and usage examples
+- [ ] **Quality Gates**: All quality gates passed before marking component complete
 - [ ] **Update Recipe**: Document new patterns in LEPTOS_PRIMITIVE_RECIPE.md
 - [ ] **Track Weaning**: Measure RustForWeb dependency reduction
 - [ ] **Performance Check**: Ensure Leptos 0.8.2 optimization
 - [ ] **API Validation**: Confirm 100% Radix UI API compatibility
-- [ ] **Accessibility Test**: Verify WAI-ARIA compliance
-- [ ] **Documentation**: Update examples and API docs
+- [ ] **Accessibility Audit**: Verify WAI-ARIA compliance with automated and manual testing
+- [ ] **Visual Regression**: Confirm styling matches Radix UI pixel-perfect
+- [ ] **Integration Testing**: Verify component works in real application contexts
 
 ### **Weekly Reviews**
 - [ ] **Progress Assessment**: Components completed vs timeline
@@ -180,22 +303,28 @@
 ### **Milestone Checkpoints**
 
 #### **Milestone 1: Tier 1 Complete (Components 1-7)**
-- [ ] **7 core components** implemented and tested
+- [ ] **7 core components** implemented with Phase V testing and documentation
+- [ ] **100% test coverage** achieved for all Tier 1 components
+- [ ] **Complete documentation** generated for all Tier 1 components
 - [ ] **RustForWeb patterns** fully understood and documented
 - [ ] **Leptos 0.8.2 expertise** established
-- [ ] **THE MACHINE efficiency** validated (sub-4 hour components)
+- [ ] **THE MACHINE efficiency** validated (sub-5 hour components including testing)
 
 #### **Milestone 2: Weaning 50% (Components 8-14)**
 - [ ] **Balanced approach** successfully implemented
 - [ ] **Direct translation skills** developing
 - [ ] **API consistency** maintained across all components
 - [ ] **Performance optimization** patterns established
+- [ ] **Testing automation** streamlined with reusable test patterns
+- [ ] **Documentation templates** refined for consistent quality
 
 #### **Milestone 3: Independence (Components 15+)**
 - [ ] **Direct React → Leptos** translation mastered
 - [ ] **Zero RustForWeb dependency** achieved
 - [ ] **Complex primitives** (Form, OTP, etc.) successfully implemented
 - [ ] **Complete primitive library** vision realized
+- [ ] **Production-ready test suite** covering all edge cases
+- [ ] **Comprehensive documentation site** ready for public release
 
 ---
 
@@ -214,10 +343,12 @@
 - **Achievement**: 40% ahead of weaning timeline!
 
 ### **Quality Metrics**
-- **API Compatibility**: 100% (Checkbox, Arrow)
-- **Accessibility Compliance**: 100% (Checkbox, Arrow)
-- **Leptos 0.8.2 Optimization**: 100% (Checkbox, Arrow)
-- **Documentation Coverage**: 100% (Checkbox, Arrow)
+- **API Compatibility**: 100% (All completed components)
+- **Accessibility Compliance**: 100% (All completed components)
+- **Test Coverage**: 100% (All completed components with Phase V testing)
+- **Documentation Coverage**: 100% (All completed components with Phase V docs)
+- **Leptos 0.8.2 Optimization**: 100% (All completed components)
+- **Visual Parity**: 100% (All completed components match Radix UI styling)
 
 ### **Timeline Progress**
 - **Week 1-2**: Button, Switch, Progress (Target: 3 components)

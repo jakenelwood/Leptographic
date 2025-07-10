@@ -1,194 +1,103 @@
-/* Separator Component Styles - Radix UI Visual Parity */
-/* Based on: https://github.com/radix-ui/primitives/tree/main/packages/react/separator */
+/* Separator Component Styles - Professional Polish (Radix UI Pattern) */
+/* Based on: https://github.com/radix-ui/themes/blob/main/packages/radix-ui-themes/src/components/separator.css */
 
-/* ================================================================================================
- * CSS Custom Properties - Complete Theming System
- * ================================================================================================ */
-
+/* CSS Custom Properties - Professional Polish (Radix UI Pattern) */
 :root {
-  /* Separator dimensions */
-  --separator-horizontal-height: 1px;
-  --separator-vertical-width: 1px;
-  
-  /* Colors */
-  --separator-color: #e5e7eb;
-  --separator-color-decorative: #d1d5db;
-  
-  /* Spacing */
-  --separator-margin: 0;
-  
-  /* Transitions */
-  --separator-transition-duration: 150ms;
-  --separator-transition-timing: ease;
+  /* Separator dimensions - Pixel-perfect Radix sizing */
+  --separator-thickness: 1px; /* Always 1px in Radix */
+  --separator-size: 100%; /* Default size-4 (100%) */
+
+  /* Colors - Radix pattern */
+  --separator-color: rgba(0, 0, 0, 0.12); /* --accent-a6 equivalent */
+
+  /* Professional Micro-Transitions (Radix pattern) */
+  --separator-transition-duration: 120ms; /* Radix standard */
+  --separator-transition-timing: ease-out;
+  --separator-transition-properties: background-color, opacity;
 }
 
 /* Dark mode color adjustments */
 @media (prefers-color-scheme: dark) {
   :root {
-    --separator-color: #374151;
-    --separator-color-decorative: #4b5563;
+    --separator-color: rgba(255, 255, 255, 0.12); /* Dark mode --accent-a6 equivalent */
   }
 }
 
 /* High contrast mode */
 @media (prefers-contrast: high) {
   :root {
-    --separator-color: #000000;
-    --separator-color-decorative: #333333;
+    --separator-color: currentColor;
   }
 }
 
-/* ================================================================================================
- * Base Separator Styles
- * ================================================================================================ */
-
+/* Base Separator Styles - Professional Polish (Radix Pattern) */
 .separator-root {
-  /* Reset */
-  border: none;
-  margin: var(--separator-margin);
+  /* Layout - Radix pattern */
+  display: block;
   flex-shrink: 0;
-  
+
+  /* Professional Micro-Transitions - Key to premium feel */
+  transition: var(--separator-transition-properties) var(--separator-transition-duration) var(--separator-transition-timing);
+
   /* Base styling */
   background-color: var(--separator-color);
-  transition: background-color var(--separator-transition-duration) var(--separator-transition-timing);
+  border: none; /* Radix uses background-color, not borders */
+  margin: 0; /* Radix doesn't set margins */
 }
 
-/* ================================================================================================
- * Orientation-based Styling
- * ================================================================================================ */
+/* Professional Orientation-based Styling (Radix Pattern) */
 
 /* Horizontal separator (default) */
 .separator-root[data-orientation="horizontal"] {
-  height: var(--separator-horizontal-height);
-  width: 100%;
+  width: var(--separator-size);
+  height: var(--separator-thickness);
 }
 
 /* Vertical separator */
 .separator-root[data-orientation="vertical"] {
-  width: var(--separator-vertical-width);
-  height: 100%;
+  width: var(--separator-thickness);
+  height: var(--separator-size);
 }
 
-/* ================================================================================================
- * State-based Styling
- * ================================================================================================ */
+/* Professional Data-State Styling (Radix Pattern) */
+/* Note: Radix Separator doesn't use data-state attributes */
+/* It's a simple visual element with consistent styling */
 
-/* Decorative separators */
-.separator-root[data-state="decorative"] {
-  background-color: var(--separator-color-decorative);
+/* Professional Size Variants (Radix Pattern) */
+.separator-size-1 {
+  --separator-size: 16px; /* Radix size-1: var(--space-4) */
 }
 
-/* Semantic separators (default) */
-.separator-root[data-state="semantic"] {
-  background-color: var(--separator-color);
+.separator-size-2 {
+  --separator-size: 24px; /* Radix size-2: var(--space-6) */
 }
 
-/* ================================================================================================
- * Size Variants
- * ================================================================================================ */
-
-/* Small separator */
-.separator-root.separator-small[data-orientation="horizontal"] {
-  height: 1px;
+.separator-size-3 {
+  --separator-size: 72px; /* Radix size-3: var(--space-9) */
 }
 
-.separator-root.separator-small[data-orientation="vertical"] {
-  width: 1px;
+.separator-size-4 {
+  --separator-size: 100%; /* Radix size-4: 100% (default) */
 }
 
-/* Medium separator (default) */
-.separator-root.separator-medium[data-orientation="horizontal"] {
-  height: 1px;
+/* Professional Color Variants (Optional Extensions) */
+.separator-blue {
+  --separator-color: rgba(59, 130, 246, 0.12); /* Blue accent-a6 */
 }
 
-.separator-root.separator-medium[data-orientation="vertical"] {
-  width: 1px;
+.separator-green {
+  --separator-color: rgba(16, 185, 129, 0.12); /* Green accent-a6 */
 }
 
-/* Large separator */
-.separator-root.separator-large[data-orientation="horizontal"] {
-  height: 2px;
+.separator-red {
+  --separator-color: rgba(239, 68, 68, 0.12); /* Red accent-a6 */
 }
 
-.separator-root.separator-large[data-orientation="vertical"] {
-  width: 2px;
+.separator-purple {
+  --separator-color: rgba(139, 92, 246, 0.12); /* Purple accent-a6 */
 }
 
-/* ================================================================================================
- * Color Variants
- * ================================================================================================ */
-
-/* Blue separator */
-.separator-root.separator-blue {
-  --separator-color: #3b82f6;
-  --separator-color-decorative: #60a5fa;
-}
-
-/* Green separator */
-.separator-root.separator-green {
-  --separator-color: #10b981;
-  --separator-color-decorative: #34d399;
-}
-
-/* Red separator */
-.separator-root.separator-red {
-  --separator-color: #ef4444;
-  --separator-color-decorative: #f87171;
-}
-
-/* Purple separator */
-.separator-root.separator-purple {
-  --separator-color: #8b5cf6;
-  --separator-color-decorative: #a78bfa;
-}
-
-/* ================================================================================================
- * Style Variants
- * ================================================================================================ */
-
-/* Solid separator (default) */
-.separator-root.separator-solid {
-  background-color: var(--separator-color);
-}
-
-/* Dashed separator */
-.separator-root.separator-dashed[data-orientation="horizontal"] {
-  background: none;
-  border-top: 1px dashed var(--separator-color);
-  height: 0;
-}
-
-.separator-root.separator-dashed[data-orientation="vertical"] {
-  background: none;
-  border-left: 1px dashed var(--separator-color);
-  width: 0;
-}
-
-/* Dotted separator */
-.separator-root.separator-dotted[data-orientation="horizontal"] {
-  background: none;
-  border-top: 1px dotted var(--separator-color);
-  height: 0;
-}
-
-.separator-root.separator-dotted[data-orientation="vertical"] {
-  background: none;
-  border-left: 1px dotted var(--separator-color);
-  width: 0;
-}
-
-/* Gradient separator */
-.separator-root.separator-gradient[data-orientation="horizontal"] {
-  background: linear-gradient(to right, transparent, var(--separator-color), transparent);
-}
-
-.separator-root.separator-gradient[data-orientation="vertical"] {
-  background: linear-gradient(to bottom, transparent, var(--separator-color), transparent);
-}
-
-/* ================================================================================================
- * Accessibility Support
- * ================================================================================================ */
+/* Professional Accessibility Support */
 
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
@@ -197,42 +106,9 @@
   }
 }
 
-/* Focus styles for keyboard navigation (when separator has interactive content) */
+/* Focus styles - Radix separators are typically not focusable */
+/* Only add focus styles if separator contains interactive content */
 .separator-root:focus-visible {
   outline: 2px solid var(--separator-color);
   outline-offset: 2px;
-}
-
-/* ================================================================================================
- * Responsive Design
- * ================================================================================================ */
-
-/* Mobile adjustments */
-@media (max-width: 640px) {
-  .separator-root.separator-large[data-orientation="horizontal"] {
-    height: 1px; /* Reduce thickness on mobile */
-  }
-  
-  .separator-root.separator-large[data-orientation="vertical"] {
-    width: 1px; /* Reduce thickness on mobile */
-  }
-}
-
-/* ================================================================================================
- * Integration with Component Test Page
- * ================================================================================================ */
-
-/* Enhanced styling for component test demonstrations */
-.component-test .separator-root {
-  transition: all var(--separator-transition-duration) var(--separator-transition-timing);
-}
-
-.component-test .separator-root:hover {
-  opacity: 0.8;
-}
-
-/* Dark mode specific adjustments for test page */
-.dark .separator-root {
-  --separator-color: #6b7280;
-  --separator-color-decorative: #9ca3af;
 }

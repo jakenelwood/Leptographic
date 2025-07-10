@@ -1,4 +1,4 @@
-# Leptos Primitive Recipe v4 (LEPTOS 0.8.2 VALIDATED ✅)
+# Leptos Primitive Recipe v6 (PROFESSIONAL POLISH + TESTING ✅)
 
 ## 🎯 Strategic Approach: Complete Radix UI → Leptos Translation
 
@@ -100,30 +100,93 @@ fn use_controllable_state(
 - Single-file module approach
 - Explicit Provider import
 
-## Component Generation Machine: 3-Phase System
+## Component Generation Machine: 6-Phase System (THE MACHINE v6)
 
-**Philosophy:** Build a predictable factory that converts WAI-ARIA specs into production-ready Rust primitives at scale.
+**Philosophy:** Build a predictable factory that converts WAI-ARIA specs into production-ready, professionally polished Rust primitives at scale.
 
-### 🎯 **Phase I: Minimal Working State (FOUNDATION)**
-**Goal:** Get basic functionality compiling and working with minimal complexity
-**Success Criteria:** Component compiles, renders, basic interaction works
-**Time Investment:** ~30 minutes per component
+### 🎯 **Phase I: Basic Functionality (20-30 min)**
+**Goal:** Get compiling and basic rendering with core props
+**Primary Reference:** Radix UI React source
+**Success Criteria:** Component renders with basic functionality
+**Key Learning:** Include ARIA attributes from the start!
 
-### 🎯 **Phase II: WAI-ARIA Compliance (ACCESSIBILITY)**
-**Goal:** Full accessibility compliance with WAI-ARIA specification
-**Success Criteria:** Passes accessibility audits, keyboard navigation, screen readers
-**Time Investment:** ~2-3 hours per component
+### 🎯 **Phase II: WAI-ARIA Compliance (Built-in)**
+**Goal:** Build accessibility into Phase I (not separate phase)
+**Strategy:** ARIA compliance achieved from initial implementation
+**Success Criteria:** Full accessibility compliance with WAI-ARIA specification
+**Result:** No additional time needed for accessibility
 
-### 🎯 **Phase III: Production Ready (FEATURE PARITY)**
-**Goal:** Match RustForWeb/radix feature set for production use
-**Success Criteria:** Form integration, advanced props, developer experience features
-**Time Investment:** ~4-6 hours per component
+### 🎯 **Phase III: Production Features (30 min - 2 hours)**
+**Goal:** Controllable state, form integration, advanced props
+**Key Pattern:** Reuse proven patterns from previous components (80% code reuse)
+**Success Criteria:** Production-ready functionality with error handling
 
-### 🎯 **Phase IV: Visual Styling (USER EXPERIENCE)** ⭐ NEW!
-**Goal:** Add proper CSS styling to match Radix UI visual behavior
-**Success Criteria:** Component looks and behaves like Radix UI examples
-**Time Investment:** ~1-2 hours per component
-**Key Learning:** Functional correctness ≠ User Experience
+### 🎯 **Phase IV: Visual Styling (30 min - 1 hour)**
+**Goal:** CSS custom properties and Radix UI visual parity
+**Strategy:** Match official Radix UI styling exactly with state-based styling
+**Success Criteria:** Pixel-perfect visual behavior with responsive design
+
+### 🎯 **Phase V: Professional Polish (15-30 min) - THE FINAL 10%** ⭐ NEW!
+**Goal:** Transform functional components into premium ones
+**Focus:** Micro-transitions, stateful styling, data-state styling, pixel-perfect spacing
+**Success Criteria:** Component feels premium and indistinguishable from Radix UI
+**Key Learning:** This 10% separates good components from truly professional ones
+
+### 🎯 **Phase VI: Testing & Documentation (30-45 min) - MANDATORY**
+**Goal:** Comprehensive test suite and complete API documentation
+**Testing Strategy:** leptos-test crate with 100% coverage
+**Documentation Strategy:** Documentation-Driven Development approach
+**Success Criteria:** Production-ready quality gates passed
+
+---
+
+## 🎨 Professional Polish Checklist (Phase V)
+
+**The Final 10%** - What separates functional components from premium ones:
+
+### **1. Micro-Transitions & Animations**
+- [ ] **Transition Duration**: Uses 120ms (Radix standard) for premium feel
+- [ ] **Transition Properties**: Targets `box-shadow`, `background-color`, `border-color`
+- [ ] **Transition Timing**: Uses `ease-out` for natural feel
+- [ ] **No Instant Changes**: All state changes are smoothly animated
+
+### **2. Stateful Styling (:hover, :focus, :disabled)**
+- [ ] **Hover States**: Subtle enhancements that don't distract
+- [ ] **Focus-Visible**: Professional 2px outline with proper offset
+- [ ] **Disabled States**: Proper cursor and visual degradation
+- [ ] **State Consistency**: All states work together harmoniously
+
+### **3. Data-State Styling (data-state="open")**
+- [ ] **Data Attributes**: Uses `data-state` for all state-based styling
+- [ ] **Animation Hooks**: CSS can target `[data-state="checked"]` etc.
+- [ ] **Transition Coordination**: State changes trigger smooth transitions
+- [ ] **Radix Compatibility**: Matches Radix UI data attribute patterns
+
+### **4. Pixel-Perfect Spacing & Typography**
+- [ ] **Exact Measurements**: Matches Radix UI sizing calculations
+- [ ] **Size Variants**: size-1, size-2, size-3 with proper ratios
+- [ ] **Indicator Sizing**: Proper ratios for visual balance
+- [ ] **Border Radius**: Consistent with Radix scaling patterns
+
+### **AI Orchestrator Prompts for Professional Polish**
+
+#### **Micro-Transitions Prompt**
+```
+Apply professional micro-transitions to this component following Radix UI patterns:
+1. Use 120ms duration for premium feel
+2. Target box-shadow, background-color, border-color properties
+3. Use ease-out timing for natural feel
+4. Ensure all state changes are smoothly animated
+```
+
+#### **Pixel-Perfect Sizing Prompt**
+```
+Update this component's sizing to match Radix UI pixel-perfect measurements:
+1. Implement size-1, size-2, size-3 variants
+2. Use Radix calculation patterns (calc() functions)
+3. Ensure proper ratios between container and indicators
+4. Match border-radius scaling patterns
+```
 
 ---
 

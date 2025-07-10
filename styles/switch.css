@@ -1,146 +1,196 @@
 /* Leptos Radix UI Switch Component Styles */
 /* Matches Radix UI visual behavior exactly */
 
-/* CSS Custom Properties for easy customization */
+/* CSS Custom Properties - Professional Polish (Radix UI Pattern) */
 :root {
-  /* Switch track dimensions */
-  --switch-width: 44px;
-  --switch-height: 24px;
-  --switch-border-radius: 9999px;
-  --switch-padding: 2px;
-  
-  /* Switch thumb dimensions */
-  --switch-thumb-size: 20px;
-  --switch-thumb-border-radius: 9999px;
-  
-  /* Switch colors */
-  --switch-background-unchecked: #e5e7eb;
-  --switch-background-checked: #3b82f6;
-  --switch-background-disabled: #f3f4f6;
+  /* Switch track dimensions - Pixel-perfect Radix sizing */
+  --switch-height: 20px; /* Radix size-2 default: calc(var(--space-5) * 5 / 6) */
+  --switch-width: calc(var(--switch-height) * 1.75); /* Radix pattern: 35px */
+  --switch-border-radius: max(8px, 12px); /* Radix pattern: max(var(--radius-2), var(--radius-thumb)) */
+
+  /* Switch thumb dimensions - Radix pattern */
+  --switch-thumb-inset: 1px;
+  --switch-thumb-size: calc(var(--switch-height) - var(--switch-thumb-inset) * 2);
+  --switch-thumb-translate-x: calc(var(--switch-width) - var(--switch-height));
+  --switch-thumb-border-radius: calc(var(--switch-border-radius) - var(--switch-thumb-inset));
+
+  /* Switch colors - Surface variant (Radix pattern) */
+  --switch-background-unchecked: rgba(0, 0, 0, 0.05); /* --gray-a3 equivalent */
+  --switch-background-checked: var(--accent-9, #3b82f6);
+  --switch-background-disabled: rgba(0, 0, 0, 0.05);
   --switch-thumb-background: white;
-  --switch-thumb-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  
-  /* Switch borders */
-  --switch-border-width: 0px;
-  --switch-border-color: transparent;
-  --switch-thumb-border-width: 0px;
-  --switch-thumb-border-color: transparent;
-  
-  /* Focus ring */
+
+  /* Professional Micro-Transitions (Radix pattern) */
+  --switch-transition-duration-unchecked: 120ms; /* Radix unchecked timing */
+  --switch-transition-duration-checked: 160ms; /* Radix checked timing */
+  --switch-transition-duration-active: 30ms; /* Radix active timing */
+  --switch-transition-timing: cubic-bezier(0.45, 0.05, 0.55, 0.95); /* Radix thumb timing */
+  --switch-transition-properties: background-position, background-color, box-shadow, filter;
+  --switch-thumb-transition: transform 140ms cubic-bezier(0.45, 0.05, 0.55, 0.95), box-shadow 140ms ease-in-out;
+
+  /* Focus ring - Professional styling */
   --switch-focus-ring-width: 2px;
-  --switch-focus-ring-color: #3b82f6;
+  --switch-focus-ring-color: var(--accent-8, #3b82f6);
   --switch-focus-ring-offset: 2px;
-  
-  /* Transitions */
-  --switch-transition-duration: 200ms;
-  --switch-transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
-  
-  /* Hover effects */
-  --switch-hover-brightness: 0.95;
-  --switch-thumb-hover-scale: 1.05;
+
+  /* Shadows - Radix-inspired */
+  --switch-track-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.09); /* --gray-a5 equivalent */
+  --switch-thumb-shadow-unchecked: 0 0 1px 1px rgba(0, 0, 0, 0.04), 0 1px 1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+  --switch-thumb-shadow-checked: 0 1px 3px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.02), 0 0 0 1px rgba(0, 0, 0, 0.02), 0 0 0 1px rgba(59, 130, 246, 0.08), -1px 0 1px rgba(0, 0, 0, 0.04);
 }
 
-/* Base Switch Root Styles */
+/* Base Switch Root Styles - Professional Polish (Radix Pattern) */
 [role="switch"] {
+  /* Layout - Radix pattern */
+  position: relative;
   display: inline-flex;
   align-items: center;
+  vertical-align: top;
+  flex-shrink: 0;
+
+  /* Sizing - Pixel perfect */
   width: var(--switch-width);
   height: var(--switch-height);
-  padding: var(--switch-padding);
-  background-color: var(--switch-background-unchecked);
-  border: var(--switch-border-width) solid var(--switch-border-color);
   border-radius: var(--switch-border-radius);
+
+  /* Professional Micro-Transitions - Key to premium feel */
+  transition: var(--switch-transition-properties) var(--switch-transition-duration-unchecked) linear, ease-in-out, ease-in-out, ease-in-out;
+
+  /* Base styling */
   cursor: pointer;
   outline: none;
-  position: relative;
-  transition: all var(--switch-transition-duration) var(--switch-transition-timing);
+  border: none; /* Use box-shadow for borders (Radix pattern) */
   user-select: none;
   -webkit-tap-highlight-color: transparent;
+
+  /* Default unchecked state */
+  background-color: var(--switch-background-unchecked);
+  box-shadow: var(--switch-track-shadow);
 }
 
-/* Hover state */
-[role="switch"]:hover {
-  filter: brightness(var(--switch-hover-brightness));
+/* Professional Stateful Styling */
+
+/* Hover state - Subtle enhancement */
+[role="switch"]:hover:not([data-disabled]) {
+  /* Radix doesn't change background on hover for surface variant */
+  /* The transition itself provides the premium feel */
+  cursor: pointer;
 }
 
-/* Focus state */
+/* Focus state - Invisible by default */
 [role="switch"]:focus {
-  box-shadow: 0 0 0 var(--switch-focus-ring-width) rgba(59, 130, 246, 0.2);
+  outline: none;
 }
 
-/* State-based styling using data attributes */
-[role="switch"][data-state="checked"] {
-  background-color: var(--switch-background-checked);
+/* Focus-visible - Professional keyboard navigation */
+[role="switch"]:focus-visible {
+  outline: 2px solid var(--switch-focus-ring-color);
+  outline-offset: var(--switch-focus-ring-offset);
 }
 
+/* Active state - Professional micro-timing */
+[role="switch"]:active {
+  transition-duration: var(--switch-transition-duration-active);
+}
+
+/* Professional Data-State Styling (Radix Pattern) */
+
+/* Unchecked state - Default styling already applied above */
 [role="switch"][data-state="unchecked"] {
   background-color: var(--switch-background-unchecked);
+  box-shadow: var(--switch-track-shadow);
+  transition-duration: var(--switch-transition-duration-unchecked);
 }
 
+/* Checked state - Professional accent styling */
+[role="switch"][data-state="checked"] {
+  background-color: var(--switch-background-checked);
+  box-shadow: none; /* Radix removes shadow when checked */
+  transition-duration: var(--switch-transition-duration-checked);
+}
+
+/* Disabled state - Professional degraded styling */
 [role="switch"][data-disabled] {
   background-color: var(--switch-background-disabled);
+  box-shadow: var(--switch-track-shadow);
   cursor: not-allowed;
-  opacity: 0.6;
+  /* No opacity - Radix uses specific disabled colors instead */
 }
 
+/* Disabled hover - No changes */
 [role="switch"][data-disabled]:hover {
-  filter: none;
+  /* Maintain disabled styling */
 }
 
-/* Switch Thumb Styles */
+/* Professional Switch Thumb Styles (Radix Pattern) */
 .switch-thumb {
-  display: block;
+  /* Radix positioning pattern */
+  position: absolute;
+  left: var(--switch-thumb-inset);
   width: var(--switch-thumb-size);
   height: var(--switch-thumb-size);
-  background-color: var(--switch-thumb-background);
-  border: var(--switch-thumb-border-width) solid var(--switch-thumb-border-color);
   border-radius: var(--switch-thumb-border-radius);
-  box-shadow: var(--switch-thumb-shadow);
-  transition: all var(--switch-transition-duration) var(--switch-transition-timing);
+
+  /* Display and color */
+  background-color: var(--switch-thumb-background);
+
+  /* Professional micro-animation - Radix timing */
+  transition: var(--switch-thumb-transition);
   transform: translateX(0);
   pointer-events: none;
 }
 
-/* Thumb checked state */
+/* Professional Thumb State Styling */
+
+/* Unchecked thumb */
+[role="switch"][data-state="unchecked"] .switch-thumb {
+  transform: translateX(0);
+  box-shadow: var(--switch-thumb-shadow-unchecked);
+}
+
+/* Checked thumb - Professional translation */
 [role="switch"][data-state="checked"] .switch-thumb {
-  transform: translateX(calc(var(--switch-width) - var(--switch-thumb-size) - var(--switch-padding) * 2));
+  transform: translateX(var(--switch-thumb-translate-x));
+  box-shadow: var(--switch-thumb-shadow-checked);
 }
 
-/* Thumb hover effect */
-[role="switch"]:hover .switch-thumb {
-  transform: scale(var(--switch-thumb-hover-scale));
-}
-
-[role="switch"][data-state="checked"]:hover .switch-thumb {
-  transform: translateX(calc(var(--switch-width) - var(--switch-thumb-size) - var(--switch-padding) * 2)) scale(var(--switch-thumb-hover-scale));
-}
-
-/* Disabled thumb */
+/* Disabled thumb - Professional degraded styling */
 [role="switch"][data-disabled] .switch-thumb {
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  background-color: #f3f4f6; /* --gray-2 equivalent */
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+  /* Avoid Chrome P3 bug with transition through red when changing light/dark mode */
+  transition: none;
 }
 
-[role="switch"][data-disabled]:hover .switch-thumb {
-  transform: scale(1);
+/* No hover effects on thumb - Radix pattern */
+/* Radix doesn't apply hover effects to the thumb itself */
+
+/* Professional Size Variants (Radix Pattern) */
+.switch-size-1 {
+  --switch-height: 16px; /* Radix size-1: var(--space-4) */
+  --switch-width: calc(var(--switch-height) * 1.75); /* 28px */
+  --switch-border-radius: max(4px, 12px); /* max(var(--radius-1), var(--radius-thumb)) */
+  --switch-thumb-size: calc(var(--switch-height) - var(--switch-thumb-inset) * 2);
+  --switch-thumb-translate-x: calc(var(--switch-width) - var(--switch-height));
+  --switch-thumb-border-radius: calc(var(--switch-border-radius) - var(--switch-thumb-inset));
 }
 
-[role="switch"][data-disabled][data-state="checked"]:hover .switch-thumb {
-  transform: translateX(calc(var(--switch-width) - var(--switch-thumb-size) - var(--switch-padding) * 2));
+.switch-size-2 {
+  --switch-height: 20px; /* Radix size-2: calc(var(--space-5) * 5 / 6) */
+  --switch-width: calc(var(--switch-height) * 1.75); /* 35px */
+  --switch-border-radius: max(8px, 12px); /* max(var(--radius-2), var(--radius-thumb)) */
+  --switch-thumb-size: calc(var(--switch-height) - var(--switch-thumb-inset) * 2);
+  --switch-thumb-translate-x: calc(var(--switch-width) - var(--switch-height));
+  --switch-thumb-border-radius: calc(var(--switch-border-radius) - var(--switch-thumb-inset));
 }
 
-/* Size variants */
-.switch-small {
-  --switch-width: 32px;
-  --switch-height: 18px;
-  --switch-thumb-size: 14px;
-  --switch-padding: 2px;
-}
-
-.switch-large {
-  --switch-width: 56px;
-  --switch-height: 32px;
-  --switch-thumb-size: 28px;
-  --switch-padding: 2px;
+.switch-size-3 {
+  --switch-height: 24px; /* Radix size-3: var(--space-5) */
+  --switch-width: calc(var(--switch-height) * 1.75); /* 42px */
+  --switch-border-radius: max(8px, 12px); /* max(var(--radius-2), var(--radius-thumb)) */
+  --switch-thumb-size: calc(var(--switch-height) - var(--switch-thumb-inset) * 2);
+  --switch-thumb-translate-x: calc(var(--switch-width) - var(--switch-height));
+  --switch-thumb-border-radius: calc(var(--switch-border-radius) - var(--switch-thumb-inset));
 }
 
 /* Color variants */

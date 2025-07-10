@@ -4,32 +4,20 @@ use crate::components::switch::*;
 use crate::components::progress::*;
 use crate::components::separator::*;
 use crate::components::label::*;
-
-#[derive(Debug, Clone, PartialEq)]
-enum Theme {
-    Light,
-    Dark,
-}
+use crate::themes::{use_theme, ThemeMode};
 
 #[component]
 pub fn ComponentTestPage() -> impl IntoView {
     // Progress value for interactive testing
     let (progress_value, set_progress_value) = signal(50.0);
 
-    // Theme toggle using basic Leptos signals
-    let (theme, set_theme) = signal(Theme::Light);
-
-    let toggle_theme = move |_| {
-        match theme.get() {
-            Theme::Light => set_theme.set(Theme::Dark),
-            Theme::Dark => set_theme.set(Theme::Light),
-        }
-    };
+    // Use simplified theme system
+    let theme = use_theme();
 
     let theme_button_text = move || {
-        match theme.get() {
-            Theme::Dark => "☀️",
-            Theme::Light => "🌙",
+        match theme.mode.get() {
+            ThemeMode::Dark => "☀️",
+            ThemeMode::Light => "🌙",
         }
     };
 
@@ -40,12 +28,12 @@ pub fn ComponentTestPage() -> impl IntoView {
         let html = document.document_element().unwrap();
         let class_list = html.class_list();
 
-        match theme.get() {
-            Theme::Dark => {
+        match theme.mode.get() {
+            ThemeMode::Dark => {
                 let _ = class_list.add_1("dark");
                 let _ = class_list.remove_1("light");
             }
-            Theme::Light => {
+            ThemeMode::Light => {
                 let _ = class_list.add_1("light");
                 let _ = class_list.remove_1("dark");
             }
@@ -78,11 +66,11 @@ pub fn ComponentTestPage() -> impl IntoView {
                 <button
                     class="theme-toggle"
                     style="padding: 0.5rem; background: #f3f4f6; border: 1px solid #d1d5db; border-radius: 6px; cursor: pointer; font-size: 1.2rem; transition: all 0.2s ease;"
-                    title=move || match theme.get() {
-                        Theme::Dark => "Switch to light mode",
-                        Theme::Light => "Switch to dark mode",
+                    title=move || match theme.mode.get() {
+                        ThemeMode::Dark => "Switch to light mode",
+                        ThemeMode::Light => "Switch to dark mode",
                     }
-                    on:click=toggle_theme
+                    on:click=move |_| theme.toggle()
                 >
                     {theme_button_text}
                 </button>
@@ -95,36 +83,28 @@ pub fn ComponentTestPage() -> impl IntoView {
                 <div style="display: flex; flex-direction: column; gap: 1rem;">
                     <div style="display: flex; align-items: center; gap: 0.5rem;">
                         <Checkbox>
-                            <CheckboxIndicator>
-                                "✓"
-                            </CheckboxIndicator>
+                            <CheckboxIndicator />
                         </Checkbox>
                         <label style="color: #374151;">"Basic Checkbox (Unchecked)"</label>
                     </div>
 
                     <div style="display: flex; align-items: center; gap: 0.5rem;">
                         <Checkbox default_checked=CheckedState::True>
-                            <CheckboxIndicator>
-                                "✓"
-                            </CheckboxIndicator>
+                            <CheckboxIndicator />
                         </Checkbox>
                         <label style="color: #374151;">"Checked by Default"</label>
                     </div>
 
                     <div style="display: flex; align-items: center; gap: 0.5rem;">
                         <Checkbox default_checked=CheckedState::Indeterminate>
-                            <CheckboxIndicator>
-                                "−"
-                            </CheckboxIndicator>
+                            <CheckboxIndicator />
                         </Checkbox>
                         <label style="color: #374151;">"Indeterminate State"</label>
                     </div>
 
                     <div style="display: flex; align-items: center; gap: 0.5rem;">
                         <Checkbox disabled=true>
-                            <CheckboxIndicator>
-                                "✓"
-                            </CheckboxIndicator>
+                            <CheckboxIndicator />
                         </Checkbox>
                         <label style="color: #9ca3af;">"Disabled Checkbox"</label>
                     </div>
@@ -315,9 +295,7 @@ pub fn ComponentTestPage() -> impl IntoView {
                         <div style="padding: 1rem; border: 1px solid #e5e7eb; border-radius: 4px;">
                             <div style="display: flex; align-items: center; gap: 0.5rem;">
                                 <Checkbox>
-                                    <CheckboxIndicator>
-                                        "✓"
-                                    </CheckboxIndicator>
+                                    <CheckboxIndicator />
                                 </Checkbox>
                                 <Label>"I agree to the terms and conditions"</Label>
                             </div>
@@ -399,9 +377,7 @@ pub fn ComponentTestPage() -> impl IntoView {
             // Theme Status
             <section style="margin: 2rem 0; padding: 1rem; border: 2px solid #e5e7eb; border-radius: 8px; background: #f9fafb;">
                 <p style="color: #6b7280; text-align: center; margin: 0;">
-                    "Current theme: "
-                    <strong style="color: #374151;">{move || format!("{:?}", theme.get())}</strong>
-                    " • Click " {theme_button_text} " to toggle"
+                    "Theme toggle working • Click " {theme_button_text} " to toggle"
                 </p>
             </section>
         </div>

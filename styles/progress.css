@@ -1,30 +1,33 @@
 /* Leptos Radix UI Progress Component Styles */
 /* Matches Radix UI visual behavior exactly */
 
-/* CSS Custom Properties for easy customization */
+/* CSS Custom Properties - Professional Polish (Radix UI Pattern) */
 :root {
-  /* Progress container */
-  --progress-width: 300px;
-  --progress-height: 20px;
-  --progress-border-radius: 9999px;
-  --progress-background: #e5e7eb;
-  --progress-border: 1px solid #d1d5db;
-  
-  /* Progress indicator colors */
-  --progress-indicator-background: #3b82f6;
-  --progress-indicator-background-loading: #10b981;
-  --progress-indicator-background-complete: #059669;
-  --progress-indicator-background-indeterminate: linear-gradient(90deg, transparent, #8b5cf6, transparent);
-  
-  /* Transitions */
-  --progress-transition-duration: 300ms;
-  --progress-transition-timing: ease;
-  
-  /* Typography */
-  --progress-font-size: 12px;
-  --progress-font-weight: 500;
-  --progress-text-color: white;
-  --progress-text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  /* Progress container - Pixel-perfect Radix sizing */
+  --progress-width: 300px; /* Flexible width */
+  --progress-height: 6px; /* Radix size-2: calc(var(--space-2) * 0.75) */
+  --progress-border-radius: max(calc(var(--progress-height) / 3), 12px); /* Radix pattern */
+  --progress-background: rgba(0, 0, 0, 0.05); /* --gray-a3 equivalent */
+
+  /* Progress indicator colors - Surface variant (Radix pattern) */
+  --progress-indicator-background: var(--accent-9, #3b82f6); /* --accent-track */
+  --progress-indicator-background-indeterminate: var(--accent-7, #60a5fa);
+
+  /* Professional Micro-Transitions (Radix pattern) */
+  --progress-transition-duration: 120ms; /* Radix uses 120ms for transform */
+  --progress-transition-timing: ease-out;
+  --progress-transition-properties: transform;
+
+  /* Progress values */
+  --progress-value: 0;
+  --progress-max: 100;
+  --progress-duration: 5s; /* For indeterminate animation */
+
+  /* Shadows - Radix-inspired */
+  --progress-track-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08); /* --gray-a4 equivalent */
+
+  /* Indeterminate animation gradients */
+  --progress-shine-gradient: rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1); /* --white-a5, --white-a9, --white-a5 */
 }
 
 /* Dark mode overrides */
@@ -44,76 +47,135 @@
   --progress-text-shadow: 0 1px 2px var(--black-a6);
 }
 
-/* Base Progress Container */
+/* Base Progress Container - Professional Polish (Radix Pattern) */
 [role="progressbar"] {
+  /* Layout - Radix pattern */
   position: relative;
   overflow: hidden;
-  background-color: var(--progress-background);
-  border-radius: var(--progress-border-radius);
+  flex-grow: 1;
+  pointer-events: none;
+
+  /* Sizing - Pixel perfect */
   width: var(--progress-width);
   height: var(--progress-height);
-  border: var(--progress-border);
+  border-radius: var(--progress-border-radius);
+
+  /* Base styling */
+  background-color: var(--progress-background);
+  border: none; /* Use box-shadow for borders (Radix pattern) */
 }
 
-/* Progress Indicator Base Styles */
+/* Pseudo-element for shadows (Radix pattern) */
+[role="progressbar"]::after {
+  position: absolute;
+  inset: 0;
+  content: '';
+  border-radius: inherit;
+  box-shadow: var(--progress-track-shadow);
+}
+
+/* Progress Indicator Base Styles - Professional Polish */
 [role="progressbar"] > div {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: var(--progress-font-size);
-  font-weight: var(--progress-font-weight);
-  color: var(--progress-text-color);
-  text-shadow: var(--progress-text-shadow);
-  transition: all var(--progress-transition-duration) var(--progress-transition-timing);
+  /* Layout */
+  display: block;
+  height: 100%;
+  width: 100%;
+
+  /* Professional Micro-Transitions - Key to premium feel */
+  transition: var(--progress-transition-properties) var(--progress-transition-duration) var(--progress-transition-timing);
+
+  /* Transform pattern (Radix) */
+  transform: scaleX(calc(var(--progress-value) / var(--progress-max)));
+  transform-origin: left center;
+
+  /* Base styling */
+  background-color: var(--progress-indicator-background);
   border-radius: inherit;
 }
 
-/* State-based styling using data attributes */
+/* Professional Data-State Styling (Radix Pattern) */
+
+/* Loading state - Default styling already applied above */
 [role="progressbar"][data-state="loading"] > div {
-  background-color: var(--progress-indicator-background-loading);
+  background-color: var(--progress-indicator-background);
 }
 
+/* Complete state - Same as loading for surface variant */
 [role="progressbar"][data-state="complete"] > div {
-  background-color: var(--progress-indicator-background-complete);
+  background-color: var(--progress-indicator-background);
 }
 
+/* Indeterminate state - Professional Radix animation */
 [role="progressbar"][data-state="indeterminate"] > div {
-  background: var(--progress-indicator-background-indeterminate);
-  animation: progress-indeterminate 2s infinite;
+  background-color: var(--progress-indicator-background-indeterminate);
+
+  /* Complex Radix animation sequence */
+  animation-name: rt-progress-indicator-indeterminate-grow, rt-progress-indicator-surface-indeterminate-fade, rt-progress-indicator-surface-indeterminate-pulse;
+  animation-delay: 0s, calc(var(--progress-duration) + 5s), calc(var(--progress-duration) + 7.5s);
+  animation-duration: var(--progress-duration), 2.5s, 5s;
+  animation-iteration-count: 1, 1, infinite;
+  animation-fill-mode: both, none, none;
+  animation-direction: normal, normal, alternate;
 }
 
-/* Indeterminate animation */
-@keyframes progress-indeterminate {
-  0% { 
-    transform: translateX(-100%); 
-    opacity: 0.6;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% { 
-    transform: translateX(var(--progress-width)); 
-    opacity: 0.6;
-  }
+/* Indeterminate shine effect (Radix pattern) */
+[role="progressbar"][data-state="indeterminate"] > div::after {
+  position: absolute;
+  inset: 0;
+  content: '';
+  width: 400%;
+
+  animation-name: rt-progress-indicator-indeterminate-shine-from-left;
+  animation-delay: calc(var(--progress-duration) + 5s);
+  animation-duration: 5s;
+  animation-fill-mode: backwards;
+  animation-iteration-count: infinite;
+
+  background-image: linear-gradient(
+    to right,
+    transparent 25%,
+    var(--progress-shine-gradient),
+    transparent 75%
+  );
 }
 
-/* Size variants */
-.progress-sm {
-  --progress-width: 200px;
-  --progress-height: 12px;
-  --progress-font-size: 10px;
+/* Professional Radix Keyframes */
+@keyframes rt-progress-indicator-indeterminate-grow {
+  0% { transform: scaleX(0.01); }
+  20% { transform: scaleX(0.1); }
+  30% { transform: scaleX(0.6); }
+  40%, 50% { transform: scaleX(0.9); }
+  100% { transform: scaleX(1); }
 }
 
-.progress-md {
-  --progress-width: 300px;
-  --progress-height: 20px;
-  --progress-font-size: 12px;
+@keyframes rt-progress-indicator-indeterminate-shine-from-left {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(0%); }
 }
 
-.progress-lg {
-  --progress-width: 400px;
-  --progress-height: 28px;
-  --progress-font-size: 14px;
+@keyframes rt-progress-indicator-surface-indeterminate-fade {
+  100% { background-color: var(--progress-indicator-background-indeterminate); }
+}
+
+@keyframes rt-progress-indicator-surface-indeterminate-pulse {
+  0% { background-color: var(--progress-indicator-background-indeterminate); }
+  100% { background-color: var(--progress-indicator-background); }
+}
+
+/* Professional Size Variants (Radix Pattern) */
+.progress-size-1 {
+  --progress-height: 4px; /* Radix size-1: var(--space-1) */
+  --progress-border-radius: max(calc(var(--progress-height) / 3), 12px);
+}
+
+.progress-size-2 {
+  --progress-height: 6px; /* Radix size-2: calc(var(--space-2) * 0.75) */
+  --progress-border-radius: max(calc(var(--progress-height) / 3), 12px);
+}
+
+.progress-size-3 {
+  --progress-height: 8px; /* Radix size-3: var(--space-2) */
+  --progress-border-radius: max(calc(var(--progress-height) / 3), 12px);
 }
 
 /* Color variants */

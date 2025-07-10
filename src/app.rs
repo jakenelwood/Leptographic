@@ -4,7 +4,7 @@ use leptos_meta::{provide_meta_context, MetaTags, Stylesheet, Title};
 #[cfg(feature = "ssr")]
 use leptos::hydration::{AutoReload, HydrationScripts};
 
-use crate::themes::{ThemeProvider, ThemeToggle};
+use crate::themes::ThemeProvider;
 use crate::component_test::ComponentTestPage;
 
 pub fn shell(options: LeptosOptions) -> impl IntoView {
