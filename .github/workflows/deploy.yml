@@ -26,26 +26,23 @@ jobs:
       with:
         node-version: '18'
         cache: 'npm'
-        cache-dependency-path: leptos-radix-ui/package-lock.json
+        cache-dependency-path: package-lock.json
         
     - name: Install cargo-leptos
       run: cargo install cargo-leptos
       
     - name: Install npm dependencies
-      working-directory: leptos-radix-ui
       run: npm ci
-      
+
     - name: Build Leptos application
-      working-directory: leptos-radix-ui
       run: cargo leptos build --release
-      
+
     - name: Create deployment archive
-      working-directory: leptos-radix-ui
       run: |
         mkdir -p deploy
         cp -r target/site/* deploy/
         cp target/release/leptos-radix-ui deploy/
-        tar -czf ../leptos-radix-ui-deploy.tar.gz -C deploy .
+        tar -czf leptos-radix-ui-deploy.tar.gz -C deploy .
         
     - name: Deploy to Hetzner server
       uses: appleboy/ssh-action@v1.0.3
