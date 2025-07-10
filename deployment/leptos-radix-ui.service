@@ -1,0 +1,18 @@
+[Unit]
+Description=Leptos Radix UI Demo Application
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/leptos-radix-ui/current
+ExecStart=/var/www/leptos-radix-ui/current/leptos-radix-ui
+Environment=LEPTOS_SITE_ADDR=127.0.0.1:3000
+Environment=LEPTOS_SITE_ROOT=/var/www/leptos-radix-ui/current
+Environment=RUST_LOG=info
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
