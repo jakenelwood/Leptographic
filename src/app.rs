@@ -5,7 +5,7 @@ use leptos_meta::{provide_meta_context, MetaTags, Stylesheet, Title};
 use leptos::hydration::{AutoReload, HydrationScripts};
 
 use crate::themes::ThemeProvider;
-use crate::component_test::ComponentTestPage;
+use crate::demo_page::DemoPage;
 
 pub fn shell(options: LeptosOptions) -> impl IntoView {
     view! {
@@ -45,10 +45,10 @@ pub fn App() -> impl IntoView {
         <Stylesheet id="switch" href="/styles/switch.css"/>
 
         // sets the document title
-        <Title text="Welcome to Leptos"/>
+        <Title text="Leptos Radix UI - Live Demo"/>
 
-        // Simple component test page
-        <ComponentTestPage />
+        // Professional demo page
+        <DemoPage />
     }
 }
 
