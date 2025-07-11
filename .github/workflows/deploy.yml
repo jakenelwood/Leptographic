@@ -47,9 +47,9 @@ jobs:
     - name: Deploy to new server
       uses: appleboy/ssh-action@v1.0.3
       with:
-        host: ${{ secrets.NEW_SERVER_HOST }}
-        username: ${{ secrets.NEW_SERVER_USER }}
-        key: ${{ secrets.NEW_SERVER_SSH_KEY }}
+        host: ${{ secrets.HETZNER_HOST }}
+        username: ${{ secrets.HETZNER_USER }}
+        key: ${{ secrets.HETZNER_SSH_KEY }}
         port: 22
         script: |
           # Create deployment directory
@@ -70,9 +70,9 @@ jobs:
     - name: Upload deployment files
       uses: appleboy/scp-action@v0.1.7
       with:
-        host: ${{ secrets.NEW_SERVER_HOST }}
-        username: ${{ secrets.NEW_SERVER_USER }}
-        key: ${{ secrets.NEW_SERVER_SSH_KEY }}
+        host: ${{ secrets.HETZNER_HOST }}
+        username: ${{ secrets.HETZNER_USER }}
+        key: ${{ secrets.HETZNER_SSH_KEY }}
         port: 22
         source: "leptos-radix-ui-deploy.tar.gz"
         target: "/tmp/"
@@ -80,9 +80,9 @@ jobs:
     - name: Extract and start application
       uses: appleboy/ssh-action@v1.0.3
       with:
-        host: ${{ secrets.NEW_SERVER_HOST }}
-        username: ${{ secrets.NEW_SERVER_USER }}
-        key: ${{ secrets.NEW_SERVER_SSH_KEY }}
+        host: ${{ secrets.HETZNER_HOST }}
+        username: ${{ secrets.HETZNER_USER }}
+        key: ${{ secrets.HETZNER_SSH_KEY }}
         port: 22
         script: |
           # Extract deployment files
