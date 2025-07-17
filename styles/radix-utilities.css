@@ -1,0 +1,285 @@
+/* Radix Colors Utility Classes */
+/* These classes provide easy access to Radix Colors semantic tokens */
+
+/* Background Utilities */
+.bg-app {
+  background-color: var(--color-background);
+}
+
+.bg-subtle {
+  background-color: var(--color-background-subtle);
+}
+
+.bg-muted {
+  background-color: var(--color-background-muted);
+}
+
+.bg-surface {
+  background-color: var(--color-surface);
+}
+
+.bg-surface-raised {
+  background-color: var(--color-surface-raised);
+}
+
+.bg-surface-overlay {
+  background-color: var(--color-surface-overlay);
+}
+
+/* Interactive Background Utilities */
+.bg-interactive {
+  background-color: var(--color-interactive-background);
+}
+
+.bg-interactive:hover {
+  background-color: var(--color-interactive-background-hover);
+}
+
+.bg-interactive:active {
+  background-color: var(--color-interactive-background-active);
+}
+
+/* State Background Utilities */
+.bg-success {
+  background-color: var(--color-success-background);
+}
+
+.bg-success:hover {
+  background-color: var(--color-success-background-hover);
+}
+
+.bg-error {
+  background-color: var(--color-error-background);
+}
+
+.bg-error:hover {
+  background-color: var(--color-error-background-hover);
+}
+
+.bg-warning {
+  background-color: var(--color-warning-background);
+}
+
+.bg-warning:hover {
+  background-color: var(--color-warning-background-hover);
+}
+
+.bg-caution {
+  background-color: var(--color-caution-background);
+}
+
+.bg-caution:hover {
+  background-color: var(--color-caution-background-hover);
+}
+
+/* Text Color Utilities */
+.text-primary {
+  color: var(--color-text-primary);
+}
+
+.text-secondary {
+  color: var(--color-text-secondary);
+}
+
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+.text-subtle {
+  color: var(--color-text-subtle);
+}
+
+.text-interactive {
+  color: var(--color-interactive-text);
+}
+
+.text-interactive-contrast {
+  color: var(--color-interactive-text-contrast);
+}
+
+/* State Text Colors */
+.text-success {
+  color: var(--color-success-text);
+}
+
+.text-error {
+  color: var(--color-error-text);
+}
+
+.text-warning {
+  color: var(--color-warning-text);
+}
+
+.text-caution {
+  color: var(--color-caution-text);
+}
+
+/* Border Utilities */
+.border-subtle {
+  border-color: var(--color-border-subtle);
+}
+
+.border-default {
+  border-color: var(--color-border);
+}
+
+.border-strong {
+  border-color: var(--color-border-strong);
+}
+
+.border-success {
+  border-color: var(--color-success-border);
+}
+
+.border-error {
+  border-color: var(--color-error-border);
+}
+
+.border-warning {
+  border-color: var(--color-warning-border);
+}
+
+.border-caution {
+  border-color: var(--color-caution-border);
+}
+
+/* Focus Ring Utilities */
+.focus-ring {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-focus-ring);
+}
+
+.focus-ring-subtle {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-focus-ring-subtle);
+}
+
+/* Overlay Utilities */
+.overlay {
+  background-color: var(--color-overlay);
+}
+
+.overlay-subtle {
+  background-color: var(--color-overlay-subtle);
+}
+
+/* Component-specific utilities */
+.card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 8px;
+}
+
+.card-raised {
+  background-color: var(--color-surface-raised);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px var(--color-overlay-subtle);
+}
+
+.button-primary {
+  background-color: var(--color-interactive-background);
+  color: var(--color-interactive-text-contrast);
+  border: 1px solid var(--color-interactive-background);
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-weight: 500;
+  transition: all 150ms ease;
+}
+
+.button-primary:hover {
+  background-color: var(--color-interactive-background-hover);
+  border-color: var(--color-interactive-background-hover);
+}
+
+.button-primary:active {
+  background-color: var(--color-interactive-background-active);
+  border-color: var(--color-interactive-background-active);
+}
+
+.button-primary:focus {
+  box-shadow: 0 0 0 2px var(--color-focus-ring);
+}
+
+.button-secondary {
+  background-color: var(--color-surface);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-weight: 500;
+  transition: all 150ms ease;
+}
+
+.button-secondary:hover {
+  background-color: var(--color-background-subtle);
+  border-color: var(--color-border-strong);
+}
+
+.button-secondary:focus {
+  box-shadow: 0 0 0 2px var(--color-focus-ring);
+}
+
+/* Input utilities */
+.input {
+  background-color: var(--color-surface);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 8px 12px;
+  transition: all 150ms ease;
+}
+
+.input:hover {
+  border-color: var(--color-border-strong);
+}
+
+.input:focus {
+  border-color: var(--color-interactive-background);
+  box-shadow: 0 0 0 2px var(--color-focus-ring-subtle);
+  outline: none;
+}
+
+.input::placeholder {
+  color: var(--color-text-muted);
+}
+
+/* Navigation utilities */
+.nav-link {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: color 150ms ease;
+}
+
+.nav-link:hover {
+  color: var(--color-text-primary);
+}
+
+.nav-link.active {
+  color: var(--color-interactive-text);
+}
+
+/* Status indicators */
+.status-success {
+  background-color: var(--color-success-background);
+  color: var(--color-success-text);
+  border: 1px solid var(--color-success-border);
+}
+
+.status-error {
+  background-color: var(--color-error-background);
+  color: var(--color-error-text);
+  border: 1px solid var(--color-error-border);
+}
+
+.status-warning {
+  background-color: var(--color-warning-background);
+  color: var(--color-warning-text);
+  border: 1px solid var(--color-warning-border);
+}
+
+.status-caution {
+  background-color: var(--color-caution-background);
+  color: var(--color-caution-text);
+  border: 1px solid var(--color-caution-border);
+}

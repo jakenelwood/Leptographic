@@ -1,7 +1,13 @@
-
 # Rust
 target/
+debug/
 Cargo.lock
+
+# Rust backup files
+**/*.rs.bk
+
+# MSVC Windows builds
+*.pdb
 
 # Node.js
 node_modules/

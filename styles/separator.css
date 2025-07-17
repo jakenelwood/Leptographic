@@ -1,0 +1,114 @@
+/* Separator Component Styles - Professional Polish (Radix UI Pattern) */
+/* Based on: https://github.com/radix-ui/themes/blob/main/packages/radix-ui-themes/src/components/separator.css */
+
+/* CSS Custom Properties - Professional Polish (Radix UI Pattern) */
+:root {
+  /* Separator dimensions - Pixel-perfect Radix sizing */
+  --separator-thickness: 1px; /* Always 1px in Radix */
+  --separator-size: 100%; /* Default size-4 (100%) */
+
+  /* Colors - Radix pattern */
+  --separator-color: rgba(0, 0, 0, 0.12); /* --accent-a6 equivalent */
+
+  /* Professional Micro-Transitions (Radix pattern) */
+  --separator-transition-duration: 120ms; /* Radix standard */
+  --separator-transition-timing: ease-out;
+  --separator-transition-properties: background-color, opacity;
+}
+
+/* Dark mode color adjustments */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --separator-color: rgba(255, 255, 255, 0.12); /* Dark mode --accent-a6 equivalent */
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  :root {
+    --separator-color: currentColor;
+  }
+}
+
+/* Base Separator Styles - Professional Polish (Radix Pattern) */
+.separator-root {
+  /* Layout - Radix pattern */
+  display: block;
+  flex-shrink: 0;
+
+  /* Professional Micro-Transitions - Key to premium feel */
+  transition: var(--separator-transition-properties) var(--separator-transition-duration) var(--separator-transition-timing);
+
+  /* Base styling */
+  background-color: var(--separator-color);
+  border: none; /* Radix uses background-color, not borders */
+  margin: 0; /* Radix doesn't set margins */
+}
+
+/* Professional Orientation-based Styling (Radix Pattern) */
+
+/* Horizontal separator (default) */
+.separator-root[data-orientation="horizontal"] {
+  width: var(--separator-size);
+  height: var(--separator-thickness);
+}
+
+/* Vertical separator */
+.separator-root[data-orientation="vertical"] {
+  width: var(--separator-thickness);
+  height: var(--separator-size);
+}
+
+/* Professional Data-State Styling (Radix Pattern) */
+/* Note: Radix Separator doesn't use data-state attributes */
+/* It's a simple visual element with consistent styling */
+
+/* Professional Size Variants (Radix Pattern) */
+.separator-size-1 {
+  --separator-size: 16px; /* Radix size-1: var(--space-4) */
+}
+
+.separator-size-2 {
+  --separator-size: 24px; /* Radix size-2: var(--space-6) */
+}
+
+.separator-size-3 {
+  --separator-size: 72px; /* Radix size-3: var(--space-9) */
+}
+
+.separator-size-4 {
+  --separator-size: 100%; /* Radix size-4: 100% (default) */
+}
+
+/* Professional Color Variants (Optional Extensions) */
+.separator-blue {
+  --separator-color: rgba(59, 130, 246, 0.12); /* Blue accent-a6 */
+}
+
+.separator-green {
+  --separator-color: rgba(16, 185, 129, 0.12); /* Green accent-a6 */
+}
+
+.separator-red {
+  --separator-color: rgba(239, 68, 68, 0.12); /* Red accent-a6 */
+}
+
+.separator-purple {
+  --separator-color: rgba(139, 92, 246, 0.12); /* Purple accent-a6 */
+}
+
+/* Professional Accessibility Support */
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .separator-root {
+    transition: none;
+  }
+}
+
+/* Focus styles - Radix separators are typically not focusable */
+/* Only add focus styles if separator contains interactive content */
+.separator-root:focus-visible {
+  outline: 2px solid var(--separator-color);
+  outline-offset: 2px;
+}

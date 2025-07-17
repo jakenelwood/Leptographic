@@ -1,0 +1,117 @@
+/* Label Component Styles - Professional Polish (Radix UI Pattern) */
+/* Based on: https://github.com/radix-ui/themes/blob/main/packages/radix-ui-themes/src/components/text.css */
+
+/* CSS Custom Properties - Professional Polish (Radix UI Pattern) */
+:root {
+  /* Typography - Radix pattern */
+  --label-font-family: inherit;
+  --label-font-size: var(--font-size-2, 0.875rem); /* Radix size-2 default */
+  --label-font-weight: inherit;
+  --label-line-height: var(--line-height-2, 1.25rem);
+  --label-letter-spacing: var(--letter-spacing-2, inherit);
+
+  /* Colors - Radix pattern */
+  --label-color: inherit; /* Radix uses inherited color */
+  --label-color-accent: var(--accent-a11, #3b82f6); /* For accent colored labels */
+  --label-color-high-contrast: var(--accent-12, #1e40af); /* High contrast mode */
+
+  /* Professional Micro-Transitions (Radix pattern) */
+  --label-transition-duration: 120ms; /* Radix standard */
+  --label-transition-timing: ease-out;
+  --label-transition-properties: color, outline;
+
+  /* Touch interaction (Radix pattern) */
+  --label-tap-highlight-color: transparent;
+  --label-active-outline: 0.75em solid var(--gray-a4, rgba(0, 0, 0, 0.05));
+  --label-active-outline-offset: -0.6em;
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  :root {
+    --label-color-accent: var(--label-color-high-contrast);
+  }
+}
+
+/* Base Label Styles - Professional Polish (Radix Pattern) */
+.label-root {
+  /* Layout - Radix pattern */
+  display: inline;
+
+  /* Typography - Radix pattern */
+  font-family: var(--label-font-family);
+  font-size: var(--label-font-size);
+  font-weight: var(--label-font-weight);
+  line-height: var(--label-line-height);
+  letter-spacing: var(--label-letter-spacing);
+
+  /* Colors - Radix pattern */
+  color: var(--label-color);
+
+  /* Reset - Radix pattern */
+  margin: 0;
+
+  /* Professional Micro-Transitions - Key to premium feel */
+  transition: var(--label-transition-properties) var(--label-transition-duration) var(--label-transition-timing);
+
+  /* Touch interaction - Radix pattern for mobile */
+  -webkit-tap-highlight-color: var(--label-tap-highlight-color);
+}
+
+/* Professional Stateful Styling (Radix Pattern) */
+
+/* Touch active state - Radix mobile pattern */
+@media (pointer: coarse) {
+  .label-root:active {
+    outline: var(--label-active-outline);
+    outline-offset: var(--label-active-outline-offset);
+  }
+}
+
+/* Professional Data-State Styling (Radix Pattern) */
+
+/* Accent colored labels */
+.label-root[data-accent-color] {
+  color: var(--label-color-accent);
+}
+
+/* High contrast accent labels */
+.label-root[data-accent-color].label-high-contrast {
+  color: var(--label-color-high-contrast);
+}
+
+/* Professional Size Variants (Radix Pattern) */
+.label-size-1 {
+  --label-font-size: var(--font-size-1, 0.75rem); /* Radix size-1 */
+  --label-line-height: var(--line-height-1, 1rem);
+  --label-letter-spacing: var(--letter-spacing-1, inherit);
+}
+
+.label-size-2 {
+  --label-font-size: var(--font-size-2, 0.875rem); /* Radix size-2 (default) */
+  --label-line-height: var(--line-height-2, 1.25rem);
+  --label-letter-spacing: var(--letter-spacing-2, inherit);
+}
+
+.label-size-3 {
+  --label-font-size: var(--font-size-3, 1rem); /* Radix size-3 */
+  --label-line-height: var(--line-height-3, 1.5rem);
+  --label-letter-spacing: var(--letter-spacing-3, inherit);
+}
+
+.label-size-4 {
+  --label-font-size: var(--font-size-4, 1.125rem); /* Radix size-4 */
+  --label-line-height: var(--line-height-4, 1.75rem);
+  --label-letter-spacing: var(--letter-spacing-4, inherit);
+}
+
+/* Professional Accessibility Support */
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .label-root {
+    transition: none;
+  }
+}
+
+

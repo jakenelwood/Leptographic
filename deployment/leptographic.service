@@ -1,0 +1,18 @@
+[Unit]
+Description=Leptographic - Leptos Radix UI Demo
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/leptographic/current
+ExecStart=/var/www/leptographic/current/leptos-radix-ui
+Environment=LEPTOS_SITE_ADDR=127.0.0.1:3000
+Environment=LEPTOS_SITE_ROOT=/var/www/leptographic/current
+Environment=RUST_LOG=info
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
