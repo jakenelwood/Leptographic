@@ -9,18 +9,24 @@ crate-type = ["cdylib", "rlib"]
 
 
 [dependencies]
-leptos = { version = "0.8.2" }
-leptos_router = { version = "0.8.2" }
-leptos-use = { version = "0.14.0" }
+# Add `default-features = false` to the core leptos crates
+leptos = { version = "0.8.3", default-features = false }
+
+leptos_meta = { version = "0.8.3", default-features = false }
+
+# These are fine as they are
+
 axum = { version = "0.8.0", optional = true }
 console_error_panic_hook = { version = "0.1", optional = true }
-leptos_axum = { version = "0.8.2", optional = true }
-leptos_meta = { version = "0.8.2" }
+leptos_axum = { version = "0.8.3", optional = true }
 tokio = { version = "1", features = ["rt-multi-thread"], optional = true }
 wasm-bindgen = { version = "=0.2.100" }
-wasm-bindgen-futures = { version = "0.4" }
-web-sys = { version = "0.3", features = ["Window", "Document", "Element", "HtmlElement", "DomTokenList", "Storage", "MediaQueryList"] }
-gloo-timers = { version = "0.3", features = ["futures"] }
+
+web-sys = { version = "0.3", features = [
+    "Window", "Document", "Element", "HtmlElement", "DomTokenList", "Storage", "MediaQueryList",
+    "HtmlInputElement", "Event", "EventInit", "DomRect"
+] }
+
 
 [features]
 hydrate = [
@@ -33,7 +39,7 @@ ssr = [
     "dep:leptos_axum",
     "leptos/ssr",
     "leptos_meta/ssr",
-    "leptos_router/ssr",
+
 ]
 
 # Defines a size-optimized profile for the WASM bundle in release mode
@@ -55,8 +61,8 @@ site-root = "target/site"
 # Defaults to pkg
 site-pkg-dir = "pkg"
 
-# [Optional] The source CSS file. If it ends with .sass or .scss then it will be compiled by dart-sass into CSS. The CSS is optimized by Lightning CSS before being written to <site-root>/<site-pkg>/app.css
-style-file = "style/main.scss"
+# [Optional] Tailwind CSS 4 input file - cargo-leptos will automatically download and use Tailwind CSS 4 executable
+tailwind-input-file = "style/main.css"
 # Assets source dir. All files found here will be copied and synchronized to site-root.
 # The assets-dir cannot have a sub directory with the same name/path as site-pkg-dir.
 #
