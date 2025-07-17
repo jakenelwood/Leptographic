@@ -1,0 +1,60 @@
+@import "tailwindcss";
+@source "./src/**/*.rs";
+
+@theme {
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+  --color-gray-950: #030712;
+
+  --color-blue-50: #eff6ff;
+  --color-blue-100: #dbeafe;
+  --color-blue-200: #bfdbfe;
+  --color-blue-300: #93c5fd;
+  --color-blue-400: #60a5fa;
+  --color-blue-500: #3b82f6;
+  --color-blue-600: #2563eb;
+  --color-blue-700: #1d4ed8;
+  --color-blue-800: #1e40af;
+  --color-blue-900: #1e3a8a;
+  --color-blue-950: #172554;
+}
+
+/* Checkbox data-driven styling (like Radix UI) */
+.leptonic-checkbox {
+  border-color: transparent; /* No visible border when unchecked */
+}
+
+.leptonic-checkbox[data-state="checked"] {
+  border-color: black;
+  /* Keep background white - only border changes */
+}
+
+.leptonic-checkbox[data-state="checked"]:hover {
+  border-color: var(--color-gray-800);
+}
+
+/* Clean focus styling - no ring, just subtle border change */
+.leptonic-checkbox:focus-visible {
+  outline: 2px solid var(--color-blue-500);
+  outline-offset: 2px;
+}
+
+/* Checkbox indicator styling - black checkmark on white background */
+.leptonic-checkbox-indicator {
+  color: black;
+}
+
+.leptonic-checkbox-indicator svg {
+  color: black;
+  fill: currentColor;
+  width: 15px;
+  height: 15px;
+}
