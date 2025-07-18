@@ -1,3 +1,5 @@
+#![forbid(unsafe_code)]
+
 #[cfg(feature = "ssr")]
 use axum::Router;
 #[cfg(feature = "ssr")]

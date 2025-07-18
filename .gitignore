@@ -12,3 +12,10 @@ Cargo.lock
 
 # MSVC Windows builds of rustc generate these, which store debugging information
 *.pdb
+
+
+# Test results and reports
+test_results/
+
+#Ignore vscode AI rules (legacy)
+.github/copilot-instructions.md
