@@ -1,22 +1,48 @@
 #!/bin/bash
-# BLUEPRINT.md Universal Component Generator
+# 🎯 Leptographic Hook-First Component Factory
 # "Everything should be made as simple as possible, but no simpler" - Einstein
+#
+# 🚀 Hook-First Revolution: 10x faster development using proven hooks
+# 🎯 For complete workflow: See master-workflow.md
+# 🎯 For hook patterns: See BLUEPRINT.md
 
 COMPONENT_NAME=$1
 PHASE=${2:-"all"}
 
 if [ -z "$COMPONENT_NAME" ]; then
-    echo "🚀 BLUEPRINT.md Component Generator"
+    echo "🎯 Leptographic Hook-First Component Factory"
+    echo ""
+    echo "🚀 REVOLUTION: 10x faster development using proven hooks!"
+    echo ""
+    echo "📋 See master-workflow.md for complete instructions"
     echo ""
     echo "Usage:"
     echo "  $0 <component> [phase]"
     echo ""
     echo "Examples:"
-    echo "  $0 switch           # Generate complete switch component"
-    echo "  $0 button I         # Generate Phase I only"
-    echo "  $0 dialog II        # Generate Phase II only"
+    echo "  $0 switch           # Generate complete switch component (3 phases)"
+    echo "  $0 button 0         # Generate Phase 0 (Hook Selection) only"
+    echo "  $0 button I         # Generate Phase I (Component Composition) only"
+    echo "  $0 dialog II        # Generate Phase II (Polish & Production) only"
     echo ""
-    echo "Phases: I, II, III, IV, all (default)"
+    echo "SIMPLIFIED PHASES:"
+    echo "  0  - Hook Selection (5-15 min) - Choose the right hooks"
+    echo "  I  - Component Composition (15-30 min) - Compose hooks into component"
+    echo "  II - Polish & Production (15-30 min) - Styling and final polish"
+    echo ""
+    echo "AVAILABLE HOOKS:"
+    echo "  ✅ use_controllable_state    - Universal state management"
+    echo "  ✅ use_checkbox_state        - Complete checkbox logic"
+    echo "  ✅ use_switch_state          - Complete switch logic"
+    echo "  ✅ use_id_generator          - Unique IDs for accessibility"
+    echo "  ✅ use_escape_key            - Handle escape key presses"
+    echo "  ✅ use_previous              - Track previous values"
+    echo ""
+    echo "🚨 STYLING POLICY:"
+    echo "  ✅ TAILWIND CSS 4 ONLY      - Data-driven utility classes"
+    echo "  ❌ NO CUSTOM CSS            - No external stylesheets"
+    echo "  ❌ NO INLINE STYLES         - No style= attributes"
+    echo ""
     exit 1
 fi
 
@@ -48,279 +74,200 @@ EOF
 generate_phase() {
     local phase=$1
     case $phase in
+        "0")
+            cat << EOF > /tmp/phase0_${COMPONENT_NAME}.md
+# Phase 0: Hook Selection - $COMPONENT_NAME
+
+## Research & Analysis
+@octocode Search Radix UI "$COMPONENT_NAME" React implementation
+@context7 Get WAI-ARIA patterns for "$COMPONENT_NAME"
+
+## Hook Selection Decision Tree
+Based on component needs, select from our hook library:
+
+**State Management:**
+- [ ] use_controllable_state (universal pattern)
+- [ ] use_${COMPONENT_NAME,,}_state (if exists in our library)
+- [ ] Custom state hook needed?
+
+**Interactions:**
+- [ ] use_escape_key (close on escape)
+- [ ] use_outside_click (close on outside click) - TODO: Fix NodeRef issues
+- [ ] use_focus_trap (modal/dialog focus) - TODO: Fix NodeRef issues
+
+**Utilities:**
+- [ ] use_id_generator (accessibility IDs)
+- [ ] use_previous (animations/transitions)
+
+## Output
+List of hooks to use and their configuration for $COMPONENT_NAME component.
+EOF
+            echo "📋 Phase 0 prompt: /tmp/phase0_${COMPONENT_NAME}.md"
+            ;;
         "I")
             cat << EOF > /tmp/phase1_${COMPONENT_NAME}.md
-# Phase I: Core Architecture - $COMPONENT_NAME
+# Phase I: Component Composition - $COMPONENT_NAME
 
-## Research (Automated)
-@octocode Search Radix UI "$COMPONENT_NAME" React patterns
-@context7 Get WAI-ARIA spec for "$COMPONENT_NAME"
+## Hook Integration
+Using hooks selected in Phase 0, create component following BLUEPRINT.md patterns:
 
-## Generation (BLUEPRINT.md Phase I)
-Using proven Phase I patterns:
-
-1. **Critical Imports**
+**Template:**
 \`\`\`rust
-use leptos::prelude::*;
-use leptos::context::Provider;  // ← CRITICAL
+#[component]
+pub fn ${COMPONENT_NAME^}(
+    // Props based on selected hooks
+    #[prop(into, optional)] checked: MaybeProp<T>,
+    #[prop(into, optional)] default_checked: MaybeProp<T>,
+    #[prop(into, optional)] on_checked_change: Option<Callback<T>>,
+    #[prop(into, optional)] disabled: MaybeProp<bool>,
+    children: ChildrenFn,
+) -> impl IntoView {
+    // Phase 0: Compose hooks
+    let state = use_${COMPONENT_NAME,,}_state(checked, default_checked, on_checked_change);
+    let ids = use_related_ids("${COMPONENT_NAME,,}");
+
+    // Context for child components
+    let context_value = ${COMPONENT_NAME^}ContextValue {
+        state: state.checked,
+        disabled: disabled.into(),
+    };
+
+    view! {
+        <Provider value=context_value>
+            <button
+                id=ids.trigger_id
+                role="{aria_role}"
+                aria-checked=move || state.get_aria_checked.get()
+                data-state=move || state.get_state_attr.get()
+                data-disabled=move || disabled.get().then_some("")
+                disabled=move || disabled.get().unwrap_or(false)
+                on:click=move |_| state.toggle.run(())
+            >
+                {children()}
+            </button>
+        </Provider>
+    }
+}
 \`\`\`
 
-2. **State Management** (if stateful)
-\`\`\`rust
-#[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
-pub enum ${COMPONENT_NAME}State { /* ... */ }
-\`\`\`
-
-3. **Basic Component Structure**
-- Context pattern for state sharing
-- Controllable state management  
-- Basic interaction handling
-
-Generate Phase I following BLUEPRINT.md patterns exactly.
+## Success Criteria:
+- [ ] Component compiles and renders
+- [ ] Hooks provide all necessary functionality
+- [ ] ARIA attributes are correct
+- [ ] Context system works for child components
+- [ ] Basic interactions work (click, keyboard)
 EOF
+            echo "📋 Phase I prompt: /tmp/phase1_${COMPONENT_NAME}.md"
             ;;
         "II")
             cat << EOF > /tmp/phase2_${COMPONENT_NAME}.md
-# Phase II: Production Features - $COMPONENT_NAME
+# Phase II: Polish & Production - $COMPONENT_NAME
 
-## Enhancement Requirements
-Apply BLUEPRINT.md Phase II patterns:
+## 🚨 STYLING INTEGRATION - TAILWIND CSS 4 ONLY
+**CRITICAL**: Use ONLY Tailwind CSS 4 utility classes. NO custom CSS allowed.
 
-1. **Enhanced Props** - Form integration, events, accessibility
-2. **WAI-ARIA Compliance** - Full keyboard navigation
-3. **Form Integration** - Hidden inputs, validation support
-
-Upgrade Phase I to Phase II following BLUEPRINT.md exactly.
-EOF
-            ;;
-        "III")
-            cat << EOF > /tmp/phase3_${COMPONENT_NAME}.md
-# Phase III: Advanced Composition - $COMPONENT_NAME
-
-## Advanced Requirements
-Apply BLUEPRINT.md Phase III patterns:
-
-1. **Advanced Props** - MaybeProp, as_child, NodeRef
-2. **Event Composition** - Multiple handler composition
-3. **Edge Cases** - Error handling, loading states
-
-Upgrade to Phase III following BLUEPRINT.md patterns.
-EOF
-            ;;
-        "IV")
-            cat << EOF > /tmp/phase4_${COMPONENT_NAME}.md
-# Phase IV: Tailwind Styling - $COMPONENT_NAME
-
-## Styling Requirements
-Apply BLUEPRINT.md Phase IV patterns:
-
-1. **Data-Driven Styling**
 \`\`\`rust
-data-state=move || match state.get() {
-    ComponentState::Active => "active",
-    ComponentState::Inactive => "inactive",
+// ✅ CORRECT: Tailwind CSS 4 data-driven styling
+class="
+    relative inline-flex h-5 w-5 items-center justify-center
+    rounded border-2 border-gray-300 bg-white
+    data-[state=checked]:border-blue-500 data-[state=checked]:bg-blue-500
+    data-[state=unchecked]:border-gray-300 data-[state=unchecked]:bg-white
+    data-[disabled]:opacity-50 data-[disabled]:cursor-not-allowed
+    focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
+    transition-colors duration-150 ease-in-out
+    hover:border-gray-400 data-[state=checked]:hover:bg-blue-600
+"
+
+// ❌ FORBIDDEN: Custom CSS, inline styles, external libraries
+// style="custom: styles"  // NO
+// class="custom-class"     // NO (unless Tailwind)
+\`\`\`
+
+## Form Integration
+Add hidden input for form submission:
+
+\`\`\`rust
+// Hidden input for form submission
+view! {
+    <input
+        type="hidden"
+        name=move || name.get()
+        value=move || state.get_form_value.get()
+        form=move || form.get()
+    />
 }
 \`\`\`
 
-2. **Tailwind CSS 4** - data-[state=active]: selectors
-3. **Professional Polish** - Transitions, focus states
+## Child Components
+Create indicator/content child components using context:
 
-Add complete styling following BLUEPRINT.md Phase IV.
+\`\`\`rust
+#[component]
+pub fn ${COMPONENT_NAME^}Indicator(children: ChildrenFn) -> impl IntoView {
+    let context = expect_context::<${COMPONENT_NAME^}ContextValue>();
+
+    view! {
+        <Show when=move || context.state.get() == SomeState::Active>
+            <div data-state=move || /* context-driven state */>
+                {children()}
+            </div>
+        </Show>
+    }
+}
+\`\`\`
+
+## Success Criteria:
+- [ ] 🚨 TAILWIND CSS 4 ONLY - No custom CSS anywhere
+- [ ] Styling responds to all states using data-[state=*]: selectors
+- [ ] Form integration works
+- [ ] Child components use context correctly
+- [ ] Component is production-ready
+
 EOF
+            echo "📋 Phase II prompt: /tmp/phase2_${COMPONENT_NAME}.md"
+            ;;
+        *)
+            echo "❌ Invalid phase: $phase"
+            echo "Valid phases: 0, I, II"
+            exit 1
             ;;
     esac
-    echo "📋 Phase $phase prompt: /tmp/phase${phase}_${COMPONENT_NAME}.md"
-}
-
-# Function: Generate timestamped report filename
-generate_report_filename() {
-    local component_name=$1
-    local timestamp=$(date +"%Y%m%d_%H%M%S")
-    echo "test_results/quality_report_${component_name}_${timestamp}.txt"
-}
-
-# Function: Initialize report
-init_report() {
-    local report_file=$1
-    local component_name=$2
-
-    mkdir -p test_results
-
-    cat > "$report_file" << EOF
-================================================================================
-LEPTOS-RADIX QUALITY PIPELINE REPORT
-================================================================================
-Component: $component_name
-Date: $(date '+%Y-%m-%d %H:%M:%S')
-Host: $(hostname)
-User: $(whoami)
-Working Directory: $(pwd)
-================================================================================
-
-EOF
-}
-
-# Function: Log to report
-log_to_report() {
-    local report_file=$1
-    local message=$2
-    echo "$message" | tee -a "$report_file"
-}
-
-# Function: Run quality pipeline
-run_quality() {
-    local component_name=${1:-"unknown"}
-    local report_file=$(generate_report_filename "$component_name")
-
-    init_report "$report_file" "$component_name"
-
-    log_to_report "$report_file" "🔧 Quality Pipeline Started"
-    log_to_report "$report_file" ""
-
-    # Code formatting and basic fixes
-    log_to_report "$report_file" "📝 Formatting and basic fixes..."
-    if cargo fmt 2>&1 | tee -a "$report_file"; then
-        log_to_report "$report_file" "✅ Formatting: PASSED"
-    else
-        log_to_report "$report_file" "❌ Formatting: FAILED"
-        return 1
-    fi
-
-    if cargo fix --allow-dirty --allow-staged 2>&1 | tee -a "$report_file"; then
-        log_to_report "$report_file" "✅ Auto-fix: PASSED"
-    else
-        log_to_report "$report_file" "❌ Auto-fix: FAILED"
-        return 1
-    fi
-
-    # Static analysis
-    log_to_report "$report_file" ""
-    log_to_report "$report_file" "🔍 Static analysis..."
-    if cargo clippy --all-targets -- -D warnings 2>&1 | tee -a "$report_file"; then
-        log_to_report "$report_file" "✅ Clippy: PASSED"
-    else
-        log_to_report "$report_file" "❌ Clippy: FAILED"
-        return 1
-    fi
-
-    # Testing
-    log_to_report "$report_file" ""
-    log_to_report "$report_file" "🧪 Running tests..."
-    if cargo test 2>&1 | tee -a "$report_file"; then
-        log_to_report "$report_file" "✅ Tests: PASSED"
-    else
-        log_to_report "$report_file" "❌ Tests: FAILED"
-        return 1
-    fi
-
-    # Performance benchmarking (if benches exist)
-    log_to_report "$report_file" ""
-    log_to_report "$report_file" "⚡ Performance benchmarking..."
-    if [ -d "benches" ] || grep -q "\[\[bench\]\]" Cargo.toml 2>/dev/null; then
-        if cargo bench --no-run 2>&1 | tee -a "$report_file"; then
-            log_to_report "$report_file" "✅ Benchmarks: PASSED"
-        else
-            log_to_report "$report_file" "ℹ️  No benchmarks configured"
-        fi
-    else
-        log_to_report "$report_file" "ℹ️  No benchmarks found"
-    fi
-
-    # Documentation generation
-    log_to_report "$report_file" ""
-    log_to_report "$report_file" "📚 Generating documentation..."
-    if cargo doc --no-deps --document-private-items 2>&1 | tee -a "$report_file"; then
-        log_to_report "$report_file" "✅ Documentation: PASSED"
-    else
-        log_to_report "$report_file" "❌ Documentation: FAILED"
-        return 1
-    fi
-
-    # Security scanning (Inner Loop)
-    log_to_report "$report_file" ""
-    log_to_report "$report_file" "🛡️ Security Scan (Inner Loop)"
-
-    # Check for known vulnerabilities in dependencies
-    log_to_report "$report_file" "  🔍 Checking for known vulnerabilities..."
-    if cargo audit 2>&1 | tee -a "$report_file"; then
-        log_to_report "$report_file" "✅ Vulnerability scan: PASSED"
-    else
-        log_to_report "$report_file" "⚠️  Vulnerabilities detected - review required"
-    fi
-
-    # Detect unsafe code usage
-    log_to_report "$report_file" "  ⚠️  Checking for unsafe code..."
-    if cargo geiger --deny-unsound 2>&1 | tee -a "$report_file"; then
-        log_to_report "$report_file" "✅ Unsafe code check: PASSED"
-    else
-        log_to_report "$report_file" "⚠️  Unsafe code detected - review required"
-    fi
-
-    # Comprehensive dependency checks
-    if cargo deny check 2>&1 | tee -a "$report_file"; then
-        log_to_report "$report_file" "✅ Dependency policy: PASSED"
-    else
-        log_to_report "$report_file" "⚠️  Dependency policy violations detected"
-    fi
-
-    # Check for unused dependencies
-    log_to_report "$report_file" "  🧹 Checking for unused dependencies..."
-    if cargo machete 2>&1 | tee -a "$report_file"; then
-        log_to_report "$report_file" "✅ Unused dependencies: CLEAN"
-    else
-        log_to_report "$report_file" "⚠️  Unused dependencies detected"
-    fi
-
-    # Final report summary
-    log_to_report "$report_file" ""
-    log_to_report "$report_file" "================================================================================"
-    log_to_report "$report_file" "QUALITY PIPELINE COMPLETED"
-    log_to_report "$report_file" "Report saved to: $report_file"
-    log_to_report "$report_file" "Timestamp: $(date '+%Y-%m-%d %H:%M:%S')"
-    log_to_report "$report_file" "================================================================================"
-
-    echo "✅ Quality pipeline complete"
-    echo "📋 Full report saved to: $report_file"
 }
 
 # Main execution
 case $PHASE in
-    "research")
-        generate_research
+    "0")
+        generate_phase "0"
         ;;
-    "quality")
-        echo "🔧 Running quality pipeline for $COMPONENT_NAME"
-        run_quality "$COMPONENT_NAME"
+    "I")
+        generate_phase "I"
         ;;
-    "I"|"II"|"III"|"IV")
-        generate_phase $PHASE
-        echo "Copy prompt to Augment Code, then press Enter..."
-        read -p ""
-        run_quality "$COMPONENT_NAME"
+    "II")
+        generate_phase "II"
         ;;
     "all")
-        echo "🚀 Complete workflow for $COMPONENT_NAME"
+        echo "🚀 Generating all phases for $COMPONENT_NAME..."
         generate_research
-        echo "1️⃣ Copy research prompt to Augment Code, then press Enter..."
-        read -p ""
-
-        for phase in I II III IV; do
-            echo "${phase}️⃣ Generating Phase $phase..."
-            generate_phase $phase
-            echo "Copy Phase $phase prompt to Augment Code, then press Enter..."
-            read -p ""
-            run_quality "$COMPONENT_NAME"
-            if [ $? -ne 0 ]; then
-                echo "❌ Phase $phase failed - fix issues before continuing"
-                exit 1
-            fi
-            echo "✅ Phase $phase complete!"
-        done
-        echo "🎯 $COMPONENT_NAME complete!"
+        generate_phase "0"
+        generate_phase "I"
+        generate_phase "II"
+        echo ""
+        echo "✅ All prompts generated!"
+        echo "📋 Research: /tmp/research_${COMPONENT_NAME}.md"
+        echo "📋 Phase 0: /tmp/phase0_${COMPONENT_NAME}.md"
+        echo "📋 Phase I: /tmp/phase1_${COMPONENT_NAME}.md"
+        echo "📋 Phase II: /tmp/phase2_${COMPONENT_NAME}.md"
+        echo ""
+        echo "🎯 Next Steps:"
+        echo "1. Copy prompts to Augment Code"
+        echo "2. Augment Code will use our hook library"
+        echo "3. Run quality pipeline: cargo fmt && cargo clippy && cargo test"
+        echo "4. Deploy production-ready component in 1-2 hours!"
         ;;
     *)
         echo "❌ Invalid phase: $PHASE"
-        echo "Valid phases: research, quality, I, II, III, IV, all"
+        echo "Valid phases: 0, I, II, all"
         exit 1
         ;;
 esac

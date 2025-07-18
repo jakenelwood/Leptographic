@@ -25,36 +25,19 @@
   --color-blue-800: #1e40af;
   --color-blue-900: #1e3a8a;
   --color-blue-950: #172554;
+
+  /* Custom colors for our design */
+  --color-dark-bg: #141414;
+  --color-hover-purple: #F3F0FF;
+  --color-demo-bg: #1a1a1a;
+  --color-demo-inner: #373737;
+  --color-checkbox-bg: #605ED6;
+
+  /* Light theme colors */
+  --color-light-bg: #ffffff;
+  --color-light-border: #e5e7eb;
+  --color-light-hover: #f9fafb;
 }
 
-/* Checkbox data-driven styling (like Radix UI) */
-.leptonic-checkbox {
-  border-color: transparent; /* No visible border when unchecked */
-}
-
-.leptonic-checkbox[data-state="checked"] {
-  border-color: black;
-  /* Keep background white - only border changes */
-}
-
-.leptonic-checkbox[data-state="checked"]:hover {
-  border-color: var(--color-gray-800);
-}
-
-/* Clean focus styling - no ring, just subtle border change */
-.leptonic-checkbox:focus-visible {
-  outline: 2px solid var(--color-blue-500);
-  outline-offset: 2px;
-}
-
-/* Checkbox indicator styling - black checkmark on white background */
-.leptonic-checkbox-indicator {
-  color: black;
-}
-
-.leptonic-checkbox-indicator svg {
-  color: black;
-  fill: currentColor;
-  width: 15px;
-  height: 15px;
-}
+/* Pure Tailwind CSS 4 - No custom component classes */
+/* All styling handled via utility classes with data-driven approach */

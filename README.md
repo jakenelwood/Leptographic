@@ -1,6 +1,19 @@
-# Leptos-Radix
+# 🎨 Leptographic - Leptos UI System
 
 A comprehensive Leptos component library implementing Radix UI patterns with enterprise-grade security and quality assurance.
+
+## 🌐 **Live Demo**
+
+**✨ Experience it live: [https://leptographic.com](https://leptographic.com)**
+
+See the beautiful, responsive UI system built with Leptos 0.8.3 and Tailwind CSS 4 in action.
+
+### **Features Showcased:**
+- 🎯 **Responsive Design** - Perfect on all devices
+- 🎨 **Theme Toggle** - Smooth light/dark mode transitions
+- 📱 **Mobile-First** - Protected navigation, adaptive grid
+- ⚡ **Performance** - Optimized Leptos + Tailwind CSS 4
+- 🔒 **Production-Ready** - SSL, security headers, caching
 
 ## 🚀 Project Structure
 
@@ -63,11 +76,42 @@ cargo geiger
 cargo deny check
 ```
 
+## 🚀 **Production Deployment**
+
+### **Automated Deployment**
+
+The project includes complete deployment automation for production environments:
+
+```bash
+# 1. Prepare server (run on target server)
+./server-setup.sh
+
+# 2. Deploy application (run locally)
+./deploy.sh
+```
+
+### **Deployment Features**
+
+- ✅ **SSL Certificate** - Let's Encrypt with auto-renewal
+- ✅ **Security Headers** - HSTS, XSS protection, frame options
+- ✅ **Performance** - Gzip compression, HTTP/2, static caching
+- ✅ **Monitoring** - Systemd service with auto-restart
+- ✅ **Production Build** - Optimized WASM with `wasm-release` profile
+
+### **Infrastructure**
+
+- **Web Server**: Nginx with reverse proxy
+- **SSL**: Let's Encrypt certificates
+- **Process Manager**: Systemd service
+- **Security**: Firewall, security headers, non-root execution
+
 ## 📚 Documentation
 
 - [Blueprint Enhancement Guide](docs/BLUEPRINT_ENHANCEMENT.md)
 - [Security Checklist](docs/SECURITY_CHECKLIST.md)
 - [Workflow Integration](docs/WORKFLOW_INTEGRATION.md)
+- [Deployment Guide](DEPLOYMENT_GUIDE.md)
+- [Deployment Checklist](DEPLOYMENT_CHECKLIST.md)
 
 ## 🎯 Mission
 

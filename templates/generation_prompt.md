@@ -11,7 +11,7 @@
 
 ## Generation Requirements
 1. **Rust Standards**: Use latest Rust idioms (2024 edition)
-2. **Leptos 0.8.2**: Follow current API patterns
+2. **Leptos 0.8.3**: Follow current API patterns
 3. **Accessibility**: WAI-ARIA compliant
 4. **Performance**: Zero-cost abstractions
 5. **Testing**: Include unit tests

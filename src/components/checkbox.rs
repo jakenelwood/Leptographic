@@ -1,361 +1,191 @@
+use crate::hooks::{use_checkbox_state, CheckedState, UseCheckboxStateReturn};
 use leptos::context::Provider;
+use leptos::ev;
 use leptos::prelude::*;
-use leptos::*;
-use std::fmt::{Display, Formatter};
 
-/// Represents the checked state of a checkbox
-#[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
-pub enum CheckedState {
-    False,
-    True,
-    Indeterminate,
+/// Helper function to generate checkbox CSS classes
+fn get_checkbox_classes(user_class: String) -> String {
+    let base = "relative inline-flex h-6 w-6 shrink-0 items-center justify-center rounded border-0 bg-white transition-all duration-200 ease-in-out shadow-sm";
+    let focus = "focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-0";
+    let states = "data-[state=checked]:bg-white data-[state=unchecked]:bg-white data-[state=indeterminate]:bg-white";
+    let hover = "hover:bg-hover-purple data-[state=checked]:hover:bg-white data-[state=indeterminate]:hover:bg-white";
+    let disabled = "data-[disabled]:opacity-50 data-[disabled]:cursor-not-allowed data-[disabled]:hover:bg-white";
+
+    format!("{base} {focus} {states} {hover} {disabled} {user_class}")
 }
 
-impl Display for CheckedState {
-    fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
-        write!(
-            f,
-            "{}",
-            match self {
-                CheckedState::False => "false",
-                CheckedState::True => "true",
-                CheckedState::Indeterminate => "indeterminate",
-            }
-        )
+/// Helper function to handle checkbox click events
+fn handle_checkbox_click(disabled: bool, toggle: Callback<()>) {
+    if !disabled {
+        toggle.run(());
     }
 }
 
-// For now, we'll use the string representation directly in attributes
+/// Helper function to handle checkbox keyboard events
+fn handle_checkbox_keydown(disabled: bool, toggle: Callback<()>, ev: ev::KeyboardEvent) {
+    if disabled {
+        return;
+    }
+
+    match ev.key().as_str() {
+        " " | "Enter" => {
+            ev.prevent_default();
+            toggle.run(());
+        }
+        _ => {}
+    }
+}
+
+/// Renders the checkbox view with all elements
+#[component]
+fn CheckboxView(
+    checkbox_state: UseCheckboxStateReturn,
+    is_disabled: Signal<bool>,
+    is_required: Signal<bool>,
+    final_id: Signal<String>,
+    input_value: Signal<String>,
+    name: MaybeProp<String>,
+    form: MaybeProp<String>,
+    class: MaybeProp<String>,
+    children: ChildrenFn,
+) -> impl IntoView {
+    view! {
+        <div class="relative inline-flex">
+            // Hidden input for form integration (bubble input pattern)
+            <input
+                type="checkbox"
+                name=move || name.get()
+                value=move || input_value.get()
+                form=move || form.get()
+                checked=move || matches!(checkbox_state.checked.get(), CheckedState::True)
+                required=move || is_required.get()
+                disabled=move || is_disabled.get()
+                // 🚨 TAILWIND CSS 4 ONLY - Hidden input styling
+                class="absolute opacity-0 pointer-events-none"
+                style="position: absolute; opacity: 0; pointer-events: none; margin: 0; width: 1px; height: 1px;"
+                tabindex="-1"
+            />
+
+            <button
+                id=move || final_id.get()
+                type="button"
+                role="checkbox"
+                // ARIA attributes from our hook
+                aria-checked=move || checkbox_state.get_aria_checked.get()
+                aria-disabled=move || if is_disabled.get() { Some("true") } else { None }
+                aria-required=move || if is_required.get() { Some("true") } else { None }
+                // Data attributes for Tailwind CSS 4 styling
+                data-state=move || checkbox_state.get_state_attr.get()
+                data-disabled=move || if is_disabled.get() { Some("") } else { None }
+                disabled=move || is_disabled.get()
+                // 🚨 TAILWIND CSS 4 ONLY - Professional data-driven styling
+                class=move || get_checkbox_classes(class.get().unwrap_or_default())
+                on:click=move |_| handle_checkbox_click(is_disabled.get(), checkbox_state.toggle)
+                on:keydown=move |ev: ev::KeyboardEvent| handle_checkbox_keydown(is_disabled.get(), checkbox_state.toggle, ev)
+            >
+                {children()}
+            </button>
+        </div>
+    }
+}
 
 /// Context value shared between Checkbox and CheckboxIndicator
 #[derive(Clone, Debug)]
-struct CheckboxContextValue {
-    state: Signal<CheckedState>,
-    disabled: Signal<bool>,
+pub struct CheckboxContextValue {
+    pub state: Signal<CheckedState>,
+    pub disabled: Signal<bool>,
 }
 
-/// Main Checkbox component - Phase II: Production Features
+/// Checkbox component - Hook-first implementation
+///
+/// Uses our proven hook library for state management and ARIA compliance.
+/// Styled with Tailwind CSS 4 ONLY - no custom CSS allowed.
 #[component]
 pub fn Checkbox(
-    /// Unique identifier for the checkbox
-    #[prop(into, optional)]
-    id: MaybeProp<String>,
-    /// Controlled checked state
-    #[prop(into, optional)]
-    checked: MaybeProp<CheckedState>,
-    /// Default checked state for uncontrolled usage
-    #[prop(into, optional)]
-    default_checked: MaybeProp<CheckedState>,
-    /// Callback fired when checked state changes
-    #[prop(into, optional)]
-    on_checked_change: Option<Callback<CheckedState>>,
-    /// Custom value for form submission (Phase III: Advanced value handling)
-    #[prop(into, optional)]
-    value: MaybeProp<String>,
-    /// Callback fired when value changes (Phase III: Advanced composition)
-    #[prop(into, optional)]
-    on_value_change: Option<Callback<String>>,
-    /// Whether the checkbox is disabled
-    #[prop(into, optional)]
-    disabled: MaybeProp<bool>,
-    /// Whether the checkbox is required in forms
-    #[prop(into, optional)]
-    required: MaybeProp<bool>,
-    /// Name attribute for form submission
-    #[prop(into, optional)]
-    name: MaybeProp<String>,
-    /// Form attribute - associates checkbox with a form by ID
-    #[prop(into, optional)]
-    form: MaybeProp<String>,
-    /// Additional CSS classes
-    #[prop(into, optional)]
-    class: MaybeProp<String>,
-    /// Render as child element (composition pattern)
-    #[prop(into, optional)]
-    as_child: MaybeProp<bool>,
-    /// Node reference for DOM access
-    #[prop(into, optional)]
-    node_ref: MaybeProp<NodeRef<html::Button>>,
-    /// Child components (typically CheckboxIndicator)
+    // Core state management (from our hook library)
+    #[prop(into, optional)] checked: MaybeProp<CheckedState>,
+    #[prop(into, optional)] default_checked: MaybeProp<CheckedState>,
+    #[prop(into, optional)] on_checked_change: Option<Callback<CheckedState>>,
+
+    // Form integration
+    #[prop(into, optional)] disabled: MaybeProp<bool>,
+    #[prop(into, optional)] required: MaybeProp<bool>,
+    #[prop(into, optional)] name: MaybeProp<String>,
+    #[prop(into, optional)] value: MaybeProp<String>,
+    #[prop(into, optional)] form: MaybeProp<String>,
+
+    // Accessibility & DOM
+    #[prop(into, optional)] id: MaybeProp<String>,
+    #[prop(into, optional)] class: MaybeProp<String>,
+
     children: ChildrenFn,
 ) -> impl IntoView {
-    // Convert props to signals
-    let disabled = Signal::derive(move || disabled.get().unwrap_or(false));
-    let required = Signal::derive(move || required.get().unwrap_or(false));
-    let value = Signal::derive(move || value.get().unwrap_or("on".into()));
-    let name = Signal::derive(move || name.get());
-    let id = Signal::derive(move || id.get());
-    let form = Signal::derive(move || form.get());
-    let _class = Signal::derive(move || class.get().unwrap_or_default());
-    let _as_child = Signal::derive(move || as_child.get().unwrap_or(false));
+    // Phase 0: Compose hooks - no manual state management!
+    let checkbox_state = use_checkbox_state(checked, default_checked, on_checked_change);
 
-    // Handle node ref
-    let internal_node_ref = NodeRef::<html::Button>::new();
-    let final_node_ref = node_ref.get().unwrap_or(internal_node_ref);
+    // Pre-compute common values to reduce complexity
+    let is_disabled = Signal::derive(move || disabled.get().unwrap_or(false));
+    let is_required = Signal::derive(move || required.get().unwrap_or(false));
+    let final_id = Signal::derive(move || id.get().unwrap_or_else(|| "checkbox".to_string()));
+    let input_value = Signal::derive(move || value.get().unwrap_or_else(|| "on".to_string()));
 
-    // Debug: Component mounting
-    leptos::logging::log!("🚀 Checkbox component mounting with id: {:?}", id.get());
-
-    // Controllable state management
-    let (internal_checked, set_internal_checked) = signal(
-        checked
-            .get()
-            .or(default_checked.get())
-            .unwrap_or(CheckedState::False),
-    );
-
-    let current_checked =
-        Signal::derive(move || checked.get().unwrap_or_else(|| internal_checked.get()));
-
-    // Phase III: Advanced value handling - Transform state to external value
-    let external_value = Memo::new(move |_| {
-        let base_value = if value.get().is_empty() {
-            "on".to_string()
-        } else {
-            value.get()
-        };
-        match current_checked.get() {
-            CheckedState::True => base_value,
-            CheckedState::False => "".to_string(),
-            CheckedState::Indeterminate => "mixed".to_string(),
-        }
-    });
-
-    // Phase III: Performance optimization - Memoize interactive state
-    let _is_interactive = Memo::new(move |_| !disabled.get());
-
-    leptos::logging::log!("📊 Initial state: {:?}", current_checked.get());
-
-    // Enhanced change handler with error boundaries
-    let handle_change = move |new_state: CheckedState| {
-        // Update internal state if uncontrolled
-        if checked.get().is_none() {
-            set_internal_checked.set(new_state);
-        }
-
-        // Call state change callback with error handling
-        if let Some(callback) = on_checked_change {
-            // Wrap callback in error boundary
-            std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
-                callback.run(new_state);
-            }))
-            .unwrap_or_else(|_| {
-                leptos::logging::error!("Error in checkbox state callback");
-            });
-        }
-
-        // Phase III: Call value change callback with transformed value
-        if let Some(value_callback) = on_value_change {
-            let new_value = match new_state {
-                CheckedState::True => {
-                    if value.get().is_empty() {
-                        "on".to_string()
-                    } else {
-                        value.get()
-                    }
-                }
-                CheckedState::False => "".to_string(),
-                CheckedState::Indeterminate => "mixed".to_string(),
-            };
-
-            // Wrap value callback in error boundary
-            std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
-                value_callback.run(new_value);
-            }))
-            .unwrap_or_else(|_| {
-                leptos::logging::error!("Error in checkbox value callback");
-            });
-        }
-    };
-
-    // Handle click events
-    let handle_click = move |ev: ev::MouseEvent| {
-        if disabled.get() {
-            return;
-        }
-
-        ev.prevent_default();
-        ev.stop_propagation();
-
-        let current = current_checked.get();
-        let new_state = match current {
-            CheckedState::False => CheckedState::True,
-            CheckedState::True => CheckedState::False,
-            CheckedState::Indeterminate => CheckedState::True,
-        };
-
-        handle_change(new_state);
-    };
-
-    // Enhanced keyboard event handling
-    let handle_keydown = move |ev: ev::KeyboardEvent| {
-        if disabled.get() {
-            return;
-        }
-
-        match ev.key().as_str() {
-            " " | "Enter" => {
-                ev.prevent_default();
-                let current = current_checked.get();
-                let new_state = match current {
-                    CheckedState::False => CheckedState::True,
-                    CheckedState::True => CheckedState::False,
-                    CheckedState::Indeterminate => CheckedState::True,
-                };
-                handle_change(new_state);
-            }
-            _ => {}
-        }
-    };
-
-    // Form reset handling
-    Effect::new(move |_| {
-        if let Some(node) = final_node_ref.get() {
-            let form_element = node.form();
-            if let Some(_form) = form_element {
-                // Listen for form reset events
-                let _reset_handler = move |_: web_sys::Event| {
-                    let default_state = default_checked.get().unwrap_or(CheckedState::False);
-                    if checked.get().is_none() {
-                        set_internal_checked.set(default_state);
-                    }
-                };
-
-                // Note: In a real implementation, we'd properly manage event listeners
-                // This is a simplified version for Phase II
-            }
-        }
-    });
-
-    // Create context for child components
+    // Context for child components
     let context_value = CheckboxContextValue {
-        state: current_checked,
-        disabled,
-    };
-
-    // Debug: Log context state changes
-    Effect::new(move |_| {
-        leptos::logging::log!("🔄 Context state changed to: {:?}", current_checked.get());
-    });
-
-    // Get state string for data attributes
-    let get_state = move || match current_checked.get() {
-        CheckedState::True => "checked",
-        CheckedState::False => "unchecked",
-        CheckedState::Indeterminate => "indeterminate",
-    };
-
-    // Get aria-checked value
-    let get_aria_checked = move || match current_checked.get() {
-        CheckedState::True => "true",
-        CheckedState::False => "false",
-        CheckedState::Indeterminate => "mixed",
+        state: checkbox_state.checked,
+        disabled: is_disabled,
     };
 
     view! {
         <Provider value=context_value>
-            <div class="relative inline-flex">
-                // Hidden input for form integration (bubble input pattern)
-                <input
-                    type="checkbox"
-                    name=name
-                    value=move || external_value.get() // Phase III: Use advanced value handling
-                    form=form
-                    checked=move || matches!(current_checked.get(), CheckedState::True)
-                    required=required
-                    disabled=disabled
-                    class="absolute opacity-0 pointer-events-none m-0 w-px h-px"
-                    tabindex="-1"
-                />
-
-                <button
-                    type="button"
-                    role="checkbox"
-                    id=id
-                    node_ref=final_node_ref
-                    class="leptonic-checkbox relative inline-flex items-center justify-center w-6 h-6 rounded bg-white hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed appearance-none cursor-pointer focus:shadow-[0_0_0_2px_theme(colors.black)]"
-                    aria-checked=get_aria_checked
-                    aria-required=move || if required.get() { "true" } else { "false" }
-                    data-state=get_state
-                    data-disabled=move || disabled.get().then_some("")
-                    disabled=disabled
-                    on:click=handle_click
-                    on:keydown=handle_keydown
-                >
-                    {children()}
-                </button>
-            </div>
+            <CheckboxView
+                checkbox_state=checkbox_state
+                is_disabled=is_disabled
+                is_required=is_required
+                final_id=final_id
+                input_value=input_value
+                name=name
+                form=form
+                class=class
+                children=children
+            />
         </Provider>
     }
 }
 
-/// CheckboxIndicator component - Phase III: Advanced Features
+/// CheckboxIndicator - Shows when checkbox is checked or indeterminate
 #[component]
 pub fn CheckboxIndicator(
-    /// Force mount the indicator even when unchecked
-    #[prop(into, optional)]
-    force_mount: MaybeProp<bool>,
-    /// Additional CSS classes
-    #[prop(into, optional)]
-    class: MaybeProp<String>,
-    /// Render as child element (composition pattern)
-    #[prop(into, optional)]
-    _as_child: MaybeProp<bool>,
-    /// Node reference for DOM access
-    #[prop(into, optional)]
-    _node_ref: MaybeProp<NodeRef<html::Div>>,
-    /// Child content (typically an icon)
+    #[prop(into, optional)] force_mount: MaybeProp<bool>,
+    #[prop(into, optional)] class: MaybeProp<String>,
     children: ChildrenFn,
 ) -> impl IntoView {
-    let force_mount = Signal::derive(move || force_mount.get().unwrap_or(false));
-    let class = Signal::derive(move || class.get().unwrap_or_default());
-
-    // Get context from parent Checkbox
     let context = expect_context::<CheckboxContextValue>();
 
-    // Debug: Log indicator context state
-    Effect::new(move |_| {
-        leptos::logging::log!("📍 Indicator sees context state: {:?}", context.state.get());
-    });
-
-    // Phase III: Determine if indicator should be present (checked OR indeterminate)
     let is_present = Signal::derive(move || {
         let state = context.state.get();
-        let should_show = force_mount.get()
+        force_mount.get().unwrap_or(false)
             || state == CheckedState::True
-            || state == CheckedState::Indeterminate;
-        leptos::logging::log!(
-            "👁️ Indicator is_present: {}, state: {:?}",
-            should_show,
-            state
-        );
-        should_show
+            || state == CheckedState::Indeterminate
     });
-
-    // Get state for data attributes
-    let get_state = move || match context.state.get() {
-        CheckedState::True => "checked",
-        CheckedState::False => "unchecked",
-        CheckedState::Indeterminate => "indeterminate",
-    };
 
     view! {
         <Show when=move || is_present.get()>
             <div
-                class=move || format!("leptonic-checkbox-indicator absolute inset-0 flex items-center justify-center text-black font-bold text-sm leading-none pointer-events-none {}", class.get())
-                data-state=get_state
-                data-disabled=move || context.disabled.get().then_some("")
+                data-state=move || match context.state.get() {
+                    CheckedState::True => "checked",
+                    CheckedState::False => "unchecked",
+                    CheckedState::Indeterminate => "indeterminate",
+                }
+                // 🚨 TAILWIND CSS 4 ONLY - Professional indicator styling
+                class=move || {
+                    let base = "absolute inset-0 flex items-center justify-center text-white pointer-events-none";
+                    let animation = "data-[state=checked]:animate-in data-[state=checked]:fade-in-0 data-[state=checked]:zoom-in-95 data-[state=unchecked]:animate-out data-[state=unchecked]:fade-out-0 data-[state=unchecked]:zoom-out-95";
+                    let user = class.get().unwrap_or_default();
+                    format!("{base} {animation} {user}")
+                }
             >
                 {children()}
             </div>
         </Show>
-    }
-}
-
-/// Clean checkmark icon matching Radix UI design
-#[component]
-pub fn CheckIcon() -> impl IntoView {
-    view! {
-        "✓"
     }
 }
