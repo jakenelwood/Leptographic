@@ -129,10 +129,9 @@ fn ComponentShowcase(theme: RwSignal<Theme>) -> impl IntoView {
                 </h3>
                 <div class="space-y-1">
                     <ComponentNavItem name="Checkbox" active=true theme=theme />
-                    <ComponentNavItem name="Button" active=false theme=theme />
-                    <ComponentNavItem name="Input" active=false theme=theme />
-                    <ComponentNavItem name="Select" active=false theme=theme />
                     <ComponentNavItem name="Switch" active=false theme=theme />
+                    <ComponentNavItem name="Progress" active=false theme=theme />
+                    <ComponentNavItem name="Separator" active=false theme=theme />
                 </div>
             </div>
 
@@ -145,27 +144,27 @@ fn ComponentShowcase(theme: RwSignal<Theme>) -> impl IntoView {
                     </ComponentCard>
                 </div>
 
-                // Button Placeholder
+                // Switch Placeholder
                 <div>
-                    <ComponentCard title="Button" theme=theme>
+                    <ComponentCard title="Switch" theme=theme>
                         <div class="text-center text-gray-300 text-base">
                             "Coming Soon"
                         </div>
                     </ComponentCard>
                 </div>
 
-                // Input Placeholder
+                // Progress Placeholder
                 <div>
-                    <ComponentCard title="Input" theme=theme>
+                    <ComponentCard title="Progress" theme=theme>
                         <div class="text-center text-gray-300 text-base">
                             "Coming Soon"
                         </div>
                     </ComponentCard>
                 </div>
 
-                // Select Placeholder
+                // Separator Placeholder
                 <div>
-                    <ComponentCard title="Select" theme=theme>
+                    <ComponentCard title="Separator" theme=theme>
                         <div class="text-center text-gray-300 text-base">
                             "Coming Soon"
                         </div>
@@ -210,12 +209,14 @@ fn ComponentCard(
         "Checkbox" => {
             "https://github.com/jakenelwood/Leptographic/blob/main/src/components/checkbox.rs"
         }
-        "Button" => {
-            "https://github.com/jakenelwood/Leptographic/blob/main/src/components/button.rs"
+        "Switch" => {
+            "https://github.com/jakenelwood/Leptographic/blob/main/src/components/switch.rs"
         }
-        "Input" => "https://github.com/jakenelwood/Leptographic/blob/main/src/components/input.rs",
-        "Select" => {
-            "https://github.com/jakenelwood/Leptographic/blob/main/src/components/select.rs"
+        "Progress" => {
+            "https://github.com/jakenelwood/Leptographic/blob/main/src/components/progress.rs"
+        }
+        "Separator" => {
+            "https://github.com/jakenelwood/Leptographic/blob/main/src/components/separator.rs"
         }
         _ => "https://github.com/jakenelwood/Leptographic/tree/main/src/components",
     };
