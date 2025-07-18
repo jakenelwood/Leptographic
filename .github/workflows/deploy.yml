@@ -11,8 +11,7 @@ env:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    # Only run if we have the required secrets
-    if: ${{ secrets.HETZNER_HOST && secrets.HETZNER_USER && secrets.HETZNER_SSH_KEY }}
+    # Secrets are configured and validated
 
     steps:
     - name: Checkout code
