@@ -11,6 +11,7 @@
 Instead of building components from scratch, we **compose proven hooks** to create production-ready primitives in minutes, not hours.
 
 ### **The Power of Composition:**
+
 ```rust
 // Before: 50+ lines of complex state management
 #[component]
@@ -46,6 +47,7 @@ pub fn Switch(/* ... */) -> impl IntoView {
 Our production-ready hooks eliminate the need for manual state management:
 
 ### **Layer 1: Core Utilities**
+
 ```rust
 use leptos_radix_ui::hooks::{
     // Universal state management
@@ -65,6 +67,7 @@ use leptos_radix_ui::hooks::{
 ```
 
 ### **Layer 2: Component-Specific**
+
 ```rust
 use leptos_radix_ui::hooks::{
     // Ready to use
@@ -246,6 +249,7 @@ When you receive a prompt from `master-workflow.md`:
 ## 📋 **Component Status**
 
 ### **Layer 1 & 2: Core Components**
+
 | Component | Hook Available | Status |
 |-----------|----------------|--------|
 | Checkbox  | ✅ `use_checkbox_state` | ✅ Production Ready |
@@ -254,6 +258,7 @@ When you receive a prompt from `master-workflow.md`:
 | Slider    | 📋 `use_slider_state` | 📋 Ready for Implementation |
 
 ### **Layer 3: Behavior Hooks (Production-Validated)**
+
 | Behavior | Hook Available | Status |
 |----------|----------------|--------|
 | Responsive Layout | ✅ `use_responsive_layout` | ✅ Pattern Validated |
@@ -263,6 +268,7 @@ When you receive a prompt from `master-workflow.md`:
 | Container Protection | ✅ `use_container_protection` | ✅ Pattern Validated |
 
 ### **Layer 3: Advanced Interactions (Next Phase)**
+
 | Component | Hook Needed | Status |
 |-----------|-------------|--------|
 | Dialog    | `use_dialog_behavior` | 📋 Ready for Implementation |
@@ -273,6 +279,7 @@ When you receive a prompt from `master-workflow.md`:
 ## 🎯 **Hook-First Component Patterns**
 
 ### **Pattern 1: Use Existing Hooks (Recommended)**
+
 ```rust
 #[component]
 pub fn Switch(
@@ -312,6 +319,7 @@ pub fn Switch(
 ```
 
 ### **Pattern 2: Custom Hook Creation (When Needed)**
+
 ```rust
 // Only create custom hooks when existing ones don't fit
 pub fn use_custom_component_state(
@@ -334,6 +342,7 @@ pub fn use_custom_component_state(
 ## 🔧 **Critical Leptos 0.8.3 Patterns (VALIDATED ✅)**
 
 ### **Required Dependencies**
+
 ```toml
 [dependencies]
 leptos = { version = "0.8.3", features = ["csr", "ssr"] }
@@ -344,6 +353,7 @@ wasm-bindgen = "0.2"
 ```
 
 ### **Hook Composition Pattern (Recommended)**
+
 ```rust
 #[component]
 pub fn MyComponent(
@@ -371,6 +381,7 @@ pub fn MyComponent(
 ```
 
 ### **Context Pattern (Simplified)**
+
 ```rust
 // Use hooks to power context values
 #[derive(Clone, Debug)]
@@ -409,6 +420,7 @@ pub fn SwitchThumb() -> impl IntoView {
 ```
 
 ### **Styling Pattern (Tailwind CSS 4 ONLY)**
+
 ```rust
 // 🎯 CRITICAL: ONLY Tailwind CSS 4 - NO custom CSS, NO external stylesheets
 // Hooks provide styling attributes automatically for data-driven styling
@@ -439,6 +451,7 @@ view! {
 ### **🚨 STYLING REQUIREMENTS - TAILWIND CSS 4 ONLY**
 
 **✅ ALLOWED:**
+
 - Tailwind CSS 4 utility classes ONLY
 - Data-driven selectors: `data-[state=checked]:`, `data-[disabled]:`
 - Responsive prefixes: `sm:`, `md:`, `lg:`
@@ -446,6 +459,7 @@ view! {
 - Animation utilities: `transition-*`, `duration-*`, `ease-*`
 
 **❌ FORBIDDEN:**
+
 - Custom CSS files or `<style>` tags
 - External CSS libraries (Bootstrap, Bulma, etc.)
 - CSS-in-JS or styled components
@@ -456,6 +470,7 @@ view! {
 ## 🎯 **Essential Patterns Reference**
 
 ### **State Enum Pattern**
+
 ```rust
 #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq, Default)]
 pub enum CheckedState {
@@ -467,6 +482,7 @@ pub enum CheckedState {
 ```
 
 ### **ARIA Attributes (Handled by Hooks)**
+
 ```rust
 // Our hooks provide these automatically
 aria-checked=move || switch_state.get_aria_checked.get()  // "true" | "false" | "mixed"
@@ -475,6 +491,7 @@ data-state=move || switch_state.get_state_attr.get()     // "checked" | "uncheck
 ```
 
 ### **Form Integration (Handled by Hooks)**
+
 ```rust
 // Hidden input for form submission (hooks handle this)
 view! {
@@ -491,6 +508,7 @@ view! {
 ## 🚀 **The Revolution: From Complex to Simple**
 
 ### **Before (Manual Implementation):**
+
 - ❌ 50+ lines of state management per component
 - ❌ Manual ARIA attribute generation
 - ❌ Complex form integration logic
@@ -498,6 +516,7 @@ view! {
 - ❌ Inconsistent patterns across components
 
 ### **After (Hook-First Architecture):**
+
 - ✅ 5-10 lines using proven hooks
 - ✅ Automatic ARIA compliance
 - ✅ Built-in form integration
@@ -505,6 +524,7 @@ view! {
 - ✅ Reusable, tested patterns
 
 ### **Impact:**
+
 **10x faster development** • **Consistent quality** • **Zero boilerplate** • **Production-ready**
 
 ## 🚀 **Next Phase: Advanced Behavior Hooks**
@@ -512,6 +532,7 @@ view! {
 Based on our production success, we're ready to tackle complex interaction patterns:
 
 ### **Priority 1: Dialog Behavior Hook**
+
 ```rust
 pub fn use_dialog_behavior(
     open: MaybeProp<bool>,
@@ -540,6 +561,7 @@ pub fn use_dialog_behavior(
 ```
 
 ### **Priority 2: Tooltip Behavior Hook**
+
 ```rust
 pub fn use_tooltip_behavior(
     delay_open: u32,
@@ -586,6 +608,7 @@ Each hook builds on our production-validated Layer 3 foundations!
 From our successful leptographic.com deployment, these patterns ensure bulletproof responsive behavior:
 
 #### **Protected Navigation Pattern**
+
 ```rust
 // ✅ PROVEN: Fixed sidebar + flexible content
 view! {
@@ -604,6 +627,7 @@ view! {
 ```
 
 #### **Component Card Sizing Strategy**
+
 ```rust
 // ✅ PROVEN: Responsive card sizing with optimal spacing
 view! {
@@ -617,6 +641,7 @@ view! {
 ```
 
 #### **Text Scaling Hierarchy**
+
 ```rust
 // ✅ PROVEN: 30% size increases for accessibility
 // Card titles: text-sm sm:text-base (30% larger)
@@ -628,6 +653,7 @@ view! {
 ### **Theme System Anti-Patterns (Learned from Production)**
 
 #### **❌ AVOID: Theme-dependent container backgrounds**
+
 ```rust
 // This causes flashing during theme transitions
 <div class=move || format!("{}",
@@ -639,6 +665,7 @@ view! {
 ```
 
 #### **✅ SOLUTION: Transparent containers with themed content**
+
 ```rust
 // Containers are transparent, only content has theme colors
 <div>  // No background - prevents flashing
@@ -651,6 +678,7 @@ view! {
 ### **Component Sizing Best Practices**
 
 #### **Interactive Element Sizing**
+
 ```rust
 // ✅ PROVEN: 30% larger for better accessibility
 // Checkbox: h-6 w-6 (was h-5 w-5)
@@ -659,6 +687,7 @@ view! {
 ```
 
 #### **Icon Scaling Strategy**
+
 ```rust
 // ✅ PROVEN: 33% reduction for refined appearance
 // Theme toggle: text-lg (was text-2xl)
@@ -668,8 +697,11 @@ view! {
 ### **Production Deployment Architecture**
 
 #### **Server Configuration (Validated ✅)**
+
 ```nginx
+
 # SSL + Security Headers + Performance
+
 server {
     listen 443 ssl http2;
     ssl_certificate /etc/letsencrypt/live/domain/fullchain.pem;
@@ -694,6 +726,7 @@ server {
 ```
 
 #### **Systemd Service Pattern**
+
 ```ini
 [Unit]
 Description=Leptos UI System
@@ -701,7 +734,7 @@ After=network.target
 
 [Service]
 Type=simple
-User=www-data
+User=root
 WorkingDirectory=/var/www/app
 ExecStart=/var/www/app/leptos-app
 Environment=LEPTOS_SITE_ADDR=127.0.0.1:3000
@@ -714,12 +747,14 @@ WantedBy=multi-user.target
 ### **Performance Optimizations (Production-Tested)**
 
 #### **Asset Optimization**
+
 - ✅ Wasm-release profile with `opt-level = 'z'`
 - ✅ Static asset caching (1 year)
 - ✅ Gzip compression for all text assets
 - ✅ HTTP/2 for multiplexed requests
 
 #### **Responsive Breakpoint Strategy**
+
 ```rust
 // ✅ PROVEN: Mobile-first responsive grid
 // Mobile: grid-cols-1 (single column)

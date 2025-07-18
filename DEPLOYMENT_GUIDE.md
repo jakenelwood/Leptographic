@@ -31,7 +31,7 @@ source ~/.cargo/env
 
 ```bash
 sudo mkdir -p /var/www/leptographic
-sudo chown www-data:www-data /var/www/leptographic
+sudo chown root:root /var/www/leptographic
 sudo mkdir -p /var/www/certbot
 ```
 
@@ -160,7 +160,7 @@ sudo tail -f /var/log/nginx/error.log
 
 2. **Permission issues**
    ```bash
-   sudo chown -R www-data:www-data /var/www/leptographic
+   sudo chown -R root:root /var/www/leptographic
    ```
 
 3. **SSL certificate issues**

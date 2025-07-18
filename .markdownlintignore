@@ -1,0 +1,7 @@
+# Ignore all markdown files since they don't affect code execution
+*.md
+**/*.md
+docs/
+templates/
+_archive/
+test_results/

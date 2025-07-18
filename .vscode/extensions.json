@@ -1,0 +1,10 @@
+{
+    "recommendations": [
+        "rust-lang.rust-analyzer",
+        "tamasfe.even-better-toml"
+    ],
+    "unwantedRecommendations": [
+        "davidanson.vscode-markdownlint",
+        "yzhang.markdown-all-in-one"
+    ]
+}

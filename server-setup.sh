@@ -36,7 +36,7 @@ sudo apt install certbot python3-certbot-nginx -y
 print_status "Creating application directories..."
 sudo mkdir -p /var/www/leptographic
 sudo mkdir -p /var/www/certbot
-sudo chown www-data:www-data /var/www/leptographic
+sudo chown root:root /var/www/leptographic
 
 # Configure firewall
 print_status "Configuring firewall..."

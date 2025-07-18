@@ -1,0 +1,34 @@
+{
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "settings": {
+        "markdownlint.enabled": false,
+        "markdownlint.run": "manual",
+        "markdownlint.config": {
+            "default": false
+        },
+        "markdownlint.ignore": [
+            "**/*.md"
+        ],
+        "markdown.validate.enabled": false,
+        "problems.decorations.enabled": false,
+        "[markdown]": {
+            "editor.codeActionsOnSave": {},
+            "editor.formatOnSave": false,
+            "editor.quickSuggestions": {
+                "comments": "off",
+                "strings": "off",
+                "other": "off"
+            }
+        }
+    },
+    "extensions": {
+        "unwantedRecommendations": [
+            "davidanson.vscode-markdownlint",
+            "yzhang.markdown-all-in-one"
+        ]
+    }
+}

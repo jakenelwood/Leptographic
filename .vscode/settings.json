@@ -13,5 +13,38 @@
     },
     "editor.codeActionsOnSave": {
         "source.fixAll.rust-analyzer": "explicit"
-    }
+    },
+    "markdownlint.config": {
+        "default": false
+    },
+    "markdownlint.ignore": [
+        "**/*.md"
+    ],
+    "markdownlint.run": "manual",
+    "markdownlint.focusMode": false,
+    "extensions.ignoreRecommendations": true,
+    "[markdown]": {
+        "editor.codeActionsOnSave": {},
+        "editor.formatOnSave": false,
+        "editor.quickSuggestions": {
+            "comments": "off",
+            "strings": "off",
+            "other": "off"
+        }
+    },
+    "problems.decorations.enabled": false,
+    "extensions.autoCheckUpdates": false,
+    "markdownlint.enabled": false,
+    "markdown.validate.enabled": false,
+    "markdown.extension.list.indentationSize": "inherit",
+    "markdown.extension.orderedList.marker": "ordered",
+    "markdown.extension.italic.indicator": "*",
+    "markdown.extension.bold.indicator": "**",
+    "markdown.extension.tableFormatter.enabled": false,
+    "markdown.extension.toc.enabled": false,
+    "html.validate.styles": false,
+    "html.validate.scripts": false,
+    "css.validate": false,
+    "less.validate": false,
+    "scss.validate": false
 }

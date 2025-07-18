@@ -1,0 +1,19 @@
+---
+engines:
+  markdownlint:
+    enabled: false
+  
+exclude_paths:
+  - "**/*.md"
+  - "docs/**"
+  - "templates/**"
+  - "_archive/**"
+  - "test_results/**"
+
+coverage:
+  exclude_paths:
+    - "**/*.md"
+    - "docs/**"
+    - "templates/**"
+    - "_archive/**"
+    - "test_results/**"

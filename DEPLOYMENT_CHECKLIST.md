@@ -148,7 +148,7 @@ sudo systemctl reload nginx
 
 **Permission errors:**
 ```bash
-sudo chown -R www-data:www-data /var/www/leptographic
+sudo chown -R root:root /var/www/leptographic
 ```
 
 ## 📞 Support

@@ -96,7 +96,7 @@ add_header X-Content-Type-Options nosniff;
 ```ini
 [Service]
 Type=simple
-User=www-data
+User=root
 ExecStart=/var/www/app/leptos-app
 Restart=always
 ```

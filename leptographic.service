@@ -4,8 +4,8 @@ After=network.target
 
 [Service]
 Type=simple
-User=www-data
-Group=www-data
+User=root
+Group=root
 WorkingDirectory=/var/www/leptographic
 ExecStart=/var/www/leptographic/leptos-radix-ui
 Environment=LEPTOS_SITE_ADDR=127.0.0.1:3000
