@@ -29,6 +29,7 @@ if [ -z "$COMPONENT_NAME" ]; then
     echo "  0  - Hook Selection (5-15 min) - Choose the right hooks"
     echo "  I  - Component Composition (15-30 min) - Compose hooks into component"
     echo "  II - Polish & Production (15-30 min) - Styling and final polish"
+    echo "  deploy - Production Deployment - Deploy to live server"
     echo ""
     echo "AVAILABLE HOOKS:"
     echo "  ✅ use_controllable_state    - Universal state management"
@@ -265,9 +266,36 @@ case $PHASE in
         echo "3. Run quality pipeline: cargo fmt && cargo clippy && cargo test"
         echo "4. Deploy production-ready component in 1-2 hours!"
         ;;
+    "deploy")
+        echo "🚀 PRODUCTION DEPLOYMENT"
+        echo ""
+        echo "📋 Pre-deployment Checklist:"
+        echo "✅ All components tested and working"
+        echo "✅ Responsive design validated"
+        echo "✅ Theme transitions smooth"
+        echo "✅ Quality pipeline passed"
+        echo ""
+        echo "🔧 Deployment Commands:"
+        echo "# Build for production"
+        echo "cargo leptos build --release"
+        echo ""
+        echo "# Deploy to server (if configured)"
+        echo "./deploy.sh"
+        echo ""
+        echo "# Verify deployment"
+        echo "curl -I https://your-domain.com"
+        echo ""
+        echo "📊 Post-deployment Validation:"
+        echo "- SSL certificate valid"
+        echo "- Performance metrics good"
+        echo "- All components functional"
+        echo "- Mobile responsiveness working"
+        echo ""
+        echo "🌐 Live Example: https://leptographic.com"
+        ;;
     *)
         echo "❌ Invalid phase: $PHASE"
-        echo "Valid phases: 0, I, II, all"
+        echo "Valid phases: 0, I, II, all, deploy"
         exit 1
         ;;
 esac
