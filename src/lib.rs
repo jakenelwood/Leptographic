@@ -140,14 +140,14 @@ fn ComponentShowcase(theme: RwSignal<Theme>) -> impl IntoView {
             <div class="flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 p-2">
                 // Checkbox Component
                 <div>
-                    <ComponentCard title="Checkbox" _theme=theme>
+                    <ComponentCard title="Checkbox" theme=theme>
                         <CheckboxShowcase _theme=theme />
                     </ComponentCard>
                 </div>
 
                 // Button Placeholder
                 <div>
-                    <ComponentCard title="Button" _theme=theme>
+                    <ComponentCard title="Button" theme=theme>
                         <div class="text-center text-gray-300 text-base">
                             "Coming Soon"
                         </div>
@@ -156,7 +156,7 @@ fn ComponentShowcase(theme: RwSignal<Theme>) -> impl IntoView {
 
                 // Input Placeholder
                 <div>
-                    <ComponentCard title="Input" _theme=theme>
+                    <ComponentCard title="Input" theme=theme>
                         <div class="text-center text-gray-300 text-base">
                             "Coming Soon"
                         </div>
@@ -165,7 +165,7 @@ fn ComponentShowcase(theme: RwSignal<Theme>) -> impl IntoView {
 
                 // Select Placeholder
                 <div>
-                    <ComponentCard title="Select" _theme=theme>
+                    <ComponentCard title="Select" theme=theme>
                         <div class="text-center text-gray-300 text-base">
                             "Coming Soon"
                         </div>
@@ -202,14 +202,48 @@ fn ComponentNavItem(name: &'static str, active: bool, theme: RwSignal<Theme>) ->
 #[component]
 fn ComponentCard(
     title: &'static str,
-    _theme: RwSignal<Theme>,
+    theme: RwSignal<Theme>,
     children: ChildrenFn,
 ) -> impl IntoView {
+    // GitHub code links for each component
+    let github_url = match title {
+        "Checkbox" => {
+            "https://github.com/jakenelwood/Leptographic/blob/main/src/components/checkbox.rs"
+        }
+        "Button" => {
+            "https://github.com/jakenelwood/Leptographic/blob/main/src/components/button.rs"
+        }
+        "Input" => "https://github.com/jakenelwood/Leptographic/blob/main/src/components/input.rs",
+        "Select" => {
+            "https://github.com/jakenelwood/Leptographic/blob/main/src/components/select.rs"
+        }
+        _ => "https://github.com/jakenelwood/Leptographic/tree/main/src/components",
+    };
+
     view! {
-        <div class="rounded border border-gray-600 bg-[#605ED6] w-5/6 h-40 sm:h-44 lg:h-48 mx-auto overflow-hidden">
-            // Title section
-            <div class="px-3 py-2 border-b border-gray-500">
+        <div class=move || format!("rounded border bg-[#605ED6] w-5/6 h-40 sm:h-44 lg:h-48 mx-auto overflow-hidden {}",
+            match theme.get() {
+                Theme::Light => "border-[#dedede]",
+                Theme::Dark => "border-white",
+            }
+        )>
+            // Title section with Code link
+            <div class=move || format!("px-3 py-2 border-b relative {}",
+                match theme.get() {
+                    Theme::Light => "border-[#dedede]",
+                    Theme::Dark => "border-white",
+                }
+            )>
                 <h3 class="font-normal text-sm sm:text-base text-white tracking-wide">{title}</h3>
+                // Code link in upper right corner
+                <a
+                    href=github_url
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="absolute top-2 right-3 text-xs text-white hover:text-gray-200 transition-colors cursor-pointer"
+                >
+                    "Code"
+                </a>
             </div>
             // Component showcase area
             <div class="flex-1 flex items-center justify-center p-4 sm:p-5 lg:p-6">
