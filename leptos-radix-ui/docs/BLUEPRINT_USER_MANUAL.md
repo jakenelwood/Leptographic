@@ -6,7 +6,7 @@
 
 | **Tool** | **Responsibility** |
 |----------|-------------------|
-| **blueprint.sh** | Generates research prompts, runs quality pipeline |
+| **blueprintautomate.sh** | Generates research prompts, runs quality pipeline |
 | **Augment Code** | Executes MCP research, generates Rust code |
 | **VS Code** | Real-time error checking, auto-formatting, IntelliSense |
 | **You** | Copy prompts, review code, fix issues, make decisions |
@@ -19,14 +19,14 @@
 
 **Command:**
 ```bash
-./scripts/blueprint.sh <component-name> [phase]
+./scripts/blueprintautomate.sh <component-name> [phase]
 ```
 
 **Examples:**
 ```bash
-./scripts/blueprint.sh switch           # Complete workflow (all phases)
-./scripts/blueprint.sh button I         # Phase I only
-./scripts/blueprint.sh dialog research  # Research only
+./scripts/blueprintautomate.sh switch           # Complete workflow (all phases)
+./scripts/blueprintautomate.sh button I         # Phase I only
+./scripts/blueprintautomate.sh dialog research  # Research only
 ```
 
 **What Happens:**
@@ -140,7 +140,7 @@ Generate Phase I following BLUEPRINT.md patterns exactly.
 
 ### **Step 4: Quality Pipeline (Automatic)**
 
-**What blueprint.sh Does:**
+**What blueprintautomate.sh Does:**
 ```bash
 cargo fmt                                    # Format code
 cargo fix --allow-dirty --allow-staged      # Auto-fix issues
@@ -298,8 +298,8 @@ Context:
 
 ### **Script Won't Run**
 ```bash
-chmod +x scripts/blueprint.sh
-./scripts/blueprint.sh
+chmod +x scripts/blueprintautomate.sh
+./scripts/blueprintautomate.sh
 ```
 
 ### **Quality Pipeline Fails**
@@ -363,14 +363,14 @@ chmod +x scripts/blueprint.sh
 
 ```bash
 # Complete workflow
-./scripts/blueprint.sh switch
+./scripts/blueprintautomate.sh switch
 
 # Phase-specific
-./scripts/blueprint.sh button I
-./scripts/blueprint.sh dialog II
+./scripts/blueprintautomate.sh button I
+./scripts/blueprintautomate.sh dialog II
 
 # Research only
-./scripts/blueprint.sh accordion research
+./scripts/blueprintautomate.sh accordion research
 
 # Quality check
 cargo fmt && cargo clippy && cargo test
@@ -392,3 +392,126 @@ Ctrl+Shift+P → "Tasks: Run Task" → "Generate Component"
 7. **Keep terminal and VS Code open** side by side
 
 **Remember**: The script is your conductor, Augment Code is your code generator, VS Code is your quality checker, and you are the decision maker! 🎯
+
+---
+
+# 🛡️ **BLUEPRINT Enhancement Guide**
+
+*This section outlines key enhancements to the blueprintautomate.sh workflow for building commercial-grade applications with comprehensive security and visual tooling.*
+
+## 🛡️ **Layered Security Model**
+
+This project serves as preparation for creating commercial CRM applications. For commercial CRM handling sensitive data, a multi-layered approach to security is essential, checking code for issues at different stages of the development lifecycle.
+
+### **Two-Tiered Security Approach**
+
+**Inner Loop: Developer Feedback**
+- Fast, automated feedback directly in the local terminal
+- Catches common issues without slowing down iteration
+- Integrated into the quality pipeline
+
+**Outer Loop: Formal Security Gate**
+- Comprehensive, auditable security review
+- Official sign-off for commercial product standards
+- CI/CD integration with blocking rules
+
+### **Enhanced Quality Pipeline Implementation**
+
+The `run_quality()` function in `blueprintautomate.sh` should include:
+
+```bash
+# Function: Run quality pipeline
+run_quality() {
+    echo "🔧 Quality Pipeline"
+    cargo fmt
+    cargo fix --allow-dirty --allow-staged
+    cargo clippy --all-targets -- -D warnings
+    cargo test
+
+    echo "🛡️ Security Scan (Inner Loop)"
+    # Check for known vulnerabilities in dependencies
+    cargo audit
+    # Detect unsafe code usage
+    cargo geiger --deny-unsound
+    # Additional security checks
+    cargo deny check
+    # License compliance check
+    cargo deny check licenses
+
+    echo "✅ Quality complete"
+}
+```
+
+### **Prerequisites Installation**
+
+```bash
+# Install security tools
+cargo install cargo-audit
+cargo install cargo-geiger
+cargo install cargo-deny
+
+# Initialize cargo-deny configuration
+cargo deny init
+```
+
+### **Security Tool Descriptions**
+
+- **`cargo-audit`**: Scans dependencies for known security vulnerabilities
+- **`cargo-geiger`**: Detects the use of unsafe code, critical for memory safety
+- **`cargo-deny`**: Comprehensive dependency management (licenses, bans, advisories)
+
+### **Outer Loop: CI/CD Integration**
+
+**Action**: Integrate Static Application Security Testing (SAST) platform like Codacy into CI/CD pipeline:
+
+1. Configure workflow that automatically triggers Codacy scan on every pull request
+2. Set up rules to block merging if scan discovers critical vulnerabilities
+3. Provides auditable security assurance for commercial deployment
+
+## 🎨 **Visual Tooling as Cognitive Prosthetic**
+
+To manage cognitive load of understanding complex architecture—especially beneficial for those with ADHD—integrate visual tools that act as "cognitive prosthetics" by externalizing the mental model of software.
+
+### **Recommended Tools**
+
+**Primary: CodeSee**
+- Automated codebase maps and interactive tours
+- Ideal for reviewing AI-generated code with minimal manual effort
+- GitHub integration for seamless workflow
+
+**Alternative/Complementary Tools:**
+- **Mermaid diagrams**: For lightweight, version-controlled architectural docs
+- **Rust-specific**: `cargo-modules` for module dependency visualization
+- **IDE Integration**: VS Code extensions like "Rust Analyzer" with call hierarchy
+
+### **Integration Points in Workflow**
+
+**During Research**: When analyzing existing libraries, use CodeSee to generate dependency graph for instant visual blueprint of patterns to replicate.
+
+**After Phase II (Production Features)**: Generate diagram using CodeSee as visual confirmation that component's internal structure is sound (similar to C4 Model Level 3).
+
+**During CRM Assembly**: Visualize high-level dependencies between components to identify architectural issues (acts as living C4 Model Level 2).
+
+## 🚀 **Implementation Roadmap**
+
+### **Phase 1: Security Foundation (Immediate)**
+1. Install security tools: `cargo install cargo-audit cargo-geiger cargo-deny`
+2. Update `blueprintautomate.sh` with enhanced `run_quality()` function
+3. Configure Codacy integration in GitHub Actions
+4. Test enhanced workflow on current Leptos-Radix components
+
+### **Phase 2: Visual Integration (Next Sprint)**
+1. Set up CodeSee account and GitHub integration
+2. Generate initial codebase map for existing components
+3. Create visualization checkpoints in blueprintautomate.sh workflow
+4. Document visual review process
+
+### **Phase 3: CRM Preparation (Future)**
+1. Establish security compliance baselines
+2. Create architectural decision records (ADRs) with visual components
+3. Set up automated security reporting for stakeholders
+4. Prepare scalable CI/CD pipeline for commercial deployment
+
+---
+
+*By making visualization and security a regular part of your development rhythm, you create a more manageable and sustainable process for building and maintaining complex commercial systems.*
