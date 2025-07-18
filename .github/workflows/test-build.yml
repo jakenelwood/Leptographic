@@ -1,0 +1,72 @@
+name: Test Build
+
+on:
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  test-build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Rust
+      uses: dtolnay/rust-toolchain@stable
+      with:
+        targets: wasm32-unknown-unknown
+        
+    - name: Cache Rust dependencies
+      uses: actions/cache@v4
+      with:
+        path: |
+          ~/.cargo/bin/
+          ~/.cargo/registry/index/
+          ~/.cargo/registry/cache/
+          ~/.cargo/git/db/
+          target/
+        key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-cargo-
+        
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        cache-dependency-path: package-lock.json
+        
+    - name: Install cargo-leptos (cached)
+      run: |
+        if ! command -v cargo-leptos &> /dev/null; then
+          cargo install cargo-leptos --version 0.2.40
+        else
+          echo "cargo-leptos already installed"
+        fi
+
+    - name: Install npm dependencies
+      run: npm ci
+
+    - name: Run Rust tests
+      run: cargo test
+
+    - name: Check Rust formatting
+      run: cargo fmt --check
+
+    - name: Run Clippy
+      run: cargo clippy -- -D warnings
+
+    - name: Build Leptos application (debug)
+      run: cargo leptos build
+        
+    - name: Verify build artifacts
+      run: |
+        echo "Checking build artifacts..."
+        ls -la target/site/
+        ls -la target/debug/
+        echo "Build test completed successfully!"

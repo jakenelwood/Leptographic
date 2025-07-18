@@ -1,4 +1,4 @@
-name: Deploy to Hetzner Server
+name: Deploy to Leptographic.com
 
 on:
   push:
@@ -11,38 +11,73 @@ env:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    
+    # Only run if we have the required secrets
+    if: ${{ secrets.HETZNER_HOST && secrets.HETZNER_USER && secrets.HETZNER_SSH_KEY }}
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-      
+
     - name: Setup Rust
       uses: dtolnay/rust-toolchain@stable
       with:
         targets: wasm32-unknown-unknown
-        
+
+    - name: Cache Rust dependencies
+      uses: actions/cache@v4
+      with:
+        path: |
+          ~/.cargo/bin/
+          ~/.cargo/registry/index/
+          ~/.cargo/registry/cache/
+          ~/.cargo/git/db/
+          target/
+        key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-cargo-
+
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
         node-version: '18'
-        cache: 'npm'
-        cache-dependency-path: package-lock.json
-        
-    - name: Install cargo-leptos
-      run: cargo install cargo-leptos
+
+    - name: Install cargo-leptos (cached)
+      run: |
+        if ! command -v cargo-leptos &> /dev/null; then
+          cargo install cargo-leptos --version 0.2.40
+        else
+          echo "cargo-leptos already installed"
+        fi
       
     - name: Install npm dependencies
-      run: npm ci
+      run: |
+        if [ -f "package-lock.json" ]; then
+          npm ci
+        else
+          npm install
+        fi
 
     - name: Build Leptos application
-      run: cargo leptos build --release
+      run: |
+        echo "Building Leptos application..."
+        cargo leptos build --release
+
+    - name: Verify build artifacts
+      run: |
+        echo "Checking build artifacts..."
+        ls -la target/site/
+        ls -la target/release/
+        # Find the actual binary name
+        BINARY_NAME=$(find target/release/ -maxdepth 1 -type f -executable ! -name "*.d" | head -1 | xargs basename)
+        echo "Found binary: $BINARY_NAME"
+        echo "BINARY_NAME=$BINARY_NAME" >> $GITHUB_ENV
 
     - name: Create deployment archive
       run: |
         mkdir -p deploy
         cp -r target/site/* deploy/
-        cp target/release/leptos-radix-ui deploy/
-        tar -czf leptos-radix-ui-deploy.tar.gz -C deploy .
+        cp target/release/leptos-radix-ui deploy/leptographic-app
+        tar -czf leptographic-deploy.tar.gz -C deploy .
         
     - name: Deploy to new server
       uses: appleboy/ssh-action@v1.0.3
@@ -74,9 +109,9 @@ jobs:
         username: ${{ secrets.HETZNER_USER }}
         key: ${{ secrets.HETZNER_SSH_KEY }}
         port: 22
-        source: "leptos-radix-ui-deploy.tar.gz"
+        source: "leptographic-deploy.tar.gz"
         target: "/tmp/"
-        
+
     - name: Extract and start application
       uses: appleboy/ssh-action@v1.0.3
       with:
@@ -85,17 +120,25 @@ jobs:
         key: ${{ secrets.HETZNER_SSH_KEY }}
         port: 22
         script: |
+          set -e  # Exit on any error
+
           # Extract deployment files
           cd /var/www/leptographic/current
-          tar -xzf /tmp/leptos-radix-ui-deploy.tar.gz
-          chmod +x leptos-radix-ui
+          tar -xzf /tmp/leptographic-deploy.tar.gz
+          chmod +x leptographic-app
 
           # Clean up temp file
-          rm /tmp/leptos-radix-ui-deploy.tar.gz
+          rm /tmp/leptographic-deploy.tar.gz
 
           # Start the service
           sudo systemctl start leptographic
           sudo systemctl enable leptographic
 
+          # Wait a moment for service to start
+          sleep 3
+
           # Check service status
-          sudo systemctl status leptographic
+          sudo systemctl status leptographic --no-pager
+
+          # Verify the application is responding
+          curl -f http://localhost:3000 || echo "Warning: Application not responding on localhost:3000"
