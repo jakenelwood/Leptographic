@@ -90,7 +90,7 @@ pub fn App() -> impl IntoView {
                                 Theme::Dark => "text-gray-400",
                             }
                         )>
-                            "A Leptos UI system created to satisfy frontend design requirements and styled with Tailwind CSS 4."
+                            "A Leptos UI system with Switch, Progress, and Separator components - styled with Tailwind CSS 4."
                         </p>
                     </div>
                     <div class="flex-shrink-0">

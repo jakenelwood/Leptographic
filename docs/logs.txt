@@ -1,101 +1,1643 @@
-[{
-	"resource": "/home/brian-berge/Dev/Leptos/Leptos-Radix/.github/workflows/deploy.yml",
-	"owner": "_generated_diagnostic_collection_name_#3",
-	"severity": 8,
-	"message": "Unrecognized named-value: 'secrets'",
-	"startLineNumber": 15,
-	"startColumn": 9,
-	"endLineNumber": 15,
-	"endColumn": 105,
-	"origin": "extHost1"
-},{
-	"resource": "/home/brian-berge/Dev/Leptos/Leptos-Radix/.github/workflows/deploy.yml",
-	"owner": "_generated_diagnostic_collection_name_#3",
-	"severity": 4,
-	"message": "Context access might be invalid: HETZNER_HOST",
-	"startLineNumber": 85,
-	"startColumn": 15,
-	"endLineNumber": 85,
-	"endColumn": 42,
-	"origin": "extHost1"
-},{
-	"resource": "/home/brian-berge/Dev/Leptos/Leptos-Radix/.github/workflows/deploy.yml",
-	"owner": "_generated_diagnostic_collection_name_#3",
-	"severity": 4,
-	"message": "Context access might be invalid: HETZNER_USER",
-	"startLineNumber": 86,
-	"startColumn": 19,
-	"endLineNumber": 86,
-	"endColumn": 46,
-	"origin": "extHost1"
-},{
-	"resource": "/home/brian-berge/Dev/Leptos/Leptos-Radix/.github/workflows/deploy.yml",
-	"owner": "_generated_diagnostic_collection_name_#3",
-	"severity": 4,
-	"message": "Context access might be invalid: HETZNER_SSH_KEY",
-	"startLineNumber": 87,
-	"startColumn": 14,
-	"endLineNumber": 87,
-	"endColumn": 44,
-	"origin": "extHost1"
-},{
-	"resource": "/home/brian-berge/Dev/Leptos/Leptos-Radix/.github/workflows/deploy.yml",
-	"owner": "_generated_diagnostic_collection_name_#3",
-	"severity": 4,
-	"message": "Context access might be invalid: HETZNER_HOST",
-	"startLineNumber": 108,
-	"startColumn": 15,
-	"endLineNumber": 108,
-	"endColumn": 42,
-	"origin": "extHost1"
-},{
-	"resource": "/home/brian-berge/Dev/Leptos/Leptos-Radix/.github/workflows/deploy.yml",
-	"owner": "_generated_diagnostic_collection_name_#3",
-	"severity": 4,
-	"message": "Context access might be invalid: HETZNER_USER",
-	"startLineNumber": 109,
-	"startColumn": 19,
-	"endLineNumber": 109,
-	"endColumn": 46,
-	"origin": "extHost1"
-},{
-	"resource": "/home/brian-berge/Dev/Leptos/Leptos-Radix/.github/workflows/deploy.yml",
-	"owner": "_generated_diagnostic_collection_name_#3",
-	"severity": 4,
-	"message": "Context access might be invalid: HETZNER_SSH_KEY",
-	"startLineNumber": 110,
-	"startColumn": 14,
-	"endLineNumber": 110,
-	"endColumn": 44,
-	"origin": "extHost1"
-},{
-	"resource": "/home/brian-berge/Dev/Leptos/Leptos-Radix/.github/workflows/deploy.yml",
-	"owner": "_generated_diagnostic_collection_name_#3",
-	"severity": 4,
-	"message": "Context access might be invalid: HETZNER_HOST",
-	"startLineNumber": 118,
-	"startColumn": 15,
-	"endLineNumber": 118,
-	"endColumn": 42,
-	"origin": "extHost1"
-},{
-	"resource": "/home/brian-berge/Dev/Leptos/Leptos-Radix/.github/workflows/deploy.yml",
-	"owner": "_generated_diagnostic_collection_name_#3",
-	"severity": 4,
-	"message": "Context access might be invalid: HETZNER_USER",
-	"startLineNumber": 119,
-	"startColumn": 19,
-	"endLineNumber": 119,
-	"endColumn": 46,
-	"origin": "extHost1"
-},{
-	"resource": "/home/brian-berge/Dev/Leptos/Leptos-Radix/.github/workflows/deploy.yml",
-	"owner": "_generated_diagnostic_collection_name_#3",
-	"severity": 4,
-	"message": "Context access might be invalid: HETZNER_SSH_KEY",
-	"startLineNumber": 120,
-	"startColumn": 14,
-	"endLineNumber": 120,
-	"endColumn": 44,
-	"origin": "extHost1"
-}]
+2025-07-18T23:27:41.4048874Z Current runner version: '2.326.0'
+2025-07-18T23:27:41.4077280Z ##[group]Runner Image Provisioner
+2025-07-18T23:27:41.4078215Z Hosted Compute Agent
+2025-07-18T23:27:41.4078736Z Version: 20250711.363
+2025-07-18T23:27:41.4079325Z Commit: 6785254374ce925a23743850c1cb91912ce5c14c
+2025-07-18T23:27:41.4080040Z Build Date: 2025-07-11T20:04:25Z
+2025-07-18T23:27:41.4080632Z ##[endgroup]
+2025-07-18T23:27:41.4081152Z ##[group]Operating System
+2025-07-18T23:27:41.4081771Z Ubuntu
+2025-07-18T23:27:41.4082254Z 24.04.2
+2025-07-18T23:27:41.4082681Z LTS
+2025-07-18T23:27:41.4083210Z ##[endgroup]
+2025-07-18T23:27:41.4083689Z ##[group]Runner Image
+2025-07-18T23:27:41.4084258Z Image: ubuntu-24.04
+2025-07-18T23:27:41.4084755Z Version: 20250710.1.0
+2025-07-18T23:27:41.4086015Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20250710.1/images/ubuntu/Ubuntu2404-Readme.md
+2025-07-18T23:27:41.4087528Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20250710.1
+2025-07-18T23:27:41.4088571Z ##[endgroup]
+2025-07-18T23:27:41.4089670Z ##[group]GITHUB_TOKEN Permissions
+2025-07-18T23:27:41.4091512Z Contents: read
+2025-07-18T23:27:41.4092071Z Metadata: read
+2025-07-18T23:27:41.4092517Z Packages: read
+2025-07-18T23:27:41.4093112Z ##[endgroup]
+2025-07-18T23:27:41.4095264Z Secret source: Actions
+2025-07-18T23:27:41.4095987Z Prepare workflow directory
+2025-07-18T23:27:41.4606523Z Prepare all required actions
+2025-07-18T23:27:41.4660388Z Getting action download info
+2025-07-18T23:27:41.8620259Z Download action repository 'actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683' (SHA:11bd71901bbe5b1630ceea73d27597364c9af683)
+2025-07-18T23:27:41.9597191Z Download action repository 'dtolnay/rust-toolchain@4305c38b25d97ef35a8ad1f985ccf2d2242004f2' (SHA:4305c38b25d97ef35a8ad1f985ccf2d2242004f2)
+2025-07-18T23:27:42.1719237Z Download action repository 'actions/cache@5a3ec84eff668545956fd18022155c47e93e2684' (SHA:5a3ec84eff668545956fd18022155c47e93e2684)
+2025-07-18T23:27:42.2809076Z Download action repository 'actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2025-07-18T23:27:42.4819032Z Complete job name: test-build
+2025-07-18T23:27:42.5516037Z ##[group]Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+2025-07-18T23:27:42.5517120Z with:
+2025-07-18T23:27:42.5517562Z   repository: jakenelwood/Leptographic
+2025-07-18T23:27:42.5518273Z   token: ***
+2025-07-18T23:27:42.5518687Z   ssh-strict: true
+2025-07-18T23:27:42.5519104Z   ssh-user: git
+2025-07-18T23:27:42.5519537Z   persist-credentials: true
+2025-07-18T23:27:42.5520018Z   clean: true
+2025-07-18T23:27:42.5520446Z   sparse-checkout-cone-mode: true
+2025-07-18T23:27:42.5520952Z   fetch-depth: 1
+2025-07-18T23:27:42.5521373Z   fetch-tags: false
+2025-07-18T23:27:42.5521800Z   show-progress: true
+2025-07-18T23:27:42.5522229Z   lfs: false
+2025-07-18T23:27:42.5522620Z   submodules: false
+2025-07-18T23:27:42.5523067Z   set-safe-directory: true
+2025-07-18T23:27:42.5523732Z env:
+2025-07-18T23:27:42.5524163Z   CARGO_TERM_COLOR: always
+2025-07-18T23:27:42.5524625Z ##[endgroup]
+2025-07-18T23:27:42.6570739Z Syncing repository: jakenelwood/Leptographic
+2025-07-18T23:27:42.6572549Z ##[group]Getting Git version info
+2025-07-18T23:27:42.6573434Z Working directory is '/home/runner/work/Leptographic/Leptographic'
+2025-07-18T23:27:42.6574518Z [command]/usr/bin/git version
+2025-07-18T23:27:42.6607471Z git version 2.50.1
+2025-07-18T23:27:42.6633508Z ##[endgroup]
+2025-07-18T23:27:42.6653346Z Temporarily overriding HOME='/home/runner/work/_temp/bc81a841-cb74-4ae3-b4b3-478fb2d176e8' before making global git config changes
+2025-07-18T23:27:42.6655048Z Adding repository directory to the temporary git global config as a safe directory
+2025-07-18T23:27:42.6658591Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Leptographic/Leptographic
+2025-07-18T23:27:42.6690570Z Deleting the contents of '/home/runner/work/Leptographic/Leptographic'
+2025-07-18T23:27:42.6694167Z ##[group]Initializing the repository
+2025-07-18T23:27:42.6697901Z [command]/usr/bin/git init /home/runner/work/Leptographic/Leptographic
+2025-07-18T23:27:42.6760031Z hint: Using 'master' as the name for the initial branch. This default branch name
+2025-07-18T23:27:42.6761836Z hint: is subject to change. To configure the initial branch name to use in all
+2025-07-18T23:27:42.6763462Z hint: of your new repositories, which will suppress this warning, call:
+2025-07-18T23:27:42.6764200Z hint:
+2025-07-18T23:27:42.6764709Z hint: 	git config --global init.defaultBranch <name>
+2025-07-18T23:27:42.6765565Z hint:
+2025-07-18T23:27:42.6766147Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2025-07-18T23:27:42.6767085Z hint: 'development'. The just-created branch can be renamed via this command:
+2025-07-18T23:27:42.6768139Z hint:
+2025-07-18T23:27:42.6768777Z hint: 	git branch -m <name>
+2025-07-18T23:27:42.6769251Z hint:
+2025-07-18T23:27:42.6769903Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2025-07-18T23:27:42.6771021Z Initialized empty Git repository in /home/runner/work/Leptographic/Leptographic/.git/
+2025-07-18T23:27:42.6773732Z [command]/usr/bin/git remote add origin https://github.com/jakenelwood/Leptographic
+2025-07-18T23:27:42.6804348Z ##[endgroup]
+2025-07-18T23:27:42.6805752Z ##[group]Disabling automatic garbage collection
+2025-07-18T23:27:42.6807849Z [command]/usr/bin/git config --local gc.auto 0
+2025-07-18T23:27:42.6835652Z ##[endgroup]
+2025-07-18T23:27:42.6836788Z ##[group]Setting up auth
+2025-07-18T23:27:42.6842132Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-07-18T23:27:42.6870786Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-07-18T23:27:42.7130804Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-07-18T23:27:42.7159134Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-07-18T23:27:42.7372512Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-07-18T23:27:42.7405931Z ##[endgroup]
+2025-07-18T23:27:42.7406737Z ##[group]Fetching the repository
+2025-07-18T23:27:42.7415530Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +62a8eb66f5127fc1572998a943a6e041b25d8080:refs/remotes/origin/main
+2025-07-18T23:27:43.0988032Z From https://github.com/jakenelwood/Leptographic
+2025-07-18T23:27:43.0990089Z  * [new ref]         62a8eb66f5127fc1572998a943a6e041b25d8080 -> origin/main
+2025-07-18T23:27:43.1013293Z ##[endgroup]
+2025-07-18T23:27:43.1015278Z ##[group]Determining the checkout info
+2025-07-18T23:27:43.1017391Z ##[endgroup]
+2025-07-18T23:27:43.1021177Z [command]/usr/bin/git sparse-checkout disable
+2025-07-18T23:27:43.1058427Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2025-07-18T23:27:43.1087025Z ##[group]Checking out the ref
+2025-07-18T23:27:43.1089194Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2025-07-18T23:27:43.1208896Z Switched to a new branch 'main'
+2025-07-18T23:27:43.1211496Z branch 'main' set up to track 'origin/main'.
+2025-07-18T23:27:43.1218624Z ##[endgroup]
+2025-07-18T23:27:43.1250247Z [command]/usr/bin/git log -1 --format=%H
+2025-07-18T23:27:43.1271347Z 62a8eb66f5127fc1572998a943a6e041b25d8080
+2025-07-18T23:27:43.1735755Z ##[group]Run dtolnay/rust-toolchain@4305c38b25d97ef35a8ad1f985ccf2d2242004f2
+2025-07-18T23:27:43.1737297Z with:
+2025-07-18T23:27:43.1738141Z   targets: wasm32-unknown-unknown
+2025-07-18T23:27:43.1739176Z   toolchain: stable
+2025-07-18T23:27:43.1740022Z env:
+2025-07-18T23:27:43.1740804Z   CARGO_TERM_COLOR: always
+2025-07-18T23:27:43.1741741Z ##[endgroup]
+2025-07-18T23:27:43.1879453Z ##[group]Run : parse toolchain version
+2025-07-18T23:27:43.1880680Z [36;1m: parse toolchain version[0m
+2025-07-18T23:27:43.1882116Z [36;1mif [[ $toolchain =~ ^stable' '[0-9]+' '(year|month|week|day)s?' 'ago$ ]]; then[0m
+2025-07-18T23:27:43.1883631Z [36;1m  if [[ Linux == macOS ]]; then[0m
+2025-07-18T23:27:43.1885684Z [36;1m    echo "toolchain=1.$((($(date -v-$(sed 's/stable \([0-9]*\) \(.\).*/\1\2/' <<< $toolchain) +%s)/60/60/24-16569)/7/6))" >> $GITHUB_OUTPUT[0m
+2025-07-18T23:27:43.1887521Z [36;1m  else[0m
+2025-07-18T23:27:43.1889024Z [36;1m    echo "toolchain=1.$((($(date --date "${toolchain#stable }" +%s)/60/60/24-16569)/7/6))" >> $GITHUB_OUTPUT[0m
+2025-07-18T23:27:43.1890742Z [36;1m  fi[0m
+2025-07-18T23:27:43.1891875Z [36;1melif [[ $toolchain =~ ^stable' 'minus' '[0-9]+' 'releases?$ ]]; then[0m
+2025-07-18T23:27:43.1893826Z [36;1m  echo "toolchain=1.$((($(date +%s)/60/60/24-16569)/7/6-${toolchain//[^0-9]/}))" >> $GITHUB_OUTPUT[0m
+2025-07-18T23:27:43.1895655Z [36;1melif [[ $toolchain =~ ^1\.[0-9]+$ ]]; then[0m
+2025-07-18T23:27:43.1897569Z [36;1m  echo "toolchain=1.$((i=${toolchain#1.}, c=($(date +%s)/60/60/24-16569)/7/6, i+9*i*(10*i<=c)+90*i*(100*i<=c)))" >> $GITHUB_OUTPUT[0m
+2025-07-18T23:27:43.1899370Z [36;1melse[0m
+2025-07-18T23:27:43.1900335Z [36;1m  echo "toolchain=$toolchain" >> $GITHUB_OUTPUT[0m
+2025-07-18T23:27:43.1901547Z [36;1mfi[0m
+2025-07-18T23:27:43.1934112Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-07-18T23:27:43.1935569Z env:
+2025-07-18T23:27:43.1936321Z   CARGO_TERM_COLOR: always
+2025-07-18T23:27:43.2001439Z   toolchain: stable
+2025-07-18T23:27:43.2002482Z ##[endgroup]
+2025-07-18T23:27:43.2166637Z ##[group]Run : construct rustup command line
+2025-07-18T23:27:43.2167812Z [36;1m: construct rustup command line[0m
+2025-07-18T23:27:43.2169392Z [36;1mecho "targets=$(for t in ${targets//,/ }; do echo -n ' --target' $t; done)" >> $GITHUB_OUTPUT[0m
+2025-07-18T23:27:43.2171596Z [36;1mecho "components=$(for c in ${components//,/ }; do echo -n ' --component' $c; done)" >> $GITHUB_OUTPUT[0m
+2025-07-18T23:27:43.2173380Z [36;1mecho "downgrade=" >> $GITHUB_OUTPUT[0m
+2025-07-18T23:27:43.2200253Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-07-18T23:27:43.2201485Z env:
+2025-07-18T23:27:43.2202215Z   CARGO_TERM_COLOR: always
+2025-07-18T23:27:43.2203152Z   targets: wasm32-unknown-unknown
+2025-07-18T23:27:43.2204162Z   components: 
+2025-07-18T23:27:43.2205025Z ##[endgroup]
+2025-07-18T23:27:43.2306503Z ##[group]Run : set $CARGO_HOME
+2025-07-18T23:27:43.2307447Z [36;1m: set $CARGO_HOME[0m
+2025-07-18T23:27:43.2308642Z [36;1mecho CARGO_HOME=${CARGO_HOME:-"$HOME/.cargo"} >> $GITHUB_ENV[0m
+2025-07-18T23:27:43.2335655Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-07-18T23:27:43.2336857Z env:
+2025-07-18T23:27:43.2337562Z   CARGO_TERM_COLOR: always
+2025-07-18T23:27:43.2338441Z ##[endgroup]
+2025-07-18T23:27:43.2439464Z ##[group]Run : install rustup if needed
+2025-07-18T23:27:43.2440511Z [36;1m: install rustup if needed[0m
+2025-07-18T23:27:43.2441575Z [36;1mif ! command -v rustup &>/dev/null; then[0m
+2025-07-18T23:27:43.2444045Z [36;1m  curl --proto '=https' --tlsv1.2 --retry 10 --retry-connrefused --location --silent --show-error --fail https://sh.rustup.rs | sh -s -- --default-toolchain none -y[0m
+2025-07-18T23:27:43.2446702Z [36;1m  echo "$CARGO_HOME/bin" >> $GITHUB_PATH[0m
+2025-07-18T23:27:43.2447743Z [36;1mfi[0m
+2025-07-18T23:27:43.2473692Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-07-18T23:27:43.2475013Z env:
+2025-07-18T23:27:43.2475728Z   CARGO_TERM_COLOR: always
+2025-07-18T23:27:43.2476799Z   CARGO_HOME: /home/runner/.cargo
+2025-07-18T23:27:43.2477722Z ##[endgroup]
+2025-07-18T23:27:43.2580920Z ##[group]Run rustup toolchain install stable --target wasm32-unknown-unknown --profile minimal --no-self-update
+2025-07-18T23:27:43.2583529Z [36;1mrustup toolchain install stable --target wasm32-unknown-unknown --profile minimal --no-self-update[0m
+2025-07-18T23:27:43.2610799Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-07-18T23:27:43.2612119Z env:
+2025-07-18T23:27:43.2612809Z   CARGO_TERM_COLOR: always
+2025-07-18T23:27:43.2613691Z   CARGO_HOME: /home/runner/.cargo
+2025-07-18T23:27:43.2614590Z ##[endgroup]
+2025-07-18T23:27:43.4645138Z info: syncing channel updates for 'stable-x86_64-unknown-linux-gnu'
+2025-07-18T23:27:43.5769953Z info: latest update on 2025-06-26, rust version 1.88.0 (6b00bc388 2025-06-23)
+2025-07-18T23:27:43.6027704Z info: downloading component 'rust-std' for 'wasm32-unknown-unknown'
+2025-07-18T23:27:43.6769736Z info: installing component 'rust-std' for 'wasm32-unknown-unknown'
+2025-07-18T23:27:45.0651374Z 
+2025-07-18T23:27:45.0745958Z   stable-x86_64-unknown-linux-gnu updated - rustc 1.88.0 (6b00bc388 2025-06-23) (from rustc 1.88.0 (6b00bc388 2025-06-23))
+2025-07-18T23:27:45.0747450Z 
+2025-07-18T23:27:45.0805759Z ##[group]Run rustup default stable
+2025-07-18T23:27:45.0806127Z [36;1mrustup default stable[0m
+2025-07-18T23:27:45.0835649Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-07-18T23:27:45.0836062Z env:
+2025-07-18T23:27:45.0836307Z   CARGO_TERM_COLOR: always
+2025-07-18T23:27:45.0836597Z   CARGO_HOME: /home/runner/.cargo
+2025-07-18T23:27:45.0836887Z ##[endgroup]
+2025-07-18T23:27:45.0936886Z info: using existing install for 'stable-x86_64-unknown-linux-gnu'
+2025-07-18T23:27:45.1238897Z info: default toolchain set to 'stable-x86_64-unknown-linux-gnu'
+2025-07-18T23:27:45.1239473Z 
+2025-07-18T23:27:45.1325668Z   stable-x86_64-unknown-linux-gnu unchanged - rustc 1.88.0 (6b00bc388 2025-06-23)
+2025-07-18T23:27:45.1326327Z 
+2025-07-18T23:27:45.1374271Z ##[group]Run : create cachekey
+2025-07-18T23:27:45.1374622Z [36;1m: create cachekey[0m
+2025-07-18T23:27:45.1375431Z [36;1mDATE=$(rustc +stable --version --verbose | sed -ne 's/^commit-date: \(20[0-9][0-9]\)-\([01][0-9]\)-\([0-3][0-9]\)$/\1\2\3/p')[0m
+2025-07-18T23:27:45.1376168Z [36;1mHASH=$(rustc +stable --version --verbose | sed -ne 's/^commit-hash: //p')[0m
+2025-07-18T23:27:45.1376751Z [36;1mecho "cachekey=$(echo $DATE$HASH | head -c12)" >> $GITHUB_OUTPUT[0m
+2025-07-18T23:27:45.1405965Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-07-18T23:27:45.1406365Z env:
+2025-07-18T23:27:45.1406613Z   CARGO_TERM_COLOR: always
+2025-07-18T23:27:45.1406909Z   CARGO_HOME: /home/runner/.cargo
+2025-07-18T23:27:45.1407212Z ##[endgroup]
+2025-07-18T23:27:45.2422460Z ##[group]Run : disable incremental compilation
+2025-07-18T23:27:45.2422919Z [36;1m: disable incremental compilation[0m
+2025-07-18T23:27:45.2423318Z [36;1mif [ -z "${CARGO_INCREMENTAL+set}" ]; then[0m
+2025-07-18T23:27:45.2423760Z [36;1m  echo CARGO_INCREMENTAL=0 >> $GITHUB_ENV[0m
+2025-07-18T23:27:45.2424139Z [36;1mfi[0m
+2025-07-18T23:27:45.2453532Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-07-18T23:27:45.2453953Z env:
+2025-07-18T23:27:45.2454197Z   CARGO_TERM_COLOR: always
+2025-07-18T23:27:45.2454513Z   CARGO_HOME: /home/runner/.cargo
+2025-07-18T23:27:45.2455055Z ##[endgroup]
+2025-07-18T23:27:45.2526328Z ##[group]Run : enable colors in Cargo output
+2025-07-18T23:27:45.2526748Z [36;1m: enable colors in Cargo output[0m
+2025-07-18T23:27:45.2527141Z [36;1mif [ -z "${CARGO_TERM_COLOR+set}" ]; then[0m
+2025-07-18T23:27:45.2527562Z [36;1m  echo CARGO_TERM_COLOR=always >> $GITHUB_ENV[0m
+2025-07-18T23:27:45.2527909Z [36;1mfi[0m
+2025-07-18T23:27:45.2554476Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-07-18T23:27:45.2555067Z env:
+2025-07-18T23:27:45.2555320Z   CARGO_TERM_COLOR: always
+2025-07-18T23:27:45.2555632Z   CARGO_HOME: /home/runner/.cargo
+2025-07-18T23:27:45.2555941Z   CARGO_INCREMENTAL: 0
+2025-07-18T23:27:45.2556497Z ##[endgroup]
+2025-07-18T23:27:45.2628026Z ##[group]Run : enable Cargo sparse registry
+2025-07-18T23:27:45.2628430Z [36;1m: enable Cargo sparse registry[0m
+2025-07-18T23:27:45.2628887Z [36;1m# implemented in 1.66, stabilized in 1.68, made default in 1.70[0m
+2025-07-18T23:27:45.2629679Z [36;1mif [ -z "${CARGO_REGISTRIES_CRATES_IO_PROTOCOL+set}" -o -f "/home/runner/work/_temp"/.implicit_cargo_registries_crates_io_protocol ]; then[0m
+2025-07-18T23:27:45.2630655Z [36;1m  if rustc +stable --version --verbose | grep -q '^release: 1\.6[89]\.'; then[0m
+2025-07-18T23:27:45.2631283Z [36;1m    touch "/home/runner/work/_temp"/.implicit_cargo_registries_crates_io_protocol || true[0m
+2025-07-18T23:27:45.2631885Z [36;1m    echo CARGO_REGISTRIES_CRATES_IO_PROTOCOL=sparse >> $GITHUB_ENV[0m
+2025-07-18T23:27:45.2632437Z [36;1m  elif rustc +stable --version --verbose | grep -q '^release: 1\.6[67]\.'; then[0m
+2025-07-18T23:27:45.2633073Z [36;1m    touch "/home/runner/work/_temp"/.implicit_cargo_registries_crates_io_protocol || true[0m
+2025-07-18T23:27:45.2633656Z [36;1m    echo CARGO_REGISTRIES_CRATES_IO_PROTOCOL=git >> $GITHUB_ENV[0m
+2025-07-18T23:27:45.2634049Z [36;1m  fi[0m
+2025-07-18T23:27:45.2634294Z [36;1mfi[0m
+2025-07-18T23:27:45.2662338Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-07-18T23:27:45.2662734Z env:
+2025-07-18T23:27:45.2662973Z   CARGO_TERM_COLOR: always
+2025-07-18T23:27:45.2663312Z   CARGO_HOME: /home/runner/.cargo
+2025-07-18T23:27:45.2663648Z   CARGO_INCREMENTAL: 0
+2025-07-18T23:27:45.2663934Z ##[endgroup]
+2025-07-18T23:27:45.3024568Z ##[group]Run : work around spurious network errors in curl 8.0
+2025-07-18T23:27:45.3025427Z [36;1m: work around spurious network errors in curl 8.0[0m
+2025-07-18T23:27:45.3026267Z [36;1m# https://rust-lang.zulipchat.com/#narrow/stream/246057-t-cargo/topic/timeout.20investigation[0m
+2025-07-18T23:27:45.3026977Z [36;1mif rustc +stable --version --verbose | grep -q '^release: 1\.7[01]\.'; then[0m
+2025-07-18T23:27:45.3027549Z [36;1m  echo CARGO_HTTP_MULTIPLEXING=false >> $GITHUB_ENV[0m
+2025-07-18T23:27:45.3027941Z [36;1mfi[0m
+2025-07-18T23:27:45.3059251Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-07-18T23:27:45.3059686Z env:
+2025-07-18T23:27:45.3059964Z   CARGO_TERM_COLOR: always
+2025-07-18T23:27:45.3060296Z   CARGO_HOME: /home/runner/.cargo
+2025-07-18T23:27:45.3060639Z   CARGO_INCREMENTAL: 0
+2025-07-18T23:27:45.3060942Z ##[endgroup]
+2025-07-18T23:27:45.3278627Z ##[group]Run rustc +stable --version --verbose
+2025-07-18T23:27:45.3279063Z [36;1mrustc +stable --version --verbose[0m
+2025-07-18T23:27:45.3309302Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-07-18T23:27:45.3309735Z env:
+2025-07-18T23:27:45.3310115Z   CARGO_TERM_COLOR: always
+2025-07-18T23:27:45.3310483Z   CARGO_HOME: /home/runner/.cargo
+2025-07-18T23:27:45.3310829Z   CARGO_INCREMENTAL: 0
+2025-07-18T23:27:45.3311129Z ##[endgroup]
+2025-07-18T23:27:45.3482080Z rustc 1.88.0 (6b00bc388 2025-06-23)
+2025-07-18T23:27:45.3482941Z binary: rustc
+2025-07-18T23:27:45.3483569Z commit-hash: 6b00bc3880198600130e1cf62b8f8a93494488cc
+2025-07-18T23:27:45.3484294Z commit-date: 2025-06-23
+2025-07-18T23:27:45.3485007Z host: x86_64-unknown-linux-gnu
+2025-07-18T23:27:45.3485606Z release: 1.88.0
+2025-07-18T23:27:45.3486134Z LLVM version: 20.1.5
+2025-07-18T23:27:45.4257324Z ##[group]Run actions/cache@5a3ec84eff668545956fd18022155c47e93e2684
+2025-07-18T23:27:45.4257825Z with:
+2025-07-18T23:27:45.4258308Z   path: ~/.cargo/bin/
+~/.cargo/registry/index/
+~/.cargo/registry/cache/
+~/.cargo/git/db/
+target/
+
+2025-07-18T23:27:45.4258838Z   key: Linux-cargo-
+2025-07-18T23:27:45.4259151Z   restore-keys: Linux-cargo-
+
+2025-07-18T23:27:45.4259509Z   enableCrossOsArchive: false
+2025-07-18T23:27:45.4259842Z   fail-on-cache-miss: false
+2025-07-18T23:27:45.4260163Z   lookup-only: false
+2025-07-18T23:27:45.4260459Z   save-always: false
+2025-07-18T23:27:45.4260751Z env:
+2025-07-18T23:27:45.4261012Z   CARGO_TERM_COLOR: always
+2025-07-18T23:27:45.4261348Z   CARGO_HOME: /home/runner/.cargo
+2025-07-18T23:27:45.4261691Z   CARGO_INCREMENTAL: 0
+2025-07-18T23:27:45.4261981Z ##[endgroup]
+2025-07-18T23:27:45.7026249Z Cache hit for: Linux-cargo-
+2025-07-18T23:27:46.8462723Z Received 121634816 of 992001258 (12.3%), 115.9 MBs/sec
+2025-07-18T23:27:47.8474041Z Received 306184192 of 992001258 (30.9%), 145.9 MBs/sec
+2025-07-18T23:27:48.8513731Z Received 532676608 of 992001258 (53.7%), 169.2 MBs/sec
+2025-07-18T23:27:49.8527288Z Received 708837376 of 992001258 (71.5%), 168.7 MBs/sec
+2025-07-18T23:27:50.9355268Z Received 939524096 of 992001258 (94.7%), 176.0 MBs/sec
+2025-07-18T23:27:51.2799365Z Received 992001258 of 992001258 (100.0%), 174.1 MBs/sec
+2025-07-18T23:27:51.2802656Z Cache Size: ~946 MB (992001258 B)
+2025-07-18T23:27:51.2900162Z [command]/usr/bin/tar -xf /home/runner/work/_temp/c36c0816-7711-40d0-bd67-3e0515ec4c9a/cache.tzst -P -C /home/runner/work/Leptographic/Leptographic --use-compress-program unzstd
+2025-07-18T23:27:57.8649643Z Cache restored successfully
+2025-07-18T23:27:58.0529175Z Cache restored from key: Linux-cargo-
+2025-07-18T23:27:58.0703442Z ##[group]Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+2025-07-18T23:27:58.0703822Z with:
+2025-07-18T23:27:58.0704006Z   node-version: 18
+2025-07-18T23:27:58.0704191Z   cache: npm
+2025-07-18T23:27:58.0704404Z   cache-dependency-path: package-lock.json
+2025-07-18T23:27:58.0704669Z   always-auth: false
+2025-07-18T23:27:58.0706224Z   check-latest: false
+2025-07-18T23:27:58.0706555Z   token: ***
+2025-07-18T23:27:58.0706734Z env:
+2025-07-18T23:27:58.0706901Z   CARGO_TERM_COLOR: always
+2025-07-18T23:27:58.0707131Z   CARGO_HOME: /home/runner/.cargo
+2025-07-18T23:27:58.0707365Z   CARGO_INCREMENTAL: 0
+2025-07-18T23:27:58.0707562Z ##[endgroup]
+2025-07-18T23:27:58.4623318Z Found in cache @ /opt/hostedtoolcache/node/18.20.8/x64
+2025-07-18T23:27:58.4630587Z ##[group]Environment details
+2025-07-18T23:28:00.4749994Z node: v18.20.8
+2025-07-18T23:28:00.4750362Z npm: 10.8.2
+2025-07-18T23:28:00.4750668Z yarn: 1.22.22
+2025-07-18T23:28:00.4751388Z ##[endgroup]
+2025-07-18T23:28:00.4772191Z [command]/opt/hostedtoolcache/node/18.20.8/x64/bin/npm config get cache
+2025-07-18T23:28:00.7748120Z /home/runner/.npm
+2025-07-18T23:28:00.9039562Z Cache hit for: node-cache-Linux-x64-npm-275a98fea6bf422b528f0e4755216ad8abf0ecf22104011707258ae7ca05ae48
+2025-07-18T23:28:01.1449154Z Received 158458 of 158458 (100.0%), 1.4 MBs/sec
+2025-07-18T23:28:01.1449711Z Cache Size: ~0 MB (158458 B)
+2025-07-18T23:28:01.1472537Z [command]/usr/bin/tar -xf /home/runner/work/_temp/fe1462b3-6a57-4c0f-9f19-7bf2ac389c6e/cache.tzst -P -C /home/runner/work/Leptographic/Leptographic --use-compress-program unzstd
+2025-07-18T23:28:01.1525287Z Cache restored successfully
+2025-07-18T23:28:01.1530486Z Cache restored from key: node-cache-Linux-x64-npm-275a98fea6bf422b528f0e4755216ad8abf0ecf22104011707258ae7ca05ae48
+2025-07-18T23:28:01.1633443Z ##[group]Run if ! command -v cargo-leptos &> /dev/null; then
+2025-07-18T23:28:01.1633869Z [36;1mif ! command -v cargo-leptos &> /dev/null; then[0m
+2025-07-18T23:28:01.1634207Z [36;1m  cargo install cargo-leptos --version 0.2.40[0m
+2025-07-18T23:28:01.1634486Z [36;1melse[0m
+2025-07-18T23:28:01.1634708Z [36;1m  echo "cargo-leptos already installed"[0m
+2025-07-18T23:28:01.1635297Z [36;1mfi[0m
+2025-07-18T23:28:01.1670804Z shell: /usr/bin/bash -e {0}
+2025-07-18T23:28:01.1671047Z env:
+2025-07-18T23:28:01.1671239Z   CARGO_TERM_COLOR: always
+2025-07-18T23:28:01.1671497Z   CARGO_HOME: /home/runner/.cargo
+2025-07-18T23:28:01.1671749Z   CARGO_INCREMENTAL: 0
+2025-07-18T23:28:01.1671952Z ##[endgroup]
+2025-07-18T23:28:01.1724672Z cargo-leptos already installed
+2025-07-18T23:28:01.1742665Z ##[group]Run npm ci
+2025-07-18T23:28:01.1742909Z [36;1mnpm ci[0m
+2025-07-18T23:28:01.1767206Z shell: /usr/bin/bash -e {0}
+2025-07-18T23:28:01.1767440Z env:
+2025-07-18T23:28:01.1767618Z   CARGO_TERM_COLOR: always
+2025-07-18T23:28:01.1767856Z   CARGO_HOME: /home/runner/.cargo
+2025-07-18T23:28:01.1768103Z   CARGO_INCREMENTAL: 0
+2025-07-18T23:28:01.1768306Z ##[endgroup]
+2025-07-18T23:28:03.3408018Z 
+2025-07-18T23:28:03.3408881Z added 1 package, and audited 2 packages in 2s
+2025-07-18T23:28:03.3419466Z 
+2025-07-18T23:28:03.3419739Z found 0 vulnerabilities
+2025-07-18T23:28:03.3515712Z ##[group]Run cargo test --lib --bins
+2025-07-18T23:28:03.3516052Z [36;1mcargo test --lib --bins[0m
+2025-07-18T23:28:03.3543169Z shell: /usr/bin/bash -e {0}
+2025-07-18T23:28:03.3543408Z env:
+2025-07-18T23:28:03.3543770Z   CARGO_TERM_COLOR: always
+2025-07-18T23:28:03.3544004Z   CARGO_HOME: /home/runner/.cargo
+2025-07-18T23:28:03.3544244Z   CARGO_INCREMENTAL: 0
+2025-07-18T23:28:03.3544452Z ##[endgroup]
+2025-07-18T23:28:05.4883955Z [1m[32m    Updating[0m crates.io index
+2025-07-18T23:28:06.0286949Z [1m[32m     Locking[0m 258 packages to latest compatible versions
+2025-07-18T23:28:06.0866724Z [1m[36m      Adding[0m matchit v0.8.4 [1m[33m(available: v0.8.6)[0m
+2025-07-18T23:28:06.8220605Z [1m[32m   Compiling[0m leptos-radix-ui v0.1.0 (/home/runner/work/Leptographic/Leptographic)
+2025-07-18T23:28:14.7852434Z [1m[32m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 10.26s
+2025-07-18T23:28:14.8253692Z [1m[32m     Running[0m unittests src/lib.rs (target/debug/deps/leptos_radix_ui-00b8bca7fd046f65)
+2025-07-18T23:28:14.8270517Z 
+2025-07-18T23:28:14.8270741Z running 0 tests
+2025-07-18T23:28:14.8271005Z 
+2025-07-18T23:28:14.8271701Z test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+2025-07-18T23:28:14.8272268Z 
+2025-07-18T23:28:14.8279511Z [1m[32m     Running[0m unittests src/main.rs (target/debug/deps/leptos_radix_ui-76ed68b77194a33f)
+2025-07-18T23:28:14.8287166Z 
+2025-07-18T23:28:14.8287576Z running 0 tests
+2025-07-18T23:28:14.8287838Z 
+2025-07-18T23:28:14.8288461Z test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+2025-07-18T23:28:14.8289041Z 
+2025-07-18T23:28:14.8391917Z ##[group]Run cargo fmt --check
+2025-07-18T23:28:14.8392214Z [36;1mcargo fmt --check[0m
+2025-07-18T23:28:14.8419023Z shell: /usr/bin/bash -e {0}
+2025-07-18T23:28:14.8419263Z env:
+2025-07-18T23:28:14.8419443Z   CARGO_TERM_COLOR: always
+2025-07-18T23:28:14.8419684Z   CARGO_HOME: /home/runner/.cargo
+2025-07-18T23:28:14.8419936Z   CARGO_INCREMENTAL: 0
+2025-07-18T23:28:14.8420148Z ##[endgroup]
+2025-07-18T23:28:16.0636893Z ##[group]Run cargo clippy --lib --bins -- -D warnings
+2025-07-18T23:28:16.0637285Z [36;1mcargo clippy --lib --bins -- -D warnings[0m
+2025-07-18T23:28:16.0664018Z shell: /usr/bin/bash -e {0}
+2025-07-18T23:28:16.0664253Z env:
+2025-07-18T23:28:16.0664434Z   CARGO_TERM_COLOR: always
+2025-07-18T23:28:16.0664672Z   CARGO_HOME: /home/runner/.cargo
+2025-07-18T23:28:16.0665127Z   CARGO_INCREMENTAL: 0
+2025-07-18T23:28:16.0665338Z ##[endgroup]
+2025-07-18T23:28:16.6727391Z [1m[32m    Checking[0m leptos-radix-ui v0.1.0 (/home/runner/work/Leptographic/Leptographic)
+2025-07-18T23:28:19.7801523Z [1m[32m    Finished[0m `dev` profile [unoptimized + debuginfo] target(s) in 3.51s
+2025-07-18T23:28:19.8011563Z ##[group]Run cargo leptos build
+2025-07-18T23:28:19.8011867Z [36;1mcargo leptos build[0m
+2025-07-18T23:28:19.8038756Z shell: /usr/bin/bash -e {0}
+2025-07-18T23:28:19.8038989Z env:
+2025-07-18T23:28:19.8039172Z   CARGO_TERM_COLOR: always
+2025-07-18T23:28:19.8039408Z   CARGO_HOME: /home/runner/.cargo
+2025-07-18T23:28:19.8039660Z   CARGO_INCREMENTAL: 0
+2025-07-18T23:28:19.8039867Z ##[endgroup]
+2025-07-18T23:28:20.3516780Z [1m[32m   Compiling[0m leptos-radix-ui v0.1.0 (/home/runner/work/Leptographic/Leptographic)
+2025-07-18T23:28:24.8021641Z [1m[32m    Finished[0m `dev` profile [unoptimized + debuginfo] target(s) in 4.58s
+2025-07-18T23:28:24.8169394Z [38;5;77m       Cargo[0m finished [38;5;241mcargo build --package=leptos-radix-ui --lib --target-dir=/home/runner/work/Leptographic/Leptographic/target/front --target=wasm32-unknown-unknown --no-default-features --features=hydrate[0m
+2025-07-18T23:28:24.8170608Z [38;5;77m       Front[0m generating JS/WASM with wasm-bindgen
+2025-07-18T23:28:25.2823661Z [38;5;77m    Finished[0m generating JS/WASM for front in 465.399851ms
+2025-07-18T23:28:25.4188363Z [38;5;77m     Command[0m [tailwindcss] requested version v4.1.4, but a newer version v4.1.11 is available, you can try it out by setting the LEPTOS_TAILWIND_VERSION=v4.1.11 env var and re-running the command
+2025-07-18T23:28:25.4190114Z [38;5;77m     Command[0m installing tailwindcss-v4.1.4 ...
+2025-07-18T23:28:26.0364309Z [38;5;77m     Command[0m tailwindcss-v4.1.4 installed.
+2025-07-18T23:28:26.2772514Z [38;5;77m    Tailwind[0m finished [38;5;241mtailwindcss --input style/main.css --output /home/runner/work/Leptographic/Leptographic/target/tmp/tailwind.css[0m
+2025-07-18T23:28:26.6617971Z [1m[32m   Compiling[0m leptos-radix-ui v0.1.0 (/home/runner/work/Leptographic/Leptographic)
+2025-07-18T23:28:33.4922000Z [1m[32m    Finished[0m `dev` profile [unoptimized + debuginfo] target(s) in 7.17s
+2025-07-18T23:28:33.5113804Z [38;5;77m       Cargo[0m finished [38;5;241mcargo build --package=leptos-radix-ui --bin=leptos-radix-ui --no-default-features --features=ssr[0m
+2025-07-18T23:28:33.6051835Z ##[group]Run echo "Checking build artifacts..."
+2025-07-18T23:28:33.6052231Z [36;1mecho "Checking build artifacts..."[0m
+2025-07-18T23:28:33.6052521Z [36;1mls -la target/site/[0m
+2025-07-18T23:28:33.6052775Z [36;1mls -la target/debug/[0m
+2025-07-18T23:28:33.6053057Z [36;1mecho "Build test completed successfully!"[0m
+2025-07-18T23:28:33.6080453Z shell: /usr/bin/bash -e {0}
+2025-07-18T23:28:33.6080702Z env:
+2025-07-18T23:28:33.6080893Z   CARGO_TERM_COLOR: always
+2025-07-18T23:28:33.6081134Z   CARGO_HOME: /home/runner/.cargo
+2025-07-18T23:28:33.6081387Z   CARGO_INCREMENTAL: 0
+2025-07-18T23:28:33.6081597Z ##[endgroup]
+2025-07-18T23:28:33.6129297Z Checking build artifacts...
+2025-07-18T23:28:33.6143056Z total 16
+2025-07-18T23:28:33.6143735Z drwxr-xr-x 3 runner docker 4096 Jul 18 23:28 .
+2025-07-18T23:28:33.6144418Z drwxr-xr-x 6 runner docker 4096 Jul 18 22:15 ..
+2025-07-18T23:28:33.6145325Z -rw-r--r-- 1 runner docker   90 Jul 18 23:28 .gitkeep
+2025-07-18T23:28:33.6146077Z drwxr-xr-x 2 runner docker 4096 Jul 18 23:28 pkg
+2025-07-18T23:28:33.6158041Z total 118892
+2025-07-18T23:28:33.6158498Z drwxr-xr-x   7 runner docker      4096 Jul 18 23:28 .
+2025-07-18T23:28:33.6158920Z drwxr-xr-x   6 runner docker      4096 Jul 18 22:15 ..
+2025-07-18T23:28:33.6159360Z -rw-r--r--   1 runner docker         0 Jul 18 22:13 .cargo-lock
+2025-07-18T23:28:33.6160114Z drwxr-xr-x 760 runner docker     57344 Jul 18 22:15 .fingerprint
+2025-07-18T23:28:33.6160875Z drwxr-xr-x 134 runner docker     12288 Jul 18 22:15 build
+2025-07-18T23:28:33.6161299Z drwxr-xr-x   2 runner docker    147456 Jul 18 23:28 deps
+2025-07-18T23:28:33.6161993Z drwxr-xr-x   2 runner docker      4096 Jul 18 22:13 examples
+2025-07-18T23:28:33.6162755Z drwxr-xr-x   2 runner docker      4096 Jul 18 22:13 incremental
+2025-07-18T23:28:33.6163508Z -rwxr-xr-x   2 runner docker 121502896 Jul 18 23:28 leptos-radix-ui
+2025-07-18T23:28:33.6164006Z -rw-r--r--   1 runner docker       890 Jul 18 23:28 leptos-radix-ui.d
+2025-07-18T23:28:33.6164412Z Build test completed successfully!
+2025-07-18T23:28:33.6202636Z Post job cleanup.
+2025-07-18T23:28:33.7720159Z Cache hit occurred on the primary key node-cache-Linux-x64-npm-275a98fea6bf422b528f0e4755216ad8abf0ecf22104011707258ae7ca05ae48, not saving cache.
+2025-07-18T23:28:34.3853887Z Post job cleanup.
+2025-07-18T23:28:34.5094317Z Cache hit occurred on the primary key Linux-cargo-, not saving cache.
+2025-07-18T23:28:34.5184623Z Post job cleanup.
+2025-07-18T23:28:34.6094045Z [command]/usr/bin/git version
+2025-07-18T23:28:34.6129453Z git version 2.50.1
+2025-07-18T23:28:34.6170739Z Temporarily overriding HOME='/home/runner/work/_temp/cbd31292-8f93-48a6-a151-1824b9e1f82c' before making global git config changes
+2025-07-18T23:28:34.6171637Z Adding repository directory to the temporary git global config as a safe directory
+2025-07-18T23:28:34.6182399Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Leptographic/Leptographic
+2025-07-18T23:28:34.6214619Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-07-18T23:28:34.6245978Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-07-18T23:28:34.6467839Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-07-18T23:28:34.6487439Z http.https://github.com/.extraheader
+2025-07-18T23:28:34.6499502Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2025-07-18T23:28:34.6530752Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-07-18T23:28:34.6844812Z Cleaning up orphan processes
+
+2025-07-18T23:27:41.2157365Z Current runner version: '2.326.0'
+2025-07-18T23:27:41.2192251Z ##[group]Runner Image Provisioner
+2025-07-18T23:27:41.2193709Z Hosted Compute Agent
+2025-07-18T23:27:41.2195096Z Version: 20250711.363
+2025-07-18T23:27:41.2196337Z Commit: 6785254374ce925a23743850c1cb91912ce5c14c
+2025-07-18T23:27:41.2197569Z Build Date: 2025-07-11T20:04:25Z
+2025-07-18T23:27:41.2198784Z ##[endgroup]
+2025-07-18T23:27:41.2199744Z ##[group]Operating System
+2025-07-18T23:27:41.2200952Z Ubuntu
+2025-07-18T23:27:41.2202018Z 24.04.2
+2025-07-18T23:27:41.2203079Z LTS
+2025-07-18T23:27:41.2204021Z ##[endgroup]
+2025-07-18T23:27:41.2205295Z ##[group]Runner Image
+2025-07-18T23:27:41.2206916Z Image: ubuntu-24.04
+2025-07-18T23:27:41.2208033Z Version: 20250710.1.0
+2025-07-18T23:27:41.2210080Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20250710.1/images/ubuntu/Ubuntu2404-Readme.md
+2025-07-18T23:27:41.2213118Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20250710.1
+2025-07-18T23:27:41.2215442Z ##[endgroup]
+2025-07-18T23:27:41.2217712Z ##[group]GITHUB_TOKEN Permissions
+2025-07-18T23:27:41.2220729Z Contents: read
+2025-07-18T23:27:41.2221847Z Metadata: read
+2025-07-18T23:27:41.2222912Z Packages: read
+2025-07-18T23:27:41.2223914Z ##[endgroup]
+2025-07-18T23:27:41.2227186Z Secret source: Actions
+2025-07-18T23:27:41.2228820Z Prepare workflow directory
+2025-07-18T23:27:41.2776821Z Prepare all required actions
+2025-07-18T23:27:41.2832428Z Getting action download info
+2025-07-18T23:27:41.6293991Z Download action repository 'actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683' (SHA:11bd71901bbe5b1630ceea73d27597364c9af683)
+2025-07-18T23:27:41.7189396Z Download action repository 'dtolnay/rust-toolchain@4305c38b25d97ef35a8ad1f985ccf2d2242004f2' (SHA:4305c38b25d97ef35a8ad1f985ccf2d2242004f2)
+2025-07-18T23:27:41.8638460Z Download action repository 'actions/cache@5a3ec84eff668545956fd18022155c47e93e2684' (SHA:5a3ec84eff668545956fd18022155c47e93e2684)
+2025-07-18T23:27:41.9694444Z Download action repository 'actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2025-07-18T23:27:42.0671672Z Download action repository 'appleboy/ssh-action@2ead5e36573f08b82fbfce1504f1a4b05a647c6f' (SHA:2ead5e36573f08b82fbfce1504f1a4b05a647c6f)
+2025-07-18T23:27:42.2712371Z Download action repository 'appleboy/scp-action@ff85246acaad7bdce478db94a363cd2bf7c90345' (SHA:ff85246acaad7bdce478db94a363cd2bf7c90345)
+2025-07-18T23:27:42.5812170Z Complete job name: build-and-deploy
+2025-07-18T23:27:42.6592209Z ##[group]Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+2025-07-18T23:27:42.6593273Z with:
+2025-07-18T23:27:42.6593743Z   repository: jakenelwood/Leptographic
+2025-07-18T23:27:42.6594743Z   token: ***
+2025-07-18T23:27:42.6595282Z   ssh-strict: true
+2025-07-18T23:27:42.6595797Z   ssh-user: git
+2025-07-18T23:27:42.6596324Z   persist-credentials: true
+2025-07-18T23:27:42.6596886Z   clean: true
+2025-07-18T23:27:42.6597352Z   sparse-checkout-cone-mode: true
+2025-07-18T23:27:42.6597915Z   fetch-depth: 1
+2025-07-18T23:27:42.6598355Z   fetch-tags: false
+2025-07-18T23:27:42.6598802Z   show-progress: true
+2025-07-18T23:27:42.6599261Z   lfs: false
+2025-07-18T23:27:42.6599685Z   submodules: false
+2025-07-18T23:27:42.6600156Z   set-safe-directory: true
+2025-07-18T23:27:42.6600896Z env:
+2025-07-18T23:27:42.6601321Z   CARGO_TERM_COLOR: always
+2025-07-18T23:27:42.6601804Z ##[endgroup]
+2025-07-18T23:27:42.7695475Z Syncing repository: jakenelwood/Leptographic
+2025-07-18T23:27:42.7697434Z ##[group]Getting Git version info
+2025-07-18T23:27:42.7698272Z Working directory is '/home/runner/work/Leptographic/Leptographic'
+2025-07-18T23:27:42.7699359Z [command]/usr/bin/git version
+2025-07-18T23:27:42.7728166Z git version 2.50.1
+2025-07-18T23:27:42.7754273Z ##[endgroup]
+2025-07-18T23:27:42.7768146Z Temporarily overriding HOME='/home/runner/work/_temp/8d100212-417d-4776-90cd-5781148d4914' before making global git config changes
+2025-07-18T23:27:42.7780871Z Adding repository directory to the temporary git global config as a safe directory
+2025-07-18T23:27:42.7782413Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Leptographic/Leptographic
+2025-07-18T23:27:42.7816385Z Deleting the contents of '/home/runner/work/Leptographic/Leptographic'
+2025-07-18T23:27:42.7820005Z ##[group]Initializing the repository
+2025-07-18T23:27:42.7823863Z [command]/usr/bin/git init /home/runner/work/Leptographic/Leptographic
+2025-07-18T23:27:42.7887852Z hint: Using 'master' as the name for the initial branch. This default branch name
+2025-07-18T23:27:42.7889631Z hint: is subject to change. To configure the initial branch name to use in all
+2025-07-18T23:27:42.7891199Z hint: of your new repositories, which will suppress this warning, call:
+2025-07-18T23:27:42.7892115Z hint:
+2025-07-18T23:27:42.7892665Z hint: 	git config --global init.defaultBranch <name>
+2025-07-18T23:27:42.7893301Z hint:
+2025-07-18T23:27:42.7893970Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2025-07-18T23:27:42.7895220Z hint: 'development'. The just-created branch can be renamed via this command:
+2025-07-18T23:27:42.7896232Z hint:
+2025-07-18T23:27:42.7896868Z hint: 	git branch -m <name>
+2025-07-18T23:27:42.7897378Z hint:
+2025-07-18T23:27:42.7898015Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2025-07-18T23:27:42.7899233Z Initialized empty Git repository in /home/runner/work/Leptographic/Leptographic/.git/
+2025-07-18T23:27:42.7901526Z [command]/usr/bin/git remote add origin https://github.com/jakenelwood/Leptographic
+2025-07-18T23:27:42.7934335Z ##[endgroup]
+2025-07-18T23:27:42.7935407Z ##[group]Disabling automatic garbage collection
+2025-07-18T23:27:42.7938473Z [command]/usr/bin/git config --local gc.auto 0
+2025-07-18T23:27:42.7966931Z ##[endgroup]
+2025-07-18T23:27:42.7967684Z ##[group]Setting up auth
+2025-07-18T23:27:42.7973083Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-07-18T23:27:42.8003325Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-07-18T23:27:42.8274776Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-07-18T23:27:42.8303080Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-07-18T23:27:42.8522184Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-07-18T23:27:42.8564879Z ##[endgroup]
+2025-07-18T23:27:42.8565927Z ##[group]Fetching the repository
+2025-07-18T23:27:42.8573081Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +62a8eb66f5127fc1572998a943a6e041b25d8080:refs/remotes/origin/main
+2025-07-18T23:27:43.0781576Z From https://github.com/jakenelwood/Leptographic
+2025-07-18T23:27:43.0783690Z  * [new ref]         62a8eb66f5127fc1572998a943a6e041b25d8080 -> origin/main
+2025-07-18T23:27:43.0807173Z ##[endgroup]
+2025-07-18T23:27:43.0808584Z ##[group]Determining the checkout info
+2025-07-18T23:27:43.0809992Z ##[endgroup]
+2025-07-18T23:27:43.0813851Z [command]/usr/bin/git sparse-checkout disable
+2025-07-18T23:27:43.0852635Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2025-07-18T23:27:43.0881563Z ##[group]Checking out the ref
+2025-07-18T23:27:43.0884710Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2025-07-18T23:27:43.1006856Z Switched to a new branch 'main'
+2025-07-18T23:27:43.1008854Z branch 'main' set up to track 'origin/main'.
+2025-07-18T23:27:43.1016462Z ##[endgroup]
+2025-07-18T23:27:43.1050964Z [command]/usr/bin/git log -1 --format=%H
+2025-07-18T23:27:43.1072300Z 62a8eb66f5127fc1572998a943a6e041b25d8080
+2025-07-18T23:27:43.1550514Z ##[group]Run dtolnay/rust-toolchain@4305c38b25d97ef35a8ad1f985ccf2d2242004f2
+2025-07-18T23:27:43.1552325Z with:
+2025-07-18T23:27:43.1553203Z   targets: wasm32-unknown-unknown
+2025-07-18T23:27:43.1554293Z   toolchain: stable
+2025-07-18T23:27:43.1555342Z env:
+2025-07-18T23:27:43.1556172Z   CARGO_TERM_COLOR: always
+2025-07-18T23:27:43.1557156Z ##[endgroup]
+2025-07-18T23:27:43.1697027Z ##[group]Run : parse toolchain version
+2025-07-18T23:27:43.1698290Z [36;1m: parse toolchain version[0m
+2025-07-18T23:27:43.1699758Z [36;1mif [[ $toolchain =~ ^stable' '[0-9]+' '(year|month|week|day)s?' 'ago$ ]]; then[0m
+2025-07-18T23:27:43.1701300Z [36;1m  if [[ Linux == macOS ]]; then[0m
+2025-07-18T23:27:43.1703193Z [36;1m    echo "toolchain=1.$((($(date -v-$(sed 's/stable \([0-9]*\) \(.\).*/\1\2/' <<< $toolchain) +%s)/60/60/24-16569)/7/6))" >> $GITHUB_OUTPUT[0m
+2025-07-18T23:27:43.1705189Z [36;1m  else[0m
+2025-07-18T23:27:43.1706746Z [36;1m    echo "toolchain=1.$((($(date --date "${toolchain#stable }" +%s)/60/60/24-16569)/7/6))" >> $GITHUB_OUTPUT[0m
+2025-07-18T23:27:43.1708460Z [36;1m  fi[0m
+2025-07-18T23:27:43.1709615Z [36;1melif [[ $toolchain =~ ^stable' 'minus' '[0-9]+' 'releases?$ ]]; then[0m
+2025-07-18T23:27:43.1711626Z [36;1m  echo "toolchain=1.$((($(date +%s)/60/60/24-16569)/7/6-${toolchain//[^0-9]/}))" >> $GITHUB_OUTPUT[0m
+2025-07-18T23:27:43.1713349Z [36;1melif [[ $toolchain =~ ^1\.[0-9]+$ ]]; then[0m
+2025-07-18T23:27:43.1715357Z [36;1m  echo "toolchain=1.$((i=${toolchain#1.}, c=($(date +%s)/60/60/24-16569)/7/6, i+9*i*(10*i<=c)+90*i*(100*i<=c)))" >> $GITHUB_OUTPUT[0m
+2025-07-18T23:27:43.1717179Z [36;1melse[0m
+2025-07-18T23:27:43.1718157Z [36;1m  echo "toolchain=$toolchain" >> $GITHUB_OUTPUT[0m
+2025-07-18T23:27:43.1719340Z [36;1mfi[0m
+2025-07-18T23:27:43.1753047Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-07-18T23:27:43.1754370Z env:
+2025-07-18T23:27:43.1755302Z   CARGO_TERM_COLOR: always
+2025-07-18T23:27:43.1756249Z   toolchain: stable
+2025-07-18T23:27:43.1757103Z ##[endgroup]
+2025-07-18T23:27:43.1924498Z ##[group]Run : construct rustup command line
+2025-07-18T23:27:43.1926015Z [36;1m: construct rustup command line[0m
+2025-07-18T23:27:43.1927636Z [36;1mecho "targets=$(for t in ${targets//,/ }; do echo -n ' --target' $t; done)" >> $GITHUB_OUTPUT[0m
+2025-07-18T23:27:43.1930629Z [36;1mecho "components=$(for c in ${components//,/ }; do echo -n ' --component' $c; done)" >> $GITHUB_OUTPUT[0m
+2025-07-18T23:27:43.1932710Z [36;1mecho "downgrade=" >> $GITHUB_OUTPUT[0m
+2025-07-18T23:27:43.1962054Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-07-18T23:27:43.1963302Z env:
+2025-07-18T23:27:43.1964045Z   CARGO_TERM_COLOR: always
+2025-07-18T23:27:43.1965221Z   targets: wasm32-unknown-unknown
+2025-07-18T23:27:43.1966196Z   components: 
+2025-07-18T23:27:43.1966972Z ##[endgroup]
+2025-07-18T23:27:43.2102192Z ##[group]Run : set $CARGO_HOME
+2025-07-18T23:27:43.2103846Z [36;1m: set $CARGO_HOME[0m
+2025-07-18T23:27:43.2106174Z [36;1mecho CARGO_HOME=${CARGO_HOME:-"$HOME/.cargo"} >> $GITHUB_ENV[0m
+2025-07-18T23:27:43.2179849Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-07-18T23:27:43.2182092Z env:
+2025-07-18T23:27:43.2183398Z   CARGO_TERM_COLOR: always
+2025-07-18T23:27:43.2185137Z ##[endgroup]
+2025-07-18T23:27:43.2350362Z ##[group]Run : install rustup if needed
+2025-07-18T23:27:43.2352279Z [36;1m: install rustup if needed[0m
+2025-07-18T23:27:43.2354269Z [36;1mif ! command -v rustup &>/dev/null; then[0m
+2025-07-18T23:27:43.2358926Z [36;1m  curl --proto '=https' --tlsv1.2 --retry 10 --retry-connrefused --location --silent --show-error --fail https://sh.rustup.rs | sh -s -- --default-toolchain none -y[0m
+2025-07-18T23:27:43.2363436Z [36;1m  echo "$CARGO_HOME/bin" >> $GITHUB_PATH[0m
+2025-07-18T23:27:43.2365601Z [36;1mfi[0m
+2025-07-18T23:27:43.2407798Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-07-18T23:27:43.2409936Z env:
+2025-07-18T23:27:43.2411239Z   CARGO_TERM_COLOR: always
+2025-07-18T23:27:43.2413255Z   CARGO_HOME: /home/runner/.cargo
+2025-07-18T23:27:43.2415295Z ##[endgroup]
+2025-07-18T23:27:43.2562159Z ##[group]Run rustup toolchain install stable --target wasm32-unknown-unknown --profile minimal --no-self-update
+2025-07-18T23:27:43.2567136Z [36;1mrustup toolchain install stable --target wasm32-unknown-unknown --profile minimal --no-self-update[0m
+2025-07-18T23:27:43.2610392Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-07-18T23:27:43.2612971Z env:
+2025-07-18T23:27:43.2614816Z   CARGO_TERM_COLOR: always
+2025-07-18T23:27:43.2616520Z   CARGO_HOME: /home/runner/.cargo
+2025-07-18T23:27:43.2618642Z ##[endgroup]
+2025-07-18T23:27:43.4507025Z info: syncing channel updates for 'stable-x86_64-unknown-linux-gnu'
+2025-07-18T23:27:43.5749783Z info: latest update on 2025-06-26, rust version 1.88.0 (6b00bc388 2025-06-23)
+2025-07-18T23:27:43.6027360Z info: downloading component 'rust-std' for 'wasm32-unknown-unknown'
+2025-07-18T23:27:43.7352275Z info: installing component 'rust-std' for 'wasm32-unknown-unknown'
+2025-07-18T23:27:45.1209799Z 
+2025-07-18T23:27:45.1306293Z   stable-x86_64-unknown-linux-gnu updated - rustc 1.88.0 (6b00bc388 2025-06-23) (from rustc 1.88.0 (6b00bc388 2025-06-23))
+2025-07-18T23:27:45.1307245Z 
+2025-07-18T23:27:45.1380172Z ##[group]Run rustup default stable
+2025-07-18T23:27:45.1380568Z [36;1mrustup default stable[0m
+2025-07-18T23:27:45.1410810Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-07-18T23:27:45.1411239Z env:
+2025-07-18T23:27:45.1411512Z   CARGO_TERM_COLOR: always
+2025-07-18T23:27:45.1411836Z   CARGO_HOME: /home/runner/.cargo
+2025-07-18T23:27:45.1412154Z ##[endgroup]
+2025-07-18T23:27:45.1514093Z info: using existing install for 'stable-x86_64-unknown-linux-gnu'
+2025-07-18T23:27:45.1821050Z info: default toolchain set to 'stable-x86_64-unknown-linux-gnu'
+2025-07-18T23:27:45.1821603Z 
+2025-07-18T23:27:45.1911460Z   stable-x86_64-unknown-linux-gnu unchanged - rustc 1.88.0 (6b00bc388 2025-06-23)
+2025-07-18T23:27:45.1912134Z 
+2025-07-18T23:27:45.1959498Z ##[group]Run : create cachekey
+2025-07-18T23:27:45.1959871Z [36;1m: create cachekey[0m
+2025-07-18T23:27:45.1960452Z [36;1mDATE=$(rustc +stable --version --verbose | sed -ne 's/^commit-date: \(20[0-9][0-9]\)-\([01][0-9]\)-\([0-3][0-9]\)$/\1\2\3/p')[0m
+2025-07-18T23:27:45.1961140Z [36;1mHASH=$(rustc +stable --version --verbose | sed -ne 's/^commit-hash: //p')[0m
+2025-07-18T23:27:45.1961702Z [36;1mecho "cachekey=$(echo $DATE$HASH | head -c12)" >> $GITHUB_OUTPUT[0m
+2025-07-18T23:27:45.1993035Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-07-18T23:27:45.1993457Z env:
+2025-07-18T23:27:45.1993730Z   CARGO_TERM_COLOR: always
+2025-07-18T23:27:45.1994059Z   CARGO_HOME: /home/runner/.cargo
+2025-07-18T23:27:45.1994388Z ##[endgroup]
+2025-07-18T23:27:45.2416242Z ##[group]Run : disable incremental compilation
+2025-07-18T23:27:45.2416711Z [36;1m: disable incremental compilation[0m
+2025-07-18T23:27:45.2417131Z [36;1mif [ -z "${CARGO_INCREMENTAL+set}" ]; then[0m
+2025-07-18T23:27:45.2417580Z [36;1m  echo CARGO_INCREMENTAL=0 >> $GITHUB_ENV[0m
+2025-07-18T23:27:45.2417980Z [36;1mfi[0m
+2025-07-18T23:27:45.2448275Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-07-18T23:27:45.2448694Z env:
+2025-07-18T23:27:45.2448981Z   CARGO_TERM_COLOR: always
+2025-07-18T23:27:45.2449320Z   CARGO_HOME: /home/runner/.cargo
+2025-07-18T23:27:45.2449690Z ##[endgroup]
+2025-07-18T23:27:45.2522753Z ##[group]Run : enable colors in Cargo output
+2025-07-18T23:27:45.2523163Z [36;1m: enable colors in Cargo output[0m
+2025-07-18T23:27:45.2523556Z [36;1mif [ -z "${CARGO_TERM_COLOR+set}" ]; then[0m
+2025-07-18T23:27:45.2523983Z [36;1m  echo CARGO_TERM_COLOR=always >> $GITHUB_ENV[0m
+2025-07-18T23:27:45.2524347Z [36;1mfi[0m
+2025-07-18T23:27:45.2551261Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-07-18T23:27:45.2551691Z env:
+2025-07-18T23:27:45.2551971Z   CARGO_TERM_COLOR: always
+2025-07-18T23:27:45.2552308Z   CARGO_HOME: /home/runner/.cargo
+2025-07-18T23:27:45.2552647Z   CARGO_INCREMENTAL: 0
+2025-07-18T23:27:45.2553187Z ##[endgroup]
+2025-07-18T23:27:45.2626935Z ##[group]Run : enable Cargo sparse registry
+2025-07-18T23:27:45.2627501Z [36;1m: enable Cargo sparse registry[0m
+2025-07-18T23:27:45.2627941Z [36;1m# implemented in 1.66, stabilized in 1.68, made default in 1.70[0m
+2025-07-18T23:27:45.2628701Z [36;1mif [ -z "${CARGO_REGISTRIES_CRATES_IO_PROTOCOL+set}" -o -f "/home/runner/work/_temp"/.implicit_cargo_registries_crates_io_protocol ]; then[0m
+2025-07-18T23:27:45.2629461Z [36;1m  if rustc +stable --version --verbose | grep -q '^release: 1\.6[89]\.'; then[0m
+2025-07-18T23:27:45.2630090Z [36;1m    touch "/home/runner/work/_temp"/.implicit_cargo_registries_crates_io_protocol || true[0m
+2025-07-18T23:27:45.2630689Z [36;1m    echo CARGO_REGISTRIES_CRATES_IO_PROTOCOL=sparse >> $GITHUB_ENV[0m
+2025-07-18T23:27:45.2631249Z [36;1m  elif rustc +stable --version --verbose | grep -q '^release: 1\.6[67]\.'; then[0m
+2025-07-18T23:27:45.2631875Z [36;1m    touch "/home/runner/work/_temp"/.implicit_cargo_registries_crates_io_protocol || true[0m
+2025-07-18T23:27:45.2632466Z [36;1m    echo CARGO_REGISTRIES_CRATES_IO_PROTOCOL=git >> $GITHUB_ENV[0m
+2025-07-18T23:27:45.2632888Z [36;1m  fi[0m
+2025-07-18T23:27:45.2633159Z [36;1mfi[0m
+2025-07-18T23:27:45.2661396Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-07-18T23:27:45.2661807Z env:
+2025-07-18T23:27:45.2662089Z   CARGO_TERM_COLOR: always
+2025-07-18T23:27:45.2662420Z   CARGO_HOME: /home/runner/.cargo
+2025-07-18T23:27:45.2662748Z   CARGO_INCREMENTAL: 0
+2025-07-18T23:27:45.2663038Z ##[endgroup]
+2025-07-18T23:27:45.3029896Z ##[group]Run : work around spurious network errors in curl 8.0
+2025-07-18T23:27:45.3030433Z [36;1m: work around spurious network errors in curl 8.0[0m
+2025-07-18T23:27:45.3031239Z [36;1m# https://rust-lang.zulipchat.com/#narrow/stream/246057-t-cargo/topic/timeout.20investigation[0m
+2025-07-18T23:27:45.3031921Z [36;1mif rustc +stable --version --verbose | grep -q '^release: 1\.7[01]\.'; then[0m
+2025-07-18T23:27:45.3032475Z [36;1m  echo CARGO_HTTP_MULTIPLEXING=false >> $GITHUB_ENV[0m
+2025-07-18T23:27:45.3032884Z [36;1mfi[0m
+2025-07-18T23:27:45.3064859Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-07-18T23:27:45.3065303Z env:
+2025-07-18T23:27:45.3065579Z   CARGO_TERM_COLOR: always
+2025-07-18T23:27:45.3065912Z   CARGO_HOME: /home/runner/.cargo
+2025-07-18T23:27:45.3066276Z   CARGO_INCREMENTAL: 0
+2025-07-18T23:27:45.3066575Z ##[endgroup]
+2025-07-18T23:27:45.3290764Z ##[group]Run rustc +stable --version --verbose
+2025-07-18T23:27:45.3291212Z [36;1mrustc +stable --version --verbose[0m
+2025-07-18T23:27:45.3322927Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-07-18T23:27:45.3323354Z env:
+2025-07-18T23:27:45.3323633Z   CARGO_TERM_COLOR: always
+2025-07-18T23:27:45.3323971Z   CARGO_HOME: /home/runner/.cargo
+2025-07-18T23:27:45.3324311Z   CARGO_INCREMENTAL: 0
+2025-07-18T23:27:45.3324785Z ##[endgroup]
+2025-07-18T23:27:45.3499228Z rustc 1.88.0 (6b00bc388 2025-06-23)
+2025-07-18T23:27:45.3500360Z binary: rustc
+2025-07-18T23:27:45.3501078Z commit-hash: 6b00bc3880198600130e1cf62b8f8a93494488cc
+2025-07-18T23:27:45.3501697Z commit-date: 2025-06-23
+2025-07-18T23:27:45.3502233Z host: x86_64-unknown-linux-gnu
+2025-07-18T23:27:45.3502753Z release: 1.88.0
+2025-07-18T23:27:45.3503147Z LLVM version: 20.1.5
+2025-07-18T23:27:45.4256459Z ##[group]Run actions/cache@5a3ec84eff668545956fd18022155c47e93e2684
+2025-07-18T23:27:45.4256964Z with:
+2025-07-18T23:27:45.4257443Z   path: ~/.cargo/bin/
+~/.cargo/registry/index/
+~/.cargo/registry/cache/
+~/.cargo/git/db/
+target/
+
+2025-07-18T23:27:45.4257962Z   key: Linux-cargo-
+2025-07-18T23:27:45.4258277Z   restore-keys: Linux-cargo-
+
+2025-07-18T23:27:45.4258635Z   enableCrossOsArchive: false
+2025-07-18T23:27:45.4258975Z   fail-on-cache-miss: false
+2025-07-18T23:27:45.4259295Z   lookup-only: false
+2025-07-18T23:27:45.4259597Z   save-always: false
+2025-07-18T23:27:45.4259901Z env:
+2025-07-18T23:27:45.4260180Z   CARGO_TERM_COLOR: always
+2025-07-18T23:27:45.4260520Z   CARGO_HOME: /home/runner/.cargo
+2025-07-18T23:27:45.4260855Z   CARGO_INCREMENTAL: 0
+2025-07-18T23:27:45.4261371Z ##[endgroup]
+2025-07-18T23:27:45.6752679Z Cache hit for: Linux-cargo-
+2025-07-18T23:27:46.7247097Z Received 243269632 of 992001258 (24.5%), 231.8 MBs/sec
+2025-07-18T23:27:47.7301531Z Received 490733568 of 992001258 (49.5%), 233.0 MBs/sec
+2025-07-18T23:27:48.7316019Z Received 742391808 of 992001258 (74.8%), 235.1 MBs/sec
+2025-07-18T23:27:49.7098636Z Received 992001258 of 992001258 (100.0%), 237.2 MBs/sec
+2025-07-18T23:27:49.7101623Z Cache Size: ~946 MB (992001258 B)
+2025-07-18T23:27:49.7146520Z [command]/usr/bin/tar -xf /home/runner/work/_temp/b954b086-ed0d-4cdc-b5ed-c7bcc02ad24e/cache.tzst -P -C /home/runner/work/Leptographic/Leptographic --use-compress-program unzstd
+2025-07-18T23:27:56.2690012Z Cache restored successfully
+2025-07-18T23:27:56.4563496Z Cache restored from key: Linux-cargo-
+2025-07-18T23:27:56.4726615Z ##[group]Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+2025-07-18T23:27:56.4727033Z with:
+2025-07-18T23:27:56.4727256Z   node-version: 18
+2025-07-18T23:27:56.4727503Z   always-auth: false
+2025-07-18T23:27:56.4727743Z   check-latest: false
+2025-07-18T23:27:56.4728098Z   token: ***
+2025-07-18T23:27:56.4728305Z env:
+2025-07-18T23:27:56.4728520Z   CARGO_TERM_COLOR: always
+2025-07-18T23:27:56.4728787Z   CARGO_HOME: /home/runner/.cargo
+2025-07-18T23:27:56.4729058Z   CARGO_INCREMENTAL: 0
+2025-07-18T23:27:56.4729295Z ##[endgroup]
+2025-07-18T23:27:56.7318091Z Found in cache @ /opt/hostedtoolcache/node/18.20.8/x64
+2025-07-18T23:27:56.7324919Z ##[group]Environment details
+2025-07-18T23:27:57.1159163Z node: v18.20.8
+2025-07-18T23:27:57.1159653Z npm: 10.8.2
+2025-07-18T23:27:57.1160014Z yarn: 1.22.22
+2025-07-18T23:27:57.1160866Z ##[endgroup]
+2025-07-18T23:27:57.1258997Z ##[group]Run if ! command -v cargo-leptos &> /dev/null; then
+2025-07-18T23:27:57.1259478Z [36;1mif ! command -v cargo-leptos &> /dev/null; then[0m
+2025-07-18T23:27:57.1259877Z [36;1m  cargo install cargo-leptos --version 0.2.40[0m
+2025-07-18T23:27:57.1260206Z [36;1melse[0m
+2025-07-18T23:27:57.1260495Z [36;1m  echo "cargo-leptos already installed"[0m
+2025-07-18T23:27:57.1260797Z [36;1mfi[0m
+2025-07-18T23:27:57.1293360Z shell: /usr/bin/bash -e {0}
+2025-07-18T23:27:57.1293644Z env:
+2025-07-18T23:27:57.1293868Z   CARGO_TERM_COLOR: always
+2025-07-18T23:27:57.1294150Z   CARGO_HOME: /home/runner/.cargo
+2025-07-18T23:27:57.1294432Z   CARGO_INCREMENTAL: 0
+2025-07-18T23:27:57.1295075Z ##[endgroup]
+2025-07-18T23:27:57.1349658Z cargo-leptos already installed
+2025-07-18T23:27:57.1369411Z ##[group]Run if [ -f "package-lock.json" ]; then
+2025-07-18T23:27:57.1369827Z [36;1mif [ -f "package-lock.json" ]; then[0m
+2025-07-18T23:27:57.1370129Z [36;1m  npm ci[0m
+2025-07-18T23:27:57.1370358Z [36;1melse[0m
+2025-07-18T23:27:57.1370576Z [36;1m  npm install[0m
+2025-07-18T23:27:57.1370806Z [36;1mfi[0m
+2025-07-18T23:27:57.1394973Z shell: /usr/bin/bash -e {0}
+2025-07-18T23:27:57.1395242Z env:
+2025-07-18T23:27:57.1395469Z   CARGO_TERM_COLOR: always
+2025-07-18T23:27:57.1395739Z   CARGO_HOME: /home/runner/.cargo
+2025-07-18T23:27:57.1396035Z   CARGO_INCREMENTAL: 0
+2025-07-18T23:27:57.1396273Z ##[endgroup]
+2025-07-18T23:27:57.9899683Z 
+2025-07-18T23:27:57.9900265Z added 1 package, and audited 2 packages in 779ms
+2025-07-18T23:27:57.9912615Z 
+2025-07-18T23:27:57.9912895Z found 0 vulnerabilities
+2025-07-18T23:27:58.0030844Z ##[group]Run echo "Building Leptos application..."
+2025-07-18T23:27:58.0031281Z [36;1mecho "Building Leptos application..."[0m
+2025-07-18T23:27:58.0031636Z [36;1mcargo leptos build --release[0m
+2025-07-18T23:27:58.0059982Z shell: /usr/bin/bash -e {0}
+2025-07-18T23:27:58.0060258Z env:
+2025-07-18T23:27:58.0060532Z   CARGO_TERM_COLOR: always
+2025-07-18T23:27:58.0060938Z   CARGO_HOME: /home/runner/.cargo
+2025-07-18T23:27:58.0061367Z   CARGO_INCREMENTAL: 0
+2025-07-18T23:27:58.0061727Z ##[endgroup]
+2025-07-18T23:27:58.0110448Z Building Leptos application...
+2025-07-18T23:28:01.9224246Z [1m[32m   Compiling[0m proc-macro2 v1.0.95
+2025-07-18T23:28:01.9225636Z [1m[32m   Compiling[0m unicode-ident v1.0.18
+2025-07-18T23:28:01.9226961Z [1m[32m   Compiling[0m semver v1.0.26
+2025-07-18T23:28:01.9227776Z [1m[32m   Compiling[0m wasm-bindgen-shared v0.2.100
+2025-07-18T23:28:02.0842545Z [1m[32m   Compiling[0m libc v0.2.174
+2025-07-18T23:28:02.2503154Z [1m[32m   Compiling[0m serde v1.0.219
+2025-07-18T23:28:02.3377449Z [1m[32m   Compiling[0m cfg-if v1.0.1
+2025-07-18T23:28:02.4266198Z [1m[32m   Compiling[0m memchr v2.7.5
+2025-07-18T23:28:02.5053557Z [1m[32m   Compiling[0m rustc_version v0.4.1
+2025-07-18T23:28:02.6837136Z [1m[32m   Compiling[0m thiserror v2.0.12
+2025-07-18T23:28:02.7497887Z [1m[32m   Compiling[0m log v0.4.27
+2025-07-18T23:28:02.8630759Z [1m[32m   Compiling[0m quote v1.0.40
+2025-07-18T23:28:02.8689994Z [1m[32m   Compiling[0m bumpalo v3.19.0
+2025-07-18T23:28:03.0375610Z [1m[32m   Compiling[0m syn v2.0.104
+2025-07-18T23:28:03.0578799Z [1m[32m   Compiling[0m rustversion v1.0.21
+2025-07-18T23:28:03.0966396Z [1m[32m   Compiling[0m version_check v0.9.5
+2025-07-18T23:28:03.2328628Z [1m[32m   Compiling[0m pin-project-lite v0.2.16
+2025-07-18T23:28:03.2753311Z [1m[32m   Compiling[0m wasm-bindgen v0.2.100
+2025-07-18T23:28:03.3023710Z [1m[32m   Compiling[0m once_cell v1.21.3
+2025-07-18T23:28:03.3997924Z [1m[32m   Compiling[0m autocfg v1.5.0
+2025-07-18T23:28:03.4923754Z [1m[32m   Compiling[0m stable_deref_trait v1.2.0
+2025-07-18T23:28:03.5295485Z [1m[32m   Compiling[0m parking_lot_core v0.9.11
+2025-07-18T23:28:03.6862300Z [1m[32m   Compiling[0m futures-core v0.3.31
+2025-07-18T23:28:03.6943253Z [1m[32m   Compiling[0m lock_api v0.4.13
+2025-07-18T23:28:03.7637129Z [1m[32m   Compiling[0m futures-sink v0.3.31
+2025-07-18T23:28:03.8105544Z [1m[32m   Compiling[0m futures-channel v0.3.31
+2025-07-18T23:28:03.8144015Z [1m[32m   Compiling[0m crossbeam-utils v0.8.21
+2025-07-18T23:28:03.8328933Z [1m[32m   Compiling[0m smallvec v1.15.1
+2025-07-18T23:28:03.9718891Z [1m[32m   Compiling[0m proc-macro-error-attr2 v2.0.0
+2025-07-18T23:28:04.0113650Z [1m[32m   Compiling[0m futures-task v0.3.31
+2025-07-18T23:28:04.0212310Z [1m[32m   Compiling[0m futures-io v0.3.31
+2025-07-18T23:28:04.1138394Z [1m[32m   Compiling[0m slab v0.4.10
+2025-07-18T23:28:04.1305415Z [1m[32m   Compiling[0m pin-utils v0.1.0
+2025-07-18T23:28:04.2728887Z [1m[32m   Compiling[0m num_cpus v1.17.0
+2025-07-18T23:28:04.3050988Z [1m[32m   Compiling[0m unicode-segmentation v1.12.0
+2025-07-18T23:28:04.4720163Z [1m[32m   Compiling[0m proc-macro2-diagnostics v0.10.1
+2025-07-18T23:28:04.6068970Z [1m[32m   Compiling[0m scopeguard v1.2.0
+2025-07-18T23:28:04.6494932Z [1m[32m   Compiling[0m convert_case v0.8.0
+2025-07-18T23:28:04.6594808Z [1m[32m   Compiling[0m writeable v0.6.1
+2025-07-18T23:28:04.6879858Z [1m[32m   Compiling[0m litemap v0.8.0
+2025-07-18T23:28:04.9260267Z [1m[32m   Compiling[0m concurrent-queue v2.5.0
+2025-07-18T23:28:05.0465831Z [1m[32m   Compiling[0m thiserror v1.0.69
+2025-07-18T23:28:05.0627155Z [1m[32m   Compiling[0m icu_properties_data v2.0.1
+2025-07-18T23:28:05.1533684Z [1m[32m   Compiling[0m unicode-xid v0.2.6
+2025-07-18T23:28:05.1853494Z [1m[32m   Compiling[0m icu_normalizer_data v2.0.0
+2025-07-18T23:28:05.2121906Z [1m[32m   Compiling[0m const_format_proc_macros v0.2.34
+2025-07-18T23:28:05.2872401Z [1m[32m   Compiling[0m event-listener v5.4.0
+2025-07-18T23:28:05.3117628Z [1m[32m   Compiling[0m proc-macro-utils v0.10.0
+2025-07-18T23:28:05.4796698Z [1m[32m   Compiling[0m slotmap v1.0.7
+2025-07-18T23:28:05.6165174Z [1m[32m   Compiling[0m throw_error v0.3.0
+2025-07-18T23:28:05.7451449Z [1m[32m   Compiling[0m serde_json v1.0.141
+2025-07-18T23:28:05.8122948Z [1m[32m   Compiling[0m paste v1.0.15
+2025-07-18T23:28:05.8695478Z [1m[32m   Compiling[0m camino v1.1.10
+2025-07-18T23:28:05.9736856Z [1m[32m   Compiling[0m anyhow v1.0.98
+2025-07-18T23:28:05.9799842Z [1m[32m   Compiling[0m itoa v1.0.15
+2025-07-18T23:28:06.1209042Z [1m[32m   Compiling[0m event-listener-strategy v0.5.4
+2025-07-18T23:28:06.2185956Z [1m[32m   Compiling[0m send_wrapper v0.6.0
+2025-07-18T23:28:06.2780866Z [1m[32m   Compiling[0m reactive_graph v0.2.3
+2025-07-18T23:28:06.2817833Z [1m[32m   Compiling[0m server_fn_macro v0.8.3
+2025-07-18T23:28:06.4150263Z [1m[32m   Compiling[0m or_poisoned v0.1.0
+2025-07-18T23:28:06.4755797Z [1m[32m   Compiling[0m hashbrown v0.14.5
+2025-07-18T23:28:06.5298659Z [1m[32m   Compiling[0m ryu v1.0.20
+2025-07-18T23:28:06.7188585Z [1m[32m   Compiling[0m wasm-bindgen-backend v0.2.100
+2025-07-18T23:28:06.8544279Z [1m[32m   Compiling[0m synstructure v0.13.2
+2025-07-18T23:28:07.0431762Z [1m[32m   Compiling[0m proc-macro-error2 v2.0.1
+2025-07-18T23:28:07.2321375Z [1m[32m   Compiling[0m dashmap v6.1.0
+2025-07-18T23:28:07.6507602Z [1m[32m   Compiling[0m async-lock v3.4.0
+2025-07-18T23:28:08.1466273Z [1m[32m   Compiling[0m wasm-bindgen-macro-support v0.2.100
+2025-07-18T23:28:08.4979703Z [1m[32m   Compiling[0m serde_derive v1.0.219
+2025-07-18T23:28:08.6773892Z [1m[32m   Compiling[0m thiserror-impl v2.0.12
+2025-07-18T23:28:08.8911896Z [1m[32m   Compiling[0m zerofrom-derive v0.1.6
+2025-07-18T23:28:09.2729084Z [1m[32m   Compiling[0m wasm-bindgen-macro v0.2.100
+2025-07-18T23:28:10.0419327Z [1m[32m   Compiling[0m yoke-derive v0.8.0
+2025-07-18T23:28:10.3031245Z [1m[32m   Compiling[0m zerofrom v0.1.6
+2025-07-18T23:28:10.3848777Z [1m[32m   Compiling[0m zerovec-derive v0.11.1
+2025-07-18T23:28:10.6718360Z [1m[32m   Compiling[0m js-sys v0.3.77
+2025-07-18T23:28:11.1990711Z [1m[32m   Compiling[0m yoke v0.8.0
+2025-07-18T23:28:11.3855679Z [1m[32m   Compiling[0m displaydoc v0.2.5
+2025-07-18T23:28:11.6309605Z [1m[32m   Compiling[0m zerovec v0.11.2
+2025-07-18T23:28:12.0771327Z [1m[32m   Compiling[0m futures-macro v0.3.31
+2025-07-18T23:28:12.5638465Z [1m[32m   Compiling[0m tinystr v0.8.1
+2025-07-18T23:28:12.7041724Z [1m[32m   Compiling[0m icu_locale_core v2.0.0
+2025-07-18T23:28:12.9485961Z [1m[32m   Compiling[0m futures-util v0.3.31
+2025-07-18T23:28:14.0415225Z [1m[32m   Compiling[0m potential_utf v0.1.2
+2025-07-18T23:28:14.1465084Z [1m[32m   Compiling[0m zerotrie v0.2.2
+2025-07-18T23:28:14.4454273Z [1m[32m   Compiling[0m icu_provider v2.0.0
+2025-07-18T23:28:14.4481596Z [1m[32m   Compiling[0m icu_collections v2.0.0
+2025-07-18T23:28:14.7699518Z [1m[32m   Compiling[0m thiserror-impl v1.0.69
+2025-07-18T23:28:15.0027162Z [1m[32m   Compiling[0m derive-where v1.5.0
+2025-07-18T23:28:15.6520740Z [1m[32m   Compiling[0m futures-executor v0.3.31
+2025-07-18T23:28:16.1002697Z [1m[32m   Compiling[0m web-sys v0.3.77
+2025-07-18T23:28:16.2017580Z [1m[32m   Compiling[0m wasm-bindgen-futures v0.4.50
+2025-07-18T23:28:16.4208171Z [1m[32m   Compiling[0m futures v0.3.31
+2025-07-18T23:28:16.4962181Z [1m[32m   Compiling[0m any_spawner v0.3.0
+2025-07-18T23:28:16.5163786Z [1m[32m   Compiling[0m hydration_context v0.3.0
+2025-07-18T23:28:16.6825157Z [1m[32m   Compiling[0m icu_normalizer v2.0.0
+2025-07-18T23:28:16.7635402Z [1m[32m   Compiling[0m icu_properties v2.0.1
+2025-07-18T23:28:17.4553109Z [1m[32m   Compiling[0m syn_derive v0.2.0
+2025-07-18T23:28:18.3893824Z [1m[32m   Compiling[0m const_format v0.2.34
+2025-07-18T23:28:18.4816077Z [1m[32m   Compiling[0m equivalent v1.0.2
+2025-07-18T23:28:18.5165502Z [1m[32m   Compiling[0m guardian v1.3.0
+2025-07-18T23:28:18.5827168Z [1m[32m   Compiling[0m percent-encoding v2.3.1
+2025-07-18T23:28:18.6503112Z [1m[32m   Compiling[0m hashbrown v0.15.4
+2025-07-18T23:28:18.7273284Z [1m[32m   Compiling[0m xxhash-rust v0.8.15
+2025-07-18T23:28:18.7803827Z [1m[32m   Compiling[0m rustc-hash v2.1.1
+2025-07-18T23:28:18.8365363Z [1m[32m   Compiling[0m either v1.15.0
+2025-07-18T23:28:18.9931352Z [1m[32m   Compiling[0m itertools v0.14.0
+2025-07-18T23:28:19.1948172Z [1m[32m   Compiling[0m indexmap v2.10.0
+2025-07-18T23:28:19.5661457Z [1m[32m   Compiling[0m idna_adapter v1.2.1
+2025-07-18T23:28:19.6341081Z [1m[32m   Compiling[0m reactive_stores_macro v0.2.3
+2025-07-18T23:28:19.8377012Z [1m[32m   Compiling[0m quote-use-macros v0.8.4
+2025-07-18T23:28:20.3418902Z [1m[32m   Compiling[0m pin-project-internal v1.1.10
+2025-07-18T23:28:20.4805054Z [1m[32m   Compiling[0m manyhow-macros v0.11.4
+2025-07-18T23:28:20.8180435Z [1m[32m   Compiling[0m parking_lot v0.12.4
+2025-07-18T23:28:21.0068254Z [1m[32m   Compiling[0m tachys v0.2.4
+2025-07-18T23:28:21.2677635Z [1m[32m   Compiling[0m bytes v1.10.1
+2025-07-18T23:28:21.3261664Z [1m[32m   Compiling[0m getrandom v0.3.3
+2025-07-18T23:28:21.5125792Z [1m[32m   Compiling[0m utf8_iter v1.0.4
+2025-07-18T23:28:21.5463798Z [1m[32m   Compiling[0m utf8-width v0.1.7
+2025-07-18T23:28:21.5808133Z [1m[32m   Compiling[0m winnow v0.7.12
+2025-07-18T23:28:21.6044094Z [1m[32m   Compiling[0m yansi v1.0.1
+2025-07-18T23:28:21.8632028Z [1m[32m   Compiling[0m fnv v1.0.7
+2025-07-18T23:28:21.9447297Z [1m[32m   Compiling[0m prettyplease v0.2.35
+2025-07-18T23:28:22.0823596Z [1m[32m   Compiling[0m http v1.3.1
+2025-07-18T23:28:22.3279609Z [1m[32m   Compiling[0m idna v1.0.3
+2025-07-18T23:28:23.4492694Z [1m[32m   Compiling[0m toml_parser v1.0.1
+2025-07-18T23:28:23.4599174Z [1m[32m   Compiling[0m html-escape v0.2.13
+2025-07-18T23:28:23.5282895Z [1m[32m   Compiling[0m pin-project v1.1.10
+2025-07-18T23:28:23.8365545Z [1m[32m   Compiling[0m manyhow v0.11.4
+2025-07-18T23:28:24.1251912Z [1m[32m   Compiling[0m quote-use v0.8.4
+2025-07-18T23:28:24.1585946Z [1m[32m   Compiling[0m form_urlencoded v1.2.1
+2025-07-18T23:28:24.2888589Z [1m[32m   Compiling[0m either_of v0.1.6
+2025-07-18T23:28:24.4554257Z [1m[32m   Compiling[0m oco_ref v0.2.0
+2025-07-18T23:28:24.5993304Z [1m[32m   Compiling[0m serde_spanned v1.0.0
+2025-07-18T23:28:24.6778680Z [1m[32m   Compiling[0m toml_datetime v0.7.0
+2025-07-18T23:28:25.0148026Z [1m[32m   Compiling[0m async-trait v0.1.88
+2025-07-18T23:28:26.1275632Z [1m[32m   Compiling[0m aho-corasick v1.1.3
+2025-07-18T23:28:26.4028364Z [1m[32m   Compiling[0m server_fn v0.8.3
+2025-07-18T23:28:26.5567585Z [1m[32m   Compiling[0m drain_filter_polyfill v0.1.3
+2025-07-18T23:28:27.0537782Z [1m[32m   Compiling[0m const_str_slice_concat v0.1.0
+2025-07-18T23:28:27.6333080Z [1m[32m   Compiling[0m regex-syntax v0.8.5
+2025-07-18T23:28:28.3780284Z [1m[32m   Compiling[0m interpolator v0.5.0
+2025-07-18T23:28:28.6707490Z [1m[32m   Compiling[0m erased v0.1.2
+2025-07-18T23:28:29.0802558Z [1m[32m   Compiling[0m linear-map v1.2.0
+2025-07-18T23:28:29.2085859Z [1m[32m   Compiling[0m collection_literals v1.0.2
+2025-07-18T23:28:29.2418695Z [1m[32m   Compiling[0m same-file v1.0.6
+2025-07-18T23:28:29.3128160Z [1m[32m   Compiling[0m next_tuple v0.1.0
+2025-07-18T23:28:29.3798744Z [1m[32m   Compiling[0m walkdir v2.5.0
+2025-07-18T23:28:29.6099460Z [1m[32m   Compiling[0m regex-automata v0.4.9
+2025-07-18T23:28:32.1964343Z [1m[32m   Compiling[0m attribute-derive-macro v0.10.3
+2025-07-18T23:28:34.3443757Z [1m[32m   Compiling[0m convert_case v0.6.0
+2025-07-18T23:28:35.3680398Z [1m[32m   Compiling[0m toml v0.9.2
+2025-07-18T23:28:36.8003535Z [1m[32m   Compiling[0m url v2.5.4
+2025-07-18T23:28:37.4767281Z [1m[32m   Compiling[0m rstml v0.12.1
+2025-07-18T23:28:38.2898517Z [1m[32m   Compiling[0m server_fn_macro_default v0.8.3
+2025-07-18T23:28:38.7612186Z [1m[32m   Compiling[0m serde_qs v0.15.0
+2025-07-18T23:28:39.5992573Z [1m[32m   Compiling[0m typed-builder-macro v0.21.0
+2025-07-18T23:28:40.4660834Z [1m[32m   Compiling[0m gloo-utils v0.2.0
+2025-07-18T23:28:40.5636722Z [1m[32m   Compiling[0m gloo-net v0.6.0
+2025-07-18T23:28:41.1468397Z [1m[32m   Compiling[0m leptos_macro v0.8.3
+2025-07-18T23:28:41.4607842Z [1m[32m   Compiling[0m base64 v0.22.1
+2025-07-18T23:28:41.4772704Z [1m[32m   Compiling[0m const-str v0.6.3
+2025-07-18T23:28:41.9605611Z [1m[32m   Compiling[0m reactive_stores v0.2.3
+2025-07-18T23:28:42.1281411Z [1m[32m   Compiling[0m pathdiff v0.2.3
+2025-07-18T23:28:42.1725450Z [1m[32m   Compiling[0m config v0.15.13
+2025-07-18T23:28:43.8891956Z [1m[32m   Compiling[0m wasm-streams v0.4.2
+2025-07-18T23:28:45.0105595Z [1m[32m   Compiling[0m typed-builder v0.21.0
+2025-07-18T23:28:45.0158172Z [1m[32m   Compiling[0m leptos_hot_reload v0.8.3
+2025-07-18T23:28:45.0389563Z [1m[32m   Compiling[0m uuid v1.17.0
+2025-07-18T23:28:45.7432876Z [1m[32m   Compiling[0m attribute-derive v0.10.3
+2025-07-18T23:28:46.3885707Z [1m[32m   Compiling[0m regex v1.11.1
+2025-07-18T23:28:46.5628245Z [1m[32m   Compiling[0m codee v0.3.2
+2025-07-18T23:28:46.7227932Z [1m[32m   Compiling[0m leptos v0.8.3
+2025-07-18T23:28:46.8949873Z [1m[32m   Compiling[0m leptos_config v0.8.3
+2025-07-18T23:28:47.9009327Z [1m[32m   Compiling[0m console_error_panic_hook v0.1.7
+2025-07-18T23:28:51.7030407Z [1m[32m   Compiling[0m leptos_server v0.8.3
+2025-07-18T23:28:51.7031886Z [1m[32m   Compiling[0m leptos_dom v0.8.3
+2025-07-18T23:28:52.6606649Z [1m[32m   Compiling[0m leptos_meta v0.8.3
+2025-07-18T23:28:53.3782082Z [1m[32m   Compiling[0m leptos-radix-ui v0.1.0 (/home/runner/work/Leptographic/Leptographic)
+2025-07-18T23:28:55.6631158Z [1m[32m    Finished[0m `wasm-release` profile [optimized] target(s) in 55.33s
+2025-07-18T23:28:55.6798332Z [38;5;77m       Cargo[0m finished [38;5;241mcargo build --package=leptos-radix-ui --lib --target-dir=/home/runner/work/Leptographic/Leptographic/target/front --target=wasm32-unknown-unknown --no-default-features --features=hydrate --profile=wasm-release[0m
+2025-07-18T23:28:55.6800872Z [38;5;77m       Front[0m generating JS/WASM with wasm-bindgen
+2025-07-18T23:28:55.8134138Z [38;5;77m     Command[0m installing wasm-opt-version_123 ...
+2025-07-18T23:28:57.2136528Z [38;5;77m     Command[0m wasm-opt-version_123 installed.
+2025-07-18T23:28:57.9851375Z [38;5;196m[swc_ecma_transforms_optimization][0m tree-shaker; pass=0
+2025-07-18T23:28:57.9881761Z [38;5;196m[swc_ecma_transforms_optimization][0m tree-shaker; pass=0
+2025-07-18T23:28:57.9905130Z [38;5;77m    Finished[0m generating JS/WASM for front in 2.310908511s
+2025-07-18T23:28:58.0937428Z [38;5;77m     Command[0m [tailwindcss] requested version v4.1.4, but a newer version v4.1.11 is available, you can try it out by setting the LEPTOS_TAILWIND_VERSION=v4.1.11 env var and re-running the command
+2025-07-18T23:28:58.0938843Z [38;5;77m     Command[0m installing tailwindcss-v4.1.4 ...
+2025-07-18T23:28:58.6242505Z [38;5;77m     Command[0m tailwindcss-v4.1.4 installed.
+2025-07-18T23:28:58.8759650Z [38;5;77m    Tailwind[0m finished [38;5;241mtailwindcss --input style/main.css --output /home/runner/work/Leptographic/Leptographic/target/tmp/tailwind.css --minify[0m
+2025-07-18T23:28:59.2722057Z [1m[32m   Compiling[0m proc-macro2 v1.0.95
+2025-07-18T23:28:59.2723140Z [1m[32m   Compiling[0m unicode-ident v1.0.18
+2025-07-18T23:28:59.2724014Z [1m[32m   Compiling[0m libc v0.2.174
+2025-07-18T23:28:59.2725114Z [1m[32m   Compiling[0m version_check v0.9.5
+2025-07-18T23:28:59.3337813Z [1m[32m   Compiling[0m pin-project-lite v0.2.16
+2025-07-18T23:28:59.3777583Z [1m[32m   Compiling[0m cfg-if v1.0.1
+2025-07-18T23:28:59.4069996Z [1m[32m   Compiling[0m memchr v2.7.5
+2025-07-18T23:28:59.4946006Z [1m[32m   Compiling[0m semver v1.0.26
+2025-07-18T23:28:59.6817892Z [1m[32m   Compiling[0m futures-core v0.3.31
+2025-07-18T23:29:00.0017550Z [1m[32m   Compiling[0m quote v1.0.40
+2025-07-18T23:29:00.1982134Z [1m[32m   Compiling[0m syn v2.0.104
+2025-07-18T23:29:00.2231869Z [1m[32m   Compiling[0m serde v1.0.219
+2025-07-18T23:29:00.3178179Z [1m[32m   Compiling[0m rustc_version v0.4.1
+2025-07-18T23:29:00.4272196Z [1m[32m   Compiling[0m thiserror v2.0.12
+2025-07-18T23:29:00.5294222Z [1m[32m   Compiling[0m once_cell v1.21.3
+2025-07-18T23:29:00.6322143Z [1m[32m   Compiling[0m futures-sink v0.3.31
+2025-07-18T23:29:00.6711189Z [1m[32m   Compiling[0m bytes v1.10.1
+2025-07-18T23:29:00.6805494Z [1m[32m   Compiling[0m futures-channel v0.3.31
+2025-07-18T23:29:00.7008996Z [1m[32m   Compiling[0m wasm-bindgen-shared v0.2.100
+2025-07-18T23:29:00.8593779Z [1m[32m   Compiling[0m rustversion v1.0.21
+2025-07-18T23:29:00.8808310Z [1m[32m   Compiling[0m futures-io v0.3.31
+2025-07-18T23:29:01.0079648Z [1m[32m   Compiling[0m futures-task v0.3.31
+2025-07-18T23:29:01.0966906Z [1m[32m   Compiling[0m pin-utils v0.1.0
+2025-07-18T23:29:01.1170951Z [1m[32m   Compiling[0m slab v0.4.10
+2025-07-18T23:29:01.1285814Z [1m[32m   Compiling[0m itoa v1.0.15
+2025-07-18T23:29:01.2637320Z [1m[32m   Compiling[0m bumpalo v3.19.0
+2025-07-18T23:29:01.3392032Z [1m[32m   Compiling[0m log v0.4.27
+2025-07-18T23:29:01.5070338Z [1m[32m   Compiling[0m smallvec v1.15.1
+2025-07-18T23:29:01.6916854Z [1m[32m   Compiling[0m autocfg v1.5.0
+2025-07-18T23:29:01.7035236Z [1m[32m   Compiling[0m wasm-bindgen v0.2.100
+2025-07-18T23:29:01.8292026Z [1m[32m   Compiling[0m mio v1.0.4
+2025-07-18T23:29:01.8863326Z [1m[32m   Compiling[0m socket2 v0.5.10
+2025-07-18T23:29:01.9845381Z [1m[32m   Compiling[0m lock_api v0.4.13
+2025-07-18T23:29:02.1235204Z [1m[32m   Compiling[0m stable_deref_trait v1.2.0
+2025-07-18T23:29:02.1569651Z [1m[32m   Compiling[0m parking_lot_core v0.9.11
+2025-07-18T23:29:02.3109767Z [1m[32m   Compiling[0m fnv v1.0.7
+2025-07-18T23:29:02.3519479Z [1m[32m   Compiling[0m http v1.3.1
+2025-07-18T23:29:02.5310947Z [1m[32m   Compiling[0m proc-macro-error-attr2 v2.0.0
+2025-07-18T23:29:02.8273212Z [1m[32m   Compiling[0m crossbeam-utils v0.8.21
+2025-07-18T23:29:02.8662696Z [1m[32m   Compiling[0m typenum v1.18.0
+2025-07-18T23:29:03.1142742Z [1m[32m   Compiling[0m generic-array v0.14.7
+2025-07-18T23:29:03.7910442Z [1m[32m   Compiling[0m synstructure v0.13.2
+2025-07-18T23:29:03.9462807Z [1m[32m   Compiling[0m wasm-bindgen-backend v0.2.100
+2025-07-18T23:29:04.2796969Z [1m[32m   Compiling[0m proc-macro-error2 v2.0.1
+2025-07-18T23:29:04.3894898Z [1m[32m   Compiling[0m num_cpus v1.17.0
+2025-07-18T23:29:04.4743222Z [1m[32m   Compiling[0m getrandom v0.3.3
+2025-07-18T23:29:04.6917907Z [1m[32m   Compiling[0m zerocopy v0.8.26
+2025-07-18T23:29:04.9627899Z [1m[32m   Compiling[0m httparse v1.10.1
+2025-07-18T23:29:05.1930566Z [1m[32m   Compiling[0m wasm-bindgen-macro-support v0.2.100
+2025-07-18T23:29:05.2956641Z [1m[32m   Compiling[0m unicode-segmentation v1.12.0
+2025-07-18T23:29:05.5310664Z [1m[32m   Compiling[0m serde_derive v1.0.219
+2025-07-18T23:29:05.6368649Z [1m[32m   Compiling[0m thiserror-impl v2.0.12
+2025-07-18T23:29:05.6656627Z [1m[32m   Compiling[0m futures-macro v0.3.31
+2025-07-18T23:29:06.2855253Z [1m[32m   Compiling[0m zerofrom-derive v0.1.6
+2025-07-18T23:29:06.5255720Z [1m[32m   Compiling[0m futures-util v0.3.31
+2025-07-18T23:29:07.0353828Z [1m[32m   Compiling[0m wasm-bindgen-macro v0.2.100
+2025-07-18T23:29:07.5469180Z [1m[32m   Compiling[0m yoke-derive v0.8.0
+2025-07-18T23:29:07.7237241Z [1m[32m   Compiling[0m zerofrom v0.1.6
+2025-07-18T23:29:07.8094148Z [1m[32m   Compiling[0m tokio-macros v2.5.0
+2025-07-18T23:29:08.4873902Z [1m[32m   Compiling[0m tokio v1.46.1
+2025-07-18T23:29:08.6698144Z [1m[32m   Compiling[0m yoke v0.8.0
+2025-07-18T23:29:09.4887175Z [1m[32m   Compiling[0m zerovec-derive v0.11.1
+2025-07-18T23:29:09.8679304Z [1m[32m   Compiling[0m js-sys v0.3.77
+2025-07-18T23:29:10.7087568Z [1m[32m   Compiling[0m zerovec v0.11.2
+2025-07-18T23:29:11.6437425Z [1m[32m   Compiling[0m displaydoc v0.2.5
+2025-07-18T23:29:11.7575390Z [1m[32m   Compiling[0m futures-executor v0.3.31
+2025-07-18T23:29:12.3419014Z [1m[32m   Compiling[0m tinystr v0.8.1
+2025-07-18T23:29:12.4949764Z [1m[32m   Compiling[0m convert_case v0.8.0
+2025-07-18T23:29:13.4127683Z [1m[32m   Compiling[0m wasm-bindgen-futures v0.4.50
+2025-07-18T23:29:13.4793067Z [1m[32m   Compiling[0m proc-macro2-diagnostics v0.10.1
+2025-07-18T23:29:13.6095374Z [1m[32m   Compiling[0m litemap v0.8.0
+2025-07-18T23:29:13.7519352Z [1m[32m   Compiling[0m scopeguard v1.2.0
+2025-07-18T23:29:13.8171306Z [1m[32m   Compiling[0m writeable v0.6.1
+2025-07-18T23:29:14.1340960Z [1m[32m   Compiling[0m icu_locale_core v2.0.0
+2025-07-18T23:29:14.9631681Z [1m[32m   Compiling[0m zerotrie v0.2.2
+2025-07-18T23:29:15.3766524Z [1m[32m   Compiling[0m futures v0.3.31
+2025-07-18T23:29:15.4129719Z [1m[32m   Compiling[0m potential_utf v0.1.2
+2025-07-18T23:29:15.5173784Z [1m[32m   Compiling[0m concurrent-queue v2.5.0
+2025-07-18T23:29:15.6761609Z [1m[32m   Compiling[0m http-body v1.0.1
+2025-07-18T23:29:15.7571052Z [1m[32m   Compiling[0m icu_normalizer_data v2.0.0
+2025-07-18T23:29:15.8822000Z [1m[32m   Compiling[0m ryu v1.0.20
+2025-07-18T23:29:16.1485766Z [1m[32m   Compiling[0m unicode-xid v0.2.6
+2025-07-18T23:29:16.2043308Z [1m[32m   Compiling[0m icu_properties_data v2.0.1
+2025-07-18T23:29:16.2447039Z [1m[32m   Compiling[0m percent-encoding v2.3.1
+2025-07-18T23:29:16.3379779Z [1m[32m   Compiling[0m thiserror v1.0.69
+2025-07-18T23:29:16.4254172Z [1m[32m   Compiling[0m parking v2.2.1
+2025-07-18T23:29:16.5418317Z [1m[32m   Compiling[0m serde_json v1.0.141
+2025-07-18T23:29:16.5962326Z [1m[32m   Compiling[0m event-listener v5.4.0
+2025-07-18T23:29:16.6880029Z [1m[32m   Compiling[0m const_format_proc_macros v0.2.34
+2025-07-18T23:29:16.8459541Z [1m[32m   Compiling[0m ppv-lite86 v0.2.21
+2025-07-18T23:29:16.9722340Z [1m[32m   Compiling[0m icu_collections v2.0.0
+2025-07-18T23:29:17.1966647Z [1m[32m   Compiling[0m icu_provider v2.0.0
+2025-07-18T23:29:17.4877867Z [1m[32m   Compiling[0m rand_core v0.9.3
+2025-07-18T23:29:17.5512698Z [1m[32m   Compiling[0m crypto-common v0.1.6
+2025-07-18T23:29:17.6229492Z [1m[32m   Compiling[0m block-buffer v0.10.4
+2025-07-18T23:29:17.6763829Z [1m[32m   Compiling[0m web-sys v0.3.77
+2025-07-18T23:29:17.6933521Z [1m[32m   Compiling[0m thiserror-impl v1.0.69
+2025-07-18T23:29:17.7096361Z [1m[32m   Compiling[0m proc-macro-utils v0.10.0
+2025-07-18T23:29:18.1825754Z [1m[32m   Compiling[0m tracing-core v0.1.34
+2025-07-18T23:29:18.9724867Z [1m[32m   Compiling[0m slotmap v1.0.7
+2025-07-18T23:29:19.1024060Z [1m[32m   Compiling[0m throw_error v0.3.0
+2025-07-18T23:29:19.1965746Z [1m[32m   Compiling[0m mime v0.3.17
+2025-07-18T23:29:19.2897742Z [1m[32m   Compiling[0m camino v1.1.10
+2025-07-18T23:29:19.4992050Z [1m[32m   Compiling[0m paste v1.0.15
+2025-07-18T23:29:19.6459706Z [1m[32m   Compiling[0m anyhow v1.0.98
+2025-07-18T23:29:19.6711293Z [1m[32m   Compiling[0m tower-service v0.3.3
+2025-07-18T23:29:19.9049646Z [1m[32m   Compiling[0m tracing v0.1.41
+2025-07-18T23:29:20.2800170Z [1m[32m   Compiling[0m digest v0.10.7
+2025-07-18T23:29:20.4375645Z [1m[32m   Compiling[0m rand_chacha v0.9.0
+2025-07-18T23:29:20.5477221Z [1m[32m   Compiling[0m event-listener-strategy v0.5.4
+2025-07-18T23:29:21.1680567Z [1m[32m   Compiling[0m derive-where v1.5.0
+2025-07-18T23:29:21.6637600Z [1m[32m   Compiling[0m reactive_graph v0.2.3
+2025-07-18T23:29:21.8112075Z [1m[32m   Compiling[0m server_fn_macro v0.8.3
+2025-07-18T23:29:21.9535417Z [1m[32m   Compiling[0m send_wrapper v0.6.0
+2025-07-18T23:29:22.0697685Z [1m[32m   Compiling[0m or_poisoned v0.1.0
+2025-07-18T23:29:22.1086727Z [1m[32m   Compiling[0m hashbrown v0.14.5
+2025-07-18T23:29:22.5768694Z [1m[32m   Compiling[0m tower-layer v0.3.3
+2025-07-18T23:29:22.7526074Z [1m[32m   Compiling[0m cpufeatures v0.2.17
+2025-07-18T23:29:22.8211429Z [1m[32m   Compiling[0m httpdate v1.0.3
+2025-07-18T23:29:23.1178014Z [1m[32m   Compiling[0m dashmap v6.1.0
+2025-07-18T23:29:23.6913661Z [1m[32m   Compiling[0m sha1 v0.10.6
+2025-07-18T23:29:23.9304418Z [1m[32m   Compiling[0m hydration_context v0.3.0
+2025-07-18T23:29:24.0416774Z [1m[32m   Compiling[0m icu_properties v2.0.1
+2025-07-18T23:29:25.6312418Z [1m[32m   Compiling[0m async-lock v3.4.0
+2025-07-18T23:29:25.8539133Z [1m[32m   Compiling[0m rand v0.9.1
+2025-07-18T23:29:26.0445848Z [1m[32m   Compiling[0m icu_normalizer v2.0.0
+2025-07-18T23:29:26.9118415Z [1m[32m   Compiling[0m const_format v0.2.34
+2025-07-18T23:29:26.9686631Z [1m[32m   Compiling[0m form_urlencoded v1.2.1
+2025-07-18T23:29:27.1617941Z [1m[32m   Compiling[0m http-body-util v0.1.3
+2025-07-18T23:29:27.1663619Z [1m[32m   Compiling[0m any_spawner v0.3.0
+2025-07-18T23:29:27.3816582Z [1m[32m   Compiling[0m syn_derive v0.2.0
+2025-07-18T23:29:27.4736730Z [1m[32m   Compiling[0m multer v3.1.0
+2025-07-18T23:29:27.6063613Z [1m[32m   Compiling[0m either v1.15.0
+2025-07-18T23:29:27.7746645Z [1m[32m   Compiling[0m guardian v1.3.0
+2025-07-18T23:29:27.8460320Z [1m[32m   Compiling[0m sync_wrapper v1.0.2
+2025-07-18T23:29:27.8867948Z [1m[32m   Compiling[0m hashbrown v0.15.4
+2025-07-18T23:29:28.0280799Z [1m[32m   Compiling[0m xxhash-rust v0.8.15
+2025-07-18T23:29:28.0751674Z [1m[32m   Compiling[0m utf-8 v0.7.6
+2025-07-18T23:29:28.2015738Z [1m[32m   Compiling[0m rustc-hash v2.1.1
+2025-07-18T23:29:28.2628696Z [1m[32m   Compiling[0m data-encoding v2.9.0
+2025-07-18T23:29:28.2671039Z [1m[32m   Compiling[0m equivalent v1.0.2
+2025-07-18T23:29:28.5272474Z [1m[32m   Compiling[0m indexmap v2.10.0
+2025-07-18T23:29:29.3102386Z [1m[32m   Compiling[0m tungstenite v0.26.2
+2025-07-18T23:29:32.1325858Z [1m[32m   Compiling[0m itertools v0.14.0
+2025-07-18T23:29:32.3260066Z [1m[32m   Compiling[0m idna_adapter v1.2.1
+2025-07-18T23:29:33.3591182Z [1m[32m   Compiling[0m hyper v1.6.0
+2025-07-18T23:29:33.4781136Z [1m[32m   Compiling[0m manyhow-macros v0.11.4
+2025-07-18T23:29:33.8505556Z [1m[32m   Compiling[0m quote-use-macros v0.8.4
+2025-07-18T23:29:33.8909929Z [1m[32m   Compiling[0m parking_lot v0.12.4
+2025-07-18T23:29:34.3778768Z [1m[32m   Compiling[0m reactive_stores_macro v0.2.3
+2025-07-18T23:29:34.8797885Z [1m[32m   Compiling[0m pin-project-internal v1.1.10
+2025-07-18T23:29:35.2926462Z [1m[32m   Compiling[0m tachys v0.2.4
+2025-07-18T23:29:35.3076886Z [1m[32m   Compiling[0m encoding_rs v0.8.35
+2025-07-18T23:29:35.4303730Z [1m[32m   Compiling[0m spin v0.9.8
+2025-07-18T23:29:35.4895089Z [1m[32m   Compiling[0m utf8_iter v1.0.4
+2025-07-18T23:29:35.5898881Z [1m[32m   Compiling[0m prettyplease v0.2.35
+2025-07-18T23:29:35.7586364Z [1m[32m   Compiling[0m utf8-width v0.1.7
+2025-07-18T23:29:35.7928476Z [1m[32m   Compiling[0m winnow v0.7.12
+2025-07-18T23:29:36.0804396Z [1m[32m   Compiling[0m yansi v1.0.1
+2025-07-18T23:29:37.1329826Z [1m[32m   Compiling[0m pin-project v1.1.10
+2025-07-18T23:29:37.1729306Z [1m[32m   Compiling[0m html-escape v0.2.13
+2025-07-18T23:29:37.9076119Z [1m[32m   Compiling[0m toml_parser v1.0.1
+2025-07-18T23:29:38.0736919Z [1m[32m   Compiling[0m idna v1.0.3
+2025-07-18T23:29:38.3669419Z [1m[32m   Compiling[0m reactive_stores v0.2.3
+2025-07-18T23:29:39.4033896Z [1m[32m   Compiling[0m quote-use v0.8.4
+2025-07-18T23:29:39.4391080Z [1m[32m   Compiling[0m hyper-util v0.1.15
+2025-07-18T23:29:39.4678455Z [1m[32m   Compiling[0m manyhow v0.11.4
+2025-07-18T23:29:39.7209099Z [1m[32m   Compiling[0m gloo-utils v0.2.0
+2025-07-18T23:29:39.8374929Z [1m[32m   Compiling[0m tokio-tungstenite v0.26.2
+2025-07-18T23:29:40.0713222Z [1m[32m   Compiling[0m tower v0.5.2
+2025-07-18T23:29:40.4581797Z [1m[32m   Compiling[0m axum-core v0.5.2
+2025-07-18T23:29:40.5607331Z [1m[32m   Compiling[0m serde_urlencoded v0.7.1
+2025-07-18T23:29:40.7536835Z [1m[32m   Compiling[0m either_of v0.1.6
+2025-07-18T23:29:40.8083703Z [1m[32m   Compiling[0m oco_ref v0.2.0
+2025-07-18T23:29:41.0863192Z [1m[32m   Compiling[0m serde_spanned v1.0.0
+2025-07-18T23:29:41.1757590Z [1m[32m   Compiling[0m serde_path_to_error v0.1.17
+2025-07-18T23:29:41.6186457Z [1m[32m   Compiling[0m toml_datetime v0.7.0
+2025-07-18T23:29:41.9872739Z [1m[32m   Compiling[0m async-trait v0.1.88
+2025-07-18T23:29:42.8131415Z [1m[32m   Compiling[0m server_fn v0.8.3
+2025-07-18T23:29:42.9314757Z [1m[32m   Compiling[0m aho-corasick v1.1.3
+2025-07-18T23:29:42.9532694Z [1m[32m   Compiling[0m erased v0.1.2
+2025-07-18T23:29:43.0062403Z [1m[32m   Compiling[0m base64 v0.22.1
+2025-07-18T23:29:43.5541864Z [1m[32m   Compiling[0m same-file v1.0.6
+2025-07-18T23:29:43.6259978Z [1m[32m   Compiling[0m next_tuple v0.1.0
+2025-07-18T23:29:43.6873905Z [1m[32m   Compiling[0m regex-syntax v0.8.5
+2025-07-18T23:29:43.9968032Z [1m[32m   Compiling[0m interpolator v0.5.0
+2025-07-18T23:29:44.2847904Z [1m[32m   Compiling[0m matchit v0.8.4
+2025-07-18T23:29:44.9793696Z [1m[32m   Compiling[0m collection_literals v1.0.2
+2025-07-18T23:29:45.0142262Z [1m[32m   Compiling[0m const_str_slice_concat v0.1.0
+2025-07-18T23:29:45.1011589Z [1m[32m   Compiling[0m linear-map v1.2.0
+2025-07-18T23:29:45.2570179Z [1m[32m   Compiling[0m drain_filter_polyfill v0.1.3
+2025-07-18T23:29:47.3121662Z [1m[32m   Compiling[0m regex-automata v0.4.9
+2025-07-18T23:29:52.1902611Z [1m[32m   Compiling[0m attribute-derive-macro v0.10.3
+2025-07-18T23:29:53.3884168Z [1m[32m   Compiling[0m axum v0.8.4
+2025-07-18T23:30:00.4037989Z [1m[32m   Compiling[0m walkdir v2.5.0
+2025-07-18T23:30:00.6300630Z [1m[32m   Compiling[0m convert_case v0.6.0
+2025-07-18T23:30:01.6668156Z [1m[32m   Compiling[0m toml v0.9.2
+2025-07-18T23:30:02.2546315Z [1m[32m   Compiling[0m gloo-net v0.6.0
+2025-07-18T23:30:03.1909562Z [1m[32m   Compiling[0m url v2.5.4
+2025-07-18T23:30:05.7371667Z [1m[32m   Compiling[0m rstml v0.12.1
+2025-07-18T23:30:06.4396126Z [1m[32m   Compiling[0m wasm-streams v0.4.2
+2025-07-18T23:30:06.6447164Z [1m[32m   Compiling[0m server_fn_macro_default v0.8.3
+2025-07-18T23:30:07.6922011Z [1m[32m   Compiling[0m serde_qs v0.15.0
+2025-07-18T23:30:07.7001806Z [1m[32m   Compiling[0m typed-builder-macro v0.21.0
+2025-07-18T23:30:08.5518652Z [1m[32m   Compiling[0m leptos_macro v0.8.3
+2025-07-18T23:30:08.6966435Z [1m[32m   Compiling[0m inventory v0.3.20
+2025-07-18T23:30:08.7526453Z [1m[32m   Compiling[0m pathdiff v0.2.3
+2025-07-18T23:30:08.9485357Z [1m[32m   Compiling[0m const-str v0.6.3
+2025-07-18T23:30:09.8319003Z [1m[32m   Compiling[0m typed-builder v0.21.0
+2025-07-18T23:30:10.0066711Z [1m[32m   Compiling[0m config v0.15.13
+2025-07-18T23:30:10.4132736Z [1m[32m   Compiling[0m leptos_hot_reload v0.8.3
+2025-07-18T23:30:11.7013139Z [1m[32m   Compiling[0m uuid v1.17.0
+2025-07-18T23:30:11.7718436Z [1m[32m   Compiling[0m attribute-derive v0.10.3
+2025-07-18T23:30:11.9439749Z [1m[32m   Compiling[0m regex v1.11.1
+2025-07-18T23:30:13.3479848Z [1m[32m   Compiling[0m codee v0.3.2
+2025-07-18T23:30:13.4178882Z [1m[32m   Compiling[0m leptos v0.8.3
+2025-07-18T23:30:13.5031508Z [1m[32m   Compiling[0m leptos_server v0.8.3
+2025-07-18T23:30:15.6434292Z [1m[32m   Compiling[0m leptos_config v0.8.3
+2025-07-18T23:30:16.3982194Z [1m[32m   Compiling[0m leptos_dom v0.8.3
+2025-07-18T23:30:16.7351182Z [1m[32m   Compiling[0m unicase v2.8.1
+2025-07-18T23:30:16.8608150Z [1m[32m   Compiling[0m mime_guess v2.0.5
+2025-07-18T23:30:17.9132110Z [1m[32m   Compiling[0m leptos_router v0.8.3
+2025-07-18T23:30:18.0838541Z [1m[32m   Compiling[0m leptos_router_macro v0.8.3
+2025-07-18T23:30:20.4050708Z [1m[32m   Compiling[0m leptos_meta v0.8.3
+2025-07-18T23:30:22.4705840Z [1m[32m   Compiling[0m tokio-util v0.7.15
+2025-07-18T23:30:23.1385563Z [1m[32m   Compiling[0m bitflags v2.9.1
+2025-07-18T23:30:23.2721535Z [1m[32m   Compiling[0m http-range-header v0.4.2
+2025-07-18T23:30:23.4326733Z [1m[32m   Compiling[0m tower-http v0.6.6
+2025-07-18T23:30:23.6802486Z [1m[32m   Compiling[0m leptos_integration_utils v0.8.3
+2025-07-18T23:30:23.9798191Z [1m[32m   Compiling[0m leptos_axum v0.8.3
+2025-07-18T23:30:26.0088346Z [1m[32m   Compiling[0m leptos-radix-ui v0.1.0 (/home/runner/work/Leptographic/Leptographic)
+2025-07-18T23:30:37.0263109Z [1m[32m    Finished[0m `release` profile [optimized] target(s) in 1m 38s
+2025-07-18T23:30:37.0457932Z [38;5;77m       Cargo[0m finished [38;5;241mcargo build --package=leptos-radix-ui --bin=leptos-radix-ui --no-default-features --features=ssr --release[0m
+2025-07-18T23:30:37.0624021Z ##[group]Run echo "Checking build artifacts..."
+2025-07-18T23:30:37.0624442Z [36;1mecho "Checking build artifacts..."[0m
+2025-07-18T23:30:37.0625005Z [36;1mls -la target/site/[0m
+2025-07-18T23:30:37.0625279Z [36;1mls -la target/release/[0m
+2025-07-18T23:30:37.0625564Z [36;1m# Find the actual binary name[0m
+2025-07-18T23:30:37.0626326Z [36;1mBINARY_NAME=$(find target/release/ -maxdepth 1 -type f -executable ! -name "*.d" | head -1 | xargs basename)[0m
+2025-07-18T23:30:37.0626882Z [36;1mecho "Found binary: $BINARY_NAME"[0m
+2025-07-18T23:30:37.0627232Z [36;1mecho "BINARY_NAME=$BINARY_NAME" >> $GITHUB_ENV[0m
+2025-07-18T23:30:37.0655387Z shell: /usr/bin/bash -e {0}
+2025-07-18T23:30:37.0655669Z env:
+2025-07-18T23:30:37.0655885Z   CARGO_TERM_COLOR: always
+2025-07-18T23:30:37.0656171Z   CARGO_HOME: /home/runner/.cargo
+2025-07-18T23:30:37.0656456Z   CARGO_INCREMENTAL: 0
+2025-07-18T23:30:37.0656697Z ##[endgroup]
+2025-07-18T23:30:37.0704357Z Checking build artifacts...
+2025-07-18T23:30:37.0718643Z total 16
+2025-07-18T23:30:37.0719229Z drwxr-xr-x 3 runner docker 4096 Jul 18 23:28 .
+2025-07-18T23:30:37.0719981Z drwxr-xr-x 7 runner docker 4096 Jul 18 23:28 ..
+2025-07-18T23:30:37.0720737Z -rw-r--r-- 1 runner docker   90 Jul 18 23:28 .gitkeep
+2025-07-18T23:30:37.0721485Z drwxr-xr-x 2 runner docker 4096 Jul 18 23:28 pkg
+2025-07-18T23:30:37.0733809Z total 16200
+2025-07-18T23:30:37.0734944Z drwxr-xr-x   7 runner docker     4096 Jul 18 23:30 .
+2025-07-18T23:30:37.0735746Z drwxr-xr-x   7 runner docker     4096 Jul 18 23:28 ..
+2025-07-18T23:30:37.0736728Z -rw-r--r--   1 runner docker        0 Jul 18 23:28 .cargo-lock
+2025-07-18T23:30:37.0737917Z drwxr-xr-x 350 runner docker    20480 Jul 18 23:28 .fingerprint
+2025-07-18T23:30:37.0739036Z drwxr-xr-x  84 runner docker     4096 Jul 18 23:28 build
+2025-07-18T23:30:37.0740119Z drwxr-xr-x   2 runner docker    69632 Jul 18 23:30 deps
+2025-07-18T23:30:37.0741139Z drwxr-xr-x   2 runner docker     4096 Jul 18 23:28 examples
+2025-07-18T23:30:37.0742257Z drwxr-xr-x   2 runner docker     4096 Jul 18 23:28 incremental
+2025-07-18T23:30:37.0743469Z -rwxr-xr-x   2 runner docker 16468472 Jul 18 23:30 leptos-radix-ui
+2025-07-18T23:30:37.0757882Z -rw-r--r--   1 runner docker      892 Jul 18 23:30 leptos-radix-ui.d
+2025-07-18T23:30:37.0771737Z Found binary: leptos-radix-ui
+2025-07-18T23:30:37.0794307Z ##[group]Run mkdir -p deploy
+2025-07-18T23:30:37.0794872Z [36;1mmkdir -p deploy[0m
+2025-07-18T23:30:37.0795155Z [36;1mcp -r target/site/* deploy/[0m
+2025-07-18T23:30:37.0795548Z [36;1mcp target/release/leptos-radix-ui deploy/leptographic-app[0m
+2025-07-18T23:30:37.0795994Z [36;1mtar -czf leptographic-deploy.tar.gz -C deploy .[0m
+2025-07-18T23:30:37.0820173Z shell: /usr/bin/bash -e {0}
+2025-07-18T23:30:37.0820434Z env:
+2025-07-18T23:30:37.0820644Z   CARGO_TERM_COLOR: always
+2025-07-18T23:30:37.0820915Z   CARGO_HOME: /home/runner/.cargo
+2025-07-18T23:30:37.0821184Z   CARGO_INCREMENTAL: 0
+2025-07-18T23:30:37.0821440Z   BINARY_NAME: leptos-radix-ui
+2025-07-18T23:30:37.0821690Z ##[endgroup]
+2025-07-18T23:30:37.5360443Z ##[group]Run appleboy/ssh-action@2ead5e36573f08b82fbfce1504f1a4b05a647c6f
+2025-07-18T23:30:37.5360863Z with:
+2025-07-18T23:30:37.5361189Z   host: ***
+2025-07-18T23:30:37.5361410Z   username: ***
+2025-07-18T23:30:37.5363222Z   key: ***
+
+2025-07-18T23:30:37.5363424Z   port: 22
+2025-07-18T23:30:37.5365125Z   script: # Create deployment directory
+sudo mkdir -p /var/www/leptographic
+sudo chown $USER:$USER /var/www/leptographic
+
+# Stop existing service if running
+sudo systemctl stop leptographic || true
+
+# Backup current deployment
+if [ -d "/var/www/leptographic/current" ]; then
+  sudo mv /var/www/leptographic/current /var/www/leptographic/backup-$(date +%Y%m%d-%H%M%S)
+fi
+
+# Create new deployment directory
+mkdir -p /var/www/leptographic/current
+
+2025-07-18T23:30:37.5366689Z   protocol: tcp
+2025-07-18T23:30:37.5366903Z   timeout: 30s
+2025-07-18T23:30:37.5367116Z   command_timeout: 10m
+2025-07-18T23:30:37.5367354Z   proxy_port: 22
+2025-07-18T23:30:37.5367576Z   proxy_protocol: tcp
+2025-07-18T23:30:37.5367839Z   proxy_timeout: 30s
+2025-07-18T23:30:37.5368084Z   capture_stdout: false
+2025-07-18T23:30:37.5368321Z env:
+2025-07-18T23:30:37.5368526Z   CARGO_TERM_COLOR: always
+2025-07-18T23:30:37.5368788Z   CARGO_HOME: /home/runner/.cargo
+2025-07-18T23:30:37.5369062Z   CARGO_INCREMENTAL: 0
+2025-07-18T23:30:37.5369311Z   BINARY_NAME: leptos-radix-ui
+2025-07-18T23:30:37.5369757Z ##[endgroup]
+2025-07-18T23:30:37.5385588Z ##[group]Run echo "$GITHUB_ACTION_PATH" >> $GITHUB_PATH
+2025-07-18T23:30:37.5385976Z [36;1mecho "$GITHUB_ACTION_PATH" >> $GITHUB_PATH[0m
+2025-07-18T23:30:37.5413443Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-07-18T23:30:37.5413804Z env:
+2025-07-18T23:30:37.5414011Z   CARGO_TERM_COLOR: always
+2025-07-18T23:30:37.5414276Z   CARGO_HOME: /home/runner/.cargo
+2025-07-18T23:30:37.5414684Z   CARGO_INCREMENTAL: 0
+2025-07-18T23:30:37.5414932Z   BINARY_NAME: leptos-radix-ui
+2025-07-18T23:30:37.5415440Z   GITHUB_ACTION_PATH: /home/runner/work/_actions/appleboy/ssh-action/2ead5e36573f08b82fbfce1504f1a4b05a647c6f
+2025-07-18T23:30:37.5415944Z ##[endgroup]
+2025-07-18T23:30:37.5484452Z ##[group]Run entrypoint.sh
+2025-07-18T23:30:37.5484885Z [36;1mentrypoint.sh[0m
+2025-07-18T23:30:37.5509995Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-07-18T23:30:37.5510353Z env:
+2025-07-18T23:30:37.5510561Z   CARGO_TERM_COLOR: always
+2025-07-18T23:30:37.5510836Z   CARGO_HOME: /home/runner/.cargo
+2025-07-18T23:30:37.5511109Z   CARGO_INCREMENTAL: 0
+2025-07-18T23:30:37.5511356Z   BINARY_NAME: leptos-radix-ui
+2025-07-18T23:30:37.5511858Z   GITHUB_ACTION_PATH: /home/runner/work/_actions/appleboy/ssh-action/2ead5e36573f08b82fbfce1504f1a4b05a647c6f
+2025-07-18T23:30:37.5512404Z   INPUT_HOST: ***
+2025-07-18T23:30:37.5512638Z   INPUT_PORT: 22
+2025-07-18T23:30:37.5512863Z   INPUT_PROTOCOL: tcp
+2025-07-18T23:30:37.5513113Z   INPUT_USERNAME: ***
+2025-07-18T23:30:37.5513337Z   INPUT_PASSWORD: 
+2025-07-18T23:30:37.5513558Z   INPUT_PASSPHRASE: 
+2025-07-18T23:30:37.5515481Z   INPUT_KEY: ***
+
+2025-07-18T23:30:37.5515714Z   INPUT_KEY_PATH: 
+2025-07-18T23:30:37.5515939Z   INPUT_FINGERPRINT: 
+2025-07-18T23:30:37.5516165Z   INPUT_PROXY_HOST: 
+2025-07-18T23:30:37.5516392Z   INPUT_PROXY_PORT: 22
+2025-07-18T23:30:37.5516620Z   INPUT_PROXY_USERNAME: 
+2025-07-18T23:30:37.5516852Z   INPUT_PROXY_PASSWORD: 
+2025-07-18T23:30:37.5517092Z   INPUT_PROXY_PASSPHRASE: 
+2025-07-18T23:30:37.5517335Z   INPUT_PROXY_KEY: 
+2025-07-18T23:30:37.5517557Z   INPUT_PROXY_KEY_PATH: 
+2025-07-18T23:30:37.5517813Z   INPUT_PROXY_FINGERPRINT: 
+2025-07-18T23:30:37.5518060Z   INPUT_TIMEOUT: 30s
+2025-07-18T23:30:37.5518291Z   INPUT_PROXY_TIMEOUT: 30s
+2025-07-18T23:30:37.5518535Z   INPUT_COMMAND_TIMEOUT: 10m
+2025-07-18T23:30:37.5520808Z   INPUT_SCRIPT: # Create deployment directory
+sudo mkdir -p /var/www/leptographic
+sudo chown $USER:$USER /var/www/leptographic
+
+# Stop existing service if running
+sudo systemctl stop leptographic || true
+
+# Backup current deployment
+if [ -d "/var/www/leptographic/current" ]; then
+  sudo mv /var/www/leptographic/current /var/www/leptographic/backup-$(date +%Y%m%d-%H%M%S)
+fi
+
+# Create new deployment directory
+mkdir -p /var/www/leptographic/current
+
+2025-07-18T23:30:37.5522379Z   INPUT_SCRIPT_FILE: 
+2025-07-18T23:30:37.5522611Z   INPUT_ENVS: 
+2025-07-18T23:30:37.5522823Z   INPUT_ENVS_FORMAT: 
+2025-07-18T23:30:37.5523042Z   INPUT_DEBUG: 
+2025-07-18T23:30:37.5523262Z   INPUT_ALL_ENVS: 
+2025-07-18T23:30:37.5523481Z   INPUT_REQUEST_PTY: 
+2025-07-18T23:30:37.5523718Z   INPUT_USE_INSECURE_CIPHER: 
+2025-07-18T23:30:37.5523967Z   INPUT_CIPHER: 
+2025-07-18T23:30:37.5524196Z   INPUT_PROXY_USE_INSECURE_CIPHER: 
+2025-07-18T23:30:37.5524470Z   INPUT_PROXY_CIPHER: 
+2025-07-18T23:30:37.5524819Z   INPUT_SYNC: 
+2025-07-18T23:30:37.5525035Z   INPUT_CAPTURE_STDOUT: false
+2025-07-18T23:30:37.5525285Z ##[endgroup]
+2025-07-18T23:30:37.5617041Z Will download drone-ssh-1.8.1-linux-amd64 from https://github.com/appleboy/drone-ssh/releases/download/v1.8.1
+2025-07-18T23:30:37.6878765Z ======= CLI Version =======
+2025-07-18T23:30:37.6902896Z Drone SSH version 1.8.1
+2025-07-18T23:30:37.6907340Z ===========================
+2025-07-18T23:30:38.4790118Z ===============================================
+2025-07-18T23:30:38.4790984Z ✅ Successfully executed commands to all hosts.
+2025-07-18T23:30:38.4791514Z ===============================================
+2025-07-18T23:30:38.4901461Z ##[group]Run appleboy/scp-action@ff85246acaad7bdce478db94a363cd2bf7c90345
+2025-07-18T23:30:38.4902040Z with:
+2025-07-18T23:30:38.4902300Z   host: ***
+2025-07-18T23:30:38.4902512Z   username: ***
+2025-07-18T23:30:38.4904298Z   key: ***
+
+2025-07-18T23:30:38.4904636Z   port: 22
+2025-07-18T23:30:38.4904866Z   source: leptographic-deploy.tar.gz
+2025-07-18T23:30:38.4905145Z   target: /tmp/
+2025-07-18T23:30:38.4905366Z   protocol: tcp
+2025-07-18T23:30:38.4905581Z   timeout: 30s
+2025-07-18T23:30:38.4905791Z   command_timeout: 10m
+2025-07-18T23:30:38.4906019Z   tar_exec: tar
+2025-07-18T23:30:38.4906223Z   proxy_port: 22
+2025-07-18T23:30:38.4906437Z   proxy_timeout: 30s
+2025-07-18T23:30:38.4906671Z   curl_insecure: false
+2025-07-18T23:30:38.4906900Z   capture_stdout: false
+2025-07-18T23:30:38.4907129Z env:
+2025-07-18T23:30:38.4907326Z   CARGO_TERM_COLOR: always
+2025-07-18T23:30:38.4907577Z   CARGO_HOME: /home/runner/.cargo
+2025-07-18T23:30:38.4907842Z   CARGO_INCREMENTAL: 0
+2025-07-18T23:30:38.4908114Z   BINARY_NAME: leptos-radix-ui
+2025-07-18T23:30:38.4908368Z ##[endgroup]
+2025-07-18T23:30:38.4921855Z ##[group]Run echo "$GITHUB_ACTION_PATH" >> $GITHUB_PATH
+2025-07-18T23:30:38.4922236Z [36;1mecho "$GITHUB_ACTION_PATH" >> $GITHUB_PATH[0m
+2025-07-18T23:30:38.4949406Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-07-18T23:30:38.4949763Z env:
+2025-07-18T23:30:38.4949974Z   CARGO_TERM_COLOR: always
+2025-07-18T23:30:38.4950237Z   CARGO_HOME: /home/runner/.cargo
+2025-07-18T23:30:38.4950516Z   CARGO_INCREMENTAL: 0
+2025-07-18T23:30:38.4950764Z   BINARY_NAME: leptos-radix-ui
+2025-07-18T23:30:38.4951277Z   GITHUB_ACTION_PATH: /home/runner/work/_actions/appleboy/scp-action/ff85246acaad7bdce478db94a363cd2bf7c90345
+2025-07-18T23:30:38.4951781Z ##[endgroup]
+2025-07-18T23:30:38.5033792Z ##[group]Run entrypoint.sh
+2025-07-18T23:30:38.5034060Z [36;1mentrypoint.sh[0m
+2025-07-18T23:30:38.5058817Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-07-18T23:30:38.5059172Z env:
+2025-07-18T23:30:38.5059386Z   CARGO_TERM_COLOR: always
+2025-07-18T23:30:38.5059661Z   CARGO_HOME: /home/runner/.cargo
+2025-07-18T23:30:38.5059932Z   CARGO_INCREMENTAL: 0
+2025-07-18T23:30:38.5060177Z   BINARY_NAME: leptos-radix-ui
+2025-07-18T23:30:38.5060680Z   GITHUB_ACTION_PATH: /home/runner/work/_actions/appleboy/scp-action/ff85246acaad7bdce478db94a363cd2bf7c90345
+2025-07-18T23:30:38.5061253Z   INPUT_HOST: ***
+2025-07-18T23:30:38.5061490Z   INPUT_PORT: 22
+2025-07-18T23:30:38.5061710Z   INPUT_PROTOCOL: tcp
+2025-07-18T23:30:38.5061959Z   INPUT_USERNAME: ***
+2025-07-18T23:30:38.5062181Z   INPUT_PASSWORD: 
+2025-07-18T23:30:38.5062400Z   INPUT_PASSPHRASE: 
+2025-07-18T23:30:38.5064191Z   INPUT_KEY: ***
+
+2025-07-18T23:30:38.5064414Z   INPUT_KEY_PATH: 
+2025-07-18T23:30:38.5064863Z   INPUT_FINGERPRINT: 
+2025-07-18T23:30:38.5065094Z   INPUT_PROXY_HOST: 
+2025-07-18T23:30:38.5065318Z   INPUT_PROXY_PORT: 22
+2025-07-18T23:30:38.5065582Z   INPUT_PROXY_USERNAME: 
+2025-07-18T23:30:38.5065820Z   INPUT_PROXY_PASSWORD: 
+2025-07-18T23:30:38.5066066Z   INPUT_PROXY_PASSPHRASE: 
+2025-07-18T23:30:38.5066308Z   INPUT_PROXY_KEY: 
+2025-07-18T23:30:38.5066525Z   INPUT_PROXY_KEY_PATH: 
+2025-07-18T23:30:38.5066767Z   INPUT_PROXY_FINGERPRINT: 
+2025-07-18T23:30:38.5067026Z   INPUT_USE_INSECURE_CIPHER: 
+2025-07-18T23:30:38.5067279Z   INPUT_CIPHER: 
+2025-07-18T23:30:38.5067509Z   INPUT_PROXY_USE_INSECURE_CIPHER: 
+2025-07-18T23:30:38.5067779Z   INPUT_PROXY_CIPHER: 
+2025-07-18T23:30:38.5068007Z   INPUT_DEBUG: 
+2025-07-18T23:30:38.5068217Z   INPUT_TIMEOUT: 30s
+2025-07-18T23:30:38.5068447Z   INPUT_COMMAND_TIMEOUT: 10m
+2025-07-18T23:30:38.5068699Z   INPUT_TARGET: /tmp/
+2025-07-18T23:30:38.5068952Z   INPUT_SOURCE: leptographic-deploy.tar.gz
+2025-07-18T23:30:38.5069246Z   INPUT_RM: 
+2025-07-18T23:30:38.5069458Z   INPUT_STRIP_COMPONENTS: 
+2025-07-18T23:30:38.5069695Z   INPUT_OVERWRITE: 
+2025-07-18T23:30:38.5069919Z   INPUT_TAR_DEREFERENCE: 
+2025-07-18T23:30:38.5070154Z   INPUT_TAR_TMP_PATH: 
+2025-07-18T23:30:38.5070385Z   INPUT_TAR_EXEC: tar
+2025-07-18T23:30:38.5070798Z   INPUT_PROXY_TIMEOUT: 30s
+2025-07-18T23:30:38.5071167Z   INPUT_CAPTURE_STDOUT: false
+2025-07-18T23:30:38.5071424Z   INPUT_CURL_INSECURE: false
+2025-07-18T23:30:38.5071667Z   DRONE_SCP_VERSION: 
+2025-07-18T23:30:38.5071892Z ##[endgroup]
+2025-07-18T23:30:38.5168048Z Downloading drone-scp-1.8.0-linux-amd64 from https://github.com/appleboy/drone-scp/releases/download/v1.8.0
+2025-07-18T23:30:38.6528351Z ======= CLI Version Information =======
+2025-07-18T23:30:38.6548109Z Drone SCP version 1.8.0
+2025-07-18T23:30:38.6551781Z =======================================
+2025-07-18T23:30:38.6583477Z drone-scp version: 1.8.0
+2025-07-18T23:30:38.6584168Z tar all files into /tmp/DkuGtbMCzN.tar.gz
+2025-07-18T23:30:38.9739997Z remote server os type is unix
+2025-07-18T23:30:38.9740694Z scp file to server.
+2025-07-18T23:30:39.4698680Z create folder /tmp/
+2025-07-18T23:30:39.6737253Z untar file DkuGtbMCzN.tar.gz
+2025-07-18T23:30:39.8981090Z remove file DkuGtbMCzN.tar.gz
+2025-07-18T23:30:40.0900566Z ===================================================
+2025-07-18T23:30:40.0901813Z ✅ Successfully executed transfer data to all host
+2025-07-18T23:30:40.0902655Z ===================================================
+2025-07-18T23:30:40.1009327Z ##[group]Run appleboy/ssh-action@2ead5e36573f08b82fbfce1504f1a4b05a647c6f
+2025-07-18T23:30:40.1009740Z with:
+2025-07-18T23:30:40.1010011Z   host: ***
+2025-07-18T23:30:40.1010245Z   username: ***
+2025-07-18T23:30:40.1012008Z   key: ***
+
+2025-07-18T23:30:40.1012205Z   port: 22
+2025-07-18T23:30:40.1014081Z   script: set -e  # Exit on any error
+
+# Extract deployment files
+cd /var/www/leptographic/current
+tar -xzf /tmp/leptographic-deploy.tar.gz
+chmod +x leptographic-app
+
+# Clean up temp file
+rm /tmp/leptographic-deploy.tar.gz
+
+# Start the service
+sudo systemctl start leptographic
+sudo systemctl enable leptographic
+
+# Wait a moment for service to start
+sleep 3
+
+# Check service status
+sudo systemctl status leptographic --no-pager
+
+# Verify the application is responding
+curl -f http://localhost:3000 || echo "Warning: Application not responding on localhost:3000"
+
+2025-07-18T23:30:40.1016178Z   protocol: tcp
+2025-07-18T23:30:40.1016393Z   timeout: 30s
+2025-07-18T23:30:40.1016632Z   command_timeout: 10m
+2025-07-18T23:30:40.1016858Z   proxy_port: 22
+2025-07-18T23:30:40.1017080Z   proxy_protocol: tcp
+2025-07-18T23:30:40.1017309Z   proxy_timeout: 30s
+2025-07-18T23:30:40.1017537Z   capture_stdout: false
+2025-07-18T23:30:40.1017764Z env:
+2025-07-18T23:30:40.1017960Z   CARGO_TERM_COLOR: always
+2025-07-18T23:30:40.1018217Z   CARGO_HOME: /home/runner/.cargo
+2025-07-18T23:30:40.1018479Z   CARGO_INCREMENTAL: 0
+2025-07-18T23:30:40.1018715Z   BINARY_NAME: leptos-radix-ui
+2025-07-18T23:30:40.1018968Z ##[endgroup]
+2025-07-18T23:30:40.1032597Z ##[group]Run echo "$GITHUB_ACTION_PATH" >> $GITHUB_PATH
+2025-07-18T23:30:40.1032974Z [36;1mecho "$GITHUB_ACTION_PATH" >> $GITHUB_PATH[0m
+2025-07-18T23:30:40.1060585Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-07-18T23:30:40.1060943Z env:
+2025-07-18T23:30:40.1061153Z   CARGO_TERM_COLOR: always
+2025-07-18T23:30:40.1061417Z   CARGO_HOME: /home/runner/.cargo
+2025-07-18T23:30:40.1061693Z   CARGO_INCREMENTAL: 0
+2025-07-18T23:30:40.1061939Z   BINARY_NAME: leptos-radix-ui
+2025-07-18T23:30:40.1062439Z   GITHUB_ACTION_PATH: /home/runner/work/_actions/appleboy/ssh-action/2ead5e36573f08b82fbfce1504f1a4b05a647c6f
+2025-07-18T23:30:40.1062929Z ##[endgroup]
+2025-07-18T23:30:40.1130517Z ##[group]Run entrypoint.sh
+2025-07-18T23:30:40.1130790Z [36;1mentrypoint.sh[0m
+2025-07-18T23:30:40.1156316Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-07-18T23:30:40.1156673Z env:
+2025-07-18T23:30:40.1156886Z   CARGO_TERM_COLOR: always
+2025-07-18T23:30:40.1157152Z   CARGO_HOME: /home/runner/.cargo
+2025-07-18T23:30:40.1157420Z   CARGO_INCREMENTAL: 0
+2025-07-18T23:30:40.1157663Z   BINARY_NAME: leptos-radix-ui
+2025-07-18T23:30:40.1158150Z   GITHUB_ACTION_PATH: /home/runner/work/_actions/appleboy/ssh-action/2ead5e36573f08b82fbfce1504f1a4b05a647c6f
+2025-07-18T23:30:40.1158708Z   INPUT_HOST: ***
+2025-07-18T23:30:40.1159102Z   INPUT_PORT: 22
+2025-07-18T23:30:40.1159329Z   INPUT_PROTOCOL: tcp
+2025-07-18T23:30:40.1159580Z   INPUT_USERNAME: ***
+2025-07-18T23:30:40.1159814Z   INPUT_PASSWORD: 
+2025-07-18T23:30:40.1160045Z   INPUT_PASSPHRASE: 
+2025-07-18T23:30:40.1161914Z   INPUT_KEY: ***
+
+2025-07-18T23:30:40.1162141Z   INPUT_KEY_PATH: 
+2025-07-18T23:30:40.1162359Z   INPUT_FINGERPRINT: 
+2025-07-18T23:30:40.1162583Z   INPUT_PROXY_HOST: 
+2025-07-18T23:30:40.1162808Z   INPUT_PROXY_PORT: 22
+2025-07-18T23:30:40.1163045Z   INPUT_PROXY_USERNAME: 
+2025-07-18T23:30:40.1163291Z   INPUT_PROXY_PASSWORD: 
+2025-07-18T23:30:40.1163537Z   INPUT_PROXY_PASSPHRASE: 
+2025-07-18T23:30:40.1163776Z   INPUT_PROXY_KEY: 
+2025-07-18T23:30:40.1164007Z   INPUT_PROXY_KEY_PATH: 
+2025-07-18T23:30:40.1164245Z   INPUT_PROXY_FINGERPRINT: 
+2025-07-18T23:30:40.1164486Z   INPUT_TIMEOUT: 30s
+2025-07-18T23:30:40.1164931Z   INPUT_PROXY_TIMEOUT: 30s
+2025-07-18T23:30:40.1165185Z   INPUT_COMMAND_TIMEOUT: 10m
+2025-07-18T23:30:40.1167241Z   INPUT_SCRIPT: set -e  # Exit on any error
+
+# Extract deployment files
+cd /var/www/leptographic/current
+tar -xzf /tmp/leptographic-deploy.tar.gz
+chmod +x leptographic-app
+
+# Clean up temp file
+rm /tmp/leptographic-deploy.tar.gz
+
+# Start the service
+sudo systemctl start leptographic
+sudo systemctl enable leptographic
+
+# Wait a moment for service to start
+sleep 3
+
+# Check service status
+sudo systemctl status leptographic --no-pager
+
+# Verify the application is responding
+curl -f http://localhost:3000 || echo "Warning: Application not responding on localhost:3000"
+
+2025-07-18T23:30:40.1169140Z   INPUT_SCRIPT_FILE: 
+2025-07-18T23:30:40.1169366Z   INPUT_ENVS: 
+2025-07-18T23:30:40.1169580Z   INPUT_ENVS_FORMAT: 
+2025-07-18T23:30:40.1169794Z   INPUT_DEBUG: 
+2025-07-18T23:30:40.1170009Z   INPUT_ALL_ENVS: 
+2025-07-18T23:30:40.1170221Z   INPUT_REQUEST_PTY: 
+2025-07-18T23:30:40.1170450Z   INPUT_USE_INSECURE_CIPHER: 
+2025-07-18T23:30:40.1170700Z   INPUT_CIPHER: 
+2025-07-18T23:30:40.1170926Z   INPUT_PROXY_USE_INSECURE_CIPHER: 
+2025-07-18T23:30:40.1171208Z   INPUT_PROXY_CIPHER: 
+2025-07-18T23:30:40.1171426Z   INPUT_SYNC: 
+2025-07-18T23:30:40.1171636Z   INPUT_CAPTURE_STDOUT: false
+2025-07-18T23:30:40.1171888Z ##[endgroup]
+2025-07-18T23:30:40.1264438Z Will download drone-ssh-1.8.1-linux-amd64 from https://github.com/appleboy/drone-ssh/releases/download/v1.8.1
+2025-07-18T23:30:40.2516564Z ======= CLI Version =======
+2025-07-18T23:30:40.2542334Z Drone SSH version 1.8.1
+2025-07-18T23:30:40.2547213Z ===========================
+2025-07-18T23:30:43.8744416Z ● leptographic.service - Leptographic - Leptos UI System
+2025-07-18T23:30:43.8745724Z      Loaded: loaded (/etc/systemd/system/leptographic.service; enabled; preset: enabled)
+2025-07-18T23:30:43.8746519Z      Active: active (running) since Fri 2025-07-18 23:30:40 UTC; 3s ago
+2025-07-18T23:30:43.8747082Z    Main PID: 3188 (leptos-radix-ui)
+2025-07-18T23:30:43.8747475Z       Tasks: 5 (limit: 9258)
+2025-07-18T23:30:43.8747869Z      Memory: 884.0K (peak: 1.3M)
+2025-07-18T23:30:43.8748224Z         CPU: 10ms
+2025-07-18T23:30:43.8748649Z      CGroup: /system.slice/leptographic.service
+2025-07-18T23:30:43.8749299Z              └─3188 /var/www/leptographic/leptos-radix-ui
+2025-07-18T23:30:43.8750172Z Jul 18 23:30:40 ubuntu-8gb-ash-1 systemd[1]: Started leptographic.service - Leptographic - Leptos UI System.
+2025-07-18T23:30:43.8751014Z Jul 18 23:30:40 ubuntu-8gb-ash-1 leptos-radix-ui[3188]: 🎯 App component rendering...
+2025-07-18T23:30:43.8751971Z Jul 18 23:30:40 ubuntu-8gb-ash-1 leptos-radix-ui[3188]: listening on http://127.0.0.1:3000
+2025-07-18T23:30:43.8829284Z   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+2025-07-18T23:30:43.8830062Z                                  Dload  Upload   Total   Spent    Left  Speed
+2025-07-18T23:30:43.8838942Z 
+2025-07-18T23:30:43.8839684Z   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+2025-07-18T23:30:43.8840585Z 100  5241    0  5241    0     0  4708k      0 --:--:-- --:--:-- --:--:-- 5118k
+2025-07-18T23:30:43.8842910Z <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><!><link rel="modulepreload" href="/pkg/leptos-radix-ui.js" nonce="f552wiKz_AsfoUGr_H_DZA"><link rel="preload" href="/pkg/leptos-radix-ui.wasm" as="fetch" type="application/wasm" crossorigin="f552wiKz_AsfoUGr_H_DZA"><script type="module" nonce="f552wiKz_AsfoUGr_H_DZA">(function (***, pkg_path, output_name, wasm_output_name) {
+2025-07-18T23:30:43.8845071Z 	import(`${***}/${pkg_path}/${output_name}.js`)
+2025-07-18T23:30:43.8845415Z 		.then(mod => {
+2025-07-18T23:30:43.8845875Z 			mod.default({module_or_path: `${***}/${pkg_path}/${wasm_output_name}.wasm`}).then(() => {
+2025-07-18T23:30:43.8846321Z 				mod.hydrate();
+2025-07-18T23:30:43.8846555Z 			});
+2025-07-18T23:30:43.8846752Z 		})
+2025-07-18T23:30:43.8846958Z })
+2025-07-18T23:30:43.8876612Z ("", "pkg", "leptos-radix-ui", "leptos-radix-ui");</script><!--HEAD--><link id="leptos" rel="stylesheet" href="/pkg/leptos-radix-ui.css?v=2"><title>Leptonic UI Components</title></head><body><div class="min-h-screen transition-colors duration-200 bg-dark-bg text-white"><header class="px-4 py-4 sm:px-6 sm:py-6 bg-dark-bg"><div class="w-full flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4"><div class="flex-1"><h1 class="text-2xl sm:text-3xl font-bold mb-2">Leptographic</h1><p class="text-xs sm:text-sm text-gray-400">A Leptos UI system created to satisfy frontend design requirements and styled with Tailwind CSS 4.</p></div><div class="flex-shrink-0"><button class="text-lg cursor-pointer transition-opacity hover:opacity-70">☀️</button></div></div></header><main class="w-full px-4 py-2"><div class="flex min-h-screen"><div class="w-48 flex-shrink-0 p-2 bg-dark-bg"><h3 class="font-normal mb-3 text-sm uppercase tracking-wider opacity-60 text-gray-400">Components</h3><div class="space-y-1"><div class="px-2 py-1 text-sm cursor-pointer transition-colors tracking-wide text-white font-normal">Checkbox</div><div class="px-2 py-1 text-sm cursor-pointer transition-colors tracking-wide text-gray-500 hover:text-[#605ED6] font-light">Button</div><div class="px-2 py-1 text-sm cursor-pointer transition-colors tracking-wide text-gray-500 hover:text-[#605ED6] font-light">Input</div><div class="px-2 py-1 text-sm cursor-pointer transition-colors tracking-wide text-gray-500 hover:text-[#605ED6] font-light">Select</div><div class="px-2 py-1 text-sm cursor-pointer transition-colors tracking-wide text-gray-500 hover:text-[#605ED6] font-light">Switch</div></div></div><div class="flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 p-2"><div><div class="rounded border border-gray-600 bg-[#605ED6] w-5/6 h-40 sm:h-44 lg:h-48 mx-auto overflow-hidden"><div class="px-3 py-2 border-b border-gray-500"><h3 class="font-normal text-sm sm:text-base text-white tracking-wide">Checkbox</h3></div><div class="flex-1 flex items-center justify-center p-4 sm:p-5 lg:p-6"><div class="flex items-center space-x-3"><div class="relative inline-flex"><input type="checkbox" value="on" tabindex="-1" class="absolute opacity-0 pointer-events-none" style="position: absolute; opacity: 0; pointer-events: none; margin: 0; width: 1px; height: 1px;;"><button id="demo-checkbox-1" type="button" role="checkbox" aria-checked="false" data-state="unchecked" class="relative inline-flex h-6 w-6 shrink-0 items-center justify-center rounded border-0 bg-white transition-all duration-200 ease-in-out shadow-sm focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-0 data-[state=checked]:bg-white data-[state=unchecked]:bg-white data-[state=indeterminate]:bg-white hover:bg-hover-purple data-[state=checked]:hover:bg-white data-[state=indeterminate]:hover:bg-white data-[disabled]:opacity-50 data-[disabled]:cursor-not-allowed data-[disabled]:hover:bg-white"><!><!></button></div><label for="demo-checkbox-1" class="cursor-pointer text-white text-base">Accept terms</label></div></div></div></div><div><div class="rounded border border-gray-600 bg-[#605ED6] w-5/6 h-40 sm:h-44 lg:h-48 mx-auto overflow-hidden"><div class="px-3 py-2 border-b border-gray-500"><h3 class="font-normal text-sm sm:text-base text-white tracking-wide">Button</h3></div><div class="flex-1 flex items-center justify-center p-4 sm:p-5 lg:p-6"><div class="text-center text-gray-300 text-base">Coming Soon</div></div></div></div><div><div class="rounded border border-gray-600 bg-[#605ED6] w-5/6 h-40 sm:h-44 lg:h-48 mx-auto overflow-hidden"><div class="px-3 py-2 border-b border-gray-500"><h3 class="font-normal text-sm sm:text-base text-white tracking-wide">Input</h3></div><div class="flex-1 flex items-center justify-center p-4 sm:p-5 lg:p-6"><div class="text-center text-gray-300 text-base">Coming Soon</div></div></div></div><div><div class="rounded border border-gray-600 bg-[#605ED6] w-5/6 h-40 sm:h-44 lg:h-48 mx-auto overflow-hidden"><div class="px-3 py-2 border-b border-gray-500"><h3 class="font-normal text-sm sm:text-base text-white tracking-wide">Select</h3></div><div class="flex-1 flex items-center justify-center p-4 sm:p-5 lg:p-6"><div class="text-center text-gray-300 text-base">Coming Soon</div></div></div></div></div></div></main></div></body></html><script nonce="f552wiKz_AsfoUGr_H_DZA">__RESOLVED_RESOURCES=[];__SERIALIZED_ERRORS=[];__PENDING_RESOURCES=[];__RESOURCE_RESOLVERS=[];</script><script nonce="f552wiKz_AsfoUGr_H_DZA">__INCOMPLETE_CHUNKS=[];</script>
+2025-07-18T23:30:43.8890120Z ===============================================
+2025-07-18T23:30:43.8890598Z ✅ Successfully executed commands to all hosts.
+2025-07-18T23:30:43.8890968Z ===============================================
+2025-07-18T23:30:43.8933296Z Post job cleanup.
+2025-07-18T23:30:44.9815477Z Post job cleanup.
+2025-07-18T23:30:45.1059788Z Cache hit occurred on the primary key Linux-cargo-, not saving cache.
+2025-07-18T23:30:45.1158587Z Post job cleanup.
+2025-07-18T23:30:45.2069800Z [command]/usr/bin/git version
+2025-07-18T23:30:45.2106177Z git version 2.50.1
+2025-07-18T23:30:45.2149049Z Temporarily overriding HOME='/home/runner/work/_temp/31f82882-2eb2-4c50-8483-ec9508df0fca' before making global git config changes
+2025-07-18T23:30:45.2150694Z Adding repository directory to the temporary git global config as a safe directory
+2025-07-18T23:30:45.2161907Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Leptographic/Leptographic
+2025-07-18T23:30:45.2195520Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-07-18T23:30:45.2227536Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-07-18T23:30:45.2447800Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-07-18T23:30:45.2467384Z http.https://github.com/.extraheader
+2025-07-18T23:30:45.2479293Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2025-07-18T23:30:45.2509544Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-07-18T23:30:45.2819945Z Cleaning up orphan processes
+
