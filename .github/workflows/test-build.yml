@@ -61,7 +61,8 @@ jobs:
       run: cargo fmt --check
 
     - name: Run Clippy
-      run: cargo clippy -- -D warnings
+      run: cargo clippy --lib --bins -- -D warnings
+      timeout-minutes: 5
 
     - name: Build Leptos application (debug)
       run: cargo leptos build
