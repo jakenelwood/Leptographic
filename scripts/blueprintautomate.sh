@@ -31,18 +31,24 @@ if [ -z "$COMPONENT_NAME" ]; then
     echo "  II - Polish & Production (15-30 min) - Styling and final polish"
     echo "  deploy - Production Deployment - Deploy to live server"
     echo ""
+    echo "🎯 ROSETTA STONE APPROACH:"
+    echo "  1️⃣ LEPTIX FIRST             - Copy working Leptix patterns exactly"
+    echo "  2️⃣ RUSTFORWEB SECOND        - Secondary Leptos reference"
+    echo "  3️⃣ REACT RADIX REFERENCE    - API reference only"
+    echo ""
     echo "AVAILABLE HOOKS:"
     echo "  ✅ use_controllable_state    - Universal state management"
     echo "  ✅ use_checkbox_state        - Complete checkbox logic"
     echo "  ✅ use_switch_state          - Complete switch logic"
+    echo "  ✅ LEPTIX PATTERNS          - Progress component success!"
     echo "  ✅ use_id_generator          - Unique IDs for accessibility"
     echo "  ✅ use_escape_key            - Handle escape key presses"
     echo "  ✅ use_previous              - Track previous values"
     echo ""
     echo "🚨 STYLING POLICY:"
-    echo "  ✅ TAILWIND CSS 4 ONLY      - Data-driven utility classes"
+    echo "  ✅ TAILWIND CSS 4 ONLY      - Data-driven utility classes (Leptix pattern)"
     echo "  ❌ NO CUSTOM CSS            - No external stylesheets"
-    echo "  ❌ NO INLINE STYLES         - No style= attributes"
+    echo "  ❌ NO INLINE STYLES         - No style= attributes (use Tailwind classes)"
     echo ""
     exit 1
 fi
@@ -54,19 +60,36 @@ generate_research() {
     cat << EOF > /tmp/research_${COMPONENT_NAME}.md
 # Research & Generation: $COMPONENT_NAME
 
+## 🎯 ROSETTA STONE APPROACH (CRITICAL)
+**"Use working implementations as your guide, not your own inventions"**
+
+### Priority Order for Research:
+1. **Leptix Implementation** (Primary Rosetta Stone)
+2. **RustForWeb/radix Implementation** (Secondary)
+3. **React Radix UI** (Reference only)
+
 ## Automated Research
-@octocode Search Radix UI primitives for "$COMPONENT_NAME" React implementation
-@octocode Find RustForWeb/radix "$COMPONENT_NAME" if exists
-@octocode Find Leptix "$COMPONENT_NAME" if exists  
+@octocode Search Leptix repository for "$COMPONENT_NAME" implementation - GET FULL CODE
+@octocode Search RustForWeb/radix "$COMPONENT_NAME" if exists - GET FULL CODE
+@octocode Search Radix UI primitives for "$COMPONENT_NAME" React implementation - REFERENCE ONLY
 @context7 Get WAI-ARIA patterns for "$COMPONENT_NAME"
 
-## Analysis Needed
-1. Existing Rust implementations quality
-2. React → Leptos translation patterns
-3. ARIA compliance requirements
-4. Form integration needs
+## 🔍 Critical Analysis (Leptix Success Pattern)
+Based on our Progress component success, analyze:
 
-Generate comprehensive analysis before code generation.
+1. **Context Management**: Does Leptix use \`provide_context()\` or \`Provider\`?
+2. **Styling Strategy**: Tailwind classes vs inline styles?
+3. **Transform Logic**: Exact CSS transform calculations?
+4. **Validation**: NaN checking and edge case handling?
+5. **Animation**: Interval patterns and cleanup?
+
+## Success Criteria
+- [ ] Found working Leptix implementation to copy
+- [ ] Identified exact styling patterns
+- [ ] Understood context management approach
+- [ ] Documented animation/interaction patterns
+
+**RULE**: Copy the working pattern exactly first, optimize later.
 EOF
     echo "📋 Research prompt: /tmp/research_${COMPONENT_NAME}.md"
 }
@@ -109,54 +132,89 @@ EOF
             cat << EOF > /tmp/phase1_${COMPONENT_NAME}.md
 # Phase I: Component Composition - $COMPONENT_NAME
 
-## Hook Integration
-Using hooks selected in Phase 0, create component following BLUEPRINT.md patterns:
+## 🎯 LEPTIX ROSETTA STONE APPROACH
+**CRITICAL**: Copy the working Leptix implementation pattern exactly.
 
-**Template:**
+### Step 1: Get Leptix Implementation
+From research phase, copy the exact Leptix code structure:
+- Context management pattern (\`provide_context()\` vs \`Provider\`)
+- Signal derivation with validation
+- Transform calculations
+- Styling approach
+
+### Step 2: Adapt to Our Structure
 \`\`\`rust
 #[component]
 pub fn ${COMPONENT_NAME^}(
-    // Props based on selected hooks
-    #[prop(into, optional)] checked: MaybeProp<T>,
-    #[prop(into, optional)] default_checked: MaybeProp<T>,
-    #[prop(into, optional)] on_checked_change: Option<Callback<T>>,
-    #[prop(into, optional)] disabled: MaybeProp<bool>,
+    // Copy exact prop structure from Leptix
+    #[prop(into, optional)] value: MaybeProp<f64>,
+    #[prop(into, optional)] max: MaybeProp<f64>,
+    #[prop(into, optional)] class: MaybeProp<String>,
     children: ChildrenFn,
 ) -> impl IntoView {
-    // Phase 0: Compose hooks
-    let state = use_${COMPONENT_NAME,,}_state(checked, default_checked, on_checked_change);
-    let ids = use_related_ids("${COMPONENT_NAME,,}");
+    // COPY LEPTIX PATTERN: Signal derivation with validation
+    let max_signal = Signal::derive(move || {
+        let max_val = max.get().unwrap_or(DEFAULT_MAX);
+        if !max_val.is_nan() && max_val > 0.0 {
+            max_val
+        } else {
+            DEFAULT_MAX
+        }
+    });
 
-    // Context for child components
+    let value_signal = Signal::derive(move || {
+        let max_val = max_signal.get();
+        value.get().and_then(|value| {
+            (!value.is_nan() && value <= max_val && value >= 0.0).then_some(value)
+        })
+    });
+
+    // COPY LEPTIX PATTERN: Context management
     let context_value = ${COMPONENT_NAME^}ContextValue {
-        state: state.checked,
-        disabled: disabled.into(),
+        value: value_signal,
+        max: max_signal,
     };
 
+    provide_context(context_value);  // NOT Provider wrapper
+
     view! {
-        <Provider value=context_value>
-            <button
-                id=ids.trigger_id
-                role="{aria_role}"
-                aria-checked=move || state.get_aria_checked.get()
-                data-state=move || state.get_state_attr.get()
-                data-disabled=move || disabled.get().then_some("")
-                disabled=move || disabled.get().unwrap_or(false)
-                on:click=move |_| state.toggle.run(())
-            >
-                {children()}
-            </button>
-        </Provider>
+        <div
+            // COPY LEPTIX PATTERN: Tailwind classes, not inline styles
+            class=move || {
+                let mut class_str = String::from("relative overflow-hidden bg-black/25 rounded-full h-[25px] drop-shadow-md");
+                if let Some(custom_class) = class.get() {
+                    class_str.push(' ');
+                    class_str.push_str(&custom_class);
+                }
+                class_str
+            }
+            style="transform: translateZ(0)"  // GPU acceleration
+            role="progressbar"
+            aria-valuemax=move || max_signal.get()
+            aria-valuemin="0"
+            aria-valuenow=move || value_signal.get()
+            data-state=move || {
+                value_signal.get().map(|v| {
+                    if v >= max_signal.get() { "complete" } else { "loading" }
+                }).unwrap_or("indeterminate")
+            }
+            data-value=move || value_signal.get()
+            data-max=move || max_signal.get()
+        >
+            {children()}
+        </div>
     }
 }
 \`\`\`
 
 ## Success Criteria:
+- [ ] ✅ Copied exact Leptix pattern (context, styling, validation)
 - [ ] Component compiles and renders
-- [ ] Hooks provide all necessary functionality
-- [ ] ARIA attributes are correct
+- [ ] Visual output matches Leptix example
 - [ ] Context system works for child components
-- [ ] Basic interactions work (click, keyboard)
+- [ ] Basic interactions work (if applicable)
+
+**RULE**: If it doesn't look/work like Leptix, copy more exactly.
 EOF
             echo "📋 Phase I prompt: /tmp/phase1_${COMPONENT_NAME}.md"
             ;;

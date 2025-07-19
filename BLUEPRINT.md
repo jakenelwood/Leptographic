@@ -8,6 +8,46 @@
 
 ## **🔥 Critical Lessons Learned**
 
+### **🎯 ROSETTA STONE APPROACH (ESSENTIAL)**
+**"Use working implementations as your guide, not your own inventions"**
+
+```rust
+// ❌ FAILED: Our custom approach with inline styles
+style="position: relative; overflow: hidden; background-color: #e5e7eb; ..."
+
+// ✅ SUCCESS: Copy Leptix working pattern exactly
+class="relative overflow-hidden bg-black/25 rounded-full h-[25px] drop-shadow-md"
+```
+
+**The Leptix Success Pattern:**
+1. **Context Management**: Use `provide_context()` not `Provider` wrapper
+2. **Styling Strategy**: Tailwind classes over inline styles
+3. **Transform Logic**: Exact formula `translateX(-{}%)` where `100.0 - percentage`
+4. **Validation**: Robust NaN checking with `.then_some(value)`
+
+**Why This Matters:**
+- Leptix team already solved these exact problems
+- Working implementations contain battle-tested edge cases
+- Copy proven patterns first, optimize later
+- **Rule**: Find working Leptos examples (Leptix, RustForWeb) and use them as rosetta stones
+
+### **Keep It Simple Principle (ESSENTIAL)**
+```rust
+// ❌ OVER-ENGINEERED: Complex hooks with too many computed values
+let progress_state = use_progress_state(value, max, indeterminate);
+// Returns: percentage, get_state_attr, get_progress_style, etc.
+
+// ✅ SIMPLE: Direct signal derivation like Leptix
+let max = Signal::derive(move || max.get().unwrap_or(100.0));
+let value = Signal::derive(move || value.get().and_then(|v| validate(v)));
+```
+
+**Why This Matters:**
+- Complex hooks often hide bugs and make debugging harder
+- Simple signal derivation is more predictable and reliable
+- Leptix success proves simple patterns work better
+- **Rule**: Start simple, add complexity only when needed
+
 ### **Hydration Safety Pattern (ESSENTIAL)**
 ```rust
 // ❌ NEVER: Causes hydration panics
@@ -31,6 +71,27 @@ view! {
 - Causes "unreachable code" errors in `tachys` hydration
 - `use_context` returns `Option` - always handle gracefully
 - **Rule**: Every context access MUST have a fallback value
+
+### **🎯 Progress Component Success Story (VALIDATED ✅)**
+**The Leptix Rosetta Stone Approach in Action**
+
+Our Progress component failed multiple times with custom approaches, then succeeded immediately when we copied the Leptix pattern exactly:
+
+```rust
+// ❌ FAILED ATTEMPTS:
+// 1. Custom Provider wrapper instead of provide_context()
+// 2. Inline styles instead of Tailwind classes
+// 3. Complex transform logic instead of simple formula
+// 4. Missing NaN validation causing edge cases
+
+// ✅ LEPTIX SUCCESS PATTERN:
+provide_context(context_value);  // Direct function call
+class="relative overflow-hidden bg-black/25 rounded-full h-[25px] drop-shadow-md"  // Tailwind
+format!("transform: translateX(-{}%)", 100.0 - percentage)  // Exact formula
+(!value.is_nan() && value <= max_val && value >= 0.0).then_some(value)  // Robust validation
+```
+
+**Key Lesson**: Working implementations contain battle-tested solutions to problems we haven't even discovered yet.
 
 ### **Server Restart Required for Style Changes**
 - Tailwind CSS changes require full server restart
@@ -301,7 +362,7 @@ When you receive a prompt from `master-workflow.md`:
 |-----------|----------------|--------|-------|
 | Checkbox  | ✅ `use_checkbox_state` | ✅ Production Ready | Live on leptographic.com |
 | Switch    | ✅ `use_switch_state` | ✅ Production Ready | ✅ **Hydration-safe, perfect styling** |
-| Progress  | 📋 `use_progress_state` | 📋 Ready for Implementation | Next component |
+| Progress  | ✅ **Leptix Pattern** | ✅ **Production Ready** | ✅ **Working with animation - Leptix rosetta stone success!** |
 | Separator | 📋 N/A (styling only) | 📋 Ready for Implementation | Simple styling component |
 
 ### **Layer 3: Behavior Hooks (Production-Validated)**

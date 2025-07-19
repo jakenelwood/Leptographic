@@ -151,21 +151,17 @@ fn ComponentShowcase(theme: RwSignal<Theme>) -> impl IntoView {
                     </ComponentCard>
                 </div>
 
-                // Progress Placeholder
+                // Progress Component
                 <div>
                     <ComponentCard title="Progress" theme=theme>
-                        <div class="text-center text-gray-300 text-base">
-                            "Coming Soon"
-                        </div>
+                        <ProgressShowcase _theme=theme />
                     </ComponentCard>
                 </div>
 
-                // Separator Placeholder
+                // Separator Component
                 <div>
                     <ComponentCard title="Separator" theme=theme>
-                        <div class="text-center text-gray-300 text-base">
-                            "Coming Soon"
-                        </div>
+                        <SeparatorShowcase _theme=theme />
                     </ComponentCard>
                 </div>
             </div>
@@ -280,6 +276,69 @@ fn SwitchShowcase(_theme: RwSignal<Theme>) -> impl IntoView {
             <label for="demo-switch-1" class="cursor-pointer text-white text-base">
                 "Enable notifications"
             </label>
+        </div>
+    }
+}
+
+/// Progress component showcase
+#[component]
+fn ProgressShowcase(_theme: RwSignal<Theme>) -> impl IntoView {
+    let progress = RwSignal::new(25.0f64);
+
+    // Create an interval that updates progress every second (like Leptix)
+    Effect::new(move |_| {
+        let interval_handle = set_interval_with_handle(
+            move || {
+                progress.update(|p| {
+                    if *p < 100.0 {
+                        *p += 25.0;
+                    } else {
+                        *p = 0.0;
+                    }
+                });
+            },
+            std::time::Duration::from_millis(1000),
+        )
+        .expect("Failed to create interval");
+
+        on_cleanup(move || {
+            interval_handle.clear();
+        });
+    });
+
+    view! {
+        <div class="flex justify-center items-center h-full">
+            <Progress value=progress max=100.0 class="w-48">
+                <ProgressIndicator />
+            </Progress>
+        </div>
+    }
+}
+
+/// Separator component showcase
+#[component]
+fn SeparatorShowcase(_theme: RwSignal<Theme>) -> impl IntoView {
+    view! {
+        <div class="space-y-4">
+            // Horizontal separator
+            <div class="space-y-2">
+                <label class="text-white text-sm">"Horizontal"</label>
+                <div class="space-y-2">
+                    <div class="text-gray-300 text-xs">"Section A"</div>
+                    <Separator />
+                    <div class="text-gray-300 text-xs">"Section B"</div>
+                </div>
+            </div>
+
+            // Vertical separator
+            <div class="space-y-2">
+                <label class="text-white text-sm">"Vertical"</label>
+                <div class="flex items-center space-x-2 h-8">
+                    <div class="text-gray-300 text-xs">"Left"</div>
+                    <Separator orientation="vertical" class="h-6" />
+                    <div class="text-gray-300 text-xs">"Right"</div>
+                </div>
+            </div>
         </div>
     }
 }

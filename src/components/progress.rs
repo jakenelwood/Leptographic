@@ -1,121 +1,106 @@
-use crate::hooks::{use_progress_state, UseProgressStateReturn};
-use leptos::context::Provider;
 use leptos::prelude::*;
 
-/// Helper function to generate progress CSS classes
-fn get_progress_classes(user_class: String) -> String {
-    let base = "relative h-2 w-full overflow-hidden rounded-full bg-gray-200";
-    let states = "data-[state=indeterminate]:animate-pulse";
-    
-    format!("{base} {states} {user_class}")
+const DEFAULT_MAX: f64 = 100.0;
+
+/// Context value for sharing progress state between components
+#[derive(Clone)]
+struct ProgressContextValue {
+    value: Signal<Option<f64>>,
+    max: Signal<f64>,
 }
 
-/// Helper function to generate progress indicator CSS classes
-fn get_progress_indicator_classes(user_class: String) -> String {
-    let base = "h-full bg-black transition-all duration-300 ease-in-out";
-    let states = "data-[state=indeterminate]:animate-pulse data-[state=indeterminate]:bg-gradient-to-r data-[state=indeterminate]:from-gray-400 data-[state=indeterminate]:to-black";
-    
-    format!("{base} {states} {user_class}")
-}
-
-/// Renders the progress view with all elements
 #[component]
-fn ProgressView(
-    progress_state: UseProgressStateReturn,
-    final_id: Signal<String>,
-    class: MaybeProp<String>,
+pub fn Progress(
+    #[prop(into, optional)] value: MaybeProp<f64>,
+    #[prop(into, optional)] max: MaybeProp<f64>,
+    #[prop(into, optional)] class: MaybeProp<String>,
     children: ChildrenFn,
 ) -> impl IntoView {
+    // Derive reactive signals for max and value with validation (following Leptix pattern)
+    let max_signal = Signal::derive(move || {
+        let max_val = max.get().unwrap_or(DEFAULT_MAX);
+        if !max_val.is_nan() && max_val > 0.0 {
+            max_val
+        } else {
+            DEFAULT_MAX
+        }
+    });
+
+    let value_signal = Signal::derive(move || {
+        let max_val = max_signal.get();
+        value.get().and_then(|value| {
+            (!value.is_nan() && value <= max_val && value >= 0.0).then_some(value)
+        })
+    });
+
+    // Create context value for child components
+    let context_value = ProgressContextValue {
+        value: value_signal,
+        max: max_signal,
+    };
+
+    provide_context(context_value);
+
     view! {
         <div
-            id=move || final_id.get()
+            class=move || {
+                let mut class_str = String::from("relative overflow-hidden bg-black/25 rounded-full h-[25px] drop-shadow-md");
+                if let Some(custom_class) = class.get() {
+                    class_str.push(' ');
+                    class_str.push_str(&custom_class);
+                }
+                class_str
+            }
+            style="transform: translateZ(0)"
             role="progressbar"
-            // ARIA attributes from our hook
-            aria-valuenow=move || progress_state.get_aria_valuenow.get()
-            aria-valuemax=move || progress_state.get_aria_valuemax.get()
-            aria-valuemin=move || progress_state.get_aria_valuemin.get()
-            // Data attributes for styling
-            data-state=move || progress_state.get_state_attr.get()
-            data-value=move || progress_state.value.get().map(|v| v.to_string())
-            data-max=move || progress_state.max.get().to_string()
-            // Professional progress bar styling
-            class=move || get_progress_classes(class.get().unwrap_or_default())
+            aria-valuemax=move || max_signal.get()
+            aria-valuemin="0"
+            aria-valuenow=move || value_signal.get()
+            data-state=move || {
+                value_signal.get().map(|v| {
+                    if v >= max_signal.get() { "complete" } else { "loading" }
+                }).unwrap_or("indeterminate")
+            }
+            data-value=move || value_signal.get()
+            data-max=move || max_signal.get()
         >
             {children()}
         </div>
     }
 }
 
-/// Context value shared between Progress and ProgressIndicator
-#[derive(Clone, Debug)]
-pub struct ProgressContextValue {
-    pub value: Signal<Option<f64>>,
-    pub max: Signal<f64>,
-    pub indeterminate: Signal<bool>,
-    pub percentage: Memo<Option<f64>>,
-    pub get_state_attr: Memo<&'static str>,
-    pub get_progress_style: Memo<String>,
-}
-
-/// Progress component - Hook-first implementation
-///
-/// Uses our proven hook library for state management and ARIA compliance.
-/// Styled with Tailwind CSS 4 ONLY - no custom CSS allowed.
+/// Progress indicator component that shows the visual progress bar
 #[component]
-pub fn Progress(
-    // Core state management
-    #[prop(into, optional)] value: MaybeProp<Option<f64>>,
-    #[prop(into, optional)] max: MaybeProp<f64>,
-    #[prop(into, optional)] indeterminate: MaybeProp<bool>,
-
-    // Accessibility & DOM
-    #[prop(into, optional)] id: MaybeProp<String>,
-    #[prop(into, optional)] class: MaybeProp<String>,
-
-    children: ChildrenFn,
-) -> impl IntoView {
-    // Compose hooks - no manual state management!
-    let progress_state = use_progress_state(value, max, indeterminate);
-
-    // Pre-compute common values to reduce complexity
-    let final_id = Signal::derive(move || id.get().unwrap_or_else(|| "progress".to_string()));
-
-    // Context for child components
-    let context_value = ProgressContextValue {
-        value: progress_state.value,
-        max: progress_state.max,
-        indeterminate: progress_state.indeterminate,
-        percentage: progress_state.percentage,
-        get_state_attr: progress_state.get_state_attr,
-        get_progress_style: progress_state.get_progress_style,
-    };
-
-    view! {
-        <Provider value=context_value>
-            <ProgressView
-                progress_state=progress_state
-                final_id=final_id
-                class=class
-                children=children
-            />
-        </Provider>
-    }
-}
-
-/// ProgressIndicator - Shows the actual progress bar
-#[component]
-pub fn ProgressIndicator(
-    #[prop(into, optional)] class: MaybeProp<String>,
-) -> impl IntoView {
-    let context = expect_context::<ProgressContextValue>();
+pub fn ProgressIndicator(#[prop(into, optional)] class: MaybeProp<String>) -> impl IntoView {
+    // Get context with fallback to prevent hydration panics (following Leptix pattern)
+    let ProgressContextValue { max, value } =
+        use_context().unwrap_or_else(|| ProgressContextValue {
+            value: Signal::derive(|| None),
+            max: Signal::derive(|| DEFAULT_MAX),
+        });
 
     view! {
         <div
-            data-state=move || context.get_state_attr.get()
-            data-value=move || context.value.get().map(|v| v.to_string())
-            style=move || context.get_progress_style.get()
-            // Professional indicator styling with smooth animation
-            class=move || get_progress_indicator_classes(class.get().unwrap_or_default())
+            class=move || {
+                let mut class_str = String::from("bg-white w-full h-full transition-transform duration-[660ms] ease-[cubic-bezier(0.65,0,0.35,1)]");
+                if let Some(custom_class) = class.get() {
+                    class_str.push(' ');
+                    class_str.push_str(&custom_class);
+                }
+                class_str
+            }
+            style=move || {
+                let percentage = value.get()
+                    .map(|v| (v / max.get()) * 100.0)
+                    .unwrap_or(0.0);
+                format!("transform: translateX(-{}%)", 100.0 - percentage)
+            }
+            data-state=move || {
+                value.get().map(|v| {
+                    if v >= max.get() { "complete" } else { "loading" }
+                }).unwrap_or("indeterminate")
+            }
+            data-value=move || value.get()
         />
     }
 }
