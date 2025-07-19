@@ -70,6 +70,7 @@ pub fn use_switch_state(
 }
 
 /// Return type for use_switch_state hook
+#[derive(Clone)]
 pub struct UseSwitchStateReturn {
     /// Current checked state
     pub checked: Signal<bool>,
