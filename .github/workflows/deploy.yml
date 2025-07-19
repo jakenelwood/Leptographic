@@ -1,0 +1,98 @@
+name: Deploy to leptographic.com
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Setup Rust
+      uses: dtolnay/rust-toolchain@stable
+      with:
+        targets: wasm32-unknown-unknown
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    - name: Install cargo-leptos
+      run: cargo install cargo-leptos
+
+    - name: Install Tailwind CSS
+      run: npm install -g tailwindcss
+
+    - name: Build application
+      run: cargo leptos build --release
+
+    - name: Create deployment package
+      run: |
+        mkdir deploy
+        cp -r target/site/* deploy/
+        cp target/release/leptos-radix-ui deploy/app
+        tar -czf deploy.tar.gz -C deploy .
+
+    - name: Upload to server
+      uses: appleboy/scp-action@v0.1.7
+      with:
+        host: ${{ secrets.HETZNER_HOST }}
+        username: ${{ secrets.HETZNER_USER }}
+        key: ${{ secrets.HETZNER_SSH_KEY }}
+        source: "deploy.tar.gz"
+        target: "/tmp/"
+
+    - name: Deploy on server
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: ${{ secrets.HETZNER_HOST }}
+        username: ${{ secrets.HETZNER_USER }}
+        key: ${{ secrets.HETZNER_SSH_KEY }}
+        script: |
+          # Stop service if running
+          sudo systemctl stop leptographic || true
+          
+          # Create directory
+          sudo mkdir -p /var/www/leptographic
+          
+          # Extract files
+          cd /var/www/leptographic
+          sudo tar -xzf /tmp/deploy.tar.gz
+          sudo chmod +x app
+          
+          # Create simple systemd service
+          sudo tee /etc/systemd/system/leptographic.service > /dev/null <<EOF
+          [Unit]
+          Description=Leptographic Web App
+          After=network.target
+          
+          [Service]
+          Type=simple
+          User=root
+          WorkingDirectory=/var/www/leptographic
+          ExecStart=/var/www/leptographic/app
+          Restart=always
+          
+          [Install]
+          WantedBy=multi-user.target
+          EOF
+          
+          # Start service
+          sudo systemctl daemon-reload
+          sudo systemctl enable leptographic
+          sudo systemctl start leptographic
+          
+          # Check status
+          sudo systemctl status leptographic --no-pager
+
+    - name: Purge Cloudflare cache
+      if: success()
+      uses: jakejarvis/cloudflare-purge-action@master
+      env:
+        CLOUDFLARE_ZONE: ${{ secrets.CLOUDFLARE_ZONE }}
+        CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}
