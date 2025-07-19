@@ -167,18 +167,25 @@ pub fn Switch(
 pub fn SwitchThumb(#[prop(into, optional)] class: MaybeProp<String>) -> impl IntoView {
     let context = use_context::<SwitchContextValue>();
 
+    // Extract signals from context if available, or create fallback signals
+    let (checked_signal, disabled_signal) = if let Some(ctx) = context {
+        (Some(ctx.checked), Some(ctx.disabled))
+    } else {
+        (None, None)
+    };
+
     view! {
         <div
             data-state=move || {
-                if let Some(ctx) = context {
-                    if ctx.checked.get() { "checked" } else { "unchecked" }
+                if let Some(checked) = checked_signal {
+                    if checked.get() { "checked" } else { "unchecked" }
                 } else {
                     "unchecked"
                 }
             }
             data-disabled=move || {
-                if let Some(ctx) = context {
-                    if ctx.disabled.get() { Some("") } else { None }
+                if let Some(disabled) = disabled_signal {
+                    if disabled.get() { Some("") } else { None }
                 } else {
                     None
                 }
