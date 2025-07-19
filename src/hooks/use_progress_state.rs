@@ -78,7 +78,7 @@ pub fn use_progress_state(
     // Progress bar style for width percentage
     let get_progress_style = Memo::new(move |_| {
         if let Some(pct) = percentage.get() {
-            format!("width: {}%", pct)
+            format!("width: {pct}%")
         } else {
             "width: 0%".to_string()
         }
