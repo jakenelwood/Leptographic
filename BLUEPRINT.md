@@ -6,6 +6,53 @@
 
 **🎯 This Document**: Hook patterns, code examples, and technical reference for Augment Code.
 
+## **🔥 Critical Lessons Learned**
+
+### **Hydration Safety Pattern (ESSENTIAL)**
+```rust
+// ❌ NEVER: Causes hydration panics
+let context = expect_context::<MyContext>();
+
+// ✅ ALWAYS: Safe hydration pattern
+let context = use_context::<MyContext>();
+view! {
+    <div data-state=move || {
+        if let Some(ctx) = context {
+            ctx.get_state()
+        } else {
+            "fallback"  // Always provide fallback
+        }
+    } />
+}
+```
+
+**Why This Matters:**
+- `expect_context` panics during SSR/hydration mismatches
+- Causes "unreachable code" errors in `tachys` hydration
+- `use_context` returns `Option` - always handle gracefully
+- **Rule**: Every context access MUST have a fallback value
+
+### **Server Restart Required for Style Changes**
+- Tailwind CSS changes require full server restart
+- Hot reload doesn't always pick up CSS modifications
+- **Rule**: After CSS changes, always `cargo leptos serve` fresh
+
+### **Focus Ring Implementation**
+```rust
+// ✅ Working focus ring pattern
+let focus = "focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-0";
+```
+- Use `ring-offset-0` for tight focus rings
+- Black rings work well on both light and dark backgrounds
+- Test focus visibility on all background colors
+
+### **Component Testing Strategy**
+1. **Local Development**: Test with `cargo leptos serve`
+2. **Style Changes**: Always restart server after CSS modifications
+3. **Context Components**: Test hydration by refreshing page multiple times
+4. **Focus Behavior**: Test with keyboard navigation (Tab key)
+5. **Production Deploy**: Push to GitHub for CI/CD validation
+
 ## 🚀 **Hook-First Architecture: The Revolution**
 
 Instead of building components from scratch, we **compose proven hooks** to create production-ready primitives in minutes, not hours.
@@ -250,12 +297,12 @@ When you receive a prompt from `master-workflow.md`:
 
 ### **Layer 1 & 2: Core Components**
 
-| Component | Hook Available | Status |
-|-----------|----------------|--------|
-| Checkbox  | ✅ `use_checkbox_state` | ✅ Production Ready |
-| Switch    | ✅ `use_switch_state` | ✅ Production Ready |
-| Radio Group | 📋 `use_radio_group_state` | 📋 Ready for Implementation |
-| Slider    | 📋 `use_slider_state` | 📋 Ready for Implementation |
+| Component | Hook Available | Status | Notes |
+|-----------|----------------|--------|-------|
+| Checkbox  | ✅ `use_checkbox_state` | ✅ Production Ready | Live on leptographic.com |
+| Switch    | ✅ `use_switch_state` | ✅ Production Ready | ✅ **Hydration-safe, perfect styling** |
+| Progress  | 📋 `use_progress_state` | 📋 Ready for Implementation | Next component |
+| Separator | 📋 N/A (styling only) | 📋 Ready for Implementation | Simple styling component |
 
 ### **Layer 3: Behavior Hooks (Production-Validated)**
 
@@ -380,7 +427,7 @@ pub fn MyComponent(
 }
 ```
 
-### **Context Pattern (Simplified)**
+### **Context Pattern (Hydration-Safe)**
 
 ```rust
 // Use hooks to power context values
@@ -393,12 +440,12 @@ struct SwitchContextValue {
 #[component]
 pub fn Switch(/* ... */) -> impl IntoView {
     let switch_state = use_switch_state(checked, default_checked, on_checked_change);
-    
+
     let context_value = SwitchContextValue {
         checked: switch_state.checked,
         disabled: disabled.into(),
     };
-    
+
     view! {
         <Provider value=context_value>
             {children()}
@@ -406,13 +453,20 @@ pub fn Switch(/* ... */) -> impl IntoView {
     }
 }
 
-// Child components use context
+// ✅ HYDRATION-SAFE: Child components use context
 #[component]
 pub fn SwitchThumb() -> impl IntoView {
-    let context = expect_context::<SwitchContextValue>();
-    
+    // ✅ CRITICAL: use_context instead of expect_context
+    let context = use_context::<SwitchContextValue>();
+
     view! {
-        <span data-state=move || if context.checked.get() { "checked" } else { "unchecked" }>
+        <span data-state=move || {
+            if let Some(ctx) = context {
+                if ctx.checked.get() { "checked" } else { "unchecked" }
+            } else {
+                "unchecked"  // ✅ Always provide fallback
+            }
+        }>
             // Thumb content
         </span>
     }
