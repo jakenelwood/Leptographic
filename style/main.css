@@ -32,6 +32,8 @@
   --color-demo-bg: #1a1a1a;
   --color-demo-inner: #373737;
   --color-checkbox-bg: #605ED6;
+  --color-switch-unchecked: #221B3E;
+  --color-switch-unchecked-hover: #2A2147;
 
   /* Light theme colors */
   --color-light-bg: #ffffff;

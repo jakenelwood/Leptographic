@@ -5,19 +5,21 @@ use leptos::prelude::*;
 
 /// Helper function to generate switch CSS classes
 fn get_switch_classes(user_class: String) -> String {
-    let base = "relative inline-flex h-6 w-11 shrink-0 items-center rounded-full border-0 transition-all duration-200 ease-in-out shadow-sm";
+    let base = "relative inline-flex h-6 w-11 shrink-0 items-center rounded-full border-0 transition-all duration-150 ease-in-out shadow-sm";
     let focus = "focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-0";
-    let states = "data-[state=checked]:bg-black data-[state=unchecked]:bg-gray-300";
-    let hover = "hover:bg-gray-400 data-[state=checked]:hover:bg-gray-800";
+    let states = "data-[state=checked]:bg-black data-[state=unchecked]:bg-[#221B3E]";
     let disabled = "data-[disabled]:opacity-50 data-[disabled]:cursor-not-allowed";
 
-    format!("{base} {focus} {states} {hover} {disabled} {user_class}")
+    format!("{base} {focus} {states} {disabled} {user_class}")
 }
 
-/// Helper function to generate switch thumb CSS classes
+/// Helper function to generate switch thumb CSS classes with proper dual focus ring positioning
 fn get_switch_thumb_classes(user_class: String) -> String {
-    let base = "pointer-events-none block h-5 w-5 rounded-full bg-white shadow-lg ring-0 transition-transform duration-200 ease-in-out";
-    let states = "data-[state=checked]:translate-x-5 data-[state=unchecked]:translate-x-0";
+    // Switch: 44px wide (w-11), Thumb: 20px (w-5), Focus ring: 2px
+    // Left position: 2px gap = translate-x-0.5 (0.5 * 4px = 2px)
+    // Right position: 44px - 20px - 2px = 22px = translate-x-5.5 (5.5 * 4px = 22px)
+    let base = "pointer-events-none block h-5 w-5 rounded-full bg-white shadow-lg ring-0 transition-transform duration-150 ease-in-out";
+    let states = "data-[state=checked]:translate-x-5.5 data-[state=unchecked]:translate-x-0.5";
 
     format!("{base} {states} {user_class}")
 }
@@ -163,12 +165,24 @@ pub fn Switch(
 /// SwitchThumb - The movable thumb inside the switch
 #[component]
 pub fn SwitchThumb(#[prop(into, optional)] class: MaybeProp<String>) -> impl IntoView {
-    let context = expect_context::<SwitchContextValue>();
+    let context = use_context::<SwitchContextValue>();
 
     view! {
         <div
-            data-state=move || if context.checked.get() { "checked" } else { "unchecked" }
-            data-disabled=move || if context.disabled.get() { Some("") } else { None }
+            data-state=move || {
+                if let Some(ctx) = context {
+                    if ctx.checked.get() { "checked" } else { "unchecked" }
+                } else {
+                    "unchecked"
+                }
+            }
+            data-disabled=move || {
+                if let Some(ctx) = context {
+                    if ctx.disabled.get() { Some("") } else { None }
+                } else {
+                    None
+                }
+            }
             // Professional thumb styling with smooth animation
             class=move || get_switch_thumb_classes(class.get().unwrap_or_default())
         />
