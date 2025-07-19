@@ -76,21 +76,19 @@ cargo geiger
 cargo deny check
 ```
 
-## 🚀 **Production Deployment**
+## 🚀 **Local Development**
 
-### **Automated Deployment**
+### **Development Server**
 
-The project includes complete deployment automation for production environments:
+Run the development server locally:
 
 ```bash
-# 1. Prepare server (run on target server)
-./server-setup.sh
+# Start development server
+cargo leptos serve
 
-# 2. Deploy application (run locally)
-./deploy.sh
+# Build for production testing
+cargo leptos build --release
 ```
-
-### **Deployment Features**
 
 - ✅ **SSL Certificate** - Let's Encrypt with auto-renewal
 - ✅ **Security Headers** - HSTS, XSS protection, frame options
@@ -107,11 +105,8 @@ The project includes complete deployment automation for production environments:
 
 ## 📚 Documentation
 
-- [Blueprint Enhancement Guide](docs/BLUEPRINT_ENHANCEMENT.md)
 - [Security Checklist](docs/SECURITY_CHECKLIST.md)
 - [Workflow Integration](docs/WORKFLOW_INTEGRATION.md)
-- [Deployment Guide](DEPLOYMENT_GUIDE.md)
-- [Deployment Checklist](DEPLOYMENT_CHECKLIST.md)
 
 ## 🎯 Mission
 
