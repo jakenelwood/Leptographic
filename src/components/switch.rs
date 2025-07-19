@@ -18,7 +18,7 @@ fn get_switch_classes(user_class: String) -> String {
 fn get_switch_thumb_classes(user_class: String) -> String {
     let base = "pointer-events-none block h-5 w-5 rounded-full bg-white shadow-lg ring-0 transition-transform duration-200 ease-in-out";
     let states = "data-[state=checked]:translate-x-5 data-[state=unchecked]:translate-x-0";
-    
+
     format!("{base} {states} {user_class}")
 }
 
@@ -162,9 +162,7 @@ pub fn Switch(
 
 /// SwitchThumb - The movable thumb inside the switch
 #[component]
-pub fn SwitchThumb(
-    #[prop(into, optional)] class: MaybeProp<String>,
-) -> impl IntoView {
+pub fn SwitchThumb(#[prop(into, optional)] class: MaybeProp<String>) -> impl IntoView {
     let context = expect_context::<SwitchContextValue>();
 
     view! {
