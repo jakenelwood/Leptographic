@@ -66,30 +66,33 @@ pub fn App() -> impl IntoView {
     let theme = RwSignal::new(Theme::Dark);
 
     view! {
-        <div class=move || format!("min-h-screen transition-colors duration-200 {}",
-            match theme.get() {
-                Theme::Light => "bg-white text-gray-900",
-                Theme::Dark => "bg-dark-bg text-white",
+        <div
+            class="min-h-screen transition-colors duration-200 bg-white text-gray-900 data-[theme=dark]:bg-dark-bg data-[theme=dark]:text-white"
+            data-theme=move || match theme.get() {
+                Theme::Light => "light",
+                Theme::Dark => "dark",
             }
-        )>
+        >
             // Header with title and theme toggle
-            <header class=move || format!("px-4 py-4 sm:px-6 sm:py-6 {}",
-                match theme.get() {
-                    Theme::Light => "bg-white",
-                    Theme::Dark => "bg-dark-bg",
+            <header
+                class="px-4 py-4 sm:px-6 sm:py-6 bg-white data-[theme=dark]:bg-dark-bg"
+                data-theme=move || match theme.get() {
+                    Theme::Light => "light",
+                    Theme::Dark => "dark",
                 }
-            )>
+            >
                 <div class="w-full flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                     <div class="flex-1">
                         <h1 class="text-2xl sm:text-3xl font-bold mb-2">
                             "Leptographic"
                         </h1>
-                        <p class=move || format!("text-xs sm:text-sm {}",
-                            match theme.get() {
-                                Theme::Light => "text-gray-600",
-                                Theme::Dark => "text-gray-400",
+                        <p
+                            class="text-xs sm:text-sm text-gray-600 data-[theme=dark]:text-gray-400"
+                            data-theme=move || match theme.get() {
+                                Theme::Light => "light",
+                                Theme::Dark => "dark",
                             }
-                        )>
+                        >
                             "A Leptos UI system with Switch, Progress, and Separator components - styled with Tailwind CSS 4."
                         </p>
                     </div>
@@ -113,18 +116,20 @@ fn ComponentShowcase(theme: RwSignal<Theme>) -> impl IntoView {
     view! {
         <div class="flex min-h-screen">
             // Swimlane 1: Component Names (always protected)
-            <div class=move || format!("w-48 flex-shrink-0 p-2 {}",
-                match theme.get() {
-                    Theme::Light => "bg-white",
-                    Theme::Dark => "bg-dark-bg",
+            <div
+                class="w-48 flex-shrink-0 p-2 bg-white data-[theme=dark]:bg-dark-bg"
+                data-theme=move || match theme.get() {
+                    Theme::Light => "light",
+                    Theme::Dark => "dark",
                 }
-            )>
-                <h3 class=move || format!("font-normal mb-3 text-sm uppercase tracking-wider opacity-60 {}",
-                    match theme.get() {
-                        Theme::Light => "text-gray-700",
-                        Theme::Dark => "text-gray-400",
+            >
+                <h3
+                    class="font-normal mb-3 text-sm uppercase tracking-wider opacity-60 text-gray-700 data-[theme=dark]:text-gray-400"
+                    data-theme=move || match theme.get() {
+                        Theme::Light => "light",
+                        Theme::Dark => "dark",
                     }
-                )>
+                >
                     "Components"
                 </h3>
                 <div class="space-y-1">
@@ -173,19 +178,19 @@ fn ComponentShowcase(theme: RwSignal<Theme>) -> impl IntoView {
 #[component]
 fn ComponentNavItem(name: &'static str, active: bool, theme: RwSignal<Theme>) -> impl IntoView {
     view! {
-        <div class=move || format!("px-2 py-1 text-sm cursor-pointer transition-colors tracking-wide {}",
-            if active {
-                match theme.get() {
-                    Theme::Light => "text-gray-900 font-normal",
-                    Theme::Dark => "text-white font-normal",
+        <div
+            class=move || format!("px-2 py-1 text-sm cursor-pointer transition-colors tracking-wide {}",
+                if active {
+                    "text-gray-900 font-normal data-[theme=dark]:text-white"
+                } else {
+                    "text-gray-500 hover:text-[#605ED6] font-light"
                 }
-            } else {
-                match theme.get() {
-                    Theme::Light => "text-gray-500 hover:text-[#605ED6] font-light",
-                    Theme::Dark => "text-gray-500 hover:text-[#605ED6] font-light",
-                }
+            )
+            data-theme=move || match theme.get() {
+                Theme::Light => "light",
+                Theme::Dark => "dark",
             }
-        )>
+        >
             {name}
         </div>
     }
@@ -216,19 +221,21 @@ fn ComponentCard(
     };
 
     view! {
-        <div class=move || format!("rounded border bg-[#605ED6] w-5/6 h-40 sm:h-44 lg:h-48 mx-auto overflow-hidden {}",
-            match theme.get() {
-                Theme::Light => "border-[#dedede]",
-                Theme::Dark => "border-white",
+        <div
+            class="rounded border bg-[#605ED6] w-5/6 h-40 sm:h-44 lg:h-48 mx-auto overflow-hidden border-[#dedede] data-[theme=dark]:border-white"
+            data-theme=move || match theme.get() {
+                Theme::Light => "light",
+                Theme::Dark => "dark",
             }
-        )>
+        >
             // Title section with Code link
-            <div class=move || format!("px-3 py-2 border-b relative {}",
-                match theme.get() {
-                    Theme::Light => "border-[#dedede]",
-                    Theme::Dark => "border-white",
+            <div
+                class="px-3 py-2 border-b relative border-[#dedede] data-[theme=dark]:border-white"
+                data-theme=move || match theme.get() {
+                    Theme::Light => "light",
+                    Theme::Dark => "dark",
                 }
-            )>
+            >
                 <h3 class="font-normal text-sm sm:text-base text-white tracking-wide">{title}</h3>
                 // Code link in upper right corner
                 <a
