@@ -1,156 +1,81 @@
-name: Deploy to Leptographic.com
+name: Deploy to leptographic.com
 
 on:
   push:
     branches: [ main ]
-  workflow_dispatch:
-
-env:
-  CARGO_TERM_COLOR: always
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
-    # Secrets are configured and validated
-
+    
     steps:
     - name: Checkout code
-      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      uses: actions/checkout@v4
 
-    - name: Setup Rust
-      uses: dtolnay/rust-toolchain@4305c38b25d97ef35a8ad1f985ccf2d2242004f2 # stable
+    - name: Install Rust
+      uses: dtolnay/rust-toolchain@stable
       with:
         targets: wasm32-unknown-unknown
 
-    - name: Cache Rust dependencies
-      uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684 # v4.2.3
+    - name: Install cargo-leptos
+      run: cargo install cargo-leptos
+
+    - name: Install Node.js
+      uses: actions/setup-node@v4
       with:
-        path: |
-          ~/.cargo/bin/
-          ~/.cargo/registry/index/
-          ~/.cargo/registry/cache/
-          ~/.cargo/git/db/
-          target/
-        key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-cargo-
+        node-version: '20'
 
-    - name: Setup Node.js
-      uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
-      with:
-        node-version: '18'
+    - name: Install Tailwind CSS
+      run: npm install -g tailwindcss
 
-    - name: Install cargo-leptos (cached)
-      run: |
-        if ! command -v cargo-leptos &> /dev/null; then
-          cargo install cargo-leptos --version 0.2.40
-        else
-          echo "cargo-leptos already installed"
-        fi
-      
-    - name: Install npm dependencies
-      run: |
-        if [ -f "package-lock.json" ]; then
-          npm ci
-        else
-          npm install
-        fi
+    - name: Build Leptos app
+      run: cargo leptos build --release
 
-    - name: Build Leptos application
+    - name: Create deployment package
       run: |
-        echo "Building Leptos application..."
-        cargo leptos build --release
-
-    - name: Verify build artifacts
-      run: |
-        echo "Checking build artifacts..."
-        ls -la target/site/
-        ls -la target/release/
-        # Find the actual binary name
-        BINARY_NAME=$(find target/release/ -maxdepth 1 -type f -executable ! -name "*.d" | head -1 | xargs basename)
-        echo "Found binary: $BINARY_NAME"
-        echo "BINARY_NAME=$BINARY_NAME" >> $GITHUB_ENV
-
-    - name: Create deployment archive
-      run: |
-        mkdir -p deploy
+        mkdir deploy
+        # Copy the built site files
         cp -r target/site/* deploy/
+        # Copy the server binary
         cp target/release/leptos-radix-ui deploy/leptographic-app
-        # Include nginx configuration for automatic updates
-        cp nginx-leptographic.conf deploy/ || echo "nginx config not found, skipping"
+        # Create archive
         tar -czf leptographic-deploy.tar.gz -C deploy .
-        
-    - name: Deploy to new server
-      uses: appleboy/ssh-action@2ead5e36573f08b82fbfce1504f1a4b05a647c6f # v1.2.2
+
+    - name: Upload deployment package
+      uses: appleboy/scp-action@v0.1.7
       with:
         host: ${{ secrets.HETZNER_HOST }}
         username: ${{ secrets.HETZNER_USER }}
         key: ${{ secrets.HETZNER_SSH_KEY }}
-        port: 22
-        script: |
-          # Create deployment directory
-          sudo mkdir -p /var/www/leptographic
-          sudo chown $USER:$USER /var/www/leptographic
-          
-          # Stop existing service if running
-          sudo systemctl stop leptographic || true
-
-          # Backup current deployment
-          if [ -d "/var/www/leptographic/current" ]; then
-            sudo mv /var/www/leptographic/current /var/www/leptographic/backup-$(date +%Y%m%d-%H%M%S)
-          fi
-
-          # Create new deployment directory
-          mkdir -p /var/www/leptographic/current
-          
-    - name: Upload deployment files
-      uses: appleboy/scp-action@ff85246acaad7bdce478db94a363cd2bf7c90345 # v1.0.0
-      with:
-        host: ${{ secrets.HETZNER_HOST }}
-        username: ${{ secrets.HETZNER_USER }}
-        key: ${{ secrets.HETZNER_SSH_KEY }}
-        port: 22
         source: "leptographic-deploy.tar.gz"
         target: "/tmp/"
 
-    - name: Extract and start application
-      uses: appleboy/ssh-action@2ead5e36573f08b82fbfce1504f1a4b05a647c6f # v1.2.2
+    - name: Deploy to server
+      uses: appleboy/ssh-action@v1.0.3
       with:
         host: ${{ secrets.HETZNER_HOST }}
         username: ${{ secrets.HETZNER_USER }}
         key: ${{ secrets.HETZNER_SSH_KEY }}
-        port: 22
         script: |
-          set -e  # Exit on any error
+          # Stop the service
+          sudo systemctl stop leptographic || true
 
-          # Extract deployment files
-          cd /var/www/leptographic/current
-          tar -xzf /tmp/leptographic-deploy.tar.gz
-          chmod +x leptographic-app
+          # Create deployment directory
+          sudo mkdir -p /var/www/leptographic
 
-          # Update nginx configuration if it exists
-          if [ -f "nginx-leptographic.conf" ]; then
-            sudo cp nginx-leptographic.conf /etc/nginx/sites-available/leptographic.com
-            sudo nginx -t && sudo systemctl reload nginx
-          fi
-
-          # Clean up temp file
-          rm /tmp/leptographic-deploy.tar.gz
+          # Extract new files
+          cd /var/www/leptographic
+          sudo tar -xzf /tmp/leptographic-deploy.tar.gz
+          sudo chmod +x leptographic-app
 
           # Start the service
           sudo systemctl start leptographic
           sudo systemctl enable leptographic
 
-          # Wait a moment for service to start
-          sleep 3
-
-          # Check service status
+          # Check status
           sudo systemctl status leptographic --no-pager
 
-          # Verify the application is responding
-          curl -f http://localhost:3000 || echo "Warning: Application not responding on localhost:3000"
-
-    - name: Purge Cloudflare Cache
+    - name: Purge Cloudflare cache
       uses: jakejarvis/cloudflare-purge-action@master
       env:
         CLOUDFLARE_ZONE: ${{ secrets.CLOUDFLARE_ZONE }}
