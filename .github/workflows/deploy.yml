@@ -76,6 +76,8 @@ jobs:
         mkdir -p deploy
         cp -r target/site/* deploy/
         cp target/release/leptos-radix-ui deploy/leptographic-app
+        # Include nginx configuration for automatic updates
+        cp nginx-leptographic.conf deploy/ || echo "nginx config not found, skipping"
         tar -czf leptographic-deploy.tar.gz -C deploy .
         
     - name: Deploy to new server
@@ -126,6 +128,12 @@ jobs:
           tar -xzf /tmp/leptographic-deploy.tar.gz
           chmod +x leptographic-app
 
+          # Update nginx configuration if it exists
+          if [ -f "nginx-leptographic.conf" ]; then
+            sudo cp nginx-leptographic.conf /etc/nginx/sites-available/leptographic.com
+            sudo nginx -t && sudo systemctl reload nginx
+          fi
+
           # Clean up temp file
           rm /tmp/leptographic-deploy.tar.gz
 
@@ -141,3 +149,9 @@ jobs:
 
           # Verify the application is responding
           curl -f http://localhost:3000 || echo "Warning: Application not responding on localhost:3000"
+
+    - name: Purge Cloudflare Cache
+      uses: jakejarvis/cloudflare-purge-action@master
+      env:
+        CLOUDFLARE_ZONE: ${{ secrets.CLOUDFLARE_ZONE }}
+        CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}

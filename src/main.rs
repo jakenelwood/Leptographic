@@ -35,7 +35,7 @@ fn AppShell() -> impl IntoView {
                 <meta charset="utf-8"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
                 <Title text="Leptonic UI Components"/>
-                <Stylesheet id="leptos" href="/pkg/leptos-radix-ui.css?v=2"/>
+                <Stylesheet id="leptos" href="/pkg/leptos-radix-ui.css?v=3"/>
 
                 // These components now get the options they need from the context
                 <AutoReload options=options.clone() />

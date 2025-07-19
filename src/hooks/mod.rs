@@ -12,6 +12,7 @@ pub mod use_previous;
 
 // Layer 2: Component-Specific Hooks (Building Blocks)
 pub mod use_checkbox_state;
+pub mod use_progress_state;
 // pub mod use_radio_group_state;     // TODO: Implement
 // pub mod use_slider_state;          // TODO: Implement
 pub mod use_switch_state;
@@ -28,6 +29,7 @@ pub mod use_switch_state;
 // Re-exports for easy access
 pub use use_checkbox_state::*;
 pub use use_controllable_state::*;
+pub use use_progress_state::*;
 pub use use_switch_state::*;
 
 // Core utilities

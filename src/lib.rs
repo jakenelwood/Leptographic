@@ -144,12 +144,10 @@ fn ComponentShowcase(theme: RwSignal<Theme>) -> impl IntoView {
                     </ComponentCard>
                 </div>
 
-                // Switch Placeholder
+                // Switch Component
                 <div>
                     <ComponentCard title="Switch" theme=theme>
-                        <div class="text-center text-gray-300 text-base">
-                            "Coming Soon"
-                        </div>
+                        <SwitchShowcase _theme=theme />
                     </ComponentCard>
                 </div>
 
@@ -266,6 +264,21 @@ fn CheckboxShowcase(_theme: RwSignal<Theme>) -> impl IntoView {
             </Checkbox>
             <label for="demo-checkbox-1" class="cursor-pointer text-white text-base">
                 "Accept terms"
+            </label>
+        </div>
+    }
+}
+
+/// Switch component showcase
+#[component]
+fn SwitchShowcase(_theme: RwSignal<Theme>) -> impl IntoView {
+    view! {
+        <div class="flex items-center space-x-3">
+            <Switch id="demo-switch-1">
+                <SwitchThumb />
+            </Switch>
+            <label for="demo-switch-1" class="cursor-pointer text-white text-base">
+                "Enable notifications"
             </label>
         </div>
     }
